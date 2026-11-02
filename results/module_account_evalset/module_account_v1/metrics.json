@@ -1,0 +1,147 @@
+{
+ "version": "module_account_v1",
+ "set": "module_account_evalset",
+ "model": "deepseek-chat",
+ "items": 23,
+ "runs": [
+  {
+   "per_rule": {
+    "A1": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "A2": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "A3": {
+     "tp": 2,
+     "fp": 3,
+     "fn": 0,
+     "precision": 0.4,
+     "recall": 1.0,
+     "f1": 0.571
+    },
+    "A4": {
+     "tp": 2,
+     "fp": 2,
+     "fn": 2,
+     "precision": 0.5,
+     "recall": 0.5,
+     "f1": 0.5
+    }
+   },
+   "micro": {
+    "tp": 10,
+    "fp": 5,
+    "fn": 2,
+    "precision": 0.667,
+    "recall": 0.833,
+    "f1": 0.741
+   },
+   "clean_false_alarm_rate": 0.154,
+   "clean_total": 13
+  },
+  {
+   "per_rule": {
+    "A1": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.667,
+     "f1": 0.8
+    },
+    "A2": {
+     "tp": 3,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.75,
+     "recall": 1.0,
+     "f1": 0.857
+    },
+    "A3": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "A4": {
+     "tp": 3,
+     "fp": 1,
+     "fn": 1,
+     "precision": 0.75,
+     "recall": 0.75,
+     "f1": 0.75
+    }
+   },
+   "micro": {
+    "tp": 10,
+    "fp": 2,
+    "fn": 2,
+    "precision": 0.833,
+    "recall": 0.833,
+    "f1": 0.833
+   },
+   "clean_false_alarm_rate": 0.077,
+   "clean_total": 13
+  },
+  {
+   "per_rule": {
+    "A1": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "A2": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "A3": {
+     "tp": 2,
+     "fp": 4,
+     "fn": 0,
+     "precision": 0.333,
+     "recall": 1.0,
+     "f1": 0.5
+    },
+    "A4": {
+     "tp": 3,
+     "fp": 1,
+     "fn": 1,
+     "precision": 0.75,
+     "recall": 0.75,
+     "f1": 0.75
+    }
+   },
+   "micro": {
+    "tp": 11,
+    "fp": 5,
+    "fn": 1,
+    "precision": 0.688,
+    "recall": 0.917,
+    "f1": 0.786
+   },
+   "clean_false_alarm_rate": 0.154,
+   "clean_total": 13
+  }
+ ],
+ "consistency": 0.826
+}

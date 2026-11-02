@@ -2,9 +2,11 @@
 import json, os, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-RULES_ALL = {r['id']: r['name'] for f in ('v1.json', 'doc_v1.json') for r in json.load(open(os.path.join(ROOT, 'rules', f)))['rules']}
-SETS = [('holdout_zh', '中文留出测试集（改规则前标好，只用来对比）'), ('holdout', '英文留出测试集（改规则前标好，只用来对比）'), ('evalset_zh', '中文开发集（用来分析误判、改规则）'), ('evalset', '英文开发集（用来分析误判、改规则）'), ('doc_holdout', '文档级留出测试集：整段功能描述（改规则前标好）'), ('doc_evalset', '文档级开发集：整段功能描述')]
+RULES_ALL = {r['id']: r['name'] for f in ('v1.json', 'doc_v1.json', 'module_account_v1.json') for r in json.load(open(os.path.join(ROOT, 'rules', f)))['rules']}
+SETS = [('holdout_zh', '中文留出测试集（改规则前标好，只用来对比）'), ('holdout', '英文留出测试集（改规则前标好，只用来对比）'), ('evalset_zh', '中文开发集（用来分析误判、改规则）'), ('evalset', '英文开发集（用来分析误判、改规则）'), ('doc_holdout', '文档级留出测试集：整段功能描述（改规则前标好）'), ('doc_evalset', '文档级开发集：整段功能描述'), ('module_account_holdout', '账号与权限模块留出测试集（改规则前标好，只用来对比）'), ('module_account_evalset', '账号与权限模块开发集')]
 VERS = ['v1', 'v2', 'v3', 'v4']
+# 各组规则的版本与定版版本
+FAMILIES = {'doc': (['doc_v1', 'doc_v2', 'doc_v3'], 'doc_v1'), 'module_account': (['module_account_v1', 'module_account_v2'], 'module_account_v2')}
 
 ACTIONS = {
     'recall': ('召回率低：真问题被漏掉', '打开 errors.md 看「漏判」条目，把漏掉的句型补进这条规则的「判定」里'),
@@ -37,11 +39,12 @@ pct = lambda x: f'{x * 100:.0f}%'
 num = lambda x: f'{x:.3f}'
 parts = []
 for s, title in SETS:
-    vers = ['doc_v1', 'doc_v2', 'doc_v3'] if s.startswith('doc') else VERS
+    fam = next((f for f in FAMILIES if s.startswith(f)), None)
+    vers, final = FAMILIES[fam] if fam else (VERS, None)
     have = [v for v in vers if load(s, v)]
     if not have:
         continue
-    last = 'doc_v1' if s.startswith('doc') else have[-1]  # 定版版本
+    last = final or have[-1]  # 定版版本
     first = have[0]
     m1, m2 = (load(s, first) if first != last else None), load(s, last)
     FIRST = first
@@ -89,7 +92,7 @@ td.good{{color:var(--good);font-weight:700}}td.warn{{color:var(--warn);font-weig
 .issue{{font-size:12.5px;min-width:240px}}.act{{color:var(--sub)}}ul{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 14px 14px 32px}}
 </style></head><body><main>
 <h1>AI 审 PRD 健康看板</h1>
-<p class="lead">按 NASA 需求编写检查清单的 6 条规则逐条审查 PRD 需求。v1 初版；v2 按英文误判修改；v3 补中文写法后误报大涨；v4 收紧「不算违反」条款。每一版只改规则文字。</p>
+<p class="lead">按 NASA 需求编写检查清单的 6 条规则逐条审查 PRD 需求。v1 初版；v2 按英文误判修改；v3 补中文写法后误报大涨；v4 收紧「不算违反」条款。每一版只改规则文字。文档级审查整段功能描述（3 条规则）；账号与权限模块包按 NIST 数字身份标准审查登录、密码、登录状态和权限管理段落（4 条规则）。</p>
 {''.join(f'<div class="table-wrap">{p}</div>' for p in parts)}
 <h2>指标变差时怎么处理</h2><ul>{guide}</ul>
 </main></body></html>'''
