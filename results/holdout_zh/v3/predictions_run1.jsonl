@@ -1,4 +1,4 @@
-{"id": "Z004", "labels": [], "pred": [{"rule": "R2", "evidence": "模拟真实交易场景", "reason": "「真实」是无法测量的效果描述，同一句没有给出可检查的判定标准。"}]}
+{"id": "Z004", "labels": ["R1"], "pred": [{"rule": "R2", "evidence": "模拟真实交易场景", "reason": "「真实」是无法测量的效果描述，同一句没有给出可检查的判定标准。"}]}
 {"id": "Z012", "labels": [], "pred": []}
 {"id": "Z013", "labels": [], "pred": []}
 {"id": "Z015", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "如剧情简介、主要演员、评分、播出年份和季数等", "reason": "「如……等」的列举没有封闭，读者无法确定「详细信息」是否还包含其他未列出的内容。"}, {"rule": "R3", "evidence": "剧情简介、主要演员、评分、播出年份和季数", "reason": "剧情简介、演员、评分、年份、季数等多项信息可以各自独立验收，属于一条需求里包含多个要求。"}]}
@@ -64,7 +64,7 @@
 {"id": "ZJ011", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "其", "reason": "「其」是代词，整条需求没有出现它指代的名词，无法确定按什么过滤记录。"}]}
 {"id": "ZJ012", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "它支持展开/折叠", "reason": "句首用代词「它」，整条需求没有出现它指代的名词，无法确定是哪个组件。"}, {"rule": "R3", "evidence": "支持展开/折叠，折叠后保留图标导航和当前页高亮", "reason": "展开/折叠行为与折叠后保留图标导航、当前页高亮是三个可分别独立验收的要求，串在一条需求里。"}]}
 {"id": "ZJ013", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "使用 Elasticsearch 的 match_phrase 查询实现", "reason": "需求规定了具体技术实现（Elasticsearch 及 match_phrase 查询），而该技术选择并非外部约束所要求。"}]}
-{"id": "ZJ014", "labels": ["R5"], "pred": [{"rule": "R3", "evidence": "回测在资金不足时能够自动停止……模拟真实交易场景", "reason": "「资金不足时自动停止」和「模拟真实交易场景」是两个可各自独立验收的要求，被串在同一条需求里。"}, {"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了代码层面的具体实现方式（在哪个方法里抛什么异常），而这不是外部约束所要求的。"}]}
+{"id": "ZJ014", "labels": ["R1", "R5"], "pred": [{"rule": "R3", "evidence": "回测在资金不足时能够自动停止……模拟真实交易场景", "reason": "「资金不足时自动停止」和「模拟真实交易场景」是两个可各自独立验收的要求，被串在同一条需求里。"}, {"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了代码层面的具体实现方式（在哪个方法里抛什么异常），而这不是外部约束所要求的。"}]}
 {"id": "ZJ015", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "先写入 Redis List 再异步落盘", "reason": "需求规定了具体的技术实现（Redis List 和异步落盘），而该技术选择并非外部约束所要求。"}]}
 {"id": "ZJ016", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "用 MySQL JSON 字段存储", "reason": "需求指定了具体数据库和存储结构（MySQL JSON 字段），而该技术选择并非外部约束所要求。"}]}
 {"id": "ZJ017", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "等", "reason": "「词汇、对话、练习等」的列举没有封闭，读者无法确定学习包还包含哪些内容。"}, {"rule": "R3", "evidence": "支持 AI 一键生成学习包（词汇、对话、练习等）", "reason": "「一键生成」与「学习包包含词汇、对话、练习」是两个可分别验收的要求，前者验收生成动作，后者验收内容组成。"}]}

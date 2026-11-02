@@ -9,10 +9,10 @@
     "R1": {
      "tp": 10,
      "fp": 11,
-     "fn": 1,
+     "fn": 3,
      "precision": 0.476,
-     "recall": 0.909,
-     "f1": 0.625
+     "recall": 0.769,
+     "f1": 0.588
     },
     "R2": {
      "tp": 15,
@@ -58,23 +58,23 @@
    "micro": {
     "tp": 56,
     "fp": 33,
-    "fn": 4,
+    "fn": 6,
     "precision": 0.629,
-    "recall": 0.933,
-    "f1": 0.752
+    "recall": 0.903,
+    "f1": 0.742
    },
-   "clean_false_alarm_rate": 0.381,
-   "clean_total": 21
+   "clean_false_alarm_rate": 0.35,
+   "clean_total": 20
   },
   {
    "per_rule": {
     "R1": {
      "tp": 10,
      "fp": 10,
-     "fn": 1,
+     "fn": 3,
      "precision": 0.5,
-     "recall": 0.909,
-     "f1": 0.645
+     "recall": 0.769,
+     "f1": 0.606
     },
     "R2": {
      "tp": 15,
@@ -120,23 +120,23 @@
    "micro": {
     "tp": 55,
     "fp": 33,
-    "fn": 5,
+    "fn": 7,
     "precision": 0.625,
-    "recall": 0.917,
-    "f1": 0.743
+    "recall": 0.887,
+    "f1": 0.733
    },
-   "clean_false_alarm_rate": 0.286,
-   "clean_total": 21
+   "clean_false_alarm_rate": 0.25,
+   "clean_total": 20
   },
   {
    "per_rule": {
     "R1": {
      "tp": 11,
      "fp": 9,
-     "fn": 0,
+     "fn": 2,
      "precision": 0.55,
-     "recall": 1.0,
-     "f1": 0.71
+     "recall": 0.846,
+     "f1": 0.667
     },
     "R2": {
      "tp": 13,
@@ -182,13 +182,13 @@
    "micro": {
     "tp": 54,
     "fp": 31,
-    "fn": 6,
+    "fn": 8,
     "precision": 0.635,
-    "recall": 0.9,
-    "f1": 0.745
+    "recall": 0.871,
+    "f1": 0.735
    },
-   "clean_false_alarm_rate": 0.381,
-   "clean_total": 21
+   "clean_false_alarm_rate": 0.35,
+   "clean_total": 20
   }
  ],
  "consistency": 0.589

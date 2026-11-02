@@ -1,0 +1,27 @@
+{
+  "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist (https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/)",
+  "scope": "审查 PRD 里的一个功能段落（一个功能的完整描述），只看段落之间缺了什么、对不对得上，不重复检查单句措辞。",
+  "rules": [
+    {
+      "id": "D1",
+      "name": "缺验收标准",
+      "nasa": "C.4 Verifiability: Can the criteria for verification be stated? Does a means exist to measure the accomplishment of the requirement?",
+      "判定": "段落描述了要做的功能，但段内没有任何可以判定「做完没有、做对没有」的条件：既没有「验收标准 / 完成标准 / AC」，也没有可以直接检查的具体结果（明确的数值阈值、明确的输出或状态）。",
+      "不算": "段内已有验收标准列表，或每个功能点都写了可直接检查的具体结果。"
+    },
+    {
+      "id": "D2",
+      "name": "缺异常处理",
+      "nasa": "C.4 Reliability: Are there error detection, reporting, handling, and recovery requirements? Are undesired events considered and their required responses specified?",
+      "判定": "功能涉及用户输入、网络或外部服务调用、文件读写、权限或状态变化，但段内没有说明出错、为空、超时、无权限、操作失败时系统怎么处理。",
+      "不算": "段内至少对主要的失败情况写了处理方式；或功能本身不存在失败的可能（例如只展示固定文案）。"
+    },
+    {
+      "id": "D3",
+      "name": "前后矛盾",
+      "nasa": "C.4 Consistency: Are the requirements stated consistently without contradicting themselves?",
+      "判定": "段内两处说法互相冲突：数值、数量、上限、状态、权限或流程顺序对不上，按其中一处实现就会违反另一处。",
+      "不算": "两处说法针对不同条件或不同对象，并不冲突。"
+    }
+  ]
+}

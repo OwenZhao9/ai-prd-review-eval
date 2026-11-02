@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 审 PRD</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--sub:#6b6b70;--line:#e4e2dc;--accent:#2f5bea;--warn:#b3261e;--warnbg:#fdecea;--ok:#1f6b45;--okbg:#e6f4ec;--hl:#fff2b3}
+@media (prefers-color-scheme:dark){:root{--bg:#151517;--card:#1e1e21;--ink:#ececee;--sub:#9a9aa2;--line:#2c2c30;--warnbg:#3a1f1d;--warn:#ff8a80;--okbg:#18332a;--ok:#7fd4a8;--hl:#5a4b10}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"PingFang SC",sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 16px}
+header .in{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+h1{font-size:18px;margin:0}.ver{color:var(--sub);font-size:12px}
+nav{margin-left:auto;display:flex;gap:4px}nav button{border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 14px;border-radius:8px;font:inherit;cursor:pointer}
+nav button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+main{max-width:980px;margin:0 auto;padding:18px 16px 80px}
+textarea{width:100%;min-height:220px;font:14px/1.6 ui-monospace,Menlo,monospace;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.row{display:flex;gap:8px;margin:10px 0 18px;flex-wrap:wrap;align-items:center}
+.btn{border:0;background:var(--accent);color:#fff;padding:9px 18px;border-radius:9px;font:inherit;cursor:pointer}.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5;cursor:default}.hint{color:var(--sub);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}.stat b{font-size:22px;display:block}.stat span{color:var(--sub);font-size:12px}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.sec h3{margin:0;padding:12px 16px;font-size:15px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center}
+.doc{padding:10px 16px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 60%,var(--card))}
+.req{padding:10px 16px;border-bottom:1px solid var(--line)}.req:last-child{border-bottom:0}
+.rt{word-break:break-word}.rt mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 2px}
+.f{margin-top:6px;padding:8px 10px;border-radius:9px;background:var(--warnbg);font-size:13.5px}
+.f .tag{font-weight:700;color:var(--warn);margin-right:6px}.f .why{color:var(--ink)}
+.f .acts,.req .acts{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
+.link{border:0;background:transparent;color:var(--sub);font:inherit;font-size:12.5px;cursor:pointer;padding:0;text-decoration:underline}
+.okline{color:var(--ok);font-size:13px;margin-top:4px}.sent{color:var(--sub);font-size:12.5px}
+select,input[type=text]{font:inherit;font-size:13px;padding:4px 8px;border-radius:7px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.missform{display:none;margin-top:6px;gap:6px;flex-wrap:wrap;align-items:center}.missform.show{display:flex}
+.fb{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.fb .meta{color:var(--sub);font-size:12px}.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;background:var(--line)}
+.pill.pending{background:#fff3d6;color:#8a5a00}.pill.accepted{background:var(--okbg);color:var(--ok)}.pill.rejected{background:var(--line);color:var(--sub)}
+.empty{color:var(--sub);text-align:center;padding:30px}.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:s 1s linear infinite;vertical-align:-2px}@keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header><div class="in"><h1>AI 审 PRD</h1><span class="ver" id="ver">单句规则 v4 · 文档级规则 doc_v1</span>
+<nav><button class="on" data-tab="review">审查</button><button data-tab="fb">反馈复核 <span id="pend"></span></button></nav></div></header>
+<main>
+<section id="tab-review">
+  <textarea id="prd" placeholder="把 PRD 粘贴到这里（支持 Markdown，按 ## 标题拆成功能段落）"></textarea>
+  <div class="row"><button class="btn" id="go">开始审查</button><button class="btn ghost" id="sample">填入示例 PRD</button>
+  <span class="hint">每个功能段落查：缺验收标准、缺异常处理、前后矛盾；每条需求查：歧义措辞、不可验证、一条多需求、待定项未闭环、写了实现方式、指代不明。</span></div>
+  <div id="out"></div>
+</section>
+<section id="tab-fb" hidden>
+  <p class="hint">审查结果下点「这是误判」或「漏了问题」会进入这里。复核后「采纳」的条目按复核结论写成标准答案，进入 <code>data/feedback_cases.jsonl</code>，下一轮评测时补进评测集。</p>
+  <div id="fblist"></div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SENT={R1:'歧义措辞',R2:'不可验证',R3:'一条多需求',R4:'待定项未闭环',R5:'写了实现方式',R6:'指代不明'};
+const DOC={D1:'缺验收标准',D2:'缺异常处理',D3:'前后矛盾'};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#tab-review').hidden=b.dataset.tab!=='review';$('#tab-fb').hidden=b.dataset.tab!=='fb';if(b.dataset.tab==='fb')loadFb()});
+$('#sample').onclick=async()=>{$('#prd').value=(await (await fetch('/api/sample')).json()).text};
+function mark(text,ev){if(!ev)return esc(text);const i=text.indexOf(ev);if(i<0||ev.length<2)return esc(text);return esc(text.slice(0,i))+'<mark>'+esc(ev)+'</mark>'+esc(text.slice(i+ev.length))}
+async function post(url,data){const r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const j=await r.json();if(!r.ok)throw new Error(j.error||'请求失败');return j}
+async function feedback(btn,data){btn.disabled=true;try{await post('/api/feedback',data);btn.replaceWith(Object.assign(document.createElement('span'),{className:'sent',textContent:'已提交反馈'}));pending()}catch(e){alert(e.message);btn.disabled=false}}
+function finding(f,level,text,pred){const d=document.createElement('div');d.className='f';
+  d.innerHTML=`<span class="tag">${f.rule} ${esc(f.name)}</span><span class="why">${esc(f.reason)}</span><div class="acts"><button class="link">这是误判</button></div>`;
+  d.querySelector('button').onclick=e=>feedback(e.target,{type:'false_positive',level,text,rule:f.rule,predicted:pred,note:''});return d}
+function missForm(level,text,pred){const box=document.createElement('div');const rules=level==='doc'?DOC:SENT;
+  box.innerHTML=`<div class="acts"><button class="link">漏了问题</button></div><div class="missform"><select>${Object.entries(rules).filter(([k])=>!pred.includes(k)).map(([k,v])=>`<option value="${k}">${k} ${v}</option>`).join('')}</select><input type="text" placeholder="一句话说明（选填）"><button class="btn ghost" style="padding:4px 12px">提交</button></div>`;
+  const f=box.querySelector('.missform');box.querySelector('.link').onclick=()=>f.classList.toggle('show');
+  f.querySelector('.btn').onclick=e=>feedback(e.target,{type:'missed',level,text,rule:f.querySelector('select').value,note:f.querySelector('input').value,predicted:pred});return box}
+$('#go').onclick=async()=>{const text=$('#prd').value.trim();if(!text){alert('请先粘贴 PRD 内容');return}
+  $('#go').disabled=true;$('#out').innerHTML='<p class="hint"><span class="spin"></span> 审查中，按条目数大约需要 10–40 秒…</p>';
+  try{const r=await post('/api/review',{text});render(r)}catch(e){$('#out').innerHTML=`<p class="hint">出错了：${esc(e.message)}</p>`}$('#go').disabled=false};
+function render(r){const s=r.stats;$('#ver').textContent=`单句规则 ${r.versions.sentence} · 文档级规则 ${r.versions.document} · 模型 ${r.versions.model}`;
+  const docFlag=r.sections.filter(x=>x.doc&&x.doc.findings.length).length;
+  const out=$('#out');out.innerHTML=`<div class="stats"><div class="stat"><b>${s.sections}</b><span>功能段落</span></div><div class="stat"><b>${docFlag}</b><span>段落有文档级问题</span></div><div class="stat"><b>${s.flagged} / ${s.reqs}</b><span>条需求有问题</span></div><div class="stat"><b>${s.seconds}s</b><span>审查耗时</span></div></div>`+
+    (s.truncated?'<p class="hint">内容较长，只审查了前 60 项。</p>':'')+(s.errors?`<p class="hint">有 ${s.errors} 项调用模型失败，结果里标为「审查失败」。</p>`:'');
+  r.sections.forEach(sec=>{if(!sec.doc&&!sec.reqs.length)return;const el=document.createElement('div');el.className='sec';el.innerHTML=`<h3>${esc(sec.title)}</h3>`;
+    if(sec.doc){const d=document.createElement('div');d.className='doc';d.innerHTML='<div class="sent">整段检查</div>';const pred=sec.doc.findings.map(f=>f.rule);
+      if(sec.doc.error)d.innerHTML+='<div class="sent">审查失败</div>';else if(!pred.length)d.innerHTML+='<div class="okline">未发现缺验收标准、缺异常处理、前后矛盾</div>';
+      sec.doc.findings.forEach(f=>d.appendChild(finding(f,'doc',sec.text,pred)));d.appendChild(missForm('doc',sec.text,pred));el.appendChild(d)}
+    sec.reqs.forEach(q=>{const d=document.createElement('div');d.className='req';const fs=q.findings||[];const pred=fs.map(f=>f.rule);
+      d.innerHTML=`<div class="rt">${fs.length?mark(q.text,fs[0].evidence):esc(q.text)}</div>`;
+      if(q.error)d.innerHTML+='<div class="sent">审查失败</div>';else if(q.findings===null)d.innerHTML+='<div class="sent">未审查（超出 60 项）</div>';else if(!fs.length)d.innerHTML+='<div class="okline">未发现问题</div>';
+      fs.forEach(f=>d.appendChild(finding(f,'sentence',q.text,pred)));if(q.findings!==null&&!q.error)d.appendChild(missForm('sentence',q.text,pred));el.appendChild(d)});
+    out.appendChild(el)})}
+async function loadFb(){const r=await (await fetch('/api/feedback')).json();const L=$('#fblist');
+  if(!r.feedback.length){L.innerHTML='<div class="empty">还没有反馈</div>';return}
+  L.innerHTML=`<p class="hint">已采纳并写成评测用例：${r.cases} 条</p>`;
+  r.feedback.forEach(f=>{const rules=f.level==='doc'?DOC:SENT;const d=document.createElement('div');d.className='fb';
+    d.innerHTML=`<div class="meta"><span class="pill ${f.status}">${{pending:'待复核',accepted:'已采纳',rejected:'已驳回'}[f.status]}</span> ${f.time} · ${f.level==='doc'?'整段':'单条需求'} · ${f.type==='false_positive'?'认为是误判':'认为漏了问题'}：<b>${f.rule} ${esc(rules[f.rule]||'')}</b></div><div class="rt" style="margin-top:6px">${esc(f.text)}</div>${f.note?`<div class="hint">说明：${esc(f.note)}</div>`:''}`;
+    if(f.status==='pending'){const a=document.createElement('div');a.className='row';a.style.margin='8px 0 0';a.innerHTML='<button class="btn" style="padding:5px 14px">采纳</button><button class="btn ghost" style="padding:5px 14px">驳回</button>';
+      const [ok,no]=a.querySelectorAll('button');const go=async dec=>{await post('/api/feedback/resolve',{id:f.id,decision:dec});loadFb();pending()};ok.onclick=()=>go('accept');no.onclick=()=>go('reject');d.appendChild(a)}
+    L.appendChild(d)})}
+async function pending(){try{const r=await (await fetch('/api/feedback')).json();const n=r.feedback.filter(f=>f.status==='pending').length;$('#pend').textContent=n?`(${n})`:''}catch(e){}}
+pending();
+</script>
+</body>
+</html>

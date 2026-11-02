@@ -1,0 +1,200 @@
+[
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "### 1.1 系统定位\n\n魔方是面向**系统管理后台的快速开发基础设施层**，让开发团队把时间花在业务差异化上，而不是重复搭建后台管理基础功能。\n\n- **通用后台能力**：认证、权限、菜单、CRUD、导入导出、日志、配置开箱即用\n- **多前端支持**：Vue 为官方前端与核心库载体；仓库内另提供 Angular / Svelte / NaiveUI / ArcoVue / Vuetify / TDesign / MUI / Shadcn 等参考实现，React 皮肤独立为 CubeAntd 仓库；MVC Razor（CubeNC）保持兼容\n- **可扩展架构**：通过 EntityController 继承、字段元数据、IModule 插件机制深度定制\n- **超大数据支撑**：基于 XCode ORM 的分表、读写分离、二级缓存，支撑单表 100 亿级数据",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD01"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "#### 4.2.1 数据库列表页面\n\n**功能描述**：\n\n- 展示所有已安装的数据库，以卡片形式呈现\n- 每个数据库卡片显示：\n  - 数据库图标和名称\n  - 版本号\n  - 运行状态（运行中/已停止）\n  - 端口号\n  - 快捷操作按钮（启动/停止/重启/删除）\n- 支持按类型筛选（关系型/NoSQL/缓存/向量/图数据库）\n- 支持按状态筛选（运行中/已停止）\n- 支持搜索功能\n\n**交互设计**：\n\n- 点击卡片进入数据库详情页\n- 快捷操作按钮支持一键启停\n- 删除操作需二次确认",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD02"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"license": "MIT",
+"text": "## 4. 待确认问题\n\n在继续详细设计前，我需要确认以下几个关键问题：\n\n1. **时间计算方式：**\n   - 是否基于真实的航班飞行时间？\n   - 还是基于城市间的直线距离计算？\n   - 时间范围控制（最短/最长专注时间）？\n\n2. **城市范围：**\n   - 仅限中国城市还是包含国际城市？\n   - 是否需要包含知名景点作为目的地？\n\n3. **专注模式：**\n   - 是否需要不同的专注模式（学习、工作、休息等）？\n   - 是否需要白噪音或背景音乐？\n\n4. **数据存储：**\n   - 专注记录是否需要云端同步？\n   - 是否需要好友功能或排行榜？\n\n5. **游戏化元素：**\n   - 是否需要积分、等级、成就系统？\n   - 是否需要虚拟奖励（如里程、勋章等）？\n\n请告诉我你对这些问题的想法，这样我可以完善PRD并开始具体的设计和开发工作。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD03"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "### 3.4 生命档案：\n\n- 时间线默认倒序；筛选项：全部、家庭、健康、生日、旅行、日常。\n- “新增记录”弹窗字段：类型、标题（必填，1–30 字）、日期（必填且不晚于今天）、描述（选填，最多 500 字）、照片（选填，同上传限制）、可见性（默认仅家庭）。\n- 保存后时间线插入新记录，总览动态和记录数同步变化；首次手动记录奖励 20 PAWS；自动创建事件不触发该奖励。\n- 手动记录可编辑、删除，删除需确认；积分不重复发放，删除也不重置首次奖励资格。身份创建、成员加入等系统事件只读。\n- 凭证卡展示疫苗、身份、血统等内置示例；详情含签发者、签发时间、状态、内容摘要。手动健康记录只标记“用户填写”，不可自动变成机构认证。\n- 私密描述、健康详情及家庭成员信息不进入 PawTag 公开视图。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD04"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "### 4.1 P0 视觉门禁（workspace 全局，违反=退回重做）\n\n1. **禁 emoji 作功能图标**：所有功能图标统一一套 SVG 图标库（具体库由架构师按 DSH web 端技术栈锁定），PRD 及 UI 文案中图标一律用文字描述（如「火焰图标」表示热点）。\n2. **禁紫→粉渐变主视觉**：`#7C3AED` / `#A855F7` / `#EC4899` / `#6366F1` 不得参与 linear-gradient；Indigo/Slate 纯色可用（对齐知识库 ai-native.md：主色深蓝/靛蓝方向，强调色翠绿仅用于 AI 生成标识，每屏强调色≤2 处）。\n3. **禁 AI 模板味**：不出现 Lorem ipsum / \"Welcome to\" / 空洞占位文案 / 无意义硬编码颜色；空状态文案必须给真实引导（如「先在设置页填入公众号凭据」而非「暂无数据」）。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD05"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "#### Session Deep Link（跨平台会话导航）\n\niOS 与 Android 共享同一个只读导航协议：`opencode://session/<session_id>`。链接可以来自 Chat 中的 Agent Markdown，也可以来自邮件、Notes、网页或系统 Intent。用户点击后，客户端只在当前 Host 调用 `GET /session/:id` 验证；成功才切换到目标 session 和 Chat，失败保留原上下文并显示全局错误。\n\nAndroid cold start 与 warm launch 都支持该协议。连接尚未恢复时保存最后一个 pending link，连接成功后再解析。目标 session 不要求已进入当前 100 条列表窗口；验证成功后把完整 Session 注入列表，保证 Chat、Files 和 workspace Markdown link 使用目标 `directory`。\n\nSession 搜索继续由 Agent 和 semantic-search 负责，客户端不建设搜索页面、embedding 索引或离线 archive 读取能力。V1 不自动切换 Host，不携带 Host Profile、server URL、凭证、query 或绝对路径，不支持 message 定位，也不能发送 prompt、批准权限、执行 tool、删除或归档 session。\n\n---",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DD06"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "## 2. 背景\n\n当前代码已经有一部分核心能力：\n\n- `drag/pipeline` 控制真正开始拖拽后的 begin / preview / commit / cancel。\n- `drag/selection` 开始承接拖拽交互里的多选更新规则，底层 range 算法仍由 `domain/selection` 提供。\n- `drag/mode` 开始表达交互状态，但还不应该把 mobile/desktop 或 DOM 副作用写进核心状态。\n- `platform/codemirror/input` 负责读取 pointer/touch/focus 等输入。\n\n但当前实现的边界仍然混乱：\n\n- 平台层还在决定过多业务状态，例如 selection 是否可拖、是否进入子状态、何时退出。\n- 移动端文本长按、手柄拖拽、多选拖拽之间存在多条分叉路径。\n- 移动端多选后，长按选中文本区域无法拖动整个多选块，因为 input 层只识别 selected handle，不识别 selected text range。\n- mobile drag mode 的语义过宽，可能错误地限制手柄拖拽；它应该只是移动端文本长按入口的 platform guard。\n- 一些 UI/历史逻辑被补丁式叠加，导致行为看起来像兼容层或兜底逻辑。\n\n---",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DD07"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "### 7.4 界面与体验\n\n- 语言：中文\n- UI：简单朴素，无复杂动画/渐变/流光\n- 浏览器检测：首次访问时检测浏览器类型和版本，Firefox 用户显示非阻断性提示条（\"检测到 Firefox 浏览器，部分功能（文件夹导入、文件保存对话框）不可用，您可通过多文件选择和下载方式替代\"），不强制要求升级\n- 数据持久化：低敏内容预填上次输入；生成结果保存到用户指定路径\n- 各功能区独立 AI 对话上下文，不互相污染\n- Token 预估：生成前显示估算值（基于字符比例公式，首次调用后自动校准）；生成后显示实际消耗\n- 独立 AI 对话框规格：\n  - 每个模块（Claim Chart / 新颖性 / 创造性 / 素材草稿 / 形式缺陷 / 文档解读 / 文档导入 / 简述）各有一个独立 AI 对话框（对应 moduleScope: claim-chart / novelty / inventive / draft / defects / case / documents / summary），**不共享 LLM session 历史**。\n  - 支持两种操作：**追问**（基于当前上下文提问）和**请求重新分析**（用当前编辑后的数据重新触发 Agent）。\n  - 对话上下文包含当前模块的输入数据快照（如当前 Claim Chart 特征列表），用户在表格中的修改会作为下一轮对话的上下文更新。\n- ~~反馈系统~~：已删除（用户要求），满意度评估改为 Metrics 体系自动指标（Groundedness、Faithfulness 等）",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD08"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "#### 5.2.2 零误差合规检查系统\n\n**功能描述**:\n作为专业用户，我想要系统自动检查内容合规性，以便避免法律风险和行业规范违反。\n\n**用户价值**:\n- 消除合规风险\n- 节省人工检查时间\n- 提升内容专业性\n\n**功能逻辑与规则**:\n1. **行业规范自动遵循**:\n   - 政府文件：遵循公文格式规范\n   - 学术论文：符合期刊投稿要求\n   - 金融报告：满足监管披露标准\n   - 医疗内容：遵循医疗广告法规\n\n2. **敏感内容实时拦截**:\n   - 政治敏感词汇自动标记\n   - 医疗宣称用词自动校正\n   - 金融承诺表述风险提示\n   - 版权内容使用合规检查\n\n3. **法律术语自动校正**:\n   - \"治愈率\" → \"缓解率\"\n   - \"保证收益\" → \"预期收益\"\n   - \"根治\" → \"改善\"\n   - \"绝对安全\" → \"相对安全\"\n\n4. **学术文献校验**:\n   - 影响因子自动查询\n   - 引用格式标准化\n   - 数据来源可信度评估\n\n**交互要求**:\n- 实时高亮问题内容\n- 提供修改建议和替代方案\n- 显示合规检查进度和结果\n\n**数据需求**:\n- 行业规范数据库\n- 敏感词库和替换词典\n- 法律法规条文库\n- 学术期刊数据库\n\n**技术依赖**:\n- 文本分析和NLP技术\n- 规则引擎和知识图谱\n- 实时数据库查询\n\n**验收标准**:\n- 敏感内容检出率 ≥ 99%\n- 误报率 ≤ 5%\n- 检查响应时间 ≤ 3秒\n- 法律术语校正准确率 ≥ 95%",
+"split": "dev",
+"has_ac": true,
+"has_err": false,
+"id": "DD09"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "### 第四阶段：性能优化 ✅ **已完成** (2周)\n**目标**: 优化性能，降低延迟，提升体验\n\n**任务列表**:\n- [x] 实现性能监控系统\n- [x] 添加自动优化服务\n- [x] 优化内存和CPU使用\n- [x] 实现延迟控制优化\n- [x] 添加动态质量调整\n\n**验收标准**:\n- ✅ 延迟目标<50ms\n- ✅ 智能性能优化\n- ✅ 资源使用监控\n\n**完成成果**:\n- ✅ 实现PerformanceMonitorService性能监控，追踪CPU、内存、帧率、延迟\n- ✅ 创建PerformanceOptimizationService自动优化服务，支持四种优化模式\n- ✅ 集成动态质量调整，根据系统性能自动切换配置档案\n- ✅ 实现低延迟模式，缓冲区优化，目标延迟<50ms\n- ✅ 添加硬件加速支持和GPU优化接口",
+"split": "dev",
+"has_ac": true,
+"has_err": false,
+"id": "DD10"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "### 3.3 典型使用场景\n\n当前产品的典型使用场景按演进路径可以拆成以下几步：\n\n1. 用户首次进入产品，建立账户并完善唯一全局 `Profile`。\n2. 用户上传并管理自己的资料，形成可复用资料库。\n3. 用户基于资料库构建问答集和题目单，先完成资产层闭环。\n4. 系统在后续版本中逐步引入生成 Agent，让问答集生成从假数据驱动转向真实智能链路驱动。\n5. 用户围绕问答集开展顺序、随机或按模块练习。\n6. 系统在后续版本中逐步引入反馈 Agent、评估 Agent 和 Memory，形成更完整的训练闭环。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD11"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"license": "MIT",
+"text": "### 2.2 核心用户故事\n\n**故事 1: 启动 AI 助手**\n\n作为 [个人使用者]\n我想 [快速启动 nanobot 并连接到 WhatsApp/Feishu]\n以便 [立即开始聊天]\n\n验收标准：\n- ✅ nanobot start 命令 < 2 秒启动\n- ✅ 配置文件生成自动化\n- ✅ 首次使用有引导提示\n\n**故事 2: 处理消息**\n\n作为 [系统]\n我想 [从任何渠道接收消息并路由到 Agent]\n以便 [统一处理不同平台的消息]\n\n验收标准：\n- ✅ 支持 WhatsApp, Feishu, Email\n- ✅ 消息路由延迟 < 50ms\n- ✅ 支持媒体文件处理\n\n**故事 3: 执行工具**\n\n作为 [Agent]\n我想 [调用内置工具(文件、网络、执行等)]\n以便 [完成复杂任务]\n\n验收标准：\n- ✅ 文件读写工具\n- ✅ Web 搜索/获取工具\n- ✅ Shell 执行工具\n- ✅ 消息发送工具\n- ✅ 工具超时和错误处理\n\n**故事 4: 管理会话**\n\n作为 [系统]\n我想 [保存和加载用户会话]\n以便 [维持长期的对话记忆]\n\n验收标准：\n- ✅ 会话持久化到磁盘\n- ✅ 支持多个并发会话\n- ✅ 内存压缩和归档\n\n---",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DD12"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "### 3.1 US-001: 作为 MCP 客户端，我想要根据关键词搜索 Pinterest 图片，以便找到相关的视觉内容。\n*   **Tool**: `pinterest_search`\n*   **输入**:\n    *   `keyword`: 字符串 (必需, 搜索关键词)\n    *   `limit`: 整数 (可选, 需要返回的图片数量，若不提供可能有默认值或限制)\n*   **输出**:\n    *   **成功**: 返回一个包含图片信息的列表（具体包含哪些信息，例如图片 ID、缩略图 URL 等需要明确，目前假设至少有图片 ID）。\n    *   **失败**: 如果没有找到图片或发生其他错误，返回具体的错误信息给客户端。\n*   **验收标准**:\n    *   客户端可以通过 MCP 调用 `pinterest_search` Tool。\n    *   调用时必须提供 `keyword` 参数。\n    *   可以指定 `limit` 参数来限制结果数量。\n    *   如果搜索成功，返回的列表包含与关键词相关的图片信息（至少包含图片 ID）。\n    *   如果没有找到图片，返回清晰的\"未找到结果\"类型的错误信息。\n    *   如果发生其他错误（如网络问题），返回相应的错误信息。",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DD13"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "#### 3\\.4\\.2 自动执行功能\n\n- 支持**批量调用大模型\\+Playwright组件**，全自动执行测试套件内所有有效用例\n\n- 自动模拟UI操作：基于用例步骤，通过Playwright实现页面点击、输入、跳转、校验等自动化操作\n\n- AI智能校验：依托绑定的大模型，智能判断页面展示结果是否符合预期，自动生成执行结果\n\n- 异常自动捕获：执行过程中自动捕获页面报错、超时、元素缺失等异常，标记为ERROR状态并记录日志\n\n- 批量执行：支持单次执行整个套件、批量执行多个套件任务",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DD14"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "### 9.3 幂等性与并发\n\n- **可幂等**（带 `idempotency_key`）：`tasks:start`, `tasks:message`, `tasks:skip-countdown`, `tasks:interrupt`\n  - 主进程缓存最近 100 个 `idempotency_key` → 结果，5 分钟过期\n  - 重复调用直接返回缓存结果，不产生副作用\n- **顺序保证**：\n  - 同一任务的事件 `seq` 严格递增\n  - `events:push` 推送顺序与写入顺序一致\n  - 渲染进程订阅时携带 `since_seq`，主进程补发缺失的事件后再开始增量推送\n  - 主进程在内存中保留每个任务最近 2000 条事件用于 `since_seq` 补发；超出时从 `events.jsonl` 文件回放读取\n- **取消语义**：\n  - `tasks:interrupt` 是异步操作，立即返回；真正完成时通过 `actor.interrupted` event 通知\n  - 渲染进程不应在 invoke 返回后立即假设状态已切换，必须依赖 events 推送",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD15"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "### 3.2 TSL — 物模型规范\n\n- **TSL-1 物模型根**：`ThingSpec` 含 `Profile`（产品元数据）+ `Properties[]` + `Events[]` + `Services[]`，支持 `FromJson`/`ToJson` 往返序列化，`AddProperty`/`GetProperty` 便捷方法。\n- **TSL-2 属性规范**：`PropertySpec` 含 `AccessMode`/`DataType`（`TypeSpec`+`DataSpecs` 带 min/max/step/unit/mapping）/`Address`/`Scaling`/`Constant`/`ReadRule`/`WriteRule`。\n- **TSL-3 事件规范**：`EventSpec` 含 `Type`（info/warning/error）/`Method`/`OutputData`，描述设备主动上报的告警和通知。\n- **TSL-4 服务规范**：`ServiceSpec` 含 `Type`（sync/async）/`Method`/`InputData`/`OutputData`，描述可外部调用的设备指令。\n- **TSL-5 点位模型**：`IPoint`（`Name`/`Address`/`Type`/`Length`）+ `PointModel` 实现（含 `ReadRule`/`WriteRule`）；`PointHelper.Convert` 字节→对象转换，`GetBytes` 对象→字节转换。\n- **TSL-6 上报模型**：`PropertyModel`/`PropertyModels`（含 `DeviceCode`）/`EventModel`/`DataModel` 定义属性、事件、时序数据的平台上报结构，`DevicePropertyModel` 带设备编码。`EventModes` 枚举（`None`/`Client`/`Server`）控制属性变更事件的触发位置。\n- **TSL-7 影子模型**：`ShadowModel`（`DeviceCode`/`Shadow`）支持设备影子同步。\n- **TSL-8 服务调用模型**：`ServiceModel`/`ServiceReplyModel`/`ServiceEventArgs`/`ServiceStatus` 定义平台—设备之间的服务调用生命周期。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD16"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "## Bridge API\n\nFlask 端向 .mako 模板暴露的函数/对象，设计对标 PHP 的超全局变量与常用函数。命名空间原则：PHP 靠 `$` 前缀让变量与函数天然分域，Python 单命名空间没有这层保护，注入名分三类——\n\n- **请求数据**：大写下划线超全局风格（`_GET` / `_SERVER` 等），几乎不会与局部变量撞名；\n- **响应控制**：统一挂 `RESP` 对象（`RESP.header()` / `RESP.json()` 等），不占用全局名——尤其 `json` 由此释放给标准库，模板里 `import json` 后 `json.dumps()` 不受干扰；\n- **输出/工具**：裸函数三个——`echo`（文本输出，高频、PHP 肌肉记忆、名字独特）、`echoraw`（二进制输出，一旦使用即短路全部文本输出）与 `escape`（HTML 转义，对标 `htmlspecialchars`），分别另挂规范名 `RESP.write()` / `RESP.writeraw()` / `RESP.escape()`，被模板局部变量覆盖时用规范名兜底。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD17"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "### 待拍板 ❓\n6. **实时锐角赔率是否付费**（🔴 关键）：付费拿实时 Pinnacle 足球（最稳），还是走 §3.6 的免费降级方案（精度略降）？\n7. **\"算计对阵\"建模深度**：建模到具体小组真实交叉规则，还是先做通用\"避强/避死亡半区\"启发式？\n8. **运行方式**：Skill 在哪运行（Claude Code 本地 / 定时任务）？是否需要每日自动跑出当日报告？\n9. **数据源合规**：抓取官网/数据站的频率限制与合规边界需确认（官方接口为未文档化公开接口，需控制频率、标注来源）。\n\n---",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DD18"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "#### 3.1.2 Web管理界面\n**功能描述**: 提供直观的Web界面管理WireGuard隧道和伪装配置\n\n**具体需求**:\n- 隧道列表管理（创建、编辑、删除、启用/禁用）\n- 伪装模式选择和配置\n- 客户端配置文件生成和下载\n- QR码生成用于移动端配置\n- 实时状态监控和流量统计\n- 用户认证和权限管理\n\n**验收标准**:\n- [ ] 界面响应式设计，支持桌面和移动端\n- [ ] 操作流程直观，新用户5分钟内能创建隧道\n- [ ] 配置文件生成正确，客户端能正常连接\n- [ ] 实时数据更新延迟不超过5秒",
+"split": "dev",
+"has_ac": true,
+"has_err": false,
+"id": "DD19"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "### 3.9 M9 数据与算法\n\n- **M9-1 模型数据接口**：`IModel` 字符串键索引模型属性，替代反射的轻量方案。\n- **M9-2 扩展数据接口**：`IExtend` 对象扩展属性字典，按需挂载临时数据。\n- **M9-3 数据过滤器**：`IFilter` 责任链过滤器模式，支持管道式数据处理。\n- **M9-4 数据包接口**：`IPacket` 零拷贝切片（统一为引用计数共享切片）、链式包接口。\n- **M9-5 数据包实现**：`ArrayPacket`/`OwnerPacket` 等数据包实现；`OwnerPacket` 以引用计数内核管理池化缓冲（共享切片各自释放、引用归零归还），过时 `Packet` 类已删除。\n- **M9-6 数据包编码器**：`IPacketEncoder` 对象与数据包双向转换，支持多种类型自动选择编码策略。\n- **M9-7 环形缓冲区**：`RingBuffer` 通用环形缓冲结构；网络协议组包由数据管道与帧泵承担。\n- **M9-8 雪花 ID**：`Snowflake` 分布式唯一 ID 生成器。\n- **M9-9 经纬度哈希**：`GeoHash` 经纬度编码，用于附近位置搜索。\n- **M9-10 内存数据表**：`DbTable` 内存中的数据表，支持数据处理和分析。\n- **M9-11 分页参数**：`PageParameter` 分页逻辑封装。\n- **M9-12 采样插值框架**：`ISampling`/`IInterpolation`/`AlignModes` 降采样与插值算法抽象接口。\n- **M9-13 时序降采样**：`AverageSampling` 降采样算法。\n- **M9-14 线性插值**：`LinearInterpolation` 线性插值填充算法。\n- **M9-15 数据管道**：`Pipe`/`PipeReader`/`PipeWriter` 字节流缓冲（单写单读、有界背压、零拷贝 `ReadOnlySequence<Byte>` 窗口），命名对齐 `System.IO.Pipelines` 且全 TFM 可用（含 net45），配套 `LimitedReader` 限长读取，见《数据管道Pipe》。\n- **M9-16 向量存储**：`IVectorStore`/`IVectorStoreCollection`/`VectorRecord` 向量集合与 Top-K 相似度检索接口（非泛型简化）。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD20"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "### 12.3 前置依赖与阻塞项\n\n当前进入实现前，仍存在几个必须显式管理的前置依赖：\n\n- `IncrementalBatch` 和最终总结链路的结构必须保持稳定，避免记忆模块依附的输入频繁变化\n- `AnalysisApplicationService` 需要预留安全接入点，用于挂载批次后更新、总结前检索和总结后刷新\n- 最终总结 prompt 构建链路需要确认可安全接入 `memory_digest`\n- 插件配置层需要允许新增 `memory` 配置组\n- 宿主 AstrBot 当前版本需要满足插件 KV 和 `cron_manager` 的使用前提\n\n当前已知阻塞项包括：\n\n- 如果 `memory_digest` 无法稳定接入总结 prompt，Phase 1 的核心产品价值会明显下降\n- 如果 `MemberProfileLite` 的信号质量不足，成员画像必须以实验能力或降级模式上线\n- 如果灰度样本群不足，主观质量提升将难以验证",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD21"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "### 3.1 PROTO — 协议通信\n\n- **PROTO-1 Remoting 协议通信**：实现 RocketMQ 4.x/5.x Broker TCP 私有协议（二进制帧 + JSON/ROCKETMQ 序列化），支持连接池复用、Opaque 请求响应匹配、HMAC-SHA1 签名、SSL/TLS、VIP 通道，实现 60+ RequestCode 指令。\n- **PROTO-2 gRPC Proxy 协议通信**：实现 RocketMQ 5.x Proxy HTTP/2 + Protobuf 协议，手写 Protobuf 字段编解码（基于 NewLife.Core 的 SpanWriter/SpanReader，零外部依赖），支持 Unary + Server Streaming + Telemetry 长连接，实现 11 个核心 RPC 方法；明文端点强制 HTTP/2（h2c）、按调用声明 grpc-timeout，资源上报长连接保持 Proxy 侧客户端注册与订阅关系。\n- **PROTO-3 NameServer 路由发现**：Topic 路由查询与 30s 定时轮询刷新，多 Topic 路由管理，Broker 主从地址解析，支持 HTTP 方式获取 NameServer 地址（阿里云）。\n- **PROTO-4 Broker 心跳与客户端注销**：30s 定时心跳保活，客户端优雅注销。\n- **PROTO-5 VIP 通道**：BrokerPort - 2 优先级连接通道。",
+"split": "dev",
+"has_ac": false,
+"has_err": false,
+"id": "DD22"
+}
+]

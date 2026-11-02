@@ -11,6 +11,10 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 RULES = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6']
 
 
+def rule_ids(version):
+    return [r['id'] for r in json.load(open(os.path.join(ROOT, 'rules', f'{version}.json')))['rules']]
+
+
 def prf(tp, fp, fn):
     p = tp / (tp + fp) if tp + fp else 0.0
     r = tp / (tp + fn) if tp + fn else 0.0
@@ -18,12 +22,13 @@ def prf(tp, fp, fn):
     return round(p, 3), round(r, 3), round(f, 3)
 
 
-def score(items, preds):
-    per = {k: {'tp': 0, 'fp': 0, 'fn': 0} for k in RULES}
+def score(items, preds, rules=None):
+    rules = rules or RULES
+    per = {k: {'tp': 0, 'fp': 0, 'fn': 0} for k in rules}
     clean_total = clean_flagged = 0
     for it in items:
         gold, got = set(it['labels']), {v['rule'] for v in preds[it['id']]}
-        for k in RULES:
+        for k in rules:
             if k in gold and k in got: per[k]['tp'] += 1
             elif k in got: per[k]['fp'] += 1
             elif k in gold: per[k]['fn'] += 1
@@ -50,18 +55,19 @@ def main():
     review.load_env()
     items = [json.loads(l) for l in open(os.path.join(ROOT, 'data', f'{a.set}.jsonl'))]
     system = review.load_prompt(a.version)
+    ids = rule_ids(a.version); label = '功能段落' if ids[0].startswith('D') else '需求'
     outdir = os.path.join(ROOT, 'results', a.set, a.version); os.makedirs(outdir, exist_ok=True)
     runs = []
     for run in range(a.runs):
         with ThreadPoolExecutor(a.workers) as ex:
-            res = list(ex.map(lambda it: review.review(system, it['text'], 0.0 if run == 0 else 0.7), items))
+            res = list(ex.map(lambda it: review.review(system, it['text'], 0.0 if run == 0 else 0.7, label), items))
         preds = {it['id']: r for it, r in zip(items, res)}
         runs.append(preds)
         with open(os.path.join(outdir, f'predictions_run{run + 1}.jsonl'), 'w') as f:
             for it in items:
                 f.write(json.dumps({'id': it['id'], 'labels': it['labels'], 'pred': preds[it['id']]}, ensure_ascii=False) + '\n')
         print(f'run {run + 1} done', file=sys.stderr)
-    metrics = {'version': a.version, 'set': a.set, 'model': os.environ.get('LLM_MODEL'), 'items': len(items), 'runs': [score(items, p) for p in runs]}
+    metrics = {'version': a.version, 'set': a.set, 'model': os.environ.get('LLM_MODEL'), 'items': len(items), 'runs': [score(items, p, ids) for p in runs]}
     if len(runs) > 1:
         same = sum(len({frozenset(v['rule'] for v in p[it['id']]) for p in runs}) == 1 for it in items)
         metrics['consistency'] = round(same / len(items), 3)

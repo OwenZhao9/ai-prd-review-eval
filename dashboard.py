@@ -2,8 +2,8 @@
 import json, os, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-RULES = {r['id']: r['name'] for r in json.load(open(os.path.join(ROOT, 'rules', 'v1.json')))['rules']}
-SETS = [('holdout_zh', '中文留出测试集（改规则前标好，只用来对比）'), ('holdout', '英文留出测试集（改规则前标好，只用来对比）'), ('evalset_zh', '中文开发集（用来分析误判、改规则）'), ('evalset', '英文开发集（用来分析误判、改规则）')]
+RULES_ALL = {r['id']: r['name'] for f in ('v1.json', 'doc_v1.json') for r in json.load(open(os.path.join(ROOT, 'rules', f)))['rules']}
+SETS = [('holdout_zh', '中文留出测试集（改规则前标好，只用来对比）'), ('holdout', '英文留出测试集（改规则前标好，只用来对比）'), ('evalset_zh', '中文开发集（用来分析误判、改规则）'), ('evalset', '英文开发集（用来分析误判、改规则）'), ('doc_holdout', '文档级留出测试集：整段功能描述（改规则前标好）'), ('doc_evalset', '文档级开发集：整段功能描述')]
 VERS = ['v1', 'v2', 'v3', 'v4']
 
 ACTIONS = {
@@ -37,11 +37,13 @@ pct = lambda x: f'{x * 100:.0f}%'
 num = lambda x: f'{x:.3f}'
 parts = []
 for s, title in SETS:
-    have = [v for v in VERS if load(s, v)]
+    vers = ['doc_v1', 'doc_v2', 'doc_v3'] if s.startswith('doc') else VERS
+    have = [v for v in vers if load(s, v)]
     if not have:
         continue
-    m1, m2 = (load(s, have[0]) if len(have) > 1 else None), load(s, have[-1])
-    first, last = have[0], have[-1]
+    last = 'doc_v1' if s.startswith('doc') else have[-1]  # 定版版本
+    first = have[0]
+    m1, m2 = (load(s, first) if first != last else None), load(s, last)
     FIRST = first
     r1, r2 = (m1['runs'][0] if m1 else None), m2['runs'][0]
     cards = ''.join([
@@ -52,7 +54,8 @@ for s, title in SETS:
         card('三次运行结果一致', m1 and m1.get('consistency'), m2.get('consistency'), pct),
     ])
     rows = ''
-    for k, name in RULES.items():
+    for k in r2['per_rule']:
+        name = RULES_ALL[k]
         a = r1['per_rule'][k] if r1 else None
         b = r2['per_rule'][k]
         issue = '—'
@@ -60,13 +63,13 @@ for s, title in SETS:
             issue = ACTIONS['recall'][0] + '<br><span class="act">→ ' + ACTIONS['recall'][1] + '</span>'
         elif b['tp'] + b['fp'] and b['precision'] < 0.8:
             issue = ACTIONS['precision'][0] + '<br><span class="act">→ ' + ACTIONS['precision'][1] + '</span>'
-        hist = ''.join(f'<td>{num(load(s, v)["runs"][0]["per_rule"][k]["f1"])}</td>' for v in have[:-1])
+        hist = ''.join(f'<td>{num(load(s, v)["runs"][0]["per_rule"][k]["f1"])}</td>' for v in have if v != last)
         rows += (f'<tr><td><b>{k}</b> {html.escape(name)}</td><td>{b["tp"] + b["fn"]}</td>{hist}'
                  f'<td class="{cls(b["f1"], 0.85, 0.7)}">{num(b["f1"])}</td><td>{pct(b["precision"])}</td><td>{pct(b["recall"])}</td>'
                  f'<td>{b["fp"]} / {b["fn"]}</td><td class="issue">{issue}</td></tr>')
-    parts.append(f'''<section><h2>{html.escape(title)} <span class="meta">{m2["items"]} 条 · 当前版本 {last} · 模型 {html.escape(str(m2["model"]))}</span></h2>
+    parts.append(f'''<section><h2>{html.escape(title)} <span class="meta">{m2["items"]} 条 · 定版 {last} · 模型 {html.escape(str(m2["model"]))}</span></h2>
 <div class="cards">{cards}</div>
-<table><thead><tr><th>规则</th><th>标准答案中的问题数</th>{''.join(f'<th>{v} F1</th>' for v in have)}<th>准确率</th><th>召回率</th><th>误判 / 漏判</th><th>对应问题与处理动作</th></tr></thead><tbody>{rows}</tbody></table></section>''')
+<table><thead><tr><th>规则</th><th>标准答案中的问题数</th>{''.join(f'<th>{v} F1</th>' for v in have if v != last)}<th>{last} F1（定版）</th><th>准确率</th><th>召回率</th><th>误判 / 漏判</th><th>对应问题与处理动作</th></tr></thead><tbody>{rows}</tbody></table></section>''')
 
 guide = ''.join(f'<li><b>{html.escape(t)}</b>：{html.escape(a)}</li>' for t, a in ACTIONS.values())
 page = f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 审 PRD 健康看板</title>

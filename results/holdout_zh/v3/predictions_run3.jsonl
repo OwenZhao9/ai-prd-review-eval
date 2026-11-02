@@ -1,4 +1,4 @@
-{"id": "Z004", "labels": [], "pred": [{"rule": "R2", "evidence": "模拟真实交易场景", "reason": "「真实」没有可测量的标准，无法客观验证模拟到什么程度才算满足。"}]}
+{"id": "Z004", "labels": ["R1"], "pred": [{"rule": "R2", "evidence": "模拟真实交易场景", "reason": "「真实」没有可测量的标准，无法客观验证模拟到什么程度才算满足。"}]}
 {"id": "Z012", "labels": [], "pred": []}
 {"id": "Z013", "labels": [], "pred": []}
 {"id": "Z015", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "如剧情简介、主要演员、评分、播出年份和季数等", "reason": "「如……等」的列举没有封闭，不同读者对「详细信息」的范围理解会不一致。"}, {"rule": "R2", "evidence": "详细信息", "reason": "「详细」没有给出可测量的标准，无法客观验收返回内容详细到什么程度。"}, {"rule": "R3", "evidence": "剧情简介、主要演员、评分、播出年份和季数", "reason": "这些信息项可以各自独立验收，一条需求里串列了多个独立要求。"}]}
@@ -64,7 +64,7 @@
 {"id": "ZJ011", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "其", "reason": "「其」是代词，但整条需求没有出现它指代的名词，读者无法确定按什么过滤记录。"}]}
 {"id": "ZJ012", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "它支持展开/折叠", "reason": "句首用代词「它」，整条需求没有出现它指代的名词，无法确定是哪个组件或界面。"}, {"rule": "R3", "evidence": "支持展开/折叠，折叠后保留图标导航和当前页高亮", "reason": "包含展开/折叠交互、折叠后保留图标导航、保留当前页高亮三个可各自独立验收的要求，用逗号串在一起。"}]}
 {"id": "ZJ013", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "使用 Elasticsearch 的 match_phrase 查询实现", "reason": "需求指定了具体的技术实现（Elasticsearch 的 match_phrase 查询），而这一选择不是由业务或外部约束所要求的。"}]}
-{"id": "ZJ014", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了具体实现方式（在特定方法 step() 中抛出特定异常类），这属于代码层面的实现约束，而不是业务或外部约束所要求的。"}]}
+{"id": "ZJ014", "labels": ["R1", "R5"], "pred": [{"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了具体实现方式（在特定方法 step() 中抛出特定异常类），这属于代码层面的实现约束，而不是业务或外部约束所要求的。"}]}
 {"id": "ZJ015", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "先写入 Redis List 再异步落盘", "reason": "需求规定了具体的技术实现（Redis List 和异步落盘），而该技术选择并非外部约束所要求。"}]}
 {"id": "ZJ016", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "用 MySQL JSON 字段存储", "reason": "指定了具体数据库和字段类型（MySQL JSON 字段）作为存储实现方式，而需求没有说明这是外部约束要求"}]}
 {"id": "ZJ017", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "等", "reason": "「词汇、对话、练习等」的列举未封闭，读者无法确定学习包还包含哪些内容。"}, {"rule": "R3", "evidence": "支持 AI 一键生成学习包（词汇、对话、练习等）", "reason": "「AI 生成」与「一键」是两个可各自独立验收的要求（生成能力与操作步数），却合并在一条需求里。"}]}

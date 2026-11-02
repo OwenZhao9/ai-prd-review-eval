@@ -1,0 +1,123 @@
+{
+ "version": "doc_v1",
+ "set": "doc_evalset",
+ "model": "deepseek-chat",
+ "items": 20,
+ "runs": [
+  {
+   "per_rule": {
+    "D1": {
+     "tp": 4,
+     "fp": 3,
+     "fn": 0,
+     "precision": 0.571,
+     "recall": 1.0,
+     "f1": 0.727
+    },
+    "D2": {
+     "tp": 6,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.545,
+     "recall": 1.0,
+     "f1": 0.706
+    },
+    "D3": {
+     "tp": 4,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.8,
+     "f1": 0.889
+    }
+   },
+   "micro": {
+    "tp": 14,
+    "fp": 8,
+    "fn": 1,
+    "precision": 0.636,
+    "recall": 0.933,
+    "f1": 0.757
+   },
+   "clean_false_alarm_rate": 0.375,
+   "clean_total": 8
+  },
+  {
+   "per_rule": {
+    "D1": {
+     "tp": 4,
+     "fp": 3,
+     "fn": 0,
+     "precision": 0.571,
+     "recall": 1.0,
+     "f1": 0.727
+    },
+    "D2": {
+     "tp": 6,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.545,
+     "recall": 1.0,
+     "f1": 0.706
+    },
+    "D3": {
+     "tp": 4,
+     "fp": 1,
+     "fn": 1,
+     "precision": 0.8,
+     "recall": 0.8,
+     "f1": 0.8
+    }
+   },
+   "micro": {
+    "tp": 14,
+    "fp": 9,
+    "fn": 1,
+    "precision": 0.609,
+    "recall": 0.933,
+    "f1": 0.737
+   },
+   "clean_false_alarm_rate": 0.375,
+   "clean_total": 8
+  },
+  {
+   "per_rule": {
+    "D1": {
+     "tp": 4,
+     "fp": 3,
+     "fn": 0,
+     "precision": 0.571,
+     "recall": 1.0,
+     "f1": 0.727
+    },
+    "D2": {
+     "tp": 6,
+     "fp": 6,
+     "fn": 0,
+     "precision": 0.5,
+     "recall": 1.0,
+     "f1": 0.667
+    },
+    "D3": {
+     "tp": 4,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.8,
+     "f1": 0.889
+    }
+   },
+   "micro": {
+    "tp": 14,
+    "fp": 9,
+    "fn": 1,
+    "precision": 0.609,
+    "recall": 0.933,
+    "f1": 0.737
+   },
+   "clean_false_alarm_rate": 0.5,
+   "clean_total": 8
+  }
+ ],
+ "consistency": 0.75
+}

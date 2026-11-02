@@ -1,0 +1,308 @@
+[
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "### 8.3 用户体验验收\n- 用户界面友好易用\n- 配置过程简单明了\n- 帮助文档完整详细\n- 一键启动功能正常\n\n**详细标准**:\n- **界面友好性**: 系统需要提供友好易用的用户界面，确保用户能够快速理解和使用各项功能。界面设计需要符合用户体验设计原则。\n\n- **配置简便性**: 系统需要提供简便的配置过程，最小化用户的配置工作。配置过程需要提供清晰的指导和帮助。\n\n- **文档完整性**: 系统需要提供详细的使用说明和故障排除文档，帮助用户快速上手和解决问题。文档需要包括安装指南、使用教程、常见问题、故障排除等。\n\n- **启动便捷性**: 系统需要支持一键启动功能，用户能够通过简单的操作启动所有功能。启动过程需要自动化，减少用户的操作复杂度。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH01"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "### US-06 处理 AI 建议\n\n作为使用者，我希望检查建议后选择接受、修改或拒绝。\n\n验收标准：\n\n- Suggestion 显示来源 Capture 版本。\n- Capture 已更新时明确标记建议过期。\n- 接受标题、Content Type 或 Category 必须是显式操作。\n- 接受标题或 Content Type 时复用 Capture 修订规则并增加版本；只接受 Category 时不增加正文版本。\n- 摘要和语义单元保留在 Suggestion 中，不替换原文。\n- 勾选局部原文建议时，实时显示基于已保存版本的整篇修改前/修改后对比，确认前不写回。\n- 最近一次 accepted/modified Suggestion 保存采纳前快照；没有后续 Capture 修改、AI 分类变化或候选主张推进时，允许整体回退并生成新的 Revision。\n- 整体回退恢复标题、正文、Content Type 和 AI 分类，删除本次新建且仍为 candidate 的主张；保留手动分类、Suggestion 和版本历史。\n- 每个 Suggestion 只允许完成一次最终决策。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH02"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "### F1 注册\n- **业务规则**：用户名 8–32 字符且仅由英文字母与数字组成（a-z A-Z 0-9），全局唯一；口令 8–64 字符，字符集仅限 ASCII 可打印字符（英文字母/数字及常见符号），至少含 1 个字母与 1 个数字；禁止非 ASCII 字符、空格、制表符/换行/回车等空白与控制字符（**服务端强制**）；口令+随机盐经 PBKDF2-HMAC-SHA256 生成散列；**明文口令绝不落盘/不进日志/不回显**；口令仅经 TLS 一次性传输，服务端校验长度/强度；**两次确认在客户端完成**，服务端仅接收一个口令字段；注册成功即签发会话凭据（自动登录）。\n- **验收标准**：① 新用户名注册成功并可登录；② 重复用户名被拒绝且返回明确错误码；③ 用户名长度（<8 或 >32）或含非法字符（非英文字母/数字），或口令长度/强度（<8、>64、缺字母或数字、含非 ASCII、含空格/制表/换行等空白与控制字符）不符均被拒并返回对应错误码；④ 数据库中仅存散列与盐，检索不到明文；⑤ 日志无明文口令。",
+"split": "hold",
+"has_ac": true,
+"has_err": true,
+"id": "DH03"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "### 6.2 验收标准\n- [x] 支持表、视图、存储过程、函数、索引、触发器、约束统一浏览（`object_catalog.py` + 对象树分类；触发器由 5 个引擎各自实现 `list_triggers`）。\n- [x] 支持对象搜索（跨已索引数据库，按名称/类型/父对象匹配；跨连接结果分组）。\n- [ ] 支持跨库对象搜索 —— 已支持跨连接，跨库在单连接内已覆盖。\n- [x] 支持 DDL diff 可视化（`schema_sync_panel` 已接 `plan_sync()`；预览标题显示破坏性条数）。\n- [x] 支持 schema 变更生成和预览 —— `SyncEngine.plan_sync()`，`Plan.preview_text()` 用 `!!` 标出破坏性语句。\n- [x] 支持结构变更 dry-run —— `Plan.summary()` / `requires_confirmation` / `transactional`。\n- [x] 生成的 DDL 按目标引擎引用（MySQL / PostgreSQL / SQL Server / ClickHouse / SQLite），建表按依赖父→子、删表子→父。\n- [ ] 支持跨库对象搜索。\n\n---",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH04"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "### 3.5 GW — API 网关\n\nAPI 网关让外部系统以标准协议接入 AI 能力，核心价值是在接口转发之外提供记忆注入与技能增强。v1.6 起默认提供「纯净转发」模式（关闭领域模式时不注入不记录），记忆注入与技能增强需开启网关领域模式。\n\n- **GW-1 多协议入站**：\n  - **OpenAI Chat Completions**：`POST /v1/chat/completions`，支持流式/非流式/函数调用/视觉。\n  - **OpenAI Responses**：`POST /v1/responses`，支持推理模型。\n  - **Anthropic Messages**：`POST /v1/messages`，Claude 系列协议。\n  - **Google Gemini**：`POST /v1/gemini/...`，Gemini 系列协议。\n  - **Ollama 原生**：`POST /api/chat` `/api/generate` `/api/tags` 等，伪装 Ollama 服务供 Ollama 兼容客户端直接调用。\n  - **图像生成 API**：`POST /v1/images/generations`，支持文生图。\n  - **图像编辑 API**：`POST /v1/images/edits`，支持编辑修复。\n  - **模型发现 API**：`GET /v1/models`，可用模型列表。\n  - **嵌入向量 API**：`POST /v1/embeddings`（OpenAI 兼容）。\n  - **语音 API**：`POST /v1/audio/speech` 语音合成、`POST /v1/audio/transcriptions` 语音识别（OpenAI 兼容）。\n  - **视频生成 API**：`POST /v1/video/generations` 任务式提交 + `GET /v1/video/generations/{taskId}` 状态查询。\n  - **重排序 API**：`POST /v1/reranks`（DashScope 兼容格式）。\n\n- **GW-2 认证与路由**：\n  - **AppKey 认证**：`sk-` 前缀随机密钥，每个 AppKey 绑定用户身份、模型范围。\n  - **模型路由**：根据模型编码选择服务商和模型。\n  - **上游 429 指数退避重试**：带随机抖动，最多 5 次。\n  - **网关领域模式**：关闭时网关作为纯净 LLM 网关仅转发流量（鉴权/限流/配额/用量，不记录对话、不注入用户信息）；开启时启用完整处理器链（记忆/技能注入）并自动记录对话，与 Web 对话能力对齐。\n  - **用户隔离**：向 LLM 服务商透传 User 字段（Web=用户ID，网关/渠道=AppKey.UserId），用于服务商侧 KV-Cache 隔离。\n\n- **GW-3 用量记录**：\n  - **用量记录**：每次调用记录 Token 消耗、耗时等指标，同时归属到用户与 AppKey 双维度。\n  - **基础用量统计**：按日聚合，支撑用户和 AppKey 维度查询。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH05"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "#### 6.8.7 音频生成（TTS，支撑 AI 学习资源）\n功能目标：\n- 为 AI 生成的词卡/例句提供可听输入，提升听力与跟读训练可用性。\n\n输入：\n- 待配音文本、voice 参数、格式参数\n\n输出：\n- 对象存储中的音频文件 URL（回填 `cards.audio_url`）\n\n业务规则：\n- 纯 CPU、离线可运行\n- 默认本地模型推理，异步任务生成，不阻塞主学习流程\n- 使用确定性对象键去重，避免重复生成和重复存储\n- 存储必须兼容 `local|s3` 配置切换\n\n异常与降级：\n- 生成失败进入可重试队列；超过重试上限标记失败并暴露诊断信息",
+"split": "hold",
+"has_ac": false,
+"has_err": true,
+"id": "DH06"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "### 3.10 CLI — 高级客户端 API\n\n在低层 `BacnetClient` 之上封装面向业务的高级 API。\n\n- **CLI-1 生命周期管理**：`BacClient.Open()`/`Close()` 管理连接启停\n- **CLI-2 Scan() 设备发现**：广播或单播 Who-Is，等待首个响应并返回\n- **CLI-3 Nodes 节点管理**：自动维护已发现设备节点集合（去重）\n- **CLI-4 定时重扫**：自动定时重新扫描，默认 60 秒周期\n- **CLI-5 GetProperties**：自动读取设备全量对象列表与属性\n- **CLI-6 单属性读写**：`ReadProperty`/`WriteProperty` 支持 `BacnetObjectId` 和字符串地址\n- **CLI-7 批量属性读写**：`ReadProperties`/`WriteProperties` 支持分批\n- **CLI-8 点位字符串寻址**：`\"实例_类型\"` 格式字符串直接定位点位\n- **CLI-9 GetDetail**：获取属性详细信息（名称、值、描述、单位）",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH07"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "### 4.2 未选任务直接开始\n\n1. 用户在当前设备点击“开始专注”；Mac 端额外支持菜单栏和全局快捷键。\n2. 立即开始倒计时；名称输入不是必填步骤。\n3. 结束时停止背景声，敲磬提醒并生成待补记记录。Mac 主动打开本轮补记；iPhone 前台直接展示，后台通过通知进入。\n4. 显示简短补记界面：“这段时间做了什么？”\n5. 用户输入一句话后保存，或选择“暂不填写”保存为未命名记录；Mac 支持 Enter 保存。记录通过用户自己的方案传到另一端后，可在那里查看或补记。\n\n示例：“修复博客移动端导航”“阅读 SwiftUI 文档”“整理职业选择思路”。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH08"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "### 12.2 用户体验指标\n\n- 新用户从打开应用到读到第一篇已确认 Source，不需要理解项目目录、Git、Agent CLI、BYOK、编译或图谱依赖。\n- 导入确认前，用户能看懂哪些文件解析成功、哪些失败。\n- 用户能明确区分“打开已有知识库”和当前项目内的“导入”；普通资料文件夹不会被误改造成知识库。\n- 兼容类型、信任、文件系统只读和修复健康状态分别可解释，并且每个阻塞状态只有一个明确下一步。\n- 冲突发生时，用户能看到差异并做出选择。\n- 用户进入工作流后 5 秒内能判断当前任务状态或建议的下一步。\n- 启动任一内置工作流不超过三个主要操作步骤。\n- 用户不查看原始日志也能理解任务当前阶段、进度和是否需要处理。\n- 用户从 Wiki 发起单篇快速生成时不离开当前文章，任务立即可检查，成功后自动预览；复杂生成仍能从 Workflows 获得完整范围、队列、确认和历史。",
+"split": "hold",
+"has_ac": false,
+"has_err": true,
+"id": "DH09"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "### 7.12 响应式与多设备\n\n项目应支持部署到自有服务器，并通过访问地址在不同设备使用。\n\n断点建议：\n\n- 手机：小于 640px。\n- 平板：640px 至 1024px。\n- 桌面：1024px 以上。\n\n响应式要求：\n\n- 手机端侧栏收起为抽屉导航。\n- 顶栏保留当前页面标题、搜索和用户入口。\n- 文档编辑器在手机端优先展示内容，工具栏折叠为底部或浮层。\n- 数据表在手机端支持横向滚动和卡片视图。\n- 邮箱列表和邮件详情在手机端采用主从页面切换。\n- 日历在手机端默认显示日程列表，可切换月视图。\n- 管理后台在手机端保持可用，但优先适配桌面管理场景。\n\n验收标准：\n\n- 手机、平板、桌面均可完成登录、阅读、编辑、查看任务。\n- 页面不出现核心操作被遮挡或不可点击。\n- 多设备访问同一账号时数据保持同步。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH10"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "### 6.10 任务详情\n\n任务详情必须支持：\n\n- 编辑任务标题。\n- 显示并切换所属文档、所属标题，提供跳转到任务。\n- 更多菜单：删除任务、置顶等任务右键菜单能力。\n- 保存、关闭。\n- 重要性选择器。\n- 状态选择器。\n- 开始日期、截止日期、时长、耗时、提醒、循环规则。\n- 子任务列表：完成统计、新建子任务、点击子任务进入详情。\n- 备注编辑，支持 Markdown 工具。\n- 附件区：图片、PDF、普通文件、文档链接、块链接；支持粘贴剪贴板附件或文档 ID。\n- 自定义字段：单选、多选、文本。\n\n验收：\n\n- 拖拽鼠标到窗口外时详情页不应误关闭。\n- 新建子任务保存过程中，子任务输入不消失。\n- 其他块内容只读时，要提示回原文档编辑。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH11"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "#### 验收标准\n1. When 用户点击\"生成\"按钮, the 分割系统 shall 根据分割线位置将原始图片切割为多个子图片\n2. When 分割完成后, the 分割系统 shall 展示所有子图片的预览缩略图\n3. When 用户点击\"下载全部\"按钮, the 分割系统 shall 将所有子图片打包为 ZIP 文件并触发下载，ZIP 文件命名为 `{原始文件名}_split.zip`\n4. The 分割系统 shall 将子图片按行列位置命名为 `{原始文件名}_r{行号}_c{列号}.{格式}`（如 `photo_r1_c2.png`），行列号从 1 开始\n5. When 用户点击某个子图片的单独下载按钮, the 分割系统 shall 下载该单张子图片\n6. The 分割系统 shall 以原始图片分辨率进行切割，不降低画质\n7. The 分割系统 shall 保持原始图片格式导出（PNG 输入导出 PNG，JPG 输入导出 JPG），WebP 格式统一导出为 PNG\n8. If 画布上没有任何分割线时用户点击生成, the 分割系统 shall 提示用户需要先添加分割线\n\n---",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH12"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "### 3.1 PROT 协议编解码\n\n协议层涵盖 MQTT 3.1 / 3.1.1 / 5.0 三个版本的完整报文与属性编解码，是所有上层功能的基础。\n\n- **PROT-1 MQTT 基础报文结构**：4 位类型 + 4 位标志 + 1~4 字节变长剩余长度（最大 256MB），`MqttCodec` + `PacketCodec` 流式解析，UInt16 报文标识符线程安全分配。所有上层报文编解码的公共基础。\n- **PROT-2 MQTT 3.1/3.1.1 报文编解码**：14 种报文类型（CONNECT ~ DISCONNECT）完整序列化与反序列化，包括 MQTT 3.1 协议名（`MQIsdp`）识别。\n- **PROT-3 MQTT 5.0 报文与属性系统**：15 种报文类型（含 AUTH）+ 30 种属性标识符 + 7 种数据类型完整编解码，所有 ACK 报文 ReasonCode 扩展，服务端断开报文（DisconnectMessage）。\n- **PROT-4 QoS 0/1/2 确认流程**：三级服务质量完整确认流程（含 QoS 2 四步握手：PUBLISH→PUBREC→PUBREL→PUBCOMP）。\n- **PROT-5 主题与通配符**：`/` 分层 + `+` 单层 + `#` 多层通配符匹配，`$SYS` 屏蔽通配符订阅，主题最大 65536 字节验证，共享订阅 `$share/{group}/{topic}` 格式解析。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH13"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "### 2.1.1 技术栈决定\n\n- **应用**：TypeScript + React 19 + Vinext，兼顾产品界面、服务端接口和 Cloudflare Worker 运行环境。\n- **样式**：Tailwind CSS 4 与语义化 CSS 变量；遵循 WCAG 对比度、键盘操作、44px 触控目标和减少动态效果偏好。\n- **数据**：Cloudflare D1 + Drizzle ORM；浏览器状态只承载临时界面交互，不作为工作区、审批或审计记录的权威来源。\n- **文件**：MVP 仅导出小型 JSON/文本清单；后续图片、视频与 ZIP 等二进制资产使用 R2，D1 只保存元数据。\n- **身份**：托管版本优先使用平台提供的已认证用户信息，并在服务端执行工作区授权；不自行拼装未经评估的账号密码系统。\n- **模型**：通过服务端生成接口隔离供应商；当前为可审计演示引擎，正式模型上线前必须完成来源、内容安全、数据处理与标识评估。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH14"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "### FR-4 G-code 改写引擎（Python 脚本逻辑的移植 + 修复）\n\n将现有脚本的四类改写移植为 TypeScript 模块，并修复已知问题：\n\n1. **喷嘴温度（修复硬编码，见 FR-8）**：改写开机段中等于\"源打印温度\"的 `M104/M109 S<t>` 行 → 目标温度；同步改配置头 `nozzle_temperature`、`nozzle_temperature_initial_layer`。开机段固定流程温度（170/140/250 等预热、擦嘴温度）不动。\n2. **Z 偏移**：改写 `G29.1 Z… ; for Textured PEI Plate` 行。若找不到该行（非 Textured PEI 床型），列入安全检查警告并说明后果，而不是静默跳过。\n3. **流量倍率**：在打印主体 `;VT0` 后注入/替换 `M221 S<flow>`；同步改配置头 `filament_flow_ratio`。\n4. **移动速度**：主体内独立 `G1 F<n>` 行 → `G1 F<speed×60>`；行内 `F30000` token → 同值替换。\n5. **改写标记**：在 gcode 头部注入一行处理标记（如 `; allyoucanseal: processed v<version> params=<json>`），用于防重复处理（FR-6）和溯源。\n6. **md5 同步**：改写后重算并更新 3mf 内对应的 `.gcode.md5` 文件（当前脚本的已知缺陷）。\n7. 引擎必须是纯函数式的（输入文本+参数 → 输出文本+变更报告），与 UI 解耦，便于单元测试。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH15"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "#### 3.3.2 功能\n- 学生列表：支持按姓名/学号搜索、按标签筛选、按学号或姓名排序。\n- 单个新增 / 编辑 / 删除。\n- **批量导入**：粘贴文本（每行一个姓名，可选 `学号,姓名,性别`）或上传 CSV/XLSX；导入前展示预览与冲突提示（学号重复）。\n- 批量操作：批量打标签、批量移出。\n- 学生详情页：基础信息 + 历次成绩趋势 + 座位历史 + 备注时间线。\n\n**验收标准**\n- AC-4：导入 60 行学生数据，重复学号被标红且不写入，其余正常写入。\n- AC-5：学生列表在 300 人规模下首屏渲染 < 1s（分页 or 虚拟列表）。\n\n---",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH16"
+},
+{
+"repo": "TY-teo/ChargeWatching",
+"license": "MIT",
+"text": "### 9.5 约束\n- 仅 Apple Silicon（按硬件探测，非进程架构）+ macOS 26.4+ 支持\"app 内设置\"；读取与深链在支持原生上限的系统上可用。\n- 依赖系统二进制 `/usr/bin/pmset`、`/usr/bin/shortcuts`，经 `Process` 调用（非沙盒构建，ad-hoc 签名）；Info.plist 需 `NSAppleEventsUsageDescription`。\n- 无程序化创建快捷指令的 API → 需用户一次性配置（尽量做成最少步骤 / 清晰引导）。\n- 关键路径假设以编码前 spike（架构 §13.9）为硬门禁；不达标则相应降级，不强行交付不可靠功能。\n- 本期段控仅 80/85/90/95/100；\"清除上限/回到无限制\"是否可从 app 内完成取决于动作语义（spike 验证），否则只读显示 + 深链清除。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH17"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "#### 3.3.1 故事列表页\n**页面**：`browse.html`\n\n**功能需求**：\n- 显示所有已审核通过的故事\n- 支持搜索功能（按标题或关键词）\n- 支持分类筛选\n- 支持排序（最新发布、最受欢迎、评分最高）\n- 分页显示（每页12个故事）\n- 故事卡片显示：封面图、标题、描述、分类、作者、浏览次数、评分、发布日期\n- 点击故事卡片跳转到阅读页面\n\n**筛选功能**：\n- 搜索框（实时搜索）\n- 分类下拉选择\n- 排序下拉选择\n- 筛选按钮应用筛选条件\n\n**故事卡片信息**：\n- 封面图片\n- 分类标签\n- 分支数量\n- 标题\n- 描述（最多2行）\n- 作者头像和名称\n- 浏览次数\n- 评分\n- 发布日期\n- \"阅读\"按钮",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH18"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "### 3.1 音色库（VoiceLibrary）\n音色库用于持久化存储和管理用户创建的音色。\n\n**核心属性：**\n- 音色ID（唯一标识）\n- 音色名称（用户自定义）\n- 音色描述（可选）\n- 音色类型：CustomVoice / VoiceDesign / VoiceClone\n- 音色数据：\n  - CustomVoice: speaker名称\n  - VoiceDesign: instruct指令\n  - VoiceClone: 缓存的x_vector引用\n- 标签/分组（支持多标签）\n- 示例音频路径（用于预览）\n- 创建时间\n- 最后使用时间\n- 使用次数统计\n- 用户ID（用户隔离）\n\n**功能要求：**\n- 基础CRUD操作（创建、读取、更新、删除）\n- 音色预览：生成并播放示例音频\n- 标签/分组管理：支持按标签筛选和搜索\n- 支持批量操作（批量删除、批量导出）",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH19"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "## 6. 验收清单\n\n- [ ] 应用中心菜单下可见「编码规则」页面\n- [ ] 可新增/编辑/删除/启停编码规则\n- [ ] 分段明细可在弹窗内增删改排序\n- [ ] 五种段类型（DATE/FIXED/SEQ/VARIABLE/SYS_VAR）均可正确配置生成\n- [ ] SEQ 段5种进制转换正确，溢出时报错\n- [ ] SEQ 段可配置是否去除易混淆字符（I/O/Z），开启后字母进制不含这些字符\n- [ ] 流水号按年/月/日/时重置正确\n- [ ] 流水号按分组字段独立计数正确\n- [ ] 不重置规则跨周期持续递增\n- [ ] 保存时实时预览编码格式与示例值\n- [ ] 调用生成接口按规则产出正确编号\n- [ ] 并发生成不重复\n- [ ] 内置规则预置可用且不可删除\n- [ ] 旧 ai_code_rule 数据迁移后生成结果一致\n- [ ] 低代码业务对象字段自动编号功能正常\n- [ ] 超级管理员可查看所有租户数据\n- [ ] 接口权限校验与操作日志正常\n\n---",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH20"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "### 6.1 v1.0 目标\n\nv1.0 的目标是达到“可直接二次开发和小型项目交付”的实用程度。\n\n用户应能做到：\n\n1. 克隆项目后按 README 在 10 分钟内启动完整系统。\n2. 使用默认管理员登录后台。\n3. 创建部门、角色、用户，并分配菜单和按钮权限。\n4. 通过后端权限控制接口访问，普通用户无法越权。\n5. 管理字典、系统参数、通知公告和站内消息。\n6. 查看登录日志、操作日志，并追踪关键操作。\n7. 上传、查看、下载和删除文件。\n8. 参考 Items 模块新增一个完整业务模块。\n9. 通过 OpenAPI 生成前端类型，保持前后端契约一致。\n10. 使用 Docker Compose 完成最小生产部署。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH21"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "### R4 · 事件驱动轮次与流式互见 `P1`\n- **用户故事**：作为成员，当同轮另一成员产出了与我相关的发现，我应能即时看到并回应，而不是等到下一轮屏障。\n- **验收标准**：\n  - 引入「发言事件流」：成员的 token / 工具 / 结论事件可被同组其他成员订阅（默认选择性可见）。\n  - 支持「追加发言」——成员可在轮次内对他人发现二次回应。\n  - coordinator 可基于流式事件提前结束、追加成员或聚焦。\n- **技术要点**：pub/sub over `GroupMessageBus`；可见性策略（按 @提及 / 按主题相关性）防噪声；背压处理。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH22"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "## 8. 未决项与已确认历史\n\n> 以下条目区分仍待决定的产品问题与已经确认的历史状态；PRD 不缓存 checks、review threads 或 dirty ownership 等瞬时执行状态。\n\n1. **Hot Tier 批准状态**：M7 仍冻结。M6（G1–G7）通过只允许提出授权请求；用户必须在看到 Gate Review 后明确批准一个单独的 implementation task（PROJECT.md、SDD M7、REQ-STABILITY-001/005/006）。当前无批准记录。\n2. **PR `#383` 历史状态**：规划 PR `codex/redis-8.8.1-oracle-provenance-plan` 已于 2026-07-28 合并，final Head `42c16bef899385bd2e1b1e16e2e0202d4a614590`，merge commit `58030e1331655546ea4547a9a94efc493534ef7d`；它只固化 planning/docs，不带入实现。\n3. **provenance 实现进度**：方案 A（D011）已批准，但实现**未在接受边界内开始**（SDD WP1）。PR `#383` 只完成规划闭环，不代表方案 A 已实现。\n4. **`arana-db/redis` 下游 baseline**：下游 exact commit、patch 清单、构建配置、产物 hash 尚未建立，当前不是 Kiwi 构建输入（PROJECT.md L28、L34）。\n5. **组合发行开源许可证专项复核**：首次公开发布含 Redis-derived native library 的组合发行前必须完成，当前未执行（REQ-LICENSE-008；D002）。\n6. **Oracle 草稿接受边界**：PR `#383` 未接受旧六文件实现草稿；后续独立 Oracle implementation task 只能将其作为只读参考，并须逐项对照 D011、REQ-COMPAT-008~010 重新审计。精确 worktree、dirty ownership 和 recovery checkpoint 不在 PRD 中缓存。\n7. **Multi-Raft 启动条件**：单 Group 兼容/持久化/一致性/故障/稳定门禁未完成，且无 Leader 吞吐/容量/隔离/故障域瓶颈证据 → M10 不启动（SDD M10）。\n8. **当前运行模式**：Cache OFF 为当前唯一 required 模式（SDD、REQ-PERF-001）。Cache ON 测试与对比基线只能在 M7 条件满足且单独 implementation task 获批后引入。\n\n---",
+"split": "hold",
+"has_ac": false,
+"has_err": true,
+"id": "DH23"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "## 2. 背景与问题\n\n微信可以接收和下载 `.md` 文件，但缺少适合 Markdown 的原生阅读体验。用户直接打开时，常见问题包括：\n\n- Markdown 标记未被渲染，阅读效率低。\n- 长文档缺少目录和快速跳转。\n- 代码块缺少高亮和复制操作。\n- 表格、任务列表等内容难以阅读。\n- 用户通常需要把文件转发到电脑或其他应用处理。\n\n微信官方提供“聊天素材支持小程序打开”能力，并明确支持 `text/markdown` 类型，因此可以通过小程序补足这一体验。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH24"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "### 9.2 技术层面\n\n1. **实时消息推送**: 使用 WebSocket 还是 Firebase Cloud Messaging / APNs？\n   - **待确认**: 需要后端团队确认消息推送方案\n\n2. **离线能力**: PWA 离线缓存的数据范围和更新策略？\n   - **建议**: 缓存关键页面 (首页、订单列表)，数据优先从缓存读取\n\n3. **图片上传**: 图片上传到自有服务器还是第三方云存储 (如阿里云 OSS、腾讯云 COS)？\n   - **待确认**: 需要运维团队确认存储方案\n\n4. **地图服务**: LBS 功能使用高德地图、百度地图还是 Google Maps？\n   - **待确认**: 需要确认国内外用户分布，选择合适的地图服务\n\n5. **支付功能**: 提现功能对接哪些支付渠道 (支付宝、微信支付、银行卡)？\n   - **待确认**: 需要财务和法务团队确认支付合规方案",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH25"
+},
+{
+"repo": "liangyimingcom/BRClient",
+"license": "MIT",
+"text": "#### 2.2.4 界面交互模块\n\n##### F4.1 响应式布局 (P0)\n**功能描述**: 适配不同屏幕尺寸\n\n**需求详情**:\n- 支持窗口缩放\n- 支持全屏模式\n- 侧边栏可折叠\n- 组件自适应布局\n- 最小窗口尺寸限制\n\n**验收标准**:\n- [ ] 不同尺寸下布局正常\n- [ ] 全屏无遮挡\n- [ ] 侧边栏折叠流畅\n- [ ] 最小宽度800px\n\n##### F4.2 快捷键支持 (P1)\n**功能描述**: 键盘快捷操作\n\n**需求详情**:\n- Ctrl/Cmd + N: 新建对话\n- Ctrl/Cmd + K: 搜索对话\n- Ctrl/Cmd + Enter: 发送消息\n- Ctrl/Cmd + /: 快捷键帮助\n- ESC: 停止生成\n- Ctrl/Cmd + B: 切换侧边栏\n\n**验收标准**:\n- [ ] 所有快捷键生效\n- [ ] 快捷键不冲突\n- [ ] 帮助文档完整\n- [ ] 跨平台兼容\n\n##### F4.3 主题系统 (P1)\n**功能描述**: 自定义界面主题\n\n**需求详情**:\n- 内置亮色主题\n- 内置暗色主题\n- 自动跟随系统\n- 自定义主题色\n- 主题导入导出\n\n**验收标准**:\n- [ ] 主题切换流畅\n- [ ] 所有组件适配主题\n- [ ] 系统主题自动跟随\n- [ ] 自定义主题保存\n\n##### F4.4 多语言支持 (P2)\n**功能描述**: 界面多语言显示\n\n**需求详情**:\n- 中文简体\n- 英文\n- 日文\n- 韩文\n- 其他主要语言\n- 语言包热更新\n\n**验收标准**:\n- [ ] 界面文本完整翻译\n- [ ] 语言切换无需重启\n- [ ] 日期时间本地化\n- [ ] 错误信息多语言",
+"split": "hold",
+"has_ac": true,
+"has_err": true,
+"id": "DH26"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "## 1.1 问题陈述\n\n知识工作者在一天结束时通常无法准确回答\"我今天做了什么\"。现有工具解决不了这个问题：\n\n- **手动计时器**（Toggl 一类）要求用户记得启停，而人恰恰在专注时最不可能记得。\n- **应用级时间统计**（Screen Time 一类）只知道哪个应用在前台，不知道你在那个应用里\n  *做了什么*。\"VS Code 3 小时\"对复盘几乎没有信息量。\n- **日历**记录的是计划，不是实际发生的事。\n\nDaygo 的目标是保留**工作本身的上下文**：在构建什么、排查什么、和谁讨论什么、评审什么。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH27"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "#### 1.3 项目范围\n* **包含范围**：\n    * 本地Web服务器的搭建与UI界面的基础实现。\n    * 通过UI界面发送用户输入到大模型，并展示模型返回结果。\n    * 实现从 `.env` 文件和环境变量读取模型配置信息的功能，并确保环境变量的优先性。\n    * 提供添加和修改MCP工具的机制和接口文档。\n    * 使用Python作为主要的后端开发语言。\n* **暂不包含范围**（可作为未来迭代）：\n    * 复杂的用户认证与授权系统。\n    * 多用户并发处理的深度优化。\n    * 高级数据分析与可视化功能。\n    * 移动端应用的适配。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH28"
+},
+{
+"repo": "kyre-99/MacDynamicIslandPet",
+"license": "MIT",
+"text": "### Phase 1：新增小人内部状态层\n\n目标：\n\n- 让系统不只知道“用户如何”，也知道“小人现在如何”\n\n改动建议：\n\n- 新增 `PetInternalStateManager`\n- 增加状态更新规则\n- 在以下事件中更新内部状态：\n  - 用户主动对话\n  - 长时间未互动\n  - 被忽略\n  - 触发自言自语\n  - 收到积极回应\n\n建议初始规则：\n\n- 长时间未互动：`socialNeed` 上升\n- 深夜用户还在忙：`concern` 或 `protective` 倾向上升\n- 连续被触发但用户未对话：`frustration` 小幅上升\n- 用户频繁互动：`attachmentLevel` 上升\n\n涉及文件：\n\n- 新增 `MacDynamicIslandPet/PetInternalStateManager.swift`\n- 修改 `MacDynamicIslandPet/ConversationManager.swift`\n- 修改 `MacDynamicIslandPet/SelfTalkManager.swift`\n- 修改 `MacDynamicIslandPet/CommentGenerator.swift`\n\n验收标准：\n\n- 小人内部状态可以持久化\n- 不同行为会引起内部状态变化\n- 生成文案开始体现“当前心情”\n\n测试：\n\n- 单元测试：状态增减规则\n- 手动测试：间隔触发与连续互动触发\n\n已完成实现：\n\n- 新增 `MacDynamicIslandPet/PetInternalStateManager.swift`\n- 在 `MemoryArchitecture.swift` 中增加 `pet-internal-state.json` 存储路径\n- 内部状态已接入 `ConversationManager`、`SelfTalkManager`、`CommentGenerator`\n- 当前已支持 `mood`、`energy`、`socialNeed`、`attachmentLevel`、`frustration`、`curiosityFocus`、`currentGoal`、`unfinishedThought`\n- 增加了被动漂移规则，避免每次读取 prompt 时重复累计状态\n- 新增 `MacDynamicIslandPet/PetInternalStateTests.swift`，覆盖对话开始、长时间未互动、自言自语触发、低落安慰等核心规则",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH29"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "### 3.3 M3 服务抽象与跨平台宿主\n\n- **M3-1 `ServiceBase` 基类**：继承即获得服务治理能力，统一 `ServiceName`/`DisplayName`/`Description` 元数据，管理运行状态 `Running`。\n- **M3-2 Windows 服务**：使用 Win32 SCM API 实现完整的服务注册、启动、停止、卸载，支持电源/会话/时间变更系统事件。\n- **M3-3 Windows 登录自启动**：通过注册表 Run 项实现用户登录后自动运行，适用于桌面场景。\n- **M3-4 Linux Systemd**：自动生成 `.service` 单元文件，调用 `systemctl` 完成服务管理，支持丰富的 systemd 配置（重启策略、资源限制、网络依赖等）。\n- **M3-5 Linux Procd（OpenWrt）**：面向路由器/嵌入式 Linux 的 procd init 脚本管理。\n- **M3-6 Linux RcInit（传统 init.d）**：面向非 systemd 环境的 init.d 脚本管理。\n- **M3-7 Linux SysVinit**：SysVinit 兼容识别。\n- **M3-8 macOS LaunchAgent**：通过 `launchctl` 管理 `~/Library/LaunchAgents/*.plist`。\n- **M3-9 平台自动检测与适配**：`Init()` 方法根据当前操作系统和配置自动选择最合适的宿主实现。\n- **M3-10 兜底宿主**：无对应系统服务时以 `DefaultHost` 兜底运行。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH30"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "## 9. 任务拆解建议\n\n计划拆分为 **7 个子任务**（与里程碑对应）：\n\n1. **规则引擎核心重构**：实现基于 rquickjs 的沙箱规则执行引擎与源切换状态保持/竞态取消（FR-01、02、05）。\n2. **内置源重建与热更新**：参考 kazumi/animeko 重建 ≥13 个内置源，实现规则包拉取、校验与源健康检查 CI（FR-03、04）。\n3. **播放器体验修复**：重构控制栏隐藏状态机修复超清不隐藏 bug，实现播放错误降级 UI（FR-06、07）。\n4. **历史数据模型 v2 与迁移**：SQLite 化 + v1→v2 自动迁移、备份与回滚（FR-08）。\n5. **历史同步（WebDAV）**：WebDAV 客户端、凭据安全存储、冲突合并与墓碑删除（FR-09）。\n6. **漫画/小说历史优化与双页阅读**：历史精确续读、列表筛选搜索、漫画双页/RTL 模式（FR-10、11）。\n7. **全量回归与发布**：三端回归测试、数据迁移演练、打 tag 走 release.yml 发布。\n\n**依赖关系**：\n- 任务 1 → 任务 2（源依赖引擎）；\n- 任务 4 → 任务 5（同步依赖新数据模型）；\n- 任务 3 与任务 1/2 独立，可并行；\n- 任务 6 依赖任务 4（复用历史模型）但与任务 5 可并行；\n- 任务 7 依赖全部前置任务完成。\n\n建议执行顺序：**1 → (2 ∥ 3) → 4 → (5 ∥ 6) → 7**。",
+"split": "hold",
+"has_ac": false,
+"has_err": true,
+"id": "DH31"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "### 阶段 3：计划工作台 MVP\n\n- 实现顶层“计划”、默认“今天”和左侧视图。\n- 实现紧凑任务列表、快速创建和右侧检查器。\n- 将现有日历改为二级排期视图，并打通拖拽排期。\n- 完成键盘、焦点、主题、滚动和窄窗口适配。\n\n交付判定：用户不借助 Agent 也能完整管理任务和排期。\n\n实施状态（2026-08-01）：已完成。桌面端 Activity Rail 已将原“日历”入口升级为顶层“计划”；默认“今天”，并提供收集箱、即将到来、未安排、全部、项目、Agent 提案、已完成与日历排程。列表支持搜索、快速新建、完成/恢复和项目上下文；右侧检查器支持状态、优先级、项目、排程、截止时间、预计时长、备注与删除。Agent Proposal 在独立确认面板逐项预览，只有显式接受才写入 Todo。原 Calendar 作为嵌入式二级排程视图继续复用同一 Planner 数据。桌面端采用现有语义令牌，并完成深色主题、高 DPI、紧凑窗口、键盘快捷键和独立滚动验收。",
+"split": "hold",
+"has_ac": true,
+"has_err": false,
+"id": "DH32"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "### 2.2. 查找相似剧集 (`get_similar_shows`)\n*   **用户故事:** 作为一个刚看完一部很喜欢的美剧的用户，我希望可以告诉 LLM 这部剧的名字，以便它能给我推荐几部风格或主题相似的其他剧集。\n*   **功能需求:**\n    *   MCP Server 需暴露一个名为 `get_similar_shows` 的工具。\n    *   工具接受一个参数：`show_title` (剧集名称，字符串)。\n    *   服务器首先需要通过 `show_title` 调用 TMDb API 找到对应的剧集 ID。**决策：如果找到多个同名剧集，默认选择第一个结果。如果找不到，返回明确的错误文本。**\n    *   服务器使用剧集 ID 调用 TMDb API 的\"查找相似\"功能。\n    *   服务器处理并格式化返回的相似剧集列表，**默认返回 10 部**。**决策：返回格式需包含剧名、年份、评分和简介。**",
+"split": "hold",
+"has_ac": false,
+"has_err": true,
+"id": "DH33"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "### 2.1 核心用户故事\n\n**用户故事1: 自动新闻获取**\n- 作为一名金融分析师，我希望系统能够自动从investing.com等财经网站抓取最新新闻，这样我就不需要手动收集信息了。\n\n**用户故事2: 智能搜索**\n- 作为一名投资顾问，我希望能够通过自然语言查询相关的新闻信息，系统能够理解我的问题并返回最相关的内容。\n\n**用户故事3: 知识库管理**\n- 作为一名内容管理员，我希望能够管理知识库中的内容，包括查看、编辑、删除和批量导入数据。\n\n**用户故事4: 数据分析**\n- 作为一名研究人员，我希望系统能够对新闻数据进行聚类分析，展示热点话题和关键词分布。",
+"split": "hold",
+"has_ac": false,
+"has_err": false,
+"id": "DH34"
+}
+]

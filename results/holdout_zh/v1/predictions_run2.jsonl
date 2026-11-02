@@ -1,4 +1,4 @@
-{"id": "Z004", "labels": [], "pred": []}
+{"id": "Z004", "labels": ["R1"], "pred": []}
 {"id": "Z012", "labels": [], "pred": []}
 {"id": "Z013", "labels": [], "pred": []}
 {"id": "Z015", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "如剧情简介、主要演员、评分、播出年份和季数等", "reason": "用“如……等”列举且未封闭，读者无法确定“详细信息”是否还包含其他未列出的内容。"}]}
@@ -64,7 +64,7 @@
 {"id": "ZJ011", "labels": ["R6"], "pred": []}
 {"id": "ZJ012", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "它", "reason": "主语用代词\"它\"指代，但本条需求内找不到明确的先行词。"}]}
 {"id": "ZJ013", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "使用 Elasticsearch 的 match_phrase 查询实现", "reason": "需求指定了具体的技术实现（Elasticsearch 的 match_phrase 查询），而该技术选择并非业务或外部约束所要求。"}]}
-{"id": "ZJ014", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了具体实现方式（在特定方法 step() 中抛出特定异常类），而该技术选择并非外部约束所要求。"}]}
+{"id": "ZJ014", "labels": ["R1", "R5"], "pred": [{"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了具体实现方式（在特定方法 step() 中抛出特定异常类），而该技术选择并非外部约束所要求。"}]}
 {"id": "ZJ015", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "先写入 Redis List 再异步落盘", "reason": "需求规定了具体的技术实现（Redis List）和内部数据流向，而该技术选择并非业务或外部约束所要求。"}]}
 {"id": "ZJ016", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "用 MySQL JSON 字段存储", "reason": "需求指定了具体的技术实现（MySQL JSON 字段），而这个技术选择不是业务或外部约束所要求的。"}]}
 {"id": "ZJ017", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "等", "reason": "“词汇、对话、练习等”是开放式列举，未封闭全部内容，不同读者会得出不同范围。"}, {"rule": "R2", "evidence": "一键", "reason": "“一键”描述操作便捷程度，但没有给出可测量的标准（如点击次数、耗时阈值），无法验证。"}]}

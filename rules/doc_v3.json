@@ -1,0 +1,30 @@
+{
+  "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist (https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/)",
+  "scope": "审查 PRD 里的一个功能段落（一个功能的完整描述），只看段落之间缺了什么、对不对得上，不重复检查单句措辞。",
+  "rules": [
+    {
+      "id": "D1",
+      "name": "缺验收标准",
+      "nasa": "C.4 Verifiability: Can the criteria for verification be stated? Does a means exist to measure the accomplishment of the requirement?",
+      "判定": "段落描述了要做的功能，但段内没有任何可以判定「做完没有、做对没有」的条件：既没有「验收标准 / 完成标准 / AC」，也没有可以直接检查的具体结果（明确的数值阈值、明确的输出或状态）。",
+      "不算": "段内已有验收标准列表，或每个功能点都写了可直接检查的具体结果。 段内已经写清每个功能点成功和失败时分别会发生什么，可以据此直接写出测试用例的，即使没有单独的「验收标准」小节也不算；不要求写出超时阈值、提示文案等实现细节。 段内写成「在某种情况下系统会怎样」的行为描述（例如「连接未完成时离开前台会取消」「折叠时左栏不渲染、另两栏平分宽度」）本身就是可检查的结果，视为已有验收依据。"
+    },
+    {
+      "id": "D2",
+      "name": "缺异常处理",
+      "nasa": "C.4 Reliability: Are there error detection, reporting, handling, and recovery requirements? Are undesired events considered and their required responses specified?",
+      "判定": "先找出这个功能最核心的那个动作（例如生成配图、调用外部接口、导入文件、执行任务），再看段内有没有写这个核心动作失败时怎么办。核心动作的失败一个字都没提，才算违反。",
+      "不算": "核心动作的失败已经写了任何一种处理（重试、降级、回退、提示错误、拒绝并说明）就不算；不要求覆盖次要环节的失败（例如通知发送失败、重试次数用完以后、某个子步骤渲染失败）。"
+    },
+    {
+      "id": "D3",
+      "name": "前后矛盾",
+      "nasa": "C.4 Consistency: Are the requirements stated consistently without contradicting themselves?",
+      "判定": "段内两处说法互相冲突：数值、数量、上限、状态、权限或流程顺序对不上，按其中一处实现就会违反另一处。 也包括标题或目标里的承诺和验收指标对不上（例如标题写「零误差」，验收标准却允许 5% 误报）。",
+      "不算": "两处说法针对不同条件或不同对象，并不冲突。"
+    }
+  ],
+  "version": "doc_v3",
+  "changes_from_doc_v1": "按文档级开发集误判：D1/D2 补「不算」防止要求逐项罗列，D3 补标题与指标冲突",
+  "changes_from_doc_v2": "扩大文档级开发集到 20 条后的误判分析：D2 改成「核心动作的失败有没有写」，D1 补「情况—结果」式描述算验收依据"
+}

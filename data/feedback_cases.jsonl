@@ -1,0 +1,1 @@
+{"id": "Fea79b46c", "kind": "feedback", "level": "doc", "text": "### 4.2 状态刷新\n- 手动刷新状态视图（仅重新执行状态扫描，不触发更新）。\n- 刷新失败提示并保留上次状态。", "labels": [], "source_feedback": "ea79b46c"}

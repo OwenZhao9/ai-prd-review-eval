@@ -46,13 +46,13 @@ def chat(system, user, temperature=0.0, retries=3):
             time.sleep(2 * (i + 1))
 
 
-def review(system, text, temperature=0.0):
-    raw = chat(system, f'需求：\n{text}', temperature)
+def review(system, text, temperature=0.0, label='需求'):
+    raw = chat(system, f'{label}：\n{text}', temperature)
     m = re.search(r'\{.*\}', raw, re.S)
     data = json.loads(m.group(0)) if m else {}
     out = []
     for v in data.get('violations', []):
         rid = str(v.get('rule', '')).strip().upper()[:2]
-        if re.fullmatch(r'R[1-6]', rid):
+        if re.fullmatch(r'R[1-6]|D[1-3]', rid):
             out.append({'rule': rid, 'evidence': v.get('evidence', ''), 'reason': v.get('reason', '')})
     return out

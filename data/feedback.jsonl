@@ -1,0 +1,1 @@
+{"id": "ea79b46c", "time": "2026-11-02 20:00", "status": "accepted", "type": "false_positive", "level": "doc", "text": "### 4.2 状态刷新\n- 手动刷新状态视图（仅重新执行状态扫描，不触发更新）。\n- 刷新失败提示并保留上次状态。", "rule": "D2", "note": "", "predicted": ["D2"], "versions": {"sentence": "v4", "document": "doc_v1"}, "resolved_at": "2026-11-02 20:01"}

@@ -1,4 +1,4 @@
-{"id": "Z004", "kind": "natural", "lang": "zh", "text": "作为用户,我希望回测在资金不足时能够自动停止,模拟真实交易场景", "labels": [], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "Z004", "kind": "natural", "lang": "zh", "text": "作为用户,我希望回测在资金不足时能够自动停止,模拟真实交易场景", "labels": ["R1"], "repo": "WrBug/PolyHermes", "license": "MIT"}
 {"id": "Z012", "kind": "natural", "lang": "zh", "text": "上游发布新版本时必须创建新任务策略版本，不得改写已有任务策略或 CreativeIntake。", "labels": [], "repo": "shikanon/cookies", "license": "MIT"}
 {"id": "Z013", "kind": "natural", "lang": "zh", "text": "Workspace、用户、Capture、Claim、Evidence 与附件权限必须与 Web 端保持同一服务端授权结果。", "labels": [], "repo": "Yotoha0303/KnowTrace-Workflow", "license": "Apache-2.0"}
 {"id": "Z015", "kind": "natural", "lang": "zh", "text": "用户故事: 作为一个对某部美剧感兴趣的用户，我希望可以告诉 LLM 这部剧的名字，以便它能告诉我关于这部剧的详细信息，如剧情简介、主要演员、评分、播出年份和季数等。", "labels": ["R1"], "repo": "terryso/tv-recommender-mcp-server", "license": "MIT"}
@@ -64,7 +64,7 @@
 {"id": "ZJ011", "kind": "injected", "lang": "zh", "base": "Z217", "text": "该筛选下拉框支持按其过滤记录。", "labels": ["R6"], "repo": "WrBug/PolyHermes", "license": "MIT"}
 {"id": "ZJ012", "kind": "injected", "lang": "zh", "base": "Z293", "text": "它支持展开/折叠，折叠后保留图标导航和当前页高亮。", "labels": ["R6"], "repo": "ZJM189/Daily_News", "license": "MIT"}
 {"id": "ZJ013", "kind": "injected", "lang": "zh", "base": "Z227", "text": "列表页支持按应用名称搜索过滤，使用 Elasticsearch 的 match_phrase 查询实现。", "labels": ["R5"], "repo": "appstore-discounts/appstore-discounts", "license": "MIT"}
-{"id": "ZJ014", "kind": "injected", "lang": "zh", "base": "Z004", "text": "作为用户，我希望回测在资金不足时能够自动停止（在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现），模拟真实交易场景。", "labels": ["R5"], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "ZJ014", "kind": "injected", "lang": "zh", "base": "Z004", "text": "作为用户，我希望回测在资金不足时能够自动停止（在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现），模拟真实交易场景。", "labels": ["R1", "R5"], "repo": "WrBug/PolyHermes", "license": "MIT"}
 {"id": "ZJ015", "kind": "injected", "lang": "zh", "base": "Z104", "text": "支持归档合并（多段内容合并为一篇笔记），合并结果先写入 Redis List 再异步落盘。", "labels": ["R5"], "repo": "sameencai/KarvisForYou", "license": "MIT"}
 {"id": "ZJ016", "kind": "injected", "lang": "zh", "base": "Z337", "text": "每个项目有一个配置表，用 MySQL JSON 字段存储全部配置项（名称，值，类型）。", "labels": ["R5"], "repo": "entropy-cloud/nop-entropy", "license": "Apache-2.0"}
 {"id": "ZJ017", "kind": "injected", "lang": "zh", "base": "Z121", "text": "FR-010：支持 AI 一键生成学习包（词汇、对话、练习等）。", "labels": ["R1"], "repo": "KaniuBillows/english-anywhere-lab", "license": "Apache-2.0"}

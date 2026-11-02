@@ -1,4 +1,4 @@
-{"id": "Z004", "labels": [], "pred": []}
+{"id": "Z004", "labels": ["R1"], "pred": []}
 {"id": "Z012", "labels": [], "pred": []}
 {"id": "Z013", "labels": [], "pred": []}
 {"id": "Z015", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "如剧情简介、主要演员、评分、播出年份和季数等", "reason": "「如……等」的列举未封闭，读者无法确定详细信息是否还包含其他字段。"}]}
@@ -64,7 +64,7 @@
 {"id": "ZJ011", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "其", "reason": "「其」是代词，整条需求里没有出现它指代的名词，读者无法确定筛选下拉框按什么过滤记录。"}]}
 {"id": "ZJ012", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "它支持展开/折叠", "reason": "句首用代词「它」，整条需求内没有出现它指代的名词，无法确定主语是什么。"}]}
 {"id": "ZJ013", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "使用 Elasticsearch 的 match_phrase 查询实现", "reason": "需求指定了具体的技术实现（Elasticsearch 及 match_phrase 查询方式），而该技术选择并非外部约束所要求。"}]}
-{"id": "ZJ014", "labels": ["R5"], "pred": [{"rule": "R3", "evidence": "回测在资金不足时能够自动停止……，模拟真实交易场景", "reason": "「资金不足时自动停止」与「模拟真实交易场景」是两个可各自独立验收的要求，被逗号串在同一条需求里。"}, {"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了代码层面的实现方式（在哪个方法里抛哪种异常），这不是外部业务约束所要求的。"}]}
+{"id": "ZJ014", "labels": ["R1", "R5"], "pred": [{"rule": "R3", "evidence": "回测在资金不足时能够自动停止……，模拟真实交易场景", "reason": "「资金不足时自动停止」与「模拟真实交易场景」是两个可各自独立验收的要求，被逗号串在同一条需求里。"}, {"rule": "R5", "evidence": "在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现", "reason": "需求规定了代码层面的实现方式（在哪个方法里抛哪种异常），这不是外部业务约束所要求的。"}]}
 {"id": "ZJ015", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "先写入 Redis List 再异步落盘", "reason": "需求指定了具体存储技术（Redis List）和写入方式，而该技术选择并非外部约束要求。"}]}
 {"id": "ZJ016", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "用 MySQL JSON 字段存储", "reason": "需求指定了具体存储技术（MySQL JSON 字段），而这一技术选择并非外部业务约束所要求。"}]}
 {"id": "ZJ017", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "词汇、对话、练习等", "reason": "「等」后面的列举没有封闭，读者无法确定学习包到底包含哪些内容。"}, {"rule": "R2", "evidence": "一键", "reason": "「一键」是无法测量的效果描述，同一句没有给出可检查的标准或具体操作步骤。"}]}

@@ -1,0 +1,146 @@
+[
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "#### A1 — 功能性限定权利要求\n\n**发明名称：** 一种自适应图像增强处理装置（申请日 2023-05-10）\n\n**权利要求1（含大量功能性限定）：**\n> 能够实时分析图像噪声分布并自动选择最优降噪算法的降噪单元；用于对降噪后图像进行自适应对比度增强以获得最佳视觉效果的增强单元；以最优方式协调上述两个单元的控制单元。\n\n**期望输出：** 识别功能性限定语言并标注\"⚠️ 技术特征边界不清晰·建议人工明确\"；不崩溃；AI 备注区提示§26.4 支持范围风险。\n\n---",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE01"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "### F7 配图生成\n\n**用户故事**：作为要封面和插图的号主，我想按文章段落生成配图并自动上传素材库，这样一篇文章的视觉物料不用开三个网站。\n\n**验收要点（EARS）**：\n- When 用户对成稿请求配图，the system shall 以 gpt-image-2 为第一供应商生成，失败时按用户配置的 fallback 链自动降级，并在产物中标注实际使用的供应商。\n- When 全部供应商失败，then the system shall 允许「无图推进」（配图是增强项不是阻断项），门禁中配图相关项降级为警告。\n- Where 配图成功，the system shall 完成微信素材上传并回填 media_id（走 F3 的统一代理路径）。",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DE02"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "#### Actor 子进程\n\n- **工作目录约束**（非沙箱）：子进程 `cwd` 设为任务 `state.repo_root`。注意：这不是安全边界——Actor 仍可读写用户目录任意文件、访问网络、读取密钥文件。该约束仅确保 Actor 默认在正确的项目目录下工作。真正的安全边界依赖 §10.2 的 `allow_dangerous_flags` 和 Actor CLI 自身的权限模式\n- **环境变量隔离**：launcher `env` 字段中的变量与主进程 env 合并，不继承敏感系统变量（如 `SSH_AUTH_SOCK` 默认透传，`AWS_*` 等可在设置中配置黑名单）\n- **危险参数开关**（`allow_dangerous_flags`，全局设置中可控）：\n  - **默认 `true`**：保留 buddy-python 当前行为，启动命令默认填充 `claude --dangerously-skip-permissions`，Codex 实际调用追加 `--dangerously-bypass-approvals-and-sandbox`；非交互流畅，但 actor 可在工作目录里执行任意命令\n  - **关闭时（`false`）**：\n    - Claude 默认填充改为 `claude`（无 `--dangerously-*`）；用户**不可**手动添加 `--dangerously-*` 或 `bypassPermissions`\n    - Codex 实际调用去掉 `--dangerously-bypass-approvals-and-sandbox`\n    - 启动前扫描用户输入的命令字符串，若仍含 `dangerously` / `skip-permissions` / `bypass-approvals` / `bypassPermissions` 等关键词，弹窗提示「该任务设置禁止使用危险参数，请修改启动命令」并阻止启动\n    - 由于 launcher 走非交互模式，此时遇到权限提示会被 §7.6 的检测逻辑拦截并终止\n  - **开关位置**：全局设置 → CLI 配置 tab 顶部，独立卡片，含红色警告图标和说明文字\n  - **任务级覆盖**：每个任务 `settings.json` 可覆盖全局值（字段同名 `allow_dangerous_flags`），新建任务弹窗中默认继承全局值\n  - **审计**：每次启动 actor 时，事件 `actor.started` 的 payload 记录 `dangerous_flags_active: boolean`，便于事后审计哪一轮使用了危险参数\n- **危险参数 UI 提示**（不论开关状态）：\n  - 新建任务和全局设置弹窗中，包含 `dangerously` 关键词的命令以黄色警告徽章显示\n  - 帮助 overlay 的「注意事项」tab 详细说明这些参数的含义和风险",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE03"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "### 说明\n\n- **模板辅助函数的作用域约定**：见下文「注入名作用域（模板编写约定）」一节（bridge 注入名只存在于渲染作用域，`<%! %>` 模块块里引用会延迟到运行时才报 NameError——完整规则与失败形态见该节，此处不复述）；\n- 跨请求持久化不提供内置支持，脚本自己读写文件即可（本机可信环境）；\n- CLI 模式下 bridge 的降级语义见「运行方式」一节，`echo()` 在 CLI 下照常输出（文本缓冲 UTF-8 编码后写入 stdout 的 `sys.stdout.buffer`）；`echoraw()` 同样生效——用过即短路文本、stdout 只输出二进制缓冲的原始字节；`_SESSION` 读取为空、写入随 cookie 设置一同 no-op。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE04"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "#### Ambient Mode（对齐 iOS，2026-10-17）\n\n设置默认关闭。打开后，手机和专注布局出现静态波形入口，展开布局在内容栏切换到同一页面。用户在前台自己开始。连接尚未完成时离开前台会取消；已经在听或说时可以保持。应用不会自动重开这场语音。\n\n语音走 Hosted Builder 全双工：PCM16 单声道 24 kHz，采集按设备采样率重采样。静音是 48dp 胶囊，填充跟随输入 RMS；控制行高 72dp；播放音量使用系统通话音量。\n\n工具限于八个：查询会话、读取消息、开始、继续、停止、回答待处理、归档、解除归档。开始和继续在服务端接受请求后即返回，不等待任务跑完。归档带上子会话；解除归档把归档时间写成 0。过期或不再属于当前 owner 的调用会被拒绝。结束这场语音不会中止已经交给 OpenCode 的任务。\n\n麦克风前台服务只在用户已经开始、并且界面可见时启动。服务先进入前台并确认，然后才采集。被拒绝的启动不会卡在前台启动超时上。通知里的停止会等音频收干净再撤下前台服务。\n\n页面上的费用是本地标准价估算，与最近一次门户用量快照分开。会议记录、sleep，以及 question/permission 的新主动通知不在这次范围内。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE05"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "#### Phase 7：Markdown Web Preview 与平板 Sessions 折叠（对齐 iOS PR #94/#95）\n\n本阶段补齐两个 iOS 已落地能力。第一，Files 中的 Markdown 预览从单一路径升级为 Native / Web / Source 三态。Web Preview 负责承载 AI internal writing 里已经开始使用的 HTML/CSS 卡片、inline SVG、深浅色语义变量和折叠审计层；Native Preview 保留为稳定回退；Source 用于调试和大文件安全查看。\n\n产品边界：`.md` / `.markdown` 文件提供 Web Preview（默认）、Native Preview、Markdown Source 三种模式。Web Preview 支持 HTML-in-Markdown 的安全子集（局部 `<style>`、`div/span` 卡片、inline SVG、`details/summary`、GFM 表格）。workspace 相对图片复用 `MarkdownImageResolver.resolveImages(...)` 转 data URI。大文件先显示确认 gate。WebView 只加载 app assets 里的 renderer shell，不从网络加载 JS，不直接读取 workspace 文件系统。`<script>`/`iframe`/`form`/`on*`/`javascript:` 被禁止。深浅色主题下正文、卡片、代码块、chip 保持可读。\n\n第二，平板三栏布局的左侧 Sessions pane 支持折叠。展开时保持当前 25% / 37.5% / 37.5% 三栏；折叠时左栏不渲染，Files 与 Chat 平分宽度；Files 顶栏左侧显示展开按钮。这个能力只作用于 tablet / expanded width，不改变手机底部 Tab 和 session sheet 逻辑。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE06"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "#### 3\\.8\\.1 核心功能需求\n\n- 定时任务创建：选择指定测试套件，配置定时执行规则（分钟/小时/每日/每周/每月/自定义cron表达式）\n\n- 任务管理：支持定时任务新增、编辑、删除、启用/禁用、暂停/重启\n\n- 任务记录：记录每一次定时任务的执行时间、执行状态、执行结果、关联报告编号\n\n- 异常重试：定时任务执行失败支持自动重试，可配置重试次数与重试间隔\n\n- 消息通知：定时任务执行完成/失败后，支持日志提醒（可扩展邮件、企业微信通知）",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE07"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "### 3.2 US-002: 作为 MCP 客户端，我想要获取特定 Pinterest 图片的详细信息，以便了解其来源和 URL。\n*   **Tool**: `pinterest_get_image_info`\n*   **输入**:\n    *   `image_id`: 字符串 (必需, 需要获取信息的 Pinterest 图片 ID)\n*   **输出**:\n    *   **成功**: 返回包含以下信息的对象：\n        *   `image_url`: 图片的直接 URL。\n        *   `source`: 图片来源信息 (例如 \"pinterest.com\")。\n        *   `timestamp`: 获取信息的时间戳。\n    *   **失败**: 如果提供的 `image_id` 无效或找不到对应的图片，或者发生其他错误，返回具体的错误信息给客户端。\n*   **验收标准**:\n    *   客户端可以通过 MCP 调用 `pinterest_get_image_info` Tool。\n    *   调用时必须提供 `image_id` 参数。\n    *   如果成功，返回包含 `image_url`, `source`, `timestamp` 的对象。\n    *   如果 `image_id` 无效或未找到，返回清晰的\"图片未找到\"类型的错误信息。\n    *   如果发生其他错误，返回相应的错误信息。",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DE08"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "### 3.3 US-003: 作为 MCP 客户端，我想要根据关键词搜索 Pinterest 图片并将其下载到服务器指定目录，以便离线使用这些图片。\n*   **Tool**: `pinterest_search_and_download`\n*   **输入**:\n    *   `keyword`: 字符串 (必需, 搜索关键词)\n    *   `limit`: 整数 (可选, 需要搜索并尝试下载的图片数量)\n*   **输出**:\n    *   **成功**: 返回表示操作成功的消息（例如，\"成功下载 X 张图片\"）。\n    *   **失败**: 如果没有找到图片、下载过程中发生错误（网络、磁盘权限/空间等），或所有找到的图片都下载失败，返回具体的错误信息给客户端。\n*   **行为**:\n    *   服务器执行 Pinterest 图片搜索（类似 `pinterest_search`）。\n    *   对于搜索到的每张图片（最多 `count` 张），尝试下载到服务器的预定义目录。\n    *   **下载路径 (硬编码)**: `path.join(__dirname, '../downloads')` (相对于服务器脚本的位置)。\n    *   **文件名**: `pinterest_{imageId}.{fileExtension}` (例如: `pinterest_12345.jpg`)。\n*   **验收标准**:\n    *   客户端可以通过 MCP 调用 `pinterest_search_and_download` Tool。\n    *   调用时必须提供 `keyword` 参数。\n    *   可以指定 `limit` 参数。\n    *   如果搜索到图片并成功下载至少一张，Tool 应返回成功消息。\n    *   下载的图片应保存在服务器的 `../downloads` 目录下。\n    *   下载的文件名应遵循 `pinterest_{imageId}.{fileExtension}` 格式。\n    *   如果没有找到图片，返回清晰的\"未找到结果\"类型的错误信息。\n    *   如果在下载过程中遇到任何错误（如网络问题、磁盘无法写入），应向客户端报告相应的错误信息。",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DE09"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "### 13.3 可用性\n\n- 用户在任意任务状态下都能看清：当前状态、下一 actor、最近错误、是否自动推进、是否有外部占用。\n- 所有会触发 actor 运行的入口都必须显示当前 repo_root 和 actor 名称。\n- 失败态必须提供下一步：重试、修改设置、查看诊断或暂停。\n- 倒计时最后 10 秒必须有明显提示和取消自动开始入口。\n- v0.1 中未实现的文件 / 审查 / 终端标签页必须置灰并说明对应版本，不能显示空白可点击界面。\n- 键盘快捷键不得在 Composer 正在输入文本时误触发标签页切换或任务操作。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE10"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "### 注入名作用域（模板编写约定）\n\n桥接注入名（`echo` / `echoraw` / `escape` / `_GET` / `_SESSION` / `RESP` 等）是**每请求**经渲染调用传入的，只存在于模板的**渲染体作用域**（`<% %>` 块与 `${}` 插值），**不在模板模块的 globals 里**。由此产生一条硬性编写规则：\n\n- `<%! %>`（模块块，模板加载时执行一次）里**只放 import 与纯函数**——参数进、结果出，绝不引用任何注入名；\n- 需要访问注入名的辅助函数一律定义在 `<% %>` 块内（每请求定义，闭包捕获注入名）；\n- 确需在 `<%! %>` 定义工具函数又想转义时，显式把 `escape` 作为参数传入，或改用标准库 `import html` + `html.escape(..., quote=True)`（语义等价）。\n\n违反时的失败形态：编译正常通过（注入名是合法标识符），**运行时**函数被调用才抛 `NameError`——且若该函数只在特定分支（如 `?debug=1`）被调用，平时页面一切正常，极具迷惑性。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE11"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "### 3.4 CONS — 消费者\n\n- **CONS-1 Pull 消费与调度**：长轮询拉取（Pull），自动分配队列并启动消费调度线程（Rebalance 平均分配）。\n- **CONS-2 集群与广播消费**：集群模式 Clustering（平均分配 Rebalance），广播模式 Broadcasting（本地 JSON 文件持久化偏移）。\n- **CONS-3 偏移量管理**：查询（QueryOffset）、更新（UpdateOffset）、按时间戳搜索（SearchOffset）。\n- **CONS-4 消费重试与死信队列**：EnableRetry + MaxReconsumeTimes，自动回退到 RETRY Topic，超限进入 %DLQ% 死信队列，支持 SendMessageBackAsync 消费回退。\n- **CONS-5 顺序消费**：LockBatchMQAsync / UnlockBatchMQAsync 队列锁定，OrderConsume 顺序消费。\n- **CONS-6 Tag 与 SQL92 过滤**：Tag 表达式过滤，SQL92 表达式过滤（ExpressionType=\"SQL92\"）。\n- **CONS-7 多 Topic 订阅**：Topics 属性，按 Topic 分别 Rebalance。\n- **CONS-8 Pop 消费模式**：PopMessageAsync / AckMessageAsync / BatchAckMessageAsync / ChangeInvisibleTimeAsync，支持 incrementReconsumeTimes 参数控制不递增重试次数（5.5+）。\n- **CONS-9 消费限流**：MaxConcurrentConsume 信号量控制最大并发。\n- **CONS-10 gRPC PushConsumer**：内置长轮询线程 + OnMessage 回调 + 自动 Ack，支持并发控制；启动时自动上报订阅关系并保持长连接（netstandard2.1+）；消费失败自动延迟重投，投递次数达到上限转 `%DLQ%{group}`。\n- **CONS-11 消费者变更通知**：NOTIFY_CONSUMER_IDS_CHANGED 触发自动重平衡。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE12"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "### 3.3 PERM 权限管理\n\n- **PERM-1 用户管理**：系统用户的增删改查与角色分配，支持查看用户的第三方链接、令牌、操作日志。\n- **PERM-2 角色管理**：角色的增删改查与菜单权限分配，支持按菜单分配 Action 级权限（查看/新增/编辑/删除/导出）。\n- **PERM-3 菜单管理**：无限级菜单树维护，每个菜单项可绑定 URL、图标、权限位，菜单树按用户权限动态生成。\n- **PERM-4 部门管理**：组织架构的树形 CRUD 管理，支持用户归属部门。\n- **PERM-5 多租户**：租户间数据隔离，租户管理员可管理本租户用户。\n- **PERM-6 数据权限**：通过 `DataPermissionAttribute` 声明行级数据过滤规则，不同角色/用户看到不同数据行。\n- **PERM-7 委托代理**：用户间权限委托，支持设置委托有效期。\n- **PERM-8 访问规则**：基于 IP 白名单/黑名单的访问控制，支持按 Area/Controller/Action 配置。\n- **PERM-9 安全防御**：内置威胁检测（扫描器/注入/蜜罐/协议异常）、持久化自动封禁（阶梯时长、可手动解封）与安全事件审计，默认自动模式（连续攻击自动封禁、大范围攻击临时拦截并自动回落），可配置或自动学习可信代理防伪造；详见 [安全防御](PERM-安全防御.md)。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE13"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "### 3.2 M2 日志与追踪\n\n- **M2-1 统一日志接口**：`ILog` 核心日志接口，支持多种输出方式。\n- **M2-2 文件日志**：文本文件日志，支持滚动切割。\n- **M2-3 控制台日志**：控制台彩色日志输出。\n- **M2-4 网络日志**：UDP 网络日志，远程集中收集。\n- **M2-5 组合日志**：同时输出到多个日志目标。\n- **M2-6 链路追踪**：`ITracer` 分布式 APM 追踪接口，`DefaultTracer` 集成星尘平台。\n- **M2-7 性能计数器**：`PerfCounter` 性能计数与统计。\n- **M2-8 日志级别控制**：`LevelLog` 按级别过滤日志。\n- **M2-9 全局日志入口**：`XTrace` 静态全局日志入口，便捷的日志门面。\n- **M2-10 ETW 日志监听**：`LogEventListener` 监听 ETW 事件，捕获框架内部日志。\n- **M2-11 OpenTelemetry 输出适配**：`OpenTelemetryTracer` 把 NewLife 埋点转成标准 Activity（net6.0+）。\n- **M2-12 OpenTelemetry 埋点采集**：`OpenTelemetryCollector` 把第三方 ActivitySource 埋点转成星尘埋点（net6.0+）。\n- **M2-13 多语言本地化**：`Localization` 统一异常与日志消息，内置 31 种语言，英文为源文与兜底；`Setting.Language` 可锁定全局语言，`GetLanguages` 输出内置与运行时注册语言的清单（键/自称/英文名/显示名），供管理端生成语言下拉框；`RequestCultureScope` 按 `Accept-Language` 的 q 权重选择最高权重且受支持的语言，全部不支持时保持宿主语言；`HttpServer`/`HttpSession` 默认对每个请求应用该规则，宿主固定语言时以固定语言为准。",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE14"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "### F1 管线核心：给定主题出成稿\n\n**用户故事**：作为一个 DSH 用户/公众号号主，我想在 Web UI 里输入主题就得到一篇过完质量门禁、排好版的成稿，这样我不需要在 5 个工具之间搬运。\n\n**范围**：移植源管线「研究→写作→质量门禁→排版」主干（对应资产：quality_validate.mjs、md2html.mjs、inline_styles.mjs 的逻辑进入插件管线），选题输入来自用户主题或 F5。\n\n**验收要点（EARS）**：\n- When 用户提交主题且模型供应商连接测试通过，the system shall 在单次管线运行内产出：Markdown 原稿 + 微信内联样式 HTML + 门禁报告三件产物，并在 UI 呈现产物列表。\n- When 管线任一阶段失败（研究/写作/门禁/排版），then the system shall 停止后续阶段、显示失败阶段与原因（脱敏后），并保留已完成阶段的产物供续跑。\n- While 管线运行中，the system shall 展示阶段进度（至少：研究中/写作中/门禁中/排版中四态）且提供中止按钮。\n- If 用户中途关闭页面或 DSH 重启，then the system shall 可从运行历史中恢复未完成运行的产物（产物持久化，不依赖页面会话）。\n- Where 质量门禁以 --strict 口径执行，the system shall 将门禁未通过的稿子标记为「未过门禁」，且**禁止**直接进入 F3 推草稿（用户修改或显式覆盖后可推）。",
+"split": "dev",
+"has_ac": true,
+"has_err": true,
+"id": "DE15"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "#### 3\\.2\\.2 功能需求\n\n- 用例基础操作：新增、编辑、删除、启用/禁用、批量导入/导出、条件查询\n\n- 用例版本追溯：每次编辑自动记录更新日志，支持查看历史修改记录\n\n- 无效用例隔离：标记为无效的用例，无法加入测试套件自动执行，仅支持手动查看\n\n- 执行历史可视化：单条用例点击可展开全部执行记录，支持按时间、结果筛选\n\n- 筛选能力：支持按项目、用例级别、有效状态、测试结果多条件组合筛选",
+"split": "dev",
+"has_ac": false,
+"has_err": true,
+"id": "DE16"
+}
+]
