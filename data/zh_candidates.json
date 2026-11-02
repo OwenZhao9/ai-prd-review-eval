@@ -1,0 +1,2442 @@
+[
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"path": "docs/PRD.md"
+},
+{
+"repo": "wordflowlab/novel-writer",
+"path": "docs/PRD.md"
+},
+{
+"repo": "PGshen/thinking-map",
+"path": "docs/prd.md"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"path": "docs/PRD.md"
+},
+{
+"repo": "gty5678/darkeye",
+"path": "docs/PRD.md"
+},
+{
+"repo": "HXSLtim/GameLink",
+"path": "docs/PRD.md"
+},
+{
+"repo": "graphif/project-graph",
+"path": "PRD.md"
+},
+{
+"repo": "ox01024/air-wechat",
+"path": "docs/prd.md"
+},
+{
+"repo": "zzdx713/seedance2.0",
+"path": "doc/PRD.md"
+},
+{
+"repo": "Dearest/ai-tools-insight",
+"path": ".ai/PRD.md"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Formyselfonly/invest-alert-bot",
+"path": "prd.md"
+},
+{
+"repo": "aurora-03/VideoGet",
+"path": "PRD.md"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"path": "PRD.md"
+},
+{
+"repo": "lis186/taiwan-holiday-mcp",
+"path": "docs/PRD.md"
+},
+{
+"repo": "superman1006/MeetMind",
+"path": "docs/PRD.md"
+},
+{
+"repo": "hjhjw1991/homecleaner",
+"path": "prd.md"
+},
+{
+"repo": "caomz/decision-algorithm",
+"path": "docs/PRD.md"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"path": "prd.md"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"path": "PRD.md"
+},
+{
+"repo": "CopeeeTang/Edu_home_2.0",
+"path": "docs/PRD.md"
+},
+{
+"repo": "ssly/agent-hub",
+"path": "docs/PRD.md"
+},
+{
+"repo": "l-zhi/pith-wiki",
+"path": "docs/PRD.md"
+},
+{
+"repo": "njuliebe/music-app",
+"path": "md/PRD.md"
+},
+{
+"repo": "Lane0218/imgstamp",
+"path": "docs/PRD.md"
+},
+{
+"repo": "pengyulong/InvoiceAuditAgent",
+"path": "prd.md"
+},
+{
+"repo": "tznthou/AtomTaskMatrix",
+"path": "PRD.md"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"path": "PRD.md"
+},
+{
+"repo": "cherishh/minimal-habit-tracker",
+"path": "prd.md"
+},
+{
+"repo": "cpcc/SkillsPlusPlus",
+"path": "docs/PRD.md"
+},
+{
+"repo": "mengxianghe75-dev/engineering-contract-ai-review",
+"path": "docs/PRD.md"
+},
+{
+"repo": "zl241125/eea-topo",
+"path": "prd.md"
+},
+{
+"repo": "xshone/lang-pal",
+"path": "PRD.md"
+},
+{
+"repo": "light-misty/SanpTranslate",
+"path": "docs/PRD.md"
+},
+{
+"repo": "CocoaPaws/Photo_Watermark_2",
+"path": "PRD.md"
+},
+{
+"repo": "JaimeYeung/Resume-Tailor-AI",
+"path": "PRD.md"
+},
+{
+"repo": "STRRL/transcube-webapp",
+"path": "PRD.md"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"path": "docs/PRD.md"
+},
+{
+"repo": "zengzhengtx/ai-wechat-news-agent",
+"path": "PRD.md"
+},
+{
+"repo": "wukongnotnull/vole",
+"path": "prd.md"
+},
+{
+"repo": "erickkkyt/X-Monitor",
+"path": "PRD.md"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"path": "docs/PRD.md"
+},
+{
+"repo": "sangshy-go/AgentOne",
+"path": "docs/prd.md"
+},
+{
+"repo": "logan0116/LocalServerPilot",
+"path": "docs/PRD.md"
+},
+{
+"repo": "chengdh/saas-mis",
+"path": "docs/prd.md"
+},
+{
+"repo": "yanyujian/quicksearch",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Dwsy/meshrunner",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Jancapboy/industrial-agent-mcp",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Nickwenniyxiao-art/nordhjem-medusa-backend",
+"path": "docs/PRD.md"
+},
+{
+"repo": "cholf5/skynet",
+"path": "docs/PRD.md"
+},
+{
+"repo": "alvinluo-tech/CoreLayer",
+"path": "docs/PRD.md"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"path": "docs/PRD.md"
+},
+{
+"repo": "white0dew/majiang",
+"path": "prd.md"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"path": "docs/PRD.md"
+},
+{
+"repo": "catoncat/herdr-trail",
+"path": "docs/prd.md"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"path": "prd/prd.md"
+},
+{
+"repo": "fengzhizi319/privacy-java-sdk",
+"path": "docs/qol/prd.md"
+},
+{
+"repo": "Ch1nyzzz/zotero-llm-reader",
+"path": "doc/PRD.md"
+},
+{
+"repo": "Evan7198/anti-pcileech-agent",
+"path": "docs/prd.md"
+},
+{
+"repo": "astroleno/focuence",
+"path": "PRD.md"
+},
+{
+"repo": "macrochen/gzh_articles_fetcher",
+"path": "prd.md"
+},
+{
+"repo": "StreakingMan/homebooks",
+"path": "PRD.md"
+},
+{
+"repo": "Allen3-Huang/todo-app",
+"path": "prd.md"
+},
+{
+"repo": "poychang/hackernews-tw",
+"path": "PRD.md"
+},
+{
+"repo": "Yeahhooooo/AI4SE_PhotoWatering",
+"path": "prd.md"
+},
+{
+"repo": "YinanZhaoXometry/hacker-news-neo",
+"path": "PRD.md"
+},
+{
+"repo": "fengchengzhang-wq/my-hobby-OS",
+"path": "PRD.md"
+},
+{
+"repo": "ccnudzt/ccnuITS",
+"path": "prd.md"
+},
+{
+"repo": "agclct77/OpenSpecCalc",
+"path": "PRD.md"
+},
+{
+"repo": "chenzhyu/vendor-verification-system",
+"path": "PRD.md"
+},
+{
+"repo": "jackypanster/qwen-omni",
+"path": "PRD.md"
+},
+{
+"repo": "zellhuang0503/liyulaw_website",
+"path": "PRD.md"
+},
+{
+"repo": "isakula/password",
+"path": "PRD.md"
+},
+{
+"repo": "zwlcoding/FocusPaw",
+"path": "PRD.md"
+},
+{
+"repo": "Tong-njuer/philomate",
+"path": "PRD.md"
+},
+{
+"repo": "RogerTangg/Virtual-Fitness-Coach-App",
+"path": "PRD.md"
+},
+{
+"repo": "Chinaduanyun/ai-prd-agent-template",
+"path": "PRD.md"
+},
+{
+"repo": "qiujunyan/-",
+"path": "prd.md"
+},
+{
+"repo": "konglei881/-",
+"path": "prd.md"
+},
+{
+"repo": "steven-vvv/E2EE-Chat",
+"path": "docs/PRD.md"
+},
+{
+"repo": "guohongbin-git/ad_video_detector_v2",
+"path": "prd.md"
+},
+{
+"repo": "dada878/element-selector",
+"path": "PRD.md"
+},
+{
+"repo": "zhao-lei007/bi-dimension-grouping",
+"path": "prd.md"
+},
+{
+"repo": "tiedanshenlvu2005/hotaru",
+"path": "PRD.md"
+},
+{
+"repo": "MadLongTom/CoreSRE",
+"path": "docs/PRD.md"
+},
+{
+"repo": "InitialXKO/latexflow",
+"path": "PRD.md"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"path": ".ai/prd.md"
+},
+{
+"repo": "mageg-x/imgbed",
+"path": "docs/PRD.md"
+},
+{
+"repo": "XuBao12/TravelOdyssey",
+"path": "PRD.md"
+},
+{
+"repo": "RyneExplorer/Solvify-Agent",
+"path": "docs/PRD.md"
+},
+{
+"repo": "tankxu/rushmeme",
+"path": "prd.md"
+},
+{
+"repo": "dsh-plugin-collection/dsh-later",
+"path": "prd.md"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"path": "PRD.md"
+},
+{
+"repo": "txxxxz/LightTable",
+"path": "doc/PRD.md"
+},
+{
+"repo": "sounfury/XiaoAiPlayer",
+"path": "doc/prd.md"
+},
+{
+"repo": "0x-hewm/SVG-Studio",
+"path": "doc/PRD.md"
+},
+{
+"repo": "ZhengWG/quant_free",
+"path": "docs/PRD.md"
+},
+{
+"repo": "yang-smith/Everything2Doc",
+"path": "docs/PRD.md"
+},
+{
+"repo": "DingJun1028/JunAiKey_OmniKey",
+"path": "docs/PRD.md"
+},
+{
+"repo": "terryso/ccpet",
+"path": "docs/prd.md"
+},
+{
+"repo": "YoyoLin008/mcreplay",
+"path": "docs/PRD.md"
+},
+{
+"repo": "xisanpi/zuonaar-cinema-simulator",
+"path": "PRD.md"
+},
+{
+"repo": "hexianWeb/Third-Person-MC",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"path": "prd.md"
+},
+{
+"repo": "jennifer88huang/interview-skills",
+"path": "PRD.md"
+},
+{
+"repo": "librae8226/nexus4cc",
+"path": "docs/PRD.md"
+},
+{
+"repo": "raceychan/lihil",
+"path": "specs/socket_channel_protocol_prd.md"
+},
+{
+"repo": "hexianWeb/CrossRoad",
+"path": "docs/PRD.md"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"path": "docs/PRD.md"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"path": ".ai/prd.md"
+},
+{
+"repo": "arana-db/kiwi",
+"path": "docs/prd.md"
+},
+{
+"repo": "ZsTs119/openclaw-launcher",
+"path": "docs/PRD.md"
+},
+{
+"repo": "jmerelnyc/specflow",
+"path": ".anws/v7/01_PRD.md"
+},
+{
+"repo": "davidhoo/jsonpath",
+"path": "docs/PRD.md"
+},
+{
+"repo": "maczh/mgin",
+"path": "docs/v2-prd.md"
+},
+{
+"repo": "ra1nzzz/MeowDesk",
+"path": "docs/PRD.md"
+},
+{
+"repo": "glancers/IconGallery",
+"path": "doc/PRD.md"
+},
+{
+"repo": "huyujie275-gif/BloodSugarApp",
+"path": "PRD.md"
+},
+{
+"repo": "01MVP/blog-starter",
+"path": "docs/prd.md"
+},
+{
+"repo": "blackzhanzhan/novel_agent",
+"path": "prd.md"
+},
+{
+"repo": "ketd/AnvilKit",
+"path": "prd.md"
+},
+{
+"repo": "SakuraTokoyomi/memematch",
+"path": "docs/prd.md"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Igloo302/MotionPhotoConverter",
+"path": "docs/prd.md"
+},
+{
+"repo": "ccclucky/wecom-cli",
+"path": "docs/prd.md"
+},
+{
+"repo": "qq5855144/App-Search",
+"path": "docs/prd.md"
+},
+{
+"repo": "xinsuifan-web/Cloud-Platform-for-Construction-Project-Bidding",
+"path": "PRD.md"
+},
+{
+"repo": "jason-jm/wavesubs",
+"path": "PRD.md"
+},
+{
+"repo": "duolaAmengweb3/duola",
+"path": "docs/prd.md"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"path": "docs/PRD.md"
+},
+{
+"repo": "T-THA/AITravelPlanner",
+"path": "PRD.md"
+},
+{
+"repo": "olivame/typst-editor",
+"path": "PRD.md"
+},
+{
+"repo": "Lisilin87/autosota",
+"path": "PRD.md"
+},
+{
+"repo": "mm-demo-collection/minimax_aipodcast",
+"path": "PRD.md"
+},
+{
+"repo": "skkoweio2/opcode-enhanced",
+"path": "docs/prd.md"
+},
+{
+"repo": "staklab/jianji",
+"path": "docs/PRD.md"
+},
+{
+"repo": "aAAaqwq/KGKB",
+"path": "docs/PRD.md"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"path": "docs/PRD.md"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"path": "SPEC/PRD.md"
+},
+{
+"repo": "dhualai/OpenRobotService",
+"path": "docs/PRD.md"
+},
+{
+"repo": "zx12671/palace",
+"path": "docs/PRD.md"
+},
+{
+"repo": "lupingluke-ai/general-ai-spec",
+"path": "guides/03-prd.md"
+},
+{
+"repo": "fzfzzfzzzfzzzz/ChatGPT-Chat-Grapher",
+"path": "docs/v0.4/PRD.md"
+},
+{
+"repo": "liangyimingcom/BRClient",
+"path": "PRD.md"
+},
+{
+"repo": "GraydenZhang/Footprints-on-Earth",
+"path": "PRD.md"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"path": "PRD.md"
+},
+{
+"repo": "anzx01/cusops",
+"path": "prd.md"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"path": "PRD.md"
+},
+{
+"repo": "majiayu000/werewolf-nakama",
+"path": "PRD.md"
+},
+{
+"repo": "wowyuarm/MVPcode",
+"path": "prd.md"
+},
+{
+"repo": "MarkShawn2020/llamaudit",
+"path": "PRD.md"
+},
+{
+"repo": "wordflowlab/movieflow",
+"path": "docs/PRD.md"
+},
+{
+"repo": "zyangpm/xinchuanyanbei-",
+"path": "docs/PRD.md"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Frank-ay/mimo-mcp",
+"path": "docs/PRD.md"
+},
+{
+"repo": "keeply-cn/cyber-team",
+"path": "workspace/PM/PRD.md"
+},
+{
+"repo": "lintsinghua/oops",
+"path": "docs/PRD.md"
+},
+{
+"repo": "grapeot/pptx.skill",
+"path": "docs/prd.md"
+},
+{
+"repo": "Neilouo/AI-FortuneTeller",
+"path": "docs/PRD.md"
+},
+{
+"repo": "xmh1011/agentic-prd-workflow",
+"path": "docs/PRD.md"
+},
+{
+"repo": "sheldon123z/claude-scheduler",
+"path": "docs/prd.md"
+},
+{
+"repo": "G1-kiyo/agent",
+"path": "docs/prd.md"
+},
+{
+"repo": "molix-shu/find-seafood",
+"path": "docs/PRD.md"
+},
+{
+"repo": "mufflegyro/dsh-bottom-info-bar",
+"path": "docs/PRD.md"
+},
+{
+"repo": "xiaoyu-hue/xy-intro-card",
+"path": "docs/PRD.md"
+},
+{
+"repo": "L20081125/dsh-lite-theme",
+"path": "docs/PRD.md"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"path": "docs/PRD.md"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"path": "docs/prd.md"
+},
+{
+"repo": "aiwell0721/word-game-adventure",
+"path": "docs/PRD.md"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"path": "docs/PRD.md"
+},
+{
+"repo": "loknini/DBMigrate",
+"path": "docs/PRD.md"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"path": "docs/prd.md"
+},
+{
+"repo": "klz-star/clipboard-lab",
+"path": "PRD.md"
+},
+{
+"repo": "kyre-99/MacDynamicIslandPet",
+"path": "prd.md"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"path": "PRD.md"
+},
+{
+"repo": "CloverIris/CloverPic",
+"path": "PRD.md"
+},
+{
+"repo": "bugkiwi/elons-job",
+"path": "docs/prd.md"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"path": "doc/01-prd.md"
+},
+{
+"repo": "sarahwangy/knowho",
+"path": "knowho-prd.md"
+},
+{
+"repo": "Laxse/IHaven",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Anning01/AIMedia",
+"path": "PRD.md"
+},
+{
+"repo": "dtsola/xiaoyaosearch",
+"path": "docs/01-prd.md"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"path": "docs/v2.0-product-upgrade-prd.md"
+},
+{
+"repo": "Eynzof/Hermes-CN-Desktop",
+"path": "docs/desktop-prd/01-prd.md"
+},
+{
+"repo": "bage2014/study",
+"path": "study-ai-ops-flow/pipeline/docs/PRD.md"
+},
+{
+"repo": "killvxk/pm-skills-zh",
+"path": "pm-execution/commands/write-prd.md"
+},
+{
+"repo": "timzaak/web-dev-skills",
+"path": "guides/product/prd.md"
+},
+{
+"repo": "ceetity/her-skill",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Peiiii/skild",
+"path": "docs/logs/v0.6.2-repo-skill-scan/prd.md"
+},
+{
+"repo": "tubban1/eduNest",
+"path": "doc/PRD.md"
+},
+{
+"repo": "LC044/TrailSnap",
+"path": "doc/product-design/ticket-wallet-ui-prd.md"
+},
+{
+"repo": "lintendo/Axhub-Make",
+"path": "client/templates/prd.md"
+},
+{
+"repo": "lcy362/agnes-video-generator",
+"path": "docs/plans/v6.1/issue_feedback_PRD.md"
+},
+{
+"repo": "RZfive/WorldBase",
+"path": "docs/group-conversation-prd.md"
+},
+{
+"repo": "yarin-zhang/AI-Gist",
+"path": "docs/plan/2026-05-05-移动端功能补全PRD.md"
+},
+{
+"repo": "yusifeng/formax",
+"path": "plans/skills/PRD.md"
+},
+{
+"repo": "StevenJokess/2bPM",
+"path": "chapter_skill/PRD.md"
+},
+{
+"repo": "codemilestones/TinyCodeBase",
+"path": "tinycodebase-PRD.md"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"path": "doc/core-timer/stage1-PRD.md"
+},
+{
+"repo": "BlueprintOS/analysis-to-delivery",
+"path": "templates/PRD.md"
+},
+{
+"repo": "Soein/swarmesh",
+"path": "config/roles/management/prd.md"
+},
+{
+"repo": "Episkey-G/GrokSearch-rs",
+"path": ".trellis/tasks/08-07-trellis-workflow-standardize/prd.md"
+},
+{
+"repo": "DBell-workshop/AgentFleet",
+"path": "docs/phase1_prd.md"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"path": "PRD.md"
+},
+{
+"repo": "tony3liu/Auto_Generate_Test_Cases",
+"path": "docs/prd.md"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"path": "workmesh-app/app/PRD.md"
+},
+{
+"repo": "Zhh9126/backup-platform",
+"path": "docs/rt-backup-prd.md"
+},
+{
+"repo": "xu-xiang/awesome-top-skills",
+"path": "zh/tags/prd.md"
+},
+{
+"repo": "talex-touch/tuff",
+"path": "docs/plan-prd/03-features/omnipanel-assistant-next-prd.md"
+},
+{
+"repo": "Milktang0128/Dob",
+"path": "过耳不忘-PRD.md"
+},
+{
+"repo": "fastknifes/openflow",
+"path": "docs/changes/2026-05-brainstorm-refactor/prd.md"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"path": "docs/01-prd.md"
+},
+{
+"repo": "skill-desktop/skill-desktop",
+"path": "docs/01-PRD.md"
+},
+{
+"repo": "dark-hxx/CLI-Manager",
+"path": ".trellis/tasks/08-02-ai-markdown-preview/prd.md"
+},
+{
+"repo": "ns2250225/FolderLock",
+"path": "prd.md"
+},
+{
+"repo": "MrXujiang/ApexForge",
+"path": "tech/optimized-prd.md"
+},
+{
+"repo": "WrBug/PolyHermes",
+"path": "docs/zh/backtest/BACKTEST_PRD.md"
+},
+{
+"repo": "chendongqi/OPB-Skills",
+"path": "skills/rnd-requirements-writer/references/prd.md"
+},
+{
+"repo": "forthends/clockwork",
+"path": "workflow/_templates/prd.md"
+},
+{
+"repo": "C3H3-AI/hacs-vision",
+"path": "prd/config-system-redesign-prd.md"
+},
+{
+"repo": "ethpanda-org/ETHShanghai-2025",
+"path": "projects/qd-payway/docs/prd.md"
+},
+{
+"repo": "Dloading666/CareerForge-AI",
+"path": "doc/PRD.md"
+},
+{
+"repo": "luqiang-code/claude-code-skills",
+"path": "docs/zh/built-in/to-prd.md"
+},
+{
+"repo": "LeonYoah/stx",
+"path": ".trellis/tasks/09-18-online-offline-install-packaging/prd.md"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"path": "docs/prd.md"
+},
+{
+"repo": "bloodycrownD/novel-master",
+"path": "docs/Iterations/replace-quick-sqlite/prd.md"
+},
+{
+"repo": "259876lr/yolo-sop",
+"path": "docs/yolo-sop-prd.md"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"path": "prd.md"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"path": "docs/v2/01-需求文档-PRD.md"
+},
+{
+"repo": "Cheer-Beep/Tea_rag_agent",
+"path": "docs/PRD.md"
+},
+{
+"repo": "baizhine999/leader-skills",
+"path": "docs/PRD.md"
+},
+{
+"repo": "fy-agent/fyagent",
+"path": ".trellis/tasks/archive/2026-09/09-04-simplify-codex-auth-provider-switching/prd.md"
+},
+{
+"repo": "wangjc683/galley",
+"path": ".scratch/session-auto-title/PRD.md"
+},
+{
+"repo": "edu-ai-builders/pedagogical-grounding-engine",
+"path": "examples/output-prd.md"
+},
+{
+"repo": "misxzaiz/Polaris",
+"path": "docs/prompt-optimize-enhance-prd.md"
+},
+{
+"repo": "dtsola/xiaoyaosearch-feishu-export-md",
+"path": "docs/01-prd.md"
+},
+{
+"repo": "kuk1song/FeedMeJD",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Poghappy/IhuoniaoN8NFirecralwrules",
+"path": ".cursor/stages/02_prd.md"
+},
+{
+"repo": "zss823158062/sTerminal",
+"path": "docs/prd.md"
+},
+{
+"repo": "TY-teo/ChargeWatching",
+"path": "output/chargewatch-prd.md"
+},
+{
+"repo": "ginobefun/swarm-ai-chat",
+"path": "docs/product/prd.md"
+},
+{
+"repo": "Mininglamp-OSS/octo-web",
+"path": "packages/dmworkbase/src/Components/GlobalSearch/DocSearchPanel.stories.tsx"
+},
+{
+"repo": "YunaiV/ruoyi-vue-pro",
+"path": "yudao-module-pms/src/main/java/cn/iocoder/yudao/module/pms/controller/admin/kb/library/vo/template/PmsKnowledgeLibraryTemplateSaveReqVO.java"
+},
+{
+"repo": "Leantime/leantime",
+"path": "app/Language/zh-CN.ini"
+},
+{
+"repo": "YunaiV/yudao-cloud",
+"path": "yudao-module-pms/yudao-module-pms-server/src/main/java/cn/iocoder/yudao/module/pms/controller/admin/kb/library/vo/template/PmsKnowledgeLibraryTemplateSaveReqVO.java"
+},
+{
+"repo": "phodal/routa",
+"path": "src/i18n/locales/zh-extended.ts"
+},
+{
+"repo": "ww-w-ai/bkit-claude-code",
+"path": "lib/i18n/trigger-keywords.js"
+},
+{
+"repo": "Agent-Threat-Rule/agent-threat-rules",
+"path": "data/skills-sh/skills/charon-fan/prd-planner.md"
+},
+{
+"repo": "hashgraph-online/awesome-codex-plugins",
+"path": "plugins/zlsbksdxl/codex-lark/skills/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "WuKongOpenSource/Wukong_KnowledgeBase",
+"path": "km/km-web/src/main/java/com/kakarote/km/entity/BO/KmLibraryTemplate.java"
+},
+{
+"repo": "shangyankeji/super-dev",
+"path": "super_dev/cli.py"
+},
+{
+"repo": "foryourhealth111-pixel/Vibe-Skills",
+"path": "references/fixtures/external-corpus/skill-keyword-index.backup.json"
+},
+{
+"repo": "FradSer/dotclaude",
+"path": "lark/skills/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "zhaono1/agent-playbook",
+"path": "skills/prd-planner/README.md"
+},
+{
+"repo": "infometa/workbuddyskills",
+"path": "connectors/kdocs/skills/references/kwiki/list_items.md"
+},
+{
+"repo": "cropflre/nowen-note",
+"path": "backend/scripts/files-assets-qa-server.mjs"
+},
+{
+"repo": "Chorus-AIDLC/Chorus",
+"path": "messages/zh.json"
+},
+{
+"repo": "LazyAGI/LazyMind",
+"path": "workflows/product_solution_delivery/scripts/tools.py"
+},
+{
+"repo": "Starchild-ai-agent/official-skills",
+"path": "wps/references/kwiki/list_items.md"
+},
+{
+"repo": "ZihangDong/toolknit-desktop",
+"path": "toolknit-desktop/src/locales/zh.json"
+},
+{
+"repo": "oh-my-commit/oh-my-commit",
+"path": "docs/.vitepress/config.mjs"
+},
+{
+"repo": "echoVic/boss-skill",
+"path": "docs/archive/plans/2026-05-11-artifact-html-companions.md"
+},
+{
+"repo": "kdocs-app/kdocs-skill",
+"path": "references/kwiki/list_items.md"
+},
+{
+"repo": "chusimin/AIPM-Skills",
+"path": "ai-agent-prd-writer/SKILL.md"
+},
+{
+"repo": "suge168/kdocs-skill",
+"path": "references/kwiki/list_items.md"
+},
+{
+"repo": "diegosouzapw/awesome-omni-skill",
+"path": "skills/product/create-prd/SKILL.md"
+},
+{
+"repo": "chaitin/MagicChat",
+"path": "client/web/src/lib/document-prototype-data.ts"
+},
+{
+"repo": "aiskillstore/marketplace",
+"path": "skills/larksuite/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "lxyeternal/MalSkillBench",
+"path": "Dataset/Skills/benign/prd-writer-pro/SKILL.md"
+},
+{
+"repo": "mudtools/MudFeishu",
+"path": "documents/Wiki/FeishuV2WikiNodes_User.md"
+},
+{
+"repo": "datawhalechina/vibe-vibe",
+"path": "docs/Basic-old/03-technique/3.4-first-prd/3.4.1-what-is-prd.md"
+},
+{
+"repo": "lighthought/app-maker",
+"path": "docs/backend/API_Design.md"
+},
+{
+"repo": "rongxinzy/RongxinAI",
+"path": "MCPs/feishu/skills/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"path": "scripts/stage_contract.py"
+},
+{
+"repo": "sandbaseai/workbuddy-skill",
+"path": "skills/prd/SKILL.md"
+},
+{
+"repo": "Caspian98/ai-prd-skill",
+"path": "SKILL.md"
+},
+{
+"repo": "wangqiqi/trae-ai",
+"path": ".trae/core/project-assistant.py"
+},
+{
+"repo": "casperkwok/prd-generator",
+"path": "SKILL.md"
+},
+{
+"repo": "seaworld008/Commonly-used-high-value-skills",
+"path": "openclaw-skills/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "MorganArthur/mimodex",
+"path": "website/src/components/Footer.tsx"
+},
+{
+"repo": "Ethen-Chuan/Lumo",
+"path": "src/utils/format.ts"
+},
+{
+"repo": "babanooi/JobSearch",
+"path": "tools/skill_guard.py"
+},
+{
+"repo": "RapidAI/MaClaw",
+"path": "guiapp/frontend/src/components/ai/WorkflowDocPreview.tsx"
+},
+{
+"repo": "ahang1598/doubao-workbuddy-qwenwork-skills",
+"path": "workbuddy/connectors/marketplace/connectors/kdocs/skills/references/kwiki/list_items.md"
+},
+{
+"repo": "i3ef0xh4ck/the-most-complete-dictionary-ever",
+"path": "工程应用/互联网产品经理.json"
+},
+{
+"repo": "LouisUltra/dreamseed-ai-prompt-garden",
+"path": "index.html"
+},
+{
+"repo": "kingoliang/md2pdf",
+"path": "examples/technical-doc.md"
+},
+{
+"repo": "dfc-0117/prd-building-skill",
+"path": "SKILL.md"
+},
+{
+"repo": "Reihantt6/sns-myagent",
+"path": "agent/skills/prd-planner/README.md"
+},
+{
+"repo": "cailleachzou/skills",
+"path": "kdocs/references/kwiki/list_items.md"
+},
+{
+"repo": "Jonnyan404/clip9",
+"path": "rust/crates/actions/src/doc.rs"
+},
+{
+"repo": "openyida/openyida",
+"path": "yida-skills/skills-index.json"
+},
+{
+"repo": "timywel/prompt-lab",
+"path": "skills/prd-dispatcher/SKILL.md"
+},
+{
+"repo": "caishengold/ai-agent-ops",
+"path": "skills/_built/prd-writer/SKILL.md"
+},
+{
+"repo": "Yuan-lab-LLM/NeoWorker",
+"path": "src/renderer/i18n/generated-zh.ts"
+},
+{
+"repo": "wang-zi-tao/dotfiles",
+"path": "skills/kdocs/references/kwiki/list_items.md"
+},
+{
+"repo": "yangying06/ai-game-dev-studio",
+"path": "models.py"
+},
+{
+"repo": "zhangnan/pi-matt-skill-router",
+"path": "src/catalog.ts"
+},
+{
+"repo": "modbender/skill-library-mcp",
+"path": "data/feishu-doc-orchestrator/original-skill/feishu-doc-creator-with-permission/SKILL.md"
+},
+{
+"repo": "liminjun813/xinyuan-agent-skills",
+"path": "kdocs/references/kwiki/list_items.md"
+},
+{
+"repo": "GaoZYun/lumina-docs",
+"path": "examples/demo.py"
+},
+{
+"repo": "whyzsm/tiny-agents",
+"path": "skills/prd-writer-pro/SKILL.md"
+},
+{
+"repo": "aws-samples/sample-lark-mcp-on-agentcore",
+"path": "docker/skills/lark-okr/references/lark-okr-contentblock.md"
+},
+{
+"repo": "Seey215/SeeyGo",
+"path": "docs/ROADMAP.md"
+},
+{
+"repo": "jiangyang118/pinganyunchu-prd",
+"path": "scripts/generate_prd_docx.py"
+},
+{
+"repo": "jolie-z/Auto-JobHunter",
+"path": "docs/51job_sample.json"
+},
+{
+"repo": "rgbui/shy",
+"path": "org/product/doc.tsx"
+},
+{
+"repo": "AtifAssari/MCP-Skills-Universe",
+"path": "skills_library/batch_3/prd_planner.md"
+},
+{
+"repo": "DamingDong/macgs",
+"path": "validate_project.py"
+},
+{
+"repo": "iflytek/skillhub",
+"path": "docs/prds/skill-file-browser-sidebar-v1.0-prd.md"
+},
+{
+"repo": "bestchains/product-design",
+"path": "prd.md"
+},
+{
+"repo": "cuixbo/OnePanel",
+"path": "PRD.md"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"path": "PRD.md"
+},
+{
+"repo": "gggaiitx/mkdown-site",
+"path": "docs/PRD.md"
+},
+{
+"repo": "hustyichi/versus-ai-coding",
+"path": "docs/prd.md"
+},
+{
+"repo": "luffyZh/guardx-prd",
+"path": "PRD.md"
+},
+{
+"repo": "buckyos/buckyos",
+"path": "product/bucky_file/filebrowser_PRD.md"
+},
+{
+"repo": "iminders/aicoder",
+"path": "internal/skills/builtin/prd.md"
+},
+{
+"repo": "Mimicif/ecommerce-after-sales-agent",
+"path": "docs/01_PRD.md"
+},
+{
+"repo": "ILoveFurina/zhiyu-health",
+"path": "docs/to-human/智愈PRD.md"
+},
+{
+"repo": "QodiCat/AutoLixiang",
+"path": "Agent Prompt/PRD.md"
+},
+{
+"repo": "xuanju-hub/image",
+"path": "prd.md"
+},
+{
+"repo": "lsm424/hutb_hpc",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Charlie-BU/TongjiStudentAgent",
+"path": "docs/PRD.md"
+},
+{
+"repo": "xushengyu1/day56-submission",
+"path": "prd.md"
+},
+{
+"repo": "lihao-24/KnowNest",
+"path": "docs/versions/v0.2/prd.md"
+},
+{
+"repo": "ChenyqThu/Notion2JIRA",
+"path": "PRD.md"
+},
+{
+"repo": "cumbersun/financehub-app",
+"path": "docs/prd.md"
+},
+{
+"repo": "changchaofan/ChipletRing-APPSDK-main",
+"path": "Android/prd.md"
+},
+{
+"repo": "Ray-2026426/Webapp_amazonmarketsearch",
+"path": "docs/handoff-v3/PRD.md"
+},
+{
+"repo": "fufankeji/deepseek-harness-studio",
+"path": "packages/examples/ff-llm-wiki-plugin/application/content/raw/product-prd.md"
+},
+{
+"repo": "yantoumu/wp_crawl",
+"path": "prd.md"
+},
+{
+"repo": "QodiCat/AlibabaBaojia",
+"path": "PRD.md"
+},
+{
+"repo": "differs/Navigation-Portal",
+"path": "docs/navigation-site-prd.md"
+},
+{
+"repo": "Hwangsome/lottery-fronted",
+"path": "docs/design/07-小程序端产品需求文档PRD.md"
+},
+{
+"repo": "wilsonwang-mt/star-closet",
+"path": "docs/PRD.md"
+},
+{
+"repo": "bhrumom/fabushi",
+"path": "fabushi/PRD/opencode_install_prd.md"
+},
+{
+"repo": "shikanon/cookies",
+"path": "docs/01-demand-strategy-prd.md"
+},
+{
+"repo": "Chen-zc6615/resume_assistant",
+"path": "specs/PRD.md"
+},
+{
+"repo": "cgzmdr/-Spring-Boot-Vue3-",
+"path": "docs/PRD.md"
+},
+{
+"repo": "pc-dong/agentmill",
+"path": "packages/agent/templates/ba/PRD.md.tpl"
+},
+{
+"repo": "WuHeng9991/-OrangePi-AI-Pro-Linux-",
+"path": "PRD文档/prd.md"
+},
+{
+"repo": "zhang-quan-yi/pocket-vibe-v3",
+"path": "docs/POCKET_VIBE_MVP_PRD.md"
+},
+{
+"repo": "sylvan97/sylvan-skills",
+"path": "skills/plain-prd/references/example-prd.md"
+},
+{
+"repo": "elfbobo/danqing-ai",
+"path": ".trae/documents/prd.md"
+},
+{
+"repo": "NgaiYeanCoi/NYC-TekFlow",
+"path": "docs/PRD.md"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"path": "docs/prds/skill-file-browser-sidebar-v1.0-prd.md"
+},
+{
+"repo": "qixing1227/AegisMonitor",
+"path": "docs/AegisMonitor/01-产品需求文档-PRD.md"
+},
+{
+"repo": "penghang1223/test-case-writer-plus-bak",
+"path": "requirements/REQ-030-ABC分析/extracted/prd.md"
+},
+{
+"repo": "ZJM189/Daily_News",
+"path": "docs/product/prd.md"
+},
+{
+"repo": "weponusa/teachany-courseware",
+"path": "pbl-map/docs/PRD.md"
+},
+{
+"repo": "kkCoca/openclaw-evolution",
+"path": "projects/clawdevflow/01_designing/PRD.md"
+},
+{
+"repo": "qdbin/TestPlatform",
+"path": "platform-backend/assets/backend相关说明(按需了解即可)/PRD.md"
+},
+{
+"repo": "adispring/cx-demo",
+"path": "docs/requirements/highmaker-v1-refactor/prd.md"
+},
+{
+"repo": "GuiminChen/crate",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Galaxy-0/NPC-zqd",
+"path": "prd.md"
+},
+{
+"repo": "DashuaibiZZY/prototype",
+"path": "document/web&后台/事件目录PRD.md"
+},
+{
+"repo": "rfeng1016/aitestcases",
+"path": "data/网易云音乐PRD.md"
+},
+{
+"repo": "zhengjiayingz/Intelligent-document-system",
+"path": "file_management_backend_nest/docs/plans/2026-07-08-ai-features-prd.md"
+},
+{
+"repo": "DJBoy520/ai-memory-runtime",
+"path": "docs/DOC-AMR-01-PRD.md"
+},
+{
+"repo": "Tenetpzy/WoodsCabinDice",
+"path": "prd.md"
+},
+{
+"repo": "XueQi-2957/PartyMate",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Qnurye/jubilant-octo-journey",
+"path": "prd.md"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"path": "prd/prd.md"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"path": "PRDs/PRD.md"
+},
+{
+"repo": "Sakayori-Iroha-168/Software_Teamwork",
+"path": ".trellis/tasks/archive/2026-06/06-28-requirements-analysis-doc/prd.md"
+},
+{
+"repo": "Aiting-for-you/OpsPilot",
+"path": "docs/01_PRD.md"
+},
+{
+"repo": "czx081/deepwisdom",
+"path": "docs/PRD.md"
+},
+{
+"repo": "jiangcece20-jpg/data-asset-platform",
+"path": "docs/product/2026-08-03-对外APP找数买数用数-完整模块PRD.md"
+},
+{
+"repo": "XBF2016/book-ocr",
+"path": "docs/prd.md"
+},
+{
+"repo": "SXXian0504/marketing-multi-agent",
+"path": "PRD.md"
+},
+{
+"repo": "yuyuyu6631/sql-eval",
+"path": "prd.md"
+},
+{
+"repo": "Nukker/GrowTree",
+"path": "docs/PRD.md"
+},
+{
+"repo": "guobin211/local-db",
+"path": "PRD.md"
+},
+{
+"repo": "DrHazers/corporate-attribution-system",
+"path": "PRD.md"
+},
+{
+"repo": "ZedeX/agentforge",
+"path": "PRD.md"
+},
+{
+"repo": "luffyZh/nh-ai-platform",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Susie-beep/MyVaultGuide",
+"path": "docs/prd.md"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"path": "specs/indextts-rust-prd.md"
+},
+{
+"repo": "wwjmashalong/GatherGo",
+"path": "GatherGo_PRD.md"
+},
+{
+"repo": "Mdz-Bigdata/DataWareHouse-Agent",
+"path": "apps/listen-book-data-agent/specs/PRD.md"
+},
+{
+"repo": "Poghappy/AgentFoundry",
+"path": "gates/G3_PRD.md"
+},
+{
+"repo": "EVERLASTING7/My_Personal_Workstation",
+"path": "PRD.md"
+},
+{
+"repo": "TyrantRey/DeepTube",
+"path": "PRD.md"
+},
+{
+"repo": "luyh7/fishing-profit",
+"path": "PRD.MD"
+},
+{
+"repo": "Designer-Awei/fast-hardware",
+"path": "feature-prd/1-edit_prd.md"
+},
+{
+"repo": "wangyifei882/AetherAnima",
+"path": "prd.md"
+},
+{
+"repo": "BDMstudio/audio-cut",
+"path": "PRD.md"
+},
+{
+"repo": "loengchiu/ShitPM",
+"path": "templates/prd.md"
+},
+{
+"repo": "Faith-Neil/if-children-have-been-grown",
+"path": "docs/PRD.md"
+},
+{
+"repo": "big071/NovaDepot",
+"path": "docs/01-prd.md"
+},
+{
+"repo": "jaylinwang/zen",
+"path": "docs/PRD.md"
+},
+{
+"repo": "beidaomitu233/winserver",
+"path": "docs/prd.md"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"path": "PawID_Web3项目_PRD.md"
+},
+{
+"repo": "dibayinfu/continew-admin-ui",
+"path": "docs/device-message-trace-prd.md"
+},
+{
+"repo": "fmnbijbzq/prototype",
+"path": "course/prd.md"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"path": "src/web/PRD.md"
+},
+{
+"repo": "HduSy/tokenscope",
+"path": "PRD.md"
+},
+{
+"repo": "echoVic/orca-agent",
+"path": ".boss/orca-codex-harness/prd.md"
+},
+{
+"repo": "Mark7766/spring-ai-apps",
+"path": "learn-ai/PRD.md"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"path": "docs/group_memory_prd.md"
+},
+{
+"repo": "Kaiyao-Ge/DeepKod",
+"path": "PRD.md"
+},
+{
+"repo": "kirkluokun/awesome-a-stock-openclawskills",
+"path": "news-summary/PRD.md"
+},
+{
+"repo": "201222-L/dsh-mobile-remote",
+"path": "docs/01-PRD.md"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"path": "docs/PRD.md"
+},
+{
+"repo": "MaxMiksa/GentleMend",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Chesterguan/medme",
+"path": "docs/001_PRD.md"
+},
+{
+"repo": "poneding/pdf-tailor",
+"path": "docs/PRD.md"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"path": "docs/PRD.md"
+},
+{
+"repo": "freestylefly/wechat-mini",
+"path": "prd.md"
+},
+{
+"repo": "xiaou61/2027-bs",
+"path": "health/041-backend/041-PRD.md"
+},
+{
+"repo": "WOOWOOYONG/Curl-Ticket",
+"path": "docs/prd.md"
+},
+{
+"repo": "LiangJunChan/mac-screenshot-annotator",
+"path": "docs/PRD.md"
+},
+{
+"repo": "hczs/fuckssh",
+"path": "docs/fuckssh-PRD.md"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"path": "docs/01-prd.md"
+},
+{
+"repo": "chiisen/VibeCodingSCM",
+"path": "PRD.md"
+},
+{
+"repo": "DeaglePC/TeslamateCyberUI",
+"path": "doc/PRD.md"
+},
+{
+"repo": "cafelemon/dji-tello",
+"path": "docs/01_prd.md"
+},
+{
+"repo": "fengzhizi319/privacy-local-agent",
+"path": "docs/qol/prd.md"
+},
+{
+"repo": "skywind3000/toys",
+"path": "Apps/MakoServer/prd.md"
+},
+{
+"repo": "wutongci/cursor_rule",
+"path": "template/prd.md"
+},
+{
+"repo": "XavierZhao1989/remember-to-drink-water",
+"path": "PRD.md"
+},
+{
+"repo": "Alan-IFT/dsh-project-std",
+"path": "templates/PRD.md"
+},
+{
+"repo": "WoodFY/Taskly",
+"path": "PRD.md"
+},
+{
+"repo": "bijinfeng/hexo-hub",
+"path": "PRD.md"
+},
+{
+"repo": "IdealDestructor/RiskAtlas",
+"path": "docs/PRD.md"
+},
+{
+"repo": "Jnocode/Spirits-Calling",
+"path": "Docs/PROJECT_PRD.md"
+},
+{
+"repo": "ROUCHER27/blink-or-die",
+"path": "prd.md"
+},
+{
+"repo": "StringKe/std-agent",
+"path": "docs/prd.md"
+},
+{
+"repo": "Unicellular-SU/mulby",
+"path": "docs/archive/PRD.md"
+},
+{
+"repo": "Lee110110/Harness-Engineering",
+"path": "PRJ-001/06-prd/prd.md"
+},
+{
+"repo": "xiehust/agent_harness_workshop",
+"path": "labs/snake_game/PRD.md"
+},
+{
+"repo": "fajfl/cycu_pick_assit",
+"path": "docs/PRD.md"
+},
+{
+"repo": "pooh0424/w8_SKILL_and_AI_Chatbot",
+"path": "docs/PRD.md"
+},
+{
+"repo": "mmletgo/deepseek-ocr",
+"path": "docs/prd.md"
+},
+{
+"repo": "gitfdy/ollma_chat",
+"path": "docs/PRD.md"
+},
+{
+"repo": "HomeSafe2017/product-style-transfer",
+"path": "docs/PRD.md"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"path": "PRD.md"
+},
+{
+"repo": "1136812645/xu-ai-news-rag",
+"path": "docs/PRD.md"
+},
+{
+"repo": "cnjack/jcode",
+"path": "internal-doc/artifacts-prd.md"
+},
+{
+"repo": "NewLifeX/X",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/AntJob",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/Stardust",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "Earth-OL-Player/ai_learn_project",
+"path": "doc/1.需求文档/1.1需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "lindexi/lindexi_gd",
+"path": "WPFDemo/JawjeleceeYairlubelhearrene/Docs/需求文档.md"
+},
+{
+"repo": "NewLifeX/GitCandy",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"path": "code-copilot/changes/archive/编码规则配置优化/功能需求文档.md"
+},
+{
+"repo": "flanliulf/AI-Copyright-Application-Generator",
+"path": "requires_docs/需求文档.md"
+},
+{
+"repo": "toohamster/ws-http",
+"path": "design/02-需求文档.md"
+},
+{
+"repo": "cloudQuant/backtrader",
+"path": "docs/_internal/opts/requirements/迭代9-新增持仓模式/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Melsec",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "liangdabiao/amazon-sorftime-research-MCP-skill",
+"path": "品类自动化选品_需求文档.md"
+},
+{
+"repo": "Liuxn123/DevMate",
+"path": "文档/功能需求文档.md"
+},
+{
+"repo": "Thinking-builder/AegisMind",
+"path": "功能需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.MySql",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Modbus",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.IP",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "Zourunfa/bili-analyzer",
+"path": "docs/模型可配置需求文档.md"
+},
+{
+"repo": "JJCKA/Node2Node",
+"path": "需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Map",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "lanshuye123/CrystalViewer",
+"path": "docs/功能需求文档.md"
+},
+{
+"repo": "roman-ryzenadvanced/smm-xr",
+"path": "skills/social-media-copywriter/功能需求文档.md"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"path": "uploads/documents/20260618_092023_需求文档.md"
+},
+{
+"repo": "young-nights/ota-upgrade-of-qi-charger-based-on-can",
+"path": "docs/16. 功能需求文档.md"
+},
+{
+"repo": "dotnet9/Vex",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Panasonic",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "ZSYTY/magic-tower",
+"path": "需求文档.md"
+},
+{
+"repo": "openthos/oto-filemanager-analysis",
+"path": "FileManager需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Schneider",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"path": "docs/前端功能需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "WenhaoHe02/knowledge_graph",
+"path": "初步需求文档.md"
+},
+{
+"repo": "vinsonhi/family-food-menu",
+"path": "需求文档.md"
+},
+{
+"repo": "pyejy/graphdigger-getdata-mac",
+"path": "GetData复刻_功能需求文档.md"
+},
+{
+"repo": "openthos/appstore-ota-analysis",
+"path": "AppStore需求文档.md"
+},
+{
+"repo": "openthos/multiwin-analysis",
+"path": "seafile/DongPeng/openthos_cloud手机需求文档.md"
+},
+{
+"repo": "steveliuyan/XToolpro",
+"path": "XToolpro-功能需求文档.md"
+},
+{
+"repo": "NewLifeX/NewLife.Holiday",
+"path": "Doc/需求文档.md"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"path": "需求文档.md"
+},
+{
+"repo": "Hopesy/LottieNet",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "thisxiaoyuQAQ/LuckyIsland",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "Dream22180971/VoyageAI",
+"path": "产品需求文档.md"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"path": "需求文档.md"
+},
+{
+"repo": "Liaoyuanxinghuo/DSH-Plugin-Manager",
+"path": "需求文档.md"
+},
+{
+"repo": "MuShan-bit/TideDesk",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "WuD693/automated-mathematical-modeling",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "tangwei-dev/sit-reminder",
+"path": "需求文档.md"
+},
+{
+"repo": "yuanyyyyyyyyy/loser-master",
+"path": "需求文档.md"
+},
+{
+"repo": "secondtonone1/python_ai",
+"path": "ai_service/docs/01_需求文档.md"
+},
+{
+"repo": "lnwnrng/Driving-Behavior-Detection",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "hewenyu/pocp",
+"path": "doc/需求文档.md"
+},
+{
+"repo": "mazhiapp/mazhiapp",
+"path": "doc/需求文档.md"
+},
+{
+"repo": "colerith/Electric-Phone",
+"path": "需求文档.md"
+},
+{
+"repo": "jacob-lou/AI-News-Sentinel",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "James-Xue/SubEclipse",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "Kayaks99/Campus-side-mission-platform",
+"path": "项目需求文档.md"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"path": "需求文档.md"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"path": "需求文档.md"
+},
+{
+"repo": "fishcode2025/mcp-sqlite",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "xiashao/KaiyanTool",
+"path": ".trae/documents/分镜页面重构需求文档.md"
+},
+{
+"repo": "lfc162874/EasyShorts-AI",
+"path": "doc/需求文档.md"
+},
+{
+"repo": "baneeishaque/ljt-520_openclaw-backup",
+"path": "skills/bandwe/social-media-copywriter-generator/功能需求文档.md"
+},
+{
+"repo": "scriptwang/llama-lens",
+"path": "docs/01-需求文档.md"
+},
+{
+"repo": "afggssda/NJUCode",
+"path": "手册/需求文档.md"
+},
+{
+"repo": "F1breXW/Software_Testing_Assignment1_VendingMachine",
+"path": "需求文档.md"
+},
+{
+"repo": "JZsheTech/arxiv_search_demo",
+"path": "需求文档.md"
+},
+{
+"repo": "michaelawea/insa-ge-create-power-meter",
+"path": "需求文档.md"
+},
+{
+"repo": "LingO-Agentic-RAG/RAGagent",
+"path": "code/api_doc/需求文档.md"
+},
+{
+"repo": "chenmydaniel/logomaker",
+"path": "需求文档.md"
+},
+{
+"repo": "mowatermelon/astro-vercel-multiple",
+"path": "docs/产品需求文档.md"
+},
+{
+"repo": "cwbis/xiaohongshu_mianshi",
+"path": "需求文档.md"
+},
+{
+"repo": "liellaaaaa/productGuide",
+"path": "01需求文档.md"
+},
+{
+"repo": "Zhuxb-Clouds/next-zhuxb-blog",
+"path": "docs/UI设计/需求文档.md"
+},
+{
+"repo": "learning-hub/learning-hub",
+"path": ".old_docs/doc/需求文档.md"
+},
+{
+"repo": "Cosimo118/stock_analyzer",
+"path": "doc/需求文档.md"
+},
+{
+"repo": "oceancat91/social-sense",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "Gabriel-Lorca/foundation",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "SongF0140/CampusOverflow_HWA",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "murphy-955/db-mysql-homework",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "lixiyi111/SoftwareConstructionshi",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "wusaber33/wallet",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "Platoooooo/Student-display-in-the-exhibition-hall",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "gaosheng1893-hub/love",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "Rohan-git188/Time_estimation---2",
+"path": "docs/需求文档.md"
+},
+{
+"repo": "entropy-cloud/nop-entropy",
+"path": "nop-ai/model/input-requirements.md"
+},
+{
+"repo": "juanjuandog/FinSight-AI",
+"path": "docs/product-requirements.md"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"path": ".kiro/specs/audit-chain/requirements.md"
+},
+{
+"repo": "tyxben/AI_novel",
+"path": "specs/ppt-html-first/requirements.md"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"path": "docs/sdlc-harness/product-requirements.md"
+},
+{
+"repo": "kid0317/crewai_mas_demo",
+"path": "m4l23/workspace/requirements.md"
+},
+{
+"repo": "dainsiahtill-dev/Polaris",
+"path": "docs/product/requirements.md"
+},
+{
+"repo": "zenitlab/ai-hot-radar",
+"path": "docs/REQUIREMENTS.md"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"path": "docs/requirements.md"
+},
+{
+"repo": "ximatai/MuYunFRP",
+"path": "docs/product-requirements.md"
+},
+{
+"repo": "Jwz-git/Daygo",
+"path": "docs/01-product-requirements.md"
+},
+{
+"repo": "arch-team/devpace",
+"path": "docs/planning/requirements.md"
+},
+{
+"repo": "NestDream/UTCMenuBar",
+"path": "specs/display-options/requirements.md"
+},
+{
+"repo": "cxqc168-wq/Trae-workbuddyAssistant",
+"path": "docs/requirements.md"
+},
+{
+"repo": "songunity/ccswitch-cli",
+"path": "specs/cc-switch/requirements.md"
+},
+{
+"repo": "SakuraForgot/FluentYTDL",
+"path": "specs/media-metadata/requirements.md"
+},
+{
+"repo": "silent-rs/silent",
+"path": "docs/requirements.md"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"path": "docs/requirements.md"
+},
+{
+"repo": "xgwangdl/AI-Interview",
+"path": "docs/COST-GUARD-REQUIREMENTS.md"
+},
+{
+"repo": "liwenhao0427/StS2ModManager",
+"path": "requirements.md"
+},
+{
+"repo": "5151561/nodyssey",
+"path": "docs/design-requirements.md"
+},
+{
+"repo": "xiaomizhoubaobei/astrbot_plugin_models_ai",
+"path": "FEATURE_REQUIREMENTS.md"
+},
+{
+"repo": "ppttzhu/00-SightReading_3.0",
+"path": "docs/midi-input-mode/requirements.md"
+},
+{
+"repo": "IllegalCreed/algorithms-visualization",
+"path": "docs/plans/20260703-c062-kmp/requirements.md"
+},
+{
+"repo": "jiel521125/TianShuFlow",
+"path": "docs/mutil-agents/requirements.md"
+},
+{
+"repo": "siuming-qiu/web-cursor",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "kid0317/cc_workspace_bot",
+"path": "docs/requirements.md"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"path": "docs/05-Project-Docs/v2.2-requirements.md"
+},
+{
+"repo": "mingyush/classPointSystem",
+"path": "docs/specs/requirements.md"
+},
+{
+"repo": "destesasinsh/HiAuRo",
+"path": "public-docs/REQUIREMENTS.md"
+},
+{
+"repo": "hackmagic/opennavicat",
+"path": "docs/dbx_requirements.md"
+},
+{
+"repo": "Sweetteabittersugar/agency",
+"path": "docs/REQUIREMENTS.md"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "Chesssley/gatherly-web",
+"path": "docs/requirements.md"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"path": "docs/multi-window-requirements.md"
+},
+{
+"repo": "suiyunzou/algorithm-visualizer",
+"path": "docs/requirements.md"
+},
+{
+"repo": "MSTUDIOHUB/MAIN",
+"path": ".MAIN/templates/plan/requirements.md"
+},
+{
+"repo": "zeyuW/flow-agent",
+"path": "docs/specs/_template/requirements.md"
+},
+{
+"repo": "Morphex-Mo/CS405-Machine-Learning",
+"path": "README_UPDATE_REQUIREMENTS.md"
+},
+{
+"repo": "kong-rust/kong-rust",
+"path": "docs/requirements.md"
+},
+{
+"repo": "zhaihuijuan/Dynamic-Visualization-Dashboard-for-Global-National-and-Provincial-Healthcare-Data",
+"path": "requirements.md"
+},
+{
+"repo": "davidhoo/buddy",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "saitama-art/medical-assistant",
+"path": "docs/01-requirements.md"
+},
+{
+"repo": "sweetorange1/Y2Kmeter",
+"path": "docs/Palette_Redesign_Requirements.md"
+},
+{
+"repo": "T0nyl1n-official/MavlinkProject",
+"path": "docs/requirements.md"
+},
+{
+"repo": "MaverickGuo/KlayoutInVC",
+"path": "docs/REQUIREMENTS.md"
+},
+{
+"repo": "surdring/wxauto-bot-v4",
+"path": "spec/requirements.md"
+},
+{
+"repo": "junerver/ComposeHooks",
+"path": "docs/wasmjs-variant-requirements.md"
+},
+{
+"repo": "liujsh/looklift",
+"path": "docs/versions/v0.6/requirements.md"
+},
+{
+"repo": "fish2lab/ArcanAgent",
+"path": "specs/arcan_agent/requirements.md"
+},
+{
+"repo": "EvilJoker/prompt",
+"path": "rules/rules/01-requirements.md"
+},
+{
+"repo": "joyozhang333-lgtm/human-design-llm",
+"path": "docs/v0.3-product-requirements.md"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"path": "docs/requirements.md"
+},
+{
+"repo": "LordCasser/atlas",
+"path": "docs/requirements.md"
+},
+{
+"repo": "lucianwhy/final-review",
+"path": "docs/product-requirements.md"
+},
+{
+"repo": "AI-PM-Wiki/AIPM",
+"path": "docs/pm/requirements.md"
+},
+{
+"repo": "InspireChina/developer-code-pairing-java",
+"path": "docs/Requirements.md"
+},
+{
+"repo": "LANVNAL/redteam-prompt-patcher",
+"path": "docs/REQUIREMENTS.md"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"path": "docs/01-requirements.md"
+},
+{
+"repo": "NeuralNexusPro/startupOS",
+"path": "docs/specs/epic-R/story-R.4/requirements.md"
+},
+{
+"repo": "weituo470/planA",
+"path": "task/mvp2/requirements.md"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"path": "requirements.md"
+},
+{
+"repo": "wedaren/zsh-network-status-prompt",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "sunwu51/mcp-center",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "qtgf520/kai-qt",
+"path": "REQUIREMENTS.md"
+},
+{
+"repo": "ModerRAS/claude-watch",
+"path": "requirements.md"
+},
+{
+"repo": "ModerRAS/rs_guard",
+"path": "requirements.md"
+},
+{
+"repo": "GhostXia/AIRP-MCP-Server",
+"path": "docs/MCP-SERVER-REQUIREMENTS.md"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"path": "requirements.md"
+},
+{
+"repo": "Zongsoft/framework",
+"path": "upgrading/web/docs/requirements.md"
+},
+{
+"repo": "fanfan-de/anybox",
+"path": "docs/planner-product-requirements.md"
+},
+{
+"repo": "Brilliant-Captain/CryEngineLocalizationTool",
+"path": "docs/product-requirements.md"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"path": ".kiro/specs/image-splitter/requirements.md"
+},
+{
+"repo": "ynu/pioc",
+"path": "requirements.md"
+},
+{
+"repo": "armylau/tetris_game",
+"path": "doc/requirements.md"
+},
+{
+"repo": "mengzilym/clindle",
+"path": "docs/requirements.md"
+},
+{
+"repo": "Kirito14IT/EduShareQA_WebApplication",
+"path": "docs/requirements.md"
+}
+]

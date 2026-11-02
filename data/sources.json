@@ -1,0 +1,122 @@
+[
+ {
+  "repo": "e6a5/zenta",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 9958,
+  "req_hits": 8,
+  "file": "data/raw/e6a5__zenta.md"
+ },
+ {
+  "repo": "wjsutton/tableau-public-mcp",
+  "path": "PRD.md",
+  "license": "Apache-2.0",
+  "chars": 29699,
+  "req_hits": 11,
+  "file": "data/raw/wjsutton__tableau-public-mcp.md"
+ },
+ {
+  "repo": "Bytepute/endpointForge",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 18126,
+  "req_hits": 25,
+  "file": "data/raw/Bytepute__endpointForge.md"
+ },
+ {
+  "repo": "profullstack/coinpayportal",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 22660,
+  "req_hits": 48,
+  "file": "data/raw/profullstack__coinpayportal.md"
+ },
+ {
+  "repo": "hasanraiyan/resume",
+  "path": "prd.md",
+  "license": "MIT",
+  "chars": 6728,
+  "req_hits": 9,
+  "file": "data/raw/hasanraiyan__resume.md"
+ },
+ {
+  "repo": "intervalrain/OpenClaw.Net",
+  "path": "prd.md",
+  "license": "MIT",
+  "chars": 5507,
+  "req_hits": 9,
+  "file": "data/raw/intervalrain__OpenClaw.Net.md"
+ },
+ {
+  "repo": "JulioBorges/gantry",
+  "path": "PRD.md",
+  "license": "Apache-2.0",
+  "chars": 22715,
+  "req_hits": 11,
+  "file": "data/raw/JulioBorges__gantry.md"
+ },
+ {
+  "repo": "closedloop-technologies/climbhill",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 32175,
+  "req_hits": 16,
+  "file": "data/raw/closedloop-technologies__climbhill.md"
+ },
+ {
+  "repo": "GoForthTechnology/RoomBooker",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 4818,
+  "req_hits": 26,
+  "file": "data/raw/GoForthTechnology__RoomBooker.md"
+ },
+ {
+  "repo": "cloud-ai-summit-cz/ai",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 11695,
+  "req_hits": 11,
+  "file": "data/raw/cloud-ai-summit-cz__ai.md"
+ },
+ {
+  "repo": "MrThief123/care-compass",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 30468,
+  "req_hits": 62,
+  "file": "data/raw/MrThief123__care-compass.md"
+ },
+ {
+  "repo": "ScionResearch/multi-material-printer",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 20272,
+  "req_hits": 40,
+  "file": "data/raw/ScionResearch__multi-material-printer.md"
+ },
+ {
+  "repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+  "path": "prd.md",
+  "license": "MIT",
+  "chars": 11032,
+  "req_hits": 8,
+  "file": "data/raw/jpbullalayao__pokemon-vgc-calc-mcp.md"
+ },
+ {
+  "repo": "rahilp/gatewright",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 25312,
+  "req_hits": 8,
+  "file": "data/raw/rahilp__gatewright.md"
+ },
+ {
+  "repo": "sudo-Harshk/Skillify",
+  "path": "PRD.md",
+  "license": "MIT",
+  "chars": 13732,
+  "req_hits": 10,
+  "file": "data/raw/sudo-Harshk__Skillify.md"
+ }
+]

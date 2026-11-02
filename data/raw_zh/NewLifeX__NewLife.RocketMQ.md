@@ -1,0 +1,154 @@
+﻿# NewLife.RocketMQ 需求文档
+
+> 版本：v3.2 | 日期：2026-10-16
+
+本文档描述 NewLife.RocketMQ 的愿景、核心目标和功能方向。完成状态在[功能清单](功能清单.md)中追踪，详细设计在[架构设计](架构设计.md)中展开。
+
+---
+
+## 1. 背景与愿景
+
+### 1.1 系统定位
+
+NewLife.RocketMQ 是**企业级纯托管 .NET RocketMQ 客户端**，专为 .NET 生态设计，覆盖 .NET Framework 4.5+ 到 .NET 10。给 .NET 开发者提供一个零外部依赖、双协议支持、多云适配的消息队列客户端。
+
+### 1.2 痛点
+
+Apache RocketMQ 是国内使用最广泛的分布式消息中间件之一，广泛应用于电商交易、金融支付、物联网、大数据等领域。但 .NET 生态在接入 RocketMQ 时面临以下挑战：
+
+- **协议覆盖不全**：现有方案多数仅支持单一协议，无法同时兼容 Remoting（4.x Broker）和 gRPC（5.x Proxy）两种接入方式
+- **外部依赖沉重**：部分方案依赖 Google.Protobuf、Grpc.Net.Client 等第三方库，增加部署复杂度和包体积
+- **框架兼容不足**：大量企业仍运行在 .NET Framework 4.5+，但可用选项极为有限
+- **云厂商适配分散**：接入阿里云、华为云、腾讯云需要各自独立的 SDK，缺乏统一接口
+
+### 1.3 愿景
+
+成为 .NET 生态 RocketMQ 首选客户端 —— 零依赖一键安装，Remoting + gRPC 双协议自动路由，内置阿里云/华为云/腾讯云/ACL 四家适配，生产级企业特性完整覆盖。
+
+---
+
+## 2. 核心目标
+
+| 编号 | 目标 | 一句话描述 |
+|:-----|:-----|:----------|
+| PROTO | 协议通信 | 同时支持 Remoting（4.x/5.x Broker）和 gRPC（5.x Proxy）双协议，零外部 Protobuf/gRPC 依赖 |
+| CODEC | 消息编解码 | 完整的消息二进制格式编解码，含压缩、批量解码、IPv6、5.x MessageId |
+| PROD | 生产者 | 覆盖同步/异步/单向/批量/延迟/事务/顺序/Request-Reply 全发送模式 |
+| CONS | 消费者 | Pull/Pop/Push 三种消费模式，重试/死信/顺序/广播/过滤/限流企业级特性 |
+| CLOUD | 云厂商适配 | 统一 ICloudProvider 接口，内置阿里云/华为云/腾讯云/Apache ACL 四家适配器 |
+| MGMT | 管理与运维 | 完整的 Topic/Group CRUD、消息查询、消费统计、偏移管理 API |
+| OBS | 可观测性 | 消息轨迹追踪、发送/消费端钩子、结构化日志、性能追踪集成 |
+| BUS | 事件总线 | 基于 Core 的 IEventBus 契约，用 Producer/Consumer 提供跨进程的强类型事件发布订阅 |
+| COMPAT | 兼容与发布 | 跟进 NewLife.Core 主版本演进，现代目标框架支持 NativeAOT/裁剪发布 |
+
+---
+
+## 3. 功能需求
+
+### 3.1 PROTO — 协议通信
+
+- **PROTO-1 Remoting 协议通信**：实现 RocketMQ 4.x/5.x Broker TCP 私有协议（二进制帧 + JSON/ROCKETMQ 序列化），支持连接池复用、Opaque 请求响应匹配、HMAC-SHA1 签名、SSL/TLS、VIP 通道，实现 60+ RequestCode 指令。
+- **PROTO-2 gRPC Proxy 协议通信**：实现 RocketMQ 5.x Proxy HTTP/2 + Protobuf 协议，手写 Protobuf 字段编解码（基于 NewLife.Core 的 SpanWriter/SpanReader，零外部依赖），支持 Unary + Server Streaming + Telemetry 长连接，实现 11 个核心 RPC 方法；明文端点强制 HTTP/2（h2c）、按调用声明 grpc-timeout，资源上报长连接保持 Proxy 侧客户端注册与订阅关系。
+- **PROTO-3 NameServer 路由发现**：Topic 路由查询与 30s 定时轮询刷新，多 Topic 路由管理，Broker 主从地址解析，支持 HTTP 方式获取 NameServer 地址（阿里云）。
+- **PROTO-4 Broker 心跳与客户端注销**：30s 定时心跳保活，客户端优雅注销。
+- **PROTO-5 VIP 通道**：BrokerPort - 2 优先级连接通道。
+
+### 3.2 CODEC — 消息编解码
+
+- **CODEC-1 标准消息编解码**：完整 4.x 消息二进制格式编解码，IPv4/IPv6 地址自动识别（SysFlag 位判断），消息属性分隔符与 Java 官方一致（\x01/\x02）。
+- **CODEC-2 批量消息解码**：INNER_BATCH_FLAG 标识批量消息解码（DecodeBatch）。
+- **CODEC-3 5.x MessageId 新格式**：CreateMessageId5x / TryParseMessageId5x / IsMessageId5x 编解码。
+- **CODEC-4 可插拔消息压缩**：IMessageCompressor 接口 + ZlibMessageCompressor 内置实现（自动检测 RFC1950 头与 RAW DEFLATE；解压上限默认 64MB，可按实例配置 MaxDecompressSize），SysFlag 压缩类型通过 MessageCompressorRegistry 全局注册，LZ4/ZSTD 通过可选扩展包注入。
+- **CODEC-5 解码失败隔离与上报**：单条消息解码失败时按 StoreSize 跳过错位，同批其余消息照常解析；Consumer 暴露 DecodeError 事件供告警或旁路保存；整批均无法解码时按已消费推进位点，避免队列假死。
+
+### 3.3 PROD — 生产者
+
+- **PROD-1 消息发送**：同步发送（Publish）、异步发送（PublishAsync）、单向发送（PublishOneway），支持发送重试（RetryTimesWhenSendFailed）。
+- **PROD-2 批量消息**：PublishBatch 合并多条消息为一次 SEND_BATCH_MESSAGE 请求。
+- **PROD-3 延迟消息**：18 级预设延迟（PublishDelay），gRPC 模式支持任意时间延迟（PublishDelayViaGrpcAsync）。
+- **PROD-4 事务消息**：半消息发送（PublishTransaction）+ 提交/回滚（EndTransaction）+ 事务回查回调（OnCheckTransaction 同步/异步委托）。
+- **PROD-5 顺序消息**：指定 MessageQueue 发送，配合 SelectQueue 按 Key 选择队列。
+- **PROD-6 Request-Reply**：Request / RequestAsync 同步/异步请求回复模式。
+- **PROD-7 消息压缩**：CompressOverBytes 阈值自动 ZLIB 压缩。
+- **PROD-8 优先级消息**：gRPC SystemProperties.Priority 字段（1~16，默认 0），Broker 按优先级出队（5.4+）。
+- **PROD-9 LMQ 轻量队列**：SetLmqDestination / GetLmqDestination 辅助方法，通过 PROPERTY_INNER_MULTI_DISPATCH 属性分发到指定 LMQ。
+- **PROD-10 负载均衡**：ILoadBalance 接口 + WeightRoundRobin 加权轮询实现，支持 Broker 权重。
+
+### 3.4 CONS — 消费者
+
+- **CONS-1 Pull 消费与调度**：长轮询拉取（Pull），自动分配队列并启动消费调度线程（Rebalance 平均分配）。
+- **CONS-2 集群与广播消费**：集群模式 Clustering（平均分配 Rebalance），广播模式 Broadcasting（本地 JSON 文件持久化偏移）。
+- **CONS-3 偏移量管理**：查询（QueryOffset）、更新（UpdateOffset）、按时间戳搜索（SearchOffset）。
+- **CONS-4 消费重试与死信队列**：EnableRetry + MaxReconsumeTimes，自动回退到 RETRY Topic，超限进入 %DLQ% 死信队列，支持 SendMessageBackAsync 消费回退。
+- **CONS-5 顺序消费**：LockBatchMQAsync / UnlockBatchMQAsync 队列锁定，OrderConsume 顺序消费。
+- **CONS-6 Tag 与 SQL92 过滤**：Tag 表达式过滤，SQL92 表达式过滤（ExpressionType="SQL92"）。
+- **CONS-7 多 Topic 订阅**：Topics 属性，按 Topic 分别 Rebalance。
+- **CONS-8 Pop 消费模式**：PopMessageAsync / AckMessageAsync / BatchAckMessageAsync / ChangeInvisibleTimeAsync，支持 incrementReconsumeTimes 参数控制不递增重试次数（5.5+）。
+- **CONS-9 消费限流**：MaxConcurrentConsume 信号量控制最大并发。
+- **CONS-10 gRPC PushConsumer**：内置长轮询线程 + OnMessage 回调 + 自动 Ack，支持并发控制；启动时自动上报订阅关系并保持长连接（netstandard2.1+）；消费失败自动延迟重投，投递次数达到上限转 `%DLQ%{group}`。
+- **CONS-11 消费者变更通知**：NOTIFY_CONSUMER_IDS_CHANGED 触发自动重平衡。
+
+### 3.5 CLOUD — 云厂商适配
+
+- **CLOUD-1 统一适配接口**：ICloudProvider（TransformTopic / TransformGroup / GetNameServerAddress），旧版 AliyunOptions / AclOptions 自动桥接。
+- **CLOUD-2 阿里云适配**：实例 ID 前缀路由 + HTTP NameServer 发现 + HMAC-SHA1 签名。
+- **CLOUD-3 华为云适配**：SSL/TLS + 实例 ID 路由。
+- **CLOUD-4 腾讯云适配**：Namespace 前缀路由。
+- **CLOUD-5 Apache ACL 适配**：HMAC-SHA1 签名，不转换 Topic/Group。
+- **CLOUD-6 ACL 2.0 权限模型**：aclEnabled / ResourceType / ResourceName 请求头字段注入，与 ACL 1.x 向后兼容。
+
+### 3.6 MGMT — 管理与运维
+
+- **MGMT-1 Topic 管理**：创建/更新/删除 Topic，支持 TopicMessageType.Lite 轻量 Topic（5.5+）。
+- **MGMT-2 消费组管理**：创建/更新/删除 SubscriptionGroup。
+- **MGMT-3 消息查询**：按 MsgId（ViewMessage）和按 Key（QueryMessageByKey）查询消息。
+- **MGMT-4 消费统计**：GetConsumeStats / GetTopicStatsInfo 消费统计查询。
+- **MGMT-5 集群与连接信息**：GetClusterInfo / GetConsumerConnectionList / GetRuntimeInfo。
+- **MGMT-6 偏移量管理与重置**：UpdateOffset / ResetConsumerOffset / QueryOffset。
+- **MGMT-7 消息过滤服务器注册**：RegisterFilterServer。
+- **MGMT-8 Broker 主从切换**：消费失败自动切换到从节点，容错处理阿里云公网版 BrokerName 不匹配。
+
+### 3.7 OBS — 可观测性
+
+- **OBS-1 消息轨迹追踪**：AsyncTraceDispatcher 异步分发 + MessageTraceHook 自动记录，覆盖生产者发送和消费者消费全链路。
+- **OBS-2 发送端钩子**：ISendMessageHook 接口，在消息发送前后注入自定义逻辑。
+- **OBS-3 消费端钩子**：IConsumeMessageHook 接口，在消息消费前后注入自定义逻辑。
+- **OBS-4 结构化日志与追踪**：ILog 结构化日志，Tracer.NewSpan 性能追踪埋点。
+- **OBS-5 客户端资源上报**：gRPC Telemetry 长连接上报客户端设置（生产者发布主题、消费者订阅关系），周期重发与断线重连保持 Proxy 侧注册。
+- **OBS-6 消费者运行信息**：GetConsumerRunningInfo 上报消费者状态。
+
+### 3.8 BUS — 事件总线
+
+- **BUS-1 RocketMQ 事件总线**：`RocketMqEventBus<TEvent>` 实现 Core 的 `EventBus<TEvent>` 契约，发布走 Producer、订阅走 Consumer；消费批次逐条解码后在本地分发，处理器失败返回 false 复用 SendMessageBack 重试/死信链路。
+- **BUS-2 事件总线工厂**：`RocketMqEventBusFactory` 实现 `IEventBusFactory`，按主题创建并缓存总线，可直接挂到 `EventHub<TEvent>.Factory`；消费组默认取本机标识，每个节点各成一组以得到广播式事件语义。
+- **BUS-3 命名转换与创建扩展**：`MqEventBusNaming` 把事件主题与本机标识转换为 RocketMQ 允许的字符集并截断超长名称；`Producer.CreateEventBus<TEvent>()` 支持复用外部已配置的生产者与消费者。
+
+### 3.9 COMPAT — 兼容与发布
+
+- **COMPAT-1 核心库版本适配**：跟进 NewLife.Core 主版本演进（消息栈 IMessageCodec/MessagePump），保持协议行为不变。
+- **COMPAT-2 裁剪与 AOT 兼容**：net10.0 目标支持 NativeAOT 发布，帧编解码与 JSON 序列化不依赖运行时反射；老目标框架行为不变。
+- **COMPAT-3 AOT 冒烟验证**：以原生可执行文件验证编解码、序列化、云厂商适配、双协议转换、消息压缩与端到端收发，纳入 CI；另以独立工程验证 NuGet 包消费路径（PackageReference）同样可 AOT 发布运行。
+- **COMPAT-4 多 RID 测试覆盖**：单元测试与 AOT 冒烟覆盖 win-x64 / linux-x64 / linux-arm64 / linux-loongarch64（LA64 经 QEMU 用户态仿真 + 龙芯 SDK，为必选覆盖项，每次推送运行；其 AOT 冒烟不作强制要求，失败不阻断）；win-arm64、osx 双架构、linux-musl 双架构等主流 RID 以观察期纳入矩阵，稳定后转阻断。
+- **COMPAT-5 运行时多语言**：日志与协议解析消息以英文为源文，内置 31 种语言词表，按 `Localization.Culture` 运行期翻译；缺少译文或未支持的语言回退英文。实例前缀（消费组、`[GrpcPushConsumer]` 等）不参与词表查找，先翻译再拼接。
+
+---
+
+## 4. 🧊 暂缓清单
+
+| 功能 | 暂缓理由 | 解冻前提 |
+|------|----------|----------|
+| 阿里云 5.x gRPC 接入生产验证 | 客户端已具备能力，待实际环境测试 | 有阿里云 5.x 实例可测试 |
+| 华为云 5.x gRPC 接入 | HuaweiProvider + gRPC 理论可行 | 华为云 DMS 5.x 环境就绪 |
+| 腾讯云 TDMQ 生产验证 | TencentProvider 待生产环境验证 | 腾讯云 TDMQ 实例可测试 |
+| SASL 认证 | 华为云可能使用 SASL/PLAIN 或 SASL/SCRAM | 有明确需求和测试环境 |
+
+## 5. 不做什么
+
+- **服务端 Rebalance**：Broker 端特性，客户端需深度配合才能实现，暂不纳入客户端范围
+- **Compaction Topic**：RocketMQ 5.1+ KV 语义 Topic，小众特性，Broker 端支持为主
+- **非 .NET 平台支持**：仅支持 .NET 平台
+- **老目标框架的 AOT 兼容**：net45/net461/netstandard 无裁剪概念，不做 AOT 适配；AOT 仅面向 net10.0 目标
+
+---
+
+（完）

@@ -1,0 +1,73 @@
+{"id": "Z004", "kind": "natural", "lang": "zh", "text": "作为用户,我希望回测在资金不足时能够自动停止,模拟真实交易场景", "labels": [], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "Z012", "kind": "natural", "lang": "zh", "text": "上游发布新版本时必须创建新任务策略版本，不得改写已有任务策略或 CreativeIntake。", "labels": [], "repo": "shikanon/cookies", "license": "MIT"}
+{"id": "Z013", "kind": "natural", "lang": "zh", "text": "Workspace、用户、Capture、Claim、Evidence 与附件权限必须与 Web 端保持同一服务端授权结果。", "labels": [], "repo": "Yotoha0303/KnowTrace-Workflow", "license": "Apache-2.0"}
+{"id": "Z015", "kind": "natural", "lang": "zh", "text": "用户故事: 作为一个对某部美剧感兴趣的用户，我希望可以告诉 LLM 这部剧的名字，以便它能告诉我关于这部剧的详细信息，如剧情简介、主要演员、评分、播出年份和季数等。", "labels": ["R1"], "repo": "terryso/tv-recommender-mcp-server", "license": "MIT"}
+{"id": "Z020", "kind": "natural", "lang": "zh", "text": "记录商品数据的历史变化，支持趋势分析和对比。", "labels": ["R3"], "repo": "xiaodong-l/amazon-1688-selector", "license": "MIT"}
+{"id": "Z021", "kind": "natural", "lang": "zh", "text": "M3-4 Linux Systemd：自动生成 .service 单元文件，调用 systemctl 完成服务管理，支持丰富的 systemd 配置（重启策略、资源限制、网络依赖等）。", "labels": ["R1", "R2", "R3"], "repo": "NewLifeX/NewLife.Agent", "license": "MIT"}
+{"id": "Z024", "kind": "natural", "lang": "zh", "text": "API 和前端状态要支持一个会话至少 100 个 Artifact，列表仍保持可用。", "labels": ["R2"], "repo": "cnjack/jcode", "license": "MIT"}
+{"id": "Z028", "kind": "natural", "lang": "zh", "text": "开始前可选任务；没有选任务时，允许直接开始。", "labels": [], "repo": "jaylinwang/zen", "license": "MIT"}
+{"id": "Z033", "kind": "natural", "lang": "zh", "text": "适应性学习: 系统需要具备适应性学习能力，能够根据识别结果不断优化识别算法和模板，提高识别准确性和适应性。", "labels": ["R2"], "repo": "kunhuang12345/wuthering-waves-automation", "license": "MIT"}
+{"id": "Z034", "kind": "natural", "lang": "zh", "text": "需要保存定期快照，支持版本恢复。", "labels": ["R2", "R3"], "repo": "staklab/jianji", "license": "MIT"}
+{"id": "Z036", "kind": "natural", "lang": "zh", "text": "业务规则：按用户名精确匹配（用户名全局唯一）搜索；返回匹配用户的公开资料（用户名/昵称/头像/在线状态）；不返回任何口令/散列/敏感字段；搜索者须已登录；支持空结果返回。", "labels": ["R3"], "repo": "HowlandMai/EmberIM", "license": "MIT"}
+{"id": "Z043", "kind": "natural", "lang": "zh", "text": "编译器不得写入或删除任何 layout-defined Source root（新建原生知识库映射为 wiki/sources/）。", "labels": [], "repo": "StoneLL1/llm-wiki-desktop", "license": "Apache-2.0"}
+{"id": "Z044", "kind": "natural", "lang": "zh", "text": "提供完整的 Web 对话应用，开箱即用，支持多轮对话、流式输出、多模态交互", "labels": ["R2", "R3"], "repo": "NewLifeX/NewLife.AI", "license": "Apache-2.0"}
+{"id": "Z045", "kind": "natural", "lang": "zh", "text": "支持翻页控制（上一页 / 下一页按钮）", "labels": [], "repo": "tyxben/AI_novel", "license": "MIT"}
+{"id": "Z047", "kind": "natural", "lang": "zh", "text": "描述：本对话、今日、本月/近30天、全部的花费统计，只统计\"当前活动服务商账户\"名下的记账记录；其他服务商的记录不得混入。", "labels": ["R1"], "repo": "mufflegyro/dsh-bottom-info-bar", "license": "MIT"}
+{"id": "Z058", "kind": "natural", "lang": "zh", "text": "CLNT-4 自动登录与令牌管理：支持自动登录和令牌管理，令牌过期自动重新认证", "labels": ["R3"], "repo": "NewLifeX/NewLife.Remoting", "license": "MIT"}
+{"id": "Z064", "kind": "natural", "lang": "zh", "text": "实现人性化操作模式: 系统需要模拟人类的自然操作行为，包括操作间隔、操作轨迹、操作习惯等。人性化操作能够降低被检测的风险。", "labels": ["R1", "R2"], "repo": "kunhuang12345/wuthering-waves-automation", "license": "MIT"}
+{"id": "Z068", "kind": "natural", "lang": "zh", "text": "支持空状态：当日无任务时展示引导创建按钮。", "labels": [], "repo": "staklab/jianji", "license": "MIT"}
+{"id": "Z071", "kind": "natural", "lang": "zh", "text": "AI 返回值必须通过结构校验后才能生成 Suggestion。", "labels": [], "repo": "Yotoha0303/KnowTrace-Workflow", "license": "Apache-2.0"}
+{"id": "Z073", "kind": "natural", "lang": "zh", "text": "超大文件：展示“文件过大，暂不支持预览”，并给出下载入口。", "labels": ["R2"], "repo": "iflytek/skillhub", "license": "Apache-2.0"}
+{"id": "Z075", "kind": "natural", "lang": "zh", "text": "超出允许范围直接阻止输入；接近危险边界（如 Z < −0.20）时显示黄色警告但允许继续。", "labels": ["R3"], "repo": "Thearetically-speaking/All-you-can-seal", "license": "MIT"}
+{"id": "Z080", "kind": "natural", "lang": "zh", "text": "对超大文件 / 不支持预览类型应能返回明确错误或元信息，便于前端区分不可预览原因。", "labels": ["R1", "R2"], "repo": "mapleLeafOfficial/Skillhub", "license": "Apache-2.0"}
+{"id": "Z091", "kind": "natural", "lang": "zh", "text": "*Objective: 作为用户，我希望能够快速上传图片到画布，以便开始分割操作", "labels": ["R2"], "repo": "ZooHero500/imgsplit", "license": "MIT"}
+{"id": "Z097", "kind": "natural", "lang": "zh", "text": "任何漏刀、刷野价值和决策评价必须标记为推导结果。", "labels": [], "repo": "Kerry-yangg/Dotalens", "license": "MIT"}
+{"id": "Z101", "kind": "natural", "lang": "zh", "text": "RPC-8 多协议客户端：客户端通过统一 API 连接远程服务，支持自动重连、故障转移和身份凭证注入", "labels": ["R3"], "repo": "NewLifeX/NewLife.Remoting", "license": "MIT"}
+{"id": "Z104", "kind": "natural", "lang": "zh", "text": "支持归档合并（多段内容合并为一篇笔记）", "labels": [], "repo": "sameencai/KarvisForYou", "license": "MIT"}
+{"id": "Z109", "kind": "natural", "lang": "zh", "text": "每次代码变更须在同一提交内递增 SW_VERSION_STR（默认 patch +1）", "labels": [], "repo": "young-nights/ota-upgrade-of-qi-charger-based-on-can", "license": "Apache-2.0"}
+{"id": "Z113", "kind": "natural", "lang": "zh", "text": "作为审计人员，我需要导出审计日志并生成合规报告，这样可以满足外部审计和合规要求。", "labels": ["R3"], "repo": "xiaojilele-glitch/WhyBuddy", "license": "MIT"}
+{"id": "Z121", "kind": "natural", "lang": "zh", "text": "FR-010：支持 AI 一键生成学习包（词汇、对话、练习、测验）", "labels": [], "repo": "KaniuBillows/english-anywhere-lab", "license": "Apache-2.0"}
+{"id": "Z123", "kind": "natural", "lang": "zh", "text": "PRP-3 属性写入优先级：支持 Priority Array 1-16 级写入优先级", "labels": [], "repo": "NewLifeX/NewLife.BACnet", "license": "MIT"}
+{"id": "Z131", "kind": "natural", "lang": "zh", "text": "AC-6.4: 查询性能：单次查询 < 500ms（支持百万级日志）", "labels": [], "repo": "xiaojilele-glitch/WhyBuddy", "license": "MIT"}
+{"id": "Z132", "kind": "natural", "lang": "zh", "text": "多分支叙事：支持创建具有多个选择分支和结局的互动故事", "labels": [], "repo": "xi-lie5/Story-Platform", "license": "Apache-2.0"}
+{"id": "Z150", "kind": "natural", "lang": "zh", "text": "提供数据管理功能，支持数据清理和维护。", "labels": ["R2", "R3"], "repo": "xiaodong-l/amazon-1688-selector", "license": "MIT"}
+{"id": "Z160", "kind": "natural", "lang": "zh", "text": "支持亮色/暗色主题切换（通过 postMessage 动态同步，无需重建 iframe）", "labels": ["R5"], "repo": "appstore-discounts/appstore-discounts", "license": "MIT"}
+{"id": "Z175", "kind": "natural", "lang": "zh", "text": "支持节点拖拽、缩放、平移等基础交互操作", "labels": ["R1"], "repo": "PGshen/thinking-map", "license": "Apache-2.0"}
+{"id": "Z177", "kind": "natural", "lang": "zh", "text": "所有用户可见文本均通过 translations.ts 支持 5 种语言：", "labels": ["R5"], "repo": "wth461694678/text-block-timer", "license": "MIT"}
+{"id": "Z184", "kind": "natural", "lang": "zh", "text": "相关设置至少需要满足三个目标：可从任意桌面唤起、显示后切换桌面仍持续可见、在固定与悬浮状态之间正确切换层级。", "labels": ["R3"], "repo": "cuixbo/OnePanel", "license": "MIT"}
+{"id": "Z190", "kind": "natural", "lang": "zh", "text": "大文件处理能够采用异步处理和进度提示。", "labels": ["R2", "R3"], "repo": "caesarloo/obsidian-svn", "license": "MIT"}
+{"id": "Z193", "kind": "natural", "lang": "zh", "text": "系统不要求、不保存用户的平台密码或 Cookie；没有授权连接器时允许管理员导入 CSV，且标注“客户导入”。", "labels": ["R3"], "repo": "SteveTom17/hotpulse", "license": "MIT"}
+{"id": "Z206", "kind": "natural", "lang": "zh", "text": "附件与多模态：支持图片、文档上传，覆盖拖拽、粘贴、点击等入口。", "labels": ["R1"], "repo": "NewLifeX/NewLife.AI", "license": "Apache-2.0"}
+{"id": "Z216", "kind": "natural", "lang": "zh", "text": "超长标题、链接和连续字符必须换行或滚动，不得撑破页面。", "labels": ["R1"], "repo": "flycalm/md-reader-miniprogram", "license": "MIT"}
+{"id": "Z217", "kind": "natural", "lang": "zh", "text": "Leader 筛选下拉框,支持按 Leader 过滤回测记录", "labels": [], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "Z227", "kind": "natural", "lang": "zh", "text": "列表页支持按应用名称搜索过滤", "labels": [], "repo": "appstore-discounts/appstore-discounts", "license": "MIT"}
+{"id": "Z229", "kind": "natural", "lang": "zh", "text": "支持符号的特殊位置调整（如\"，。\"放右下角，\"·\"放中间）", "labels": ["R1"], "repo": "Q572071793/word-pinyin", "license": "MIT"}
+{"id": "Z235", "kind": "natural", "lang": "zh", "text": "涉及安全、审核、用户隐私、定位权限的功能必须在文档中明确边界。", "labels": ["R2"], "repo": "molix-shu/find-seafood", "license": "MIT"}
+{"id": "Z254", "kind": "natural", "lang": "zh", "text": "支持任务字段化管理：重要性、状态、开始日期、截止日期、时长、耗时、备注、附件、自定义列、循环规则、提醒。", "labels": [], "repo": "5kyfkr/siyuan-plugin-task-horizon", "license": "MIT"}
+{"id": "Z267", "kind": "natural", "lang": "zh", "text": "高性能: 支持大规模数据计算（10000+ 数据点），增量计算延迟 < 100ms", "labels": ["R3"], "repo": "DTrader-store/formula-ts", "license": "MIT"}
+{"id": "Z269", "kind": "natural", "lang": "zh", "text": "FR-009：支持导入稳定资源来源（人工整理或系统抓取后清洗）", "labels": ["R2"], "repo": "KaniuBillows/english-anywhere-lab", "license": "Apache-2.0"}
+{"id": "Z270", "kind": "natural", "lang": "zh", "text": "支持按规则编码、规则名称、分类、状态进行分页筛选查询", "labels": [], "repo": "yaomindong1996/forge-admin", "license": "Apache-2.0"}
+{"id": "Z293", "kind": "natural", "lang": "zh", "text": "桌面端支持展开/折叠，折叠后保留图标导航和当前页高亮。", "labels": [], "repo": "ZJM189/Daily_News", "license": "MIT"}
+{"id": "Z298", "kind": "natural", "lang": "zh", "text": "删除操作需要二次确认，前端明确提示", "labels": ["R2"], "repo": "xgwangdl/wikiknowledge", "license": "MIT"}
+{"id": "Z310", "kind": "natural", "lang": "zh", "text": "语言扩展：通过 SPI 支持解析多种语言（Java 优先）", "labels": ["R5"], "repo": "gwwen05/CodeCompass", "license": "Apache-2.0"}
+{"id": "Z337", "kind": "natural", "lang": "zh", "text": "每个项目有一个配置表，可以针对该项目增加一系列配置项（名称，值，类型）", "labels": [], "repo": "entropy-cloud/nop-entropy", "license": "Apache-2.0"}
+{"id": "ZJ001", "kind": "injected", "lang": "zh", "base": "Z068", "text": "支持空状态：当日无任务时展示引导创建按钮（按钮文案待定）。", "labels": ["R4"], "repo": "staklab/jianji", "license": "MIT"}
+{"id": "ZJ002", "kind": "injected", "lang": "zh", "base": "Z131", "text": "AC-6.4: 查询性能：单次查询 < TBD ms（支持百万级日志）", "labels": ["R4"], "repo": "xiaojilele-glitch/WhyBuddy", "license": "MIT"}
+{"id": "ZJ003", "kind": "injected", "lang": "zh", "base": "Z109", "text": "每次代码变更须在同一提交内递增 SW_VERSION_STR，递增规则待定。", "labels": ["R4"], "repo": "young-nights/ota-upgrade-of-qi-charger-based-on-can", "license": "Apache-2.0"}
+{"id": "ZJ004", "kind": "injected", "lang": "zh", "base": "Z013", "text": "Workspace、用户、Capture、Claim、Evidence 与附件权限必须与 Web 端保持同一服务端授权结果，附件大小上限 TODO。", "labels": ["R4"], "repo": "Yotoha0303/KnowTrace-Workflow", "license": "Apache-2.0"}
+{"id": "ZJ005", "kind": "injected", "lang": "zh", "base": "Z045", "text": "支持翻页控制（上一页 / 下一页按钮），每页条数 TBD。", "labels": ["R4"], "repo": "tyxben/AI_novel", "license": "MIT"}
+{"id": "ZJ006", "kind": "injected", "lang": "zh", "base": "Z123", "text": "PRP-3 属性写入优先级：支持 Priority Array 写入优先级，级数待定。", "labels": ["R4"], "repo": "NewLifeX/NewLife.BACnet", "license": "MIT"}
+{"id": "ZJ007", "kind": "injected", "lang": "zh", "base": "Z071", "text": "它的返回值必须通过结构校验后才能生成 Suggestion。", "labels": ["R6"], "repo": "Yotoha0303/KnowTrace-Workflow", "license": "Apache-2.0"}
+{"id": "ZJ008", "kind": "injected", "lang": "zh", "base": "Z097", "text": "这些必须标记为推导结果。", "labels": ["R6"], "repo": "Kerry-yangg/Dotalens", "license": "MIT"}
+{"id": "ZJ009", "kind": "injected", "lang": "zh", "base": "Z043", "text": "它不得写入或删除任何 layout-defined Source root。", "labels": ["R6"], "repo": "StoneLL1/llm-wiki-desktop", "license": "Apache-2.0"}
+{"id": "ZJ010", "kind": "injected", "lang": "zh", "base": "Z012", "text": "发布新版本时必须创建新版本，不得改写已有的那些。", "labels": ["R6"], "repo": "shikanon/cookies", "license": "MIT"}
+{"id": "ZJ011", "kind": "injected", "lang": "zh", "base": "Z217", "text": "该筛选下拉框支持按其过滤记录。", "labels": ["R6"], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "ZJ012", "kind": "injected", "lang": "zh", "base": "Z293", "text": "它支持展开/折叠，折叠后保留图标导航和当前页高亮。", "labels": ["R6"], "repo": "ZJM189/Daily_News", "license": "MIT"}
+{"id": "ZJ013", "kind": "injected", "lang": "zh", "base": "Z227", "text": "列表页支持按应用名称搜索过滤，使用 Elasticsearch 的 match_phrase 查询实现。", "labels": ["R5"], "repo": "appstore-discounts/appstore-discounts", "license": "MIT"}
+{"id": "ZJ014", "kind": "injected", "lang": "zh", "base": "Z004", "text": "作为用户，我希望回测在资金不足时能够自动停止（在 BacktestEngine.step() 里抛出 InsufficientFundsError 实现），模拟真实交易场景。", "labels": ["R5"], "repo": "WrBug/PolyHermes", "license": "MIT"}
+{"id": "ZJ015", "kind": "injected", "lang": "zh", "base": "Z104", "text": "支持归档合并（多段内容合并为一篇笔记），合并结果先写入 Redis List 再异步落盘。", "labels": ["R5"], "repo": "sameencai/KarvisForYou", "license": "MIT"}
+{"id": "ZJ016", "kind": "injected", "lang": "zh", "base": "Z337", "text": "每个项目有一个配置表，用 MySQL JSON 字段存储全部配置项（名称，值，类型）。", "labels": ["R5"], "repo": "entropy-cloud/nop-entropy", "license": "Apache-2.0"}
+{"id": "ZJ017", "kind": "injected", "lang": "zh", "base": "Z121", "text": "FR-010：支持 AI 一键生成学习包（词汇、对话、练习等）。", "labels": ["R1"], "repo": "KaniuBillows/english-anywhere-lab", "license": "Apache-2.0"}
+{"id": "ZJ018", "kind": "injected", "lang": "zh", "base": "Z270", "text": "支持按规则编码、规则名称、分类、状态等条件进行分页筛选查询。", "labels": ["R1"], "repo": "yaomindong1996/forge-admin", "license": "Apache-2.0"}
+{"id": "ZJ019", "kind": "injected", "lang": "zh", "base": "Z028", "text": "开始前可选任务；没有选任务时，允许快速直接开始。", "labels": ["R2"], "repo": "jaylinwang/zen", "license": "MIT"}
+{"id": "ZJ020", "kind": "injected", "lang": "zh", "base": "Z132", "text": "多分支叙事：支持便捷地创建具有多个选择分支和结局的互动故事。", "labels": ["R2"], "repo": "xi-lie5/Story-Platform", "license": "Apache-2.0"}

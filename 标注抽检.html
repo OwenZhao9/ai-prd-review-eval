@@ -1,0 +1,71 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>标注抽检</title>
+<style>:root{--bg:#f6f5f2;--card:#fff;--ink:#1d1d1f;--sub:#6b6b70;--line:#e4e2dc;--ok:#1f8a5b;--no:#c9372c}
+@media (prefers-color-scheme:dark){:root{--bg:#151517;--card:#1e1e21;--ink:#ececee;--sub:#9a9aa2;--line:#2c2c30}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"PingFang SC",sans-serif;padding:20px 16px 120px}
+main{max-width:720px;margin:0 auto}h1{font-size:22px;margin:0 0 6px}.lead{color:var(--sub);margin:0 0 14px}
+.rules{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 30px;margin-bottom:16px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;border-left:4px solid var(--line)}
+.card.ok{border-left-color:var(--ok)}.card.no{border-left-color:var(--no)}
+.no{color:var(--sub);font-size:12px}.text{font-size:16px;margin:6px 0 10px;word-break:break-word}
+.tag{display:inline-block;background:#fdecea;color:#b3261e;border-radius:6px;padding:1px 8px;margin:0 4px 4px 0;font-size:13px}.tag.clean{background:#e6f4ec;color:#1f6b45}
+.why{color:var(--sub);font-size:14px;margin-top:4px}.btns{display:flex;gap:8px;margin-top:10px}
+button{flex:1;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink)}
+.card.ok .ok{background:var(--ok);color:#fff;border-color:var(--ok)}.card.no .no-btn{background:var(--no);color:#fff;border-color:var(--no)}
+textarea{display:none;width:100%;margin-top:8px;font:inherit;padding:8px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);min-height:60px}.card.no textarea{display:block}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px}.bar div{max-width:720px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.bar span{flex:1;color:var(--sub);font-size:14px}.bar button{flex:0 0 auto;background:var(--ink);color:var(--bg);border:0;padding:10px 18px}</style></head><body><main>
+<h1>标注抽检</h1><p class="lead">20 条需求，每条是我标的标准答案。只看一个问题：<b>你认不认同这个判断</b>。全部点完后，按底部按钮复制结果发给我。</p>
+<ul class="rules"><li><b>R1 歧义措辞</b></li><li><b>R2 不可验证</b></li><li><b>R3 一条多需求</b></li><li><b>R4 待定项未闭环</b></li><li><b>R5 写了实现方式</b></li><li><b>R6 指代不明</b></li></ul><div class="card" data-id="Z015"><div class="no">1 / 20 · Z015 · 中文</div>
+<div class="text">用户故事: 作为一个对某部美剧感兴趣的用户，我希望可以告诉 LLM 这部剧的名字，以便它能告诉我关于这部剧的详细信息，如剧情简介、主要演员、评分、播出年份和季数等。</div><div class="lab">我标的答案：<span class="tag">R1 歧义措辞</span></div><div class="why">理由：「如剧情简介、主要演员、评分……等」列举没有封闭，到底哪些信息必须返回说不清。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z047"><div class="no">2 / 20 · Z047 · 中文</div>
+<div class="text">描述：本对话、今日、本月/近30天、全部的花费统计，只统计&quot;当前活动服务商账户&quot;名下的记账记录；其他服务商的记录不得混入。</div><div class="lab">我标的答案：<span class="tag">R1 歧义措辞</span></div><div class="why">理由：「本月/近30天」用斜杠连接，没说清是两种统计都要，还是二选一。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z216"><div class="no">3 / 20 · Z216 · 中文</div>
+<div class="text">超长标题、链接和连续字符必须换行或滚动，不得撑破页面。</div><div class="lab">我标的答案：<span class="tag">R1 歧义措辞</span></div><div class="why">理由：「换行或滚动」把方案留给开发挑，验收时两种都算对，还是必须指定一种，不明确。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z024"><div class="no">4 / 20 · Z024 · 中文</div>
+<div class="text">API 和前端状态要支持一个会话至少 100 个 Artifact，列表仍保持可用。</div><div class="lab">我标的答案：<span class="tag">R2 不可验证</span></div><div class="why">理由：「列表仍保持可用」没有可测量的标准，比如加载时间、滚动是否卡顿。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z073"><div class="no">5 / 20 · Z073 · 中文</div>
+<div class="text">超大文件：展示“文件过大，暂不支持预览”，并给出下载入口。</div><div class="lab">我标的答案：<span class="tag">R2 不可验证</span></div><div class="why">理由：「超大文件」没说多大算超大。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z298"><div class="no">6 / 20 · Z298 · 中文</div>
+<div class="text">删除操作需要二次确认，前端明确提示</div><div class="lab">我标的答案：<span class="tag">R2 不可验证</span></div><div class="why">理由：「前端明确提示」无法检查，提示什么内容、什么形式都没写。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z020"><div class="no">7 / 20 · Z020 · 中文</div>
+<div class="text">记录商品数据的历史变化，支持趋势分析和对比。</div><div class="lab">我标的答案：<span class="tag">R3 一条多需求</span></div><div class="why">理由：「记录历史变化」和「支持趋势分析和对比」是两件可以分别验收的事。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z075"><div class="no">8 / 20 · Z075 · 中文</div>
+<div class="text">超出允许范围直接阻止输入；接近危险边界（如 Z &lt; −0.20）时显示黄色警告但允许继续。</div><div class="lab">我标的答案：<span class="tag">R3 一条多需求</span></div><div class="why">理由：「超出范围阻止输入」和「接近边界显示黄色警告」是两个独立的行为。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z184"><div class="no">9 / 20 · Z184 · 中文</div>
+<div class="text">相关设置至少需要满足三个目标：可从任意桌面唤起、显示后切换桌面仍持续可见、在固定与悬浮状态之间正确切换层级。</div><div class="lab">我标的答案：<span class="tag">R3 一条多需求</span></div><div class="why">理由：原文明确写了「三个目标」，每个目标都能单独验收。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z160"><div class="no">10 / 20 · Z160 · 中文</div>
+<div class="text">支持亮色/暗色主题切换（通过 postMessage 动态同步，无需重建 iframe）</div><div class="lab">我标的答案：<span class="tag">R5 写了实现方式</span></div><div class="why">理由：规定了 postMessage、iframe 这种具体实现方式，需求只该说要什么效果。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z310"><div class="no">11 / 20 · Z310 · 中文</div>
+<div class="text">语言扩展：通过 SPI 支持解析多种语言（Java 优先）</div><div class="lab">我标的答案：<span class="tag">R5 写了实现方式</span></div><div class="why">理由：规定了「通过 SPI」实现，这是技术方案，不是需求。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z004"><div class="no">12 / 20 · Z004 · 中文</div>
+<div class="text">作为用户,我希望回测在资金不足时能够自动停止,模拟真实交易场景</div><div class="lab">我标的答案：<span class="tag clean">没有问题</span></div><div class="why">理由：用户故事，只提一个要求：资金不足时回测自动停止，能直接验证。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z131"><div class="no">13 / 20 · Z131 · 中文</div>
+<div class="text">AC-6.4: 查询性能：单次查询 &lt; 500ms（支持百万级日志）</div><div class="lab">我标的答案：<span class="tag clean">没有问题</span></div><div class="why">理由：给了明确阈值「单次查询 &lt; 500ms」，可以测。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="Z254"><div class="no">14 / 20 · Z254 · 中文</div>
+<div class="text">支持任务字段化管理：重要性、状态、开始日期、截止日期、时长、耗时、备注、附件、自定义列、循环规则、提醒。</div><div class="lab">我标的答案：<span class="tag clean">没有问题</span></div><div class="why">理由：列出的是同一个「任务字段」功能的完整字段清单，算一个需求。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H009"><div class="no">15 / 20 · H009 · 英文</div>
+<div class="text">FR-5.2: Executing a manual pump command MUST immediately run the specified pump for the given duration.</div><div class="lab">我标的答案：<span class="tag">R2 不可验证</span></div><div class="why">理由：「immediately」（立即）没有给出时间阈值，比如多少毫秒内。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H014"><div class="no">16 / 20 · H014 · 英文</div>
+<div class="text">NFR-3 (Performance): Web page load time should be under 3 seconds on the local network. Real-time status updates on the dashboard should have a latency of no more than 5 seconds from the actual event.</div><div class="lab">我标的答案：<span class="tag">R3 一条多需求</span></div><div class="why">理由：「页面加载 3 秒内」和「状态更新延迟不超过 5 秒」是两条可以分别验收的性能要求。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H030"><div class="no">17 / 20 · H030 · 英文</div>
+<div class="text">Performance: The calendar view should load in under 2 seconds, and booking confirmations should feel instantaneous.</div><div class="lab">我标的答案：<span class="tag">R2 不可验证</span><span class="tag">R3 一条多需求</span></div><div class="why">理由：「feel instantaneous」（感觉瞬间完成）无法测量；而且「日历加载」和「确认反馈」是两条要求。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H027"><div class="no">18 / 20 · H027 · 英文</div>
+<div class="text">As a developer, I want to open a board in the browser that shows the current state without any build step, so I can see what&#x27;s going on at a glance.</div><div class="lab">我标的答案：<span class="tag clean">没有问题</span></div><div class="why">理由：「without any build step」可以检查；「at a glance」在「so I can」目的从句里，不算需求本身。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H006"><div class="no">19 / 20 · H006 · 英文</div>
+<div class="text">Plugin should avoid blocking admin pages with remote calls unless initiated by merchant</div><div class="lab">我标的答案：<span class="tag clean">没有问题</span></div><div class="why">理由：行为明确：不是商户主动触发时，不能用远程调用卡住后台页面。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div><div class="card" data-id="H011"><div class="no">20 / 20 · H011 · 英文</div>
+<div class="text">Admin can choose allowed payment modes if supported</div><div class="lab">我标的答案：<span class="tag">R1 歧义措辞</span></div><div class="why">理由：「if supported」没说清是谁支持、不支持时怎么办。</div>
+<div class="btns"><button class="ok">同意</button><button class="no-btn">不同意</button></div><textarea placeholder="不同意的话，写一句你觉得应该怎么标（可留空）"></textarea></div></main>
+<div class="bar"><div><span id="cnt">已完成 0 / 20</span><button id="copy">复制结果</button></div></div>
+<script>
+const K='spotcheck-v1';let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}};
+const cards=[...document.querySelectorAll('.card')];
+function render(){let n=0;cards.forEach(c=>{const s=st[c.dataset.id]||{};c.classList.toggle('ok',s.v==='ok');c.classList.toggle('no',s.v==='no');c.querySelector('textarea').value=s.note||'';if(s.v)n++});document.getElementById('cnt').textContent='已完成 '+n+' / 20'}
+cards.forEach(c=>{const id=c.dataset.id;c.querySelector('.ok').onclick=()=>{st[id]={...(st[id]||{}),v:'ok'};save();render()};
+c.querySelector('.no-btn').onclick=()=>{st[id]={...(st[id]||{}),v:'no'};save();render()};
+c.querySelector('textarea').oninput=e=>{st[id]={...(st[id]||{}),note:e.target.value};save()}});
+document.getElementById('copy').onclick=async()=>{const lines=cards.map(c=>{const s=st[c.dataset.id]||{};return c.dataset.id+' '+(s.v==='ok'?'同意':s.v==='no'?'不同意'+(s.note?'：'+s.note:''):'未选')});const t='标注抽检结果\n'+lines.join('\n');
+try{await navigator.clipboard.writeText(t);document.getElementById('copy').textContent='已复制'}catch(e){prompt('复制下面的文字发给我',t)}};
+render();
+</script></body></html>

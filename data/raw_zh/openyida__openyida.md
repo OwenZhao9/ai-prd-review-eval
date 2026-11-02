@@ -1,0 +1,2056 @@
+{
+  "version": 1,
+  "source": "openyida",
+  "entry": "openyida",
+  "skills": [
+    {
+      "name": "yida-print-template",
+      "path": "skills/yida-print-template/SKILL.md",
+      "display_name": "原生打印模板",
+      "description": "管理原生富文本打印模板，按真实字段生成订单、报价、交接、凭证、审批、扫码场景；新建、修改、复制、备份恢复与请求PDF。",
+      "category": "yida-skills/form",
+      "tags": ["打印模板", "打印模版", "打印设置", "订单打印", "报价单", "审批单", "打印二维码", "打印条形码", "数据详情打印"],
+      "aliases": ["单据打印", "自定义打印", "print-template"],
+      "positive_signals": ["配置打印模板", "做订单打印单据", "报价单打印", "打印模板编辑器", "复制恢复打印模板", "打印模板配置二维码和条形码", "新建不同场景的打印模板", "修改已有打印模板", "打印这条数据", "打印这个数据详情页", "按详情页链接生成PDF"],
+      "negative_signals": ["Word模板组件", "叮当打印", "浏览器window.print", "物理打印机"],
+      "command_ids": ["print-template", "sample"],
+      "requires_login": true
+    },
+    {
+      "name": "yida-custom-button",
+      "path": "skills/yida-custom-button/SKILL.md",
+      "display_name": "表单自定义按钮",
+      "description": "配置页面设置中的原生自定义按钮：修改当前记录、填写被关联表单、触发自动化、打开页面和设置显示位置。",
+      "category": "yida-skills/form",
+      "tags": [
+        "自定义按钮",
+        "页面设置",
+        "客户跟进",
+        "审批后发起订单"
+      ],
+      "aliases": [
+        "表单按钮",
+        "详情页自定义操作"
+      ],
+      "positive_signals": [
+        "配置表单自定义按钮",
+        "客户详情页添加跟进按钮",
+        "按钮触发手动自动化",
+        "审批结束后发起采购订单",
+        "表格视图中显示分配按钮"
+      ],
+      "negative_signals": [
+        "自定义页面React按钮",
+        "仅修改按钮颜色",
+        "提交表单按钮文案"
+      ],
+      "command_ids": [
+        "custom-button"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-form-message",
+      "path": "skills/yida-form-message/SKILL.md",
+      "display_name": "表单消息通知",
+      "description": "配置普通表单新增、编辑、删除或评论后的消息通知，选择接收人和七种消息样式；保存后核对配置，按用户要求执行真实发送测试。",
+      "category": "yida-skills/form",
+      "tags": ["消息通知", "表单通知", "工作通知", "消息卡片", "群置顶卡片"],
+      "aliases": ["表单消息", "页面消息通知", "form-message"],
+      "positive_signals": ["配置表单提交后消息通知", "修改页面设置里的消息通知", "表单编辑后通知发起人", "查询消息通知接收对象", "配置表单原生消息卡片"],
+      "negative_signals": ["自定义页面发送消息", "机器人群消息", "应用级通知", "集成自动化发消息", "原生酷卡片资源"],
+      "command_ids": ["form-message"],
+      "requires_login": true
+    },
+    {
+      "name": "yida-cool-card",
+      "path": "skills/yida-cool-card/SKILL.md",
+      "display_name": "宜搭原生酷卡片",
+      "description": "仅在用户明确要求宜搭原生酷卡片（交互卡片、置顶卡片），或继续该上下文时使用。集团版不支持酷卡片搭建，先核对认证环境。提供创建、读取、查询模板、导出配置和样式设计。样式限于钉钉原生组件，不能运行任意 HTML/CSS/React；超出能力时说明限制并提供替代方案。返回官方编辑器链接，由用户配置保存；CLI 不保存、发布或发送。原生数据卡片、Canvas 展示卡片及泛称卡片不触发。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "宜搭原生酷卡片",
+        "交互卡片",
+        "置顶卡片",
+        "cardPageCode"
+      ],
+      "aliases": [
+        "宜搭酷卡片"
+      ],
+      "positive_signals": [
+        "明确创建宜搭原生交互卡片",
+        "明确读取宜搭原生置顶卡片配置",
+        "明确要求重做宜搭原生酷卡片样式或判断自定义代码限制",
+        "继续已明确的宜搭原生酷卡片操作"
+      ],
+      "negative_signals": [
+        "原生数据卡片CARD资源",
+        "Canvas页面指标卡",
+        "普通卡片或发送消息未明确原生酷卡片",
+        "只修改页面中的卡片外层"
+      ],
+      "command_ids": [
+        "cool-card",
+        "app-settings",
+        "sample",
+        "dws"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-plugin-lifecycle",
+      "path": "skills/yida-plugin-lifecycle/SKILL.md",
+      "display_name": "宜搭平台插件开发与管理",
+      "description": "管理宜搭平台插件的开发资源、版本配置、安装状态与运行时注册查询；前端构建、托管和加载排查交给 yida-plugin-frontend-deploy。",
+      "category": "yida-skills/integration",
+      "tags": ["宜搭插件", "开发插件", "插件版本", "已安装插件", "扩展点", "运行时注册查询"],
+      "aliases": ["平台插件管理", "OpenYida插件开发管理与使用"],
+      "positive_signals": ["创建宜搭平台插件", "修改开发插件版本", "启用或停用已安装插件", "查询插件扩展点", "验证插件运行时注册"],
+      "negative_signals": ["npm 包", "Codex 插件", "浏览器扩展", "普通 Canvas 组件", "仅插件前端资源构建托管或加载排查"],
+      "command_ids": ["plugin"],
+      "requires_login": true
+    },
+    {
+      "name": "yida-plugin-frontend-deploy",
+      "path": "skills/yida-plugin-frontend-deploy/SKILL.md",
+      "display_name": "宜搭插件前端资源部署",
+      "description": "宜搭平台插件的 remoteEntry.js 构建、第三方资源托管与宿主加载排查；优先企业静态资源服务器，无现成渠道时国内推荐码云加阿里云 OSS，GitHub 为备选；平台版本配置交回生命周期技能。",
+      "category": "yida-skills/integration",
+      "tags": ["宜搭插件", "remoteEntry.js", "Module Federation", "插件资源托管", "插件资产命名空间", "码云", "OSS", "宿主加载"],
+      "aliases": ["宜搭插件前端部署", "宜搭插件资源接入"],
+      "positive_signals": ["宜搭插件 remoteEntry.js 构建", "宜搭第三方插件资产命名空间", "宜搭插件资源部署到企业服务器", "宜搭插件码云加 OSS 托管", "宜搭插件 GitHub 部署备选", "排查宜搭插件前端资源加载失败"],
+      "negative_signals": ["仅创建或启停宜搭插件", "普通网站部署", "Canvas 页面发布", "npm 包", "Codex 插件", "没有宜搭插件上下文的 OSS 咨询"],
+      "command_ids": ["plugin"],
+      "requires_login": false
+    },
+    {
+      "name": "yida-data-card",
+      "path": "skills/yida-data-card/SKILL.md",
+      "display_name": "宜搭原生数据卡片",
+      "description": "仅在用户明确要求操作宜搭原生数据卡片资源时使用，支持创建、读取、配置保存、发布及投放播报。自定义页面展示卡片、仅修改原生卡片引用外层及泛称卡片、指标卡、看板或播报不触发；已明确的原生卡片操作可继续沿用。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "宜搭原生数据卡片",
+        "原生数据卡片配置",
+        "cardCode"
+      ],
+      "aliases": [
+        "宜搭原生数据卡片"
+      ],
+      "positive_signals": [
+        "明确要求创建宜搭原生数据卡片",
+        "明确要求读取或修改宜搭原生数据卡片配置",
+        "明确要求发布宜搭原生数据卡片",
+        "在已明确的原生数据卡片上下文中配置投放播报",
+        "用户提供原生卡片链接并明确要求操作该资源"
+      ],
+      "negative_signals": [
+        "数据卡片（未明确原生）",
+        "普通指标卡（未明确原生）",
+        "经营看板（未明确原生）",
+        "自定义页面卡片",
+        "数据播报（未明确原生）",
+        "React指标卡",
+        "钉钉酷卡片",
+        "主题配置入口",
+        "业务前后台配置入口",
+        "明确不使用宜搭原生数据卡片",
+        "仅修改页面中原生卡片引用的外层布局",
+        "自定义页面源码中的指标卡组件"
+      ],
+      "command_ids": [
+        "data-card",
+        "app-settings"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-task-center",
+      "path": "skills/yida-task-center/SKILL.md",
+      "display_name": "自定义待办中心",
+      "description": "仅用户明确要求用自定义页面开发待办中心，或应用搭建中经 ask_human 明确同意后使用；接口与页面装配由 CLI 提供，沿用应用主题。",
+      "category": "yida-skills/page",
+      "tags": [
+        "自定义待办中心"
+      ],
+      "positive_signals": [
+        "用自定义页面开发待办中心",
+        "通过自定义页面实现审批任务区块",
+        "已通过 ask_human 明确选择自定义待办页面"
+      ],
+      "negative_signals": [
+        "查询我的待办",
+        "增加待办中心但未指定自定义页面",
+        "原生待办中心",
+        "普通审批工作台",
+        "已有 Canvas 但未选择自定义待办",
+        "仅选择 Fast 模式",
+        "业务工单待处理列表",
+        "管理流程代理"
+      ],
+      "command_ids": [
+        "task-center",
+        "data",
+        "compile",
+        "publish"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-form-view",
+      "path": "skills/yida-form-view/SKILL.md",
+      "display_name": "原生数据管理视图配置",
+      "description": "读取原生视图列表、显示列和表格设置，配置字段显隐与顺序、列宽、冻结列、默认筛选，新建表格视图和调整顺序。",
+      "category": "yida-skills/form",
+      "tags": [
+        "原生视图",
+        "显示列",
+        "冻结列",
+        "列宽",
+        "默认筛选"
+      ],
+      "aliases": [
+        "表格设置",
+        "数据管理字段显示配置"
+      ],
+      "positive_signals": [
+        "获取表单全部视图配置",
+        "设置数据管理页显示列",
+        "调整原生表格列宽",
+        "冻结订单名称列",
+        "新建待处理视图",
+        "配置默认筛选条件"
+      ],
+      "negative_signals": [
+        "仅美化颜色边框",
+        "新增业务记录",
+        "修改表单字段结构"
+      ],
+      "command_ids": [
+        "form-view",
+        "get-schema"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-data-manage-ui",
+      "path": "skills/yida-data-manage-ui/SKILL.md",
+      "display_name": "数据管理页美化",
+      "description": "从当前页面与用户目标推导数据管理 UI 调整方向，定位实际 token 和局部 CSS，自由组合操作层级、表头、线条、配色与列强调；保留业务逻辑，配方仅为可选参考。",
+      "category": "yida-skills/design",
+      "tags": [
+        "数据管理美化",
+        "列表风格",
+        "操作优先"
+      ],
+      "aliases": [
+        "数据管理UI提升",
+        "美化数据管理页"
+      ],
+      "positive_signals": [
+        "针对当前数据管理页换一种风格",
+        "数据管理页重在操作，需要更突出操作",
+        "数据管理页只保留横线",
+        "数据管理表头看不清",
+        "用自定义页面实现简单数据管理",
+        "突出客户名称列",
+        "列级强调",
+        "状态列改成标签"
+      ],
+      "negative_signals": [
+        "修改表单字段",
+        "新增业务记录",
+        "查询数据",
+        "升级应用主题"
+      ],
+      "command_ids": [
+        "data-manage-style.guide",
+        "data-manage-style.list",
+        "data-manage-style.generate",
+        "app-theme.snapshot",
+        "app-theme.restore",
+        "update-app",
+        "get-schema"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-upgrade-app-theme",
+      "path": "skills/yida-upgrade-app-theme/SKILL.md",
+      "display_name": "老应用升级新版主题",
+      "description": "将 AI 创建的老应用升级为新版主题，同步更新页面和表单样式。仅在用户明确要求升级时使用，先核验应用资格，执行前须通过 ask_human 确认；普通换色、美化不触发。",
+      "category": "yida-skills/app",
+      "tags": [
+        "升级新版主题"
+      ],
+      "positive_signals": [
+        "将老应用升级成新版主题",
+        "把应用切换到新版主题"
+      ],
+      "negative_signals": [
+        "美化页面",
+        "换颜色",
+        "创建应用",
+        "升级 CLI"
+      ],
+      "command_ids": [
+        "upgrade-app-theme",
+        "update-app",
+        "get-schema",
+        "publish",
+        "create-form.patch"
+      ],
+      "requires_login": true
+    },
+    {
+      "name": "yida-agent-center",
+      "path": "skills/yida-agent-center/SKILL.md",
+      "display_name": "流程代理中心",
+      "description": "宜搭代理中心管理。查询、新增、编辑、撤销在职流程代理和离职代理，支持代处理流程、代提交流程、全部或部分流程范围。适用于设置流程审批的代理人。",
+      "category": "yida-skills/process",
+      "tags": [
+        "代理人",
+        "流程代理",
+        "代处理",
+        "代提交"
+      ],
+      "aliases": [
+        "代理中心"
+      ]
+    },
+    {
+      "name": "yida-solution-template",
+      "path": "skills/yida-solution-template/SKILL.md",
+      "display_name": "宜搭方案模板",
+      "description": "仅供独立本地 Agent 在用户明确要求查询、AI 定制或启用宜搭方案中心模板时使用。提供模板详情、云端 AI 搭建入口、启用摘要和状态恢复；云端原生模板 AI 搭与普通应用创建继续走原流程，受管本地任务不使用本技能。",
+      "category": "yida-skills/app",
+      "tags": ["方案中心", "方案模板", "模板启用", "模板AI搭"],
+      "aliases": ["solution-template", "宜搭方案模板"],
+      "positive_signals": ["查询宜搭方案中心模板", "用方案模板AI搭建", "直接启用宜搭方案模板", "继续已确认的方案模板任务"],
+      "negative_signals": ["云端原生模板AI搭", "已注入templateReference或template-reference.md", "网页关联的受管本地任务", "未知执行环境", "普通应用创建", "未明确方案中心的用个模板或你决定", "只引用模板或提供链接而未要求操作", "明确不使用方案中心模板", "创建空应用", "普通页面模板"],
+      "command_ids": ["solution-template"],
+      "requires_login": true
+    },
+    {
+      "name": "yida-app",
+      "path": "skills/yida-app/SKILL.md",
+      "display_name": "宜搭完整应用开发",
+      "description": "创建完整宜搭应用，或补齐已有应用时使用。先确认核心功能和实际用法；Fast 直接搭建，Plan 先确认方案。由 yida-prd 和 yida-design 同时准备业务与基础视觉，校验后创建或复用资源；表单/流程先于自定义页面。页面 UI 按已确认设计实现，代码示例按需参考；发布后优先按 PRD 导航顺序排序，检查后交付入口。",
+      "done_when": "需求和方案已确认，业务与视觉说明一致；PRD 已写入 prd/<项目名>/prd.md，design.md 已写入 prd/<项目名>/design.md。仅修改单页时，发布成功后返回当前页面 URL；没有 publish 证据只能声明已完成修改，待发布。完整应用按实际范围交付一组入口：管理端按默认任务返回 {base_url}/{appType}/workbench 或已验证的 /workbench/{formUuid}（需要时带真实 viewUuid）；独立前台仅在页面配置回读 renderNav=false（仅缺少 renderNav 时兼容 isRenderNav）且访问验证通过后交付 /custom/{formUuid}；完整应用默认提供 create-app 或 app-list 返回的 adminUrl（开发者管理后台），不受宿主或登录方式影响；仅业务后台时交付业务后台与开发者管理后台，不追加前台；仅前台时不追加业务后台，交付前台与开发者管理后台；有前后台时交付三个地址，不分前后台时交付系统入口与开发者管理后台。用户明确排除的入口除外，地址生成不等于已验证访问权限。final 仅总结本轮业务变化和真实结果，简单修改一句即可，再给主入口链接；不默认输出表格、长列表或资源 ID。缺少真实权限或多身份验证时明确说明未完成。 总结遵循 references/user-facing-summary.md，命令、文件路径和验证字段保留在内部记录。",
+      "category": "yida-skills/app",
+      "tags": [
+        "宜搭",
+        "完整应用",
+        "搭建",
+        "管理系统",
+        "访客系统"
+      ],
+      "aliases": [
+        "完整应用",
+        "应用搭建",
+        "管理系统搭建"
+      ]
+    },
+    {
+      "name": "yida-requirement-analysis",
+      "path": "skills/yida-requirement-analysis/SKILL.md",
+      "display_name": "宜搭需求分析",
+      "description": "从应用需求推导核心功能候选，尽早确认范围和实际用法，再推导入口建议，整合 .cache/openyida/<项目名>/requirement-brief.json；平台导航或自定义导航交下游 AI 判断，不生成 PRD、视觉设计或页面源码。",
+      "category": "yida-skills/design",
+      "tags": [
+        "需求分析",
+        "整理需求",
+        "完整应用"
+      ],
+      "aliases": [
+        "整理用户需求",
+        "需求分析"
+      ],
+      "positive_signals": [
+        "整理用户需求",
+        "完整应用需求分析"
+      ],
+      "negative_signals": [
+        "写 PRD",
+        "视觉设计",
+        "页面实现"
+      ],
+      "command_ids": [],
+      "done_when": ".cache/openyida/<项目名>/requirement-brief.json 已写入、可解析，且没有会改变资源范围的未决问题。"
+    },
+    {
+      "name": "yida-prd",
+      "path": "skills/yida-prd/SKILL.md",
+      "display_name": "宜搭应用 PRD",
+      "description": "读取整理后的用户需求，输出 prd/<项目名>/prd.md；负责业务目标、资源蓝图、页面契约、三种顺序与验收，不生成 design.md 或页面源码。",
+      "category": "yida-skills/design",
+      "tags": [
+        "PRD",
+        "产品设计",
+        "资源蓝图",
+        "页面结构"
+      ],
+      "aliases": [
+        "应用 PRD",
+        "产品需求文档"
+      ],
+      "positive_signals": [
+        "写 PRD",
+        "资源蓝图",
+        "页面结构规划",
+        "导航顺序"
+      ],
+      "negative_signals": [
+        "页面美化",
+        "视觉方向",
+        "页面源码"
+      ],
+      "command_ids": [],
+      "done_when": "prd/<项目名>/prd.md 已写入，包含资源创建顺序、页面实现交付顺序、导航顺序、页面 handoff 和验收标准。"
+    },
+    {
+      "name": "yida-design",
+      "path": "skills/yida-design/SKILL.md",
+      "display_name": "宜搭应用设计",
+      "description": "基于整理后的用户需求，设计宜搭应用和页面的主题、布局与视觉效果，输出 design.md。美化已有资源时，先确认方案并备份，只改 UI，不满意时恢复；不修改业务逻辑，不编写 PRD 或页面源码。",
+      "category": "yida-skills/design",
+      "tags": [
+        "应用设计",
+        "ui_skill",
+        "视觉设计",
+        "页面视觉",
+        "主题",
+        "去 AI 味"
+      ],
+      "aliases": [
+        "应用设计",
+        "UI设计",
+        "视觉设计",
+        "视觉规范",
+        "页面结构规划",
+        "页面美化",
+        "应用UI美化",
+        "优化应用外观",
+        "美化回滚",
+        "应用主题",
+        "品牌色"
+      ],
+      "positive_signals": [
+        "主页面 UI 设计",
+        "ui_skill",
+        "页面美化",
+        "优化应用 UI",
+        "太乱",
+        "风格不统一",
+        "美化后不满意",
+        "恢复美化前的样子",
+        "视觉方向",
+        "去 AI 味",
+        "高级感",
+        "品牌化",
+        "应用主题色",
+        "全局换肤"
+      ],
+      "negative_signals": [
+        "创建页面资源",
+        "发布页面",
+        "表单字段建模",
+        "数据记录操作"
+      ],
+      "command_ids": [
+        "app-theme.snapshot",
+        "app-theme.restore"
+      ],
+      "done_when": "新设计输出 prd/<项目名>/design.md，不写 prd.md。已有资源 UI 美化以用户验收保留或本轮修改已恢复并核验为完成；等待方案确认或效果验收时保持对应等待状态。"
+    },
+    {
+      "name": "yida-image-assets",
+      "path": "skills/yida-image-assets/SKILL.md",
+      "display_name": "宜搭图片素材准备",
+      "description": "按页面并发选图，允许外链的图片检查后直接使用，需托管时上传。",
+      "category": "yida-skills/design",
+      "tags": [
+        "图片素材",
+        "联网搜图",
+        "图片生成",
+        "背景图",
+        "商品图"
+      ],
+      "aliases": [
+        "素材设计",
+        "图片搜索",
+        "生成图片",
+        "商品占位图"
+      ],
+      "positive_signals": [
+        "Hero 图",
+        "背景图",
+        "商品图片",
+        "场景图片",
+        "联网搜索图片",
+        "生成 UI 素材"
+      ],
+      "negative_signals": [
+        "纯表单",
+        "审批配置",
+        "权限设置",
+        "普通 CRUD 台账"
+      ],
+      "command_ids": [
+        "agent-capabilities",
+        "asset"
+      ],
+      "done_when": "生成 prd/<项目名>/asset-manifest.json，记录能力、来源、授权、尺寸和缺口；必需素材不完整时保持 draft。"
+    },
+    {
+      "name": "yida-app-permission",
+      "path": "skills/yida-app-permission/SKILL.md",
+      "display_name": "应用权限管理",
+      "description": "应用级管理员设置。查询和维护单个宜搭应用的应用主管理员、数据管理员、开发成员。适用于调整某个应用的管理员角色分配。",
+      "category": "yida-skills/access",
+      "tags": [
+        "应用管理员",
+        "开发成员",
+        "数据管理员",
+        "权限"
+      ],
+      "aliases": [
+        "应用权限"
+      ]
+    },
+    {
+      "name": "yida-app-lifecycle",
+      "path": "skills/yida-app-lifecycle/SKILL.md",
+      "display_name": "应用启用与停用",
+      "description": "宜搭应用启用与停用。仅当用户明确要求启用、停用、上线或下线某个已有应用时使用；不用于创建应用、发布页面或发布到钉钉应用中心。",
+      "category": "yida-skills/app",
+      "tags": [
+        "启用应用",
+        "停用应用",
+        "上线应用",
+        "下线应用"
+      ],
+      "aliases": [
+        "应用生命周期",
+        "应用上下线"
+      ],
+      "positive_signals": [
+        "启用应用",
+        "停用应用",
+        "上线应用",
+        "下线应用"
+      ],
+      "negative_signals": [
+        "创建应用",
+        "发布页面",
+        "发布应用",
+        "发布并给出链接",
+        "更新应用信息",
+        "禁用集成自动化",
+        "关闭公开访问"
+      ],
+      "command_ids": [
+        "app-online",
+        "app-offline"
+      ],
+      "done_when": "CLI 返回 success:true 且 action 与用户明确意图一致；app-offline 执行前已确认目标 appType，失败时不得宣称状态改变。"
+    },
+    {
+      "name": "yida-basic-info",
+      "path": "skills/yida-basic-info/SKILL.md",
+      "display_name": "组织基础信息查询",
+      "description": "宜搭平台管理 basicInfo 页面的组织基本信息、资源容量、额度和域名设置查询。适用于排查组织版本、Corp ID、授权人数、容量用量、固定域名引用和高级能力额度。",
+      "category": "yida-skills/context",
+      "tags": [
+        "basicInfo",
+        "组织信息",
+        "容量",
+        "域名"
+      ],
+      "aliases": [
+        "基础信息"
+      ]
+    },
+    {
+      "name": "yida-document-markdown",
+      "path": "skills/yida-document-markdown/SKILL.md",
+      "display_name": "钉钉文档 Markdown",
+      "description": "获取钉钉文档、钉钉在线文档或知识库文档的完整 Markdown 内容。用户提供文档链接并要求读取、提取、总结或继续处理文档内容时使用。",
+      "category": "yida-skills/agent",
+      "tags": [
+        "钉钉文档",
+        "Markdown",
+        "文档链接",
+        "内容提取"
+      ],
+      "aliases": [
+        "读取钉钉文档",
+        "文档转 Markdown"
+      ],
+      "command_ids": [
+        "read-dingtalk-doc"
+      ],
+      "done_when": "命令成功返回真实 Markdown 内容，或成功写入指定文件。",
+      "requires_login": true
+    },
+    {
+      "name": "yida-tingji",
+      "path": "skills/yida-tingji/SKILL.md",
+      "display_name": "钉钉听记详情",
+      "description": "按 taskUuid 获取钉钉听记、会议录音转写、会议纪要或 AI 听记详情；只负责读取内容。若用户要求转 PRD，先取内容再交给 yida-flash-note-to-prd。",
+      "category": "yida-skills/agent",
+      "tags": [
+        "钉钉听记",
+        "会议纪要",
+        "taskUuid",
+        "语音转写"
+      ],
+      "aliases": [
+        "读取听记",
+        "获取会议记录"
+      ],
+      "positive_signals": [
+        "taskUuid",
+        "读取听记",
+        "获取听记内容"
+      ],
+      "command_ids": [
+        "read-dingtalk-tingji"
+      ],
+      "done_when": "命令成功返回指定 taskUuid 对应的真实听记详情；转 PRD 场景已把内容交给 yida-flash-note-to-prd。",
+      "requires_login": true
+    },
+    {
+      "name": "yida-business-rule",
+      "path": "skills/yida-business-rule/SKILL.md",
+      "display_name": "业务关联规则",
+      "description": "宜搭表单业务关联规则与高级函数配置。用于在表单设置中配置业务关联规则，或使用高级函数实现跨表增删改。",
+      "category": "yida-skills/form",
+      "tags": [
+        "业务规则",
+        "高级函数",
+        "跨表联动",
+        "INSERT",
+        "UPDATE"
+      ],
+      "aliases": [
+        "业务关联"
+      ],
+      "positive_signals": [
+        "业务关联规则",
+        "高级函数",
+        "表单内跨表联动",
+        "INSERT",
+        "UPDATE",
+        "DELETE 规则"
+      ],
+      "negative_signals": [
+        "集成自动化逻辑流",
+        "HTTP 连接器",
+        "页面 dataSourceMap",
+        "流程审批节点"
+      ],
+      "command_ids": [
+        "create-form.rule"
+      ],
+      "done_when": "业务关联规则配置写入目标表单 Schema。"
+    },
+    {
+      "name": "yida-canvas-custom-page",
+      "path": "skills/yida-canvas-custom-page/SKILL.md",
+      "display_name": "自定义页面开发",
+      "description": "宜搭自定义页面开发规范，使用 YidaCodeCanvas 组件实现现代 React18 自定义页面。用于官网、看板、工作台、列表、详情、门户壳、可视化、表单入口和 hooks 交互；发布层自动注入 window.__OPENYIDA_YIDA_API__ 与 window.__OPENYIDA_UTILS__。",
+      "category": "yida-skills/page",
+      "tags": [
+        "YidaCodeCanvas",
+        "React18",
+        "runtimeCode",
+        "自定义页面",
+        "Canvas 运行桥"
+      ],
+      "aliases": [
+        "YidaCodeCanvas",
+        "现代自定义页面"
+      ],
+      "positive_signals": [
+        "YidaCodeCanvas",
+        "现代 React 页面",
+        "表单入口",
+        "FormOpenContainer",
+        "window.__OPENYIDA_UTILS__",
+        "官网首页",
+        "工作台",
+        "办事门户",
+        "操作队列",
+        "任务看板",
+        "看板页面",
+        ".canvas.jsx"
+      ],
+      "negative_signals": [
+        "平台 JSX 组件页面维护",
+        "renderJsx 平台 Jsx 组件迁移"
+      ],
+      "command_ids": [
+        "sample",
+        "build-page",
+        "check-page",
+        "compile",
+        "publish"
+      ],
+      "done_when": ".canvas.jsx 源码生成或修改后，必须真实执行成功 openyida publish <source> <appType> <displayPageFormUuid> 写入 YidaCodeCanvas Schema；没有 publish 证据只能声明已完成修改，待发布。普通表单提交/详情入口必须接入 CLI 的 form-open-container 模板，绑定 openForm 并挂载 formOpenContainer；源码检查通过后，实际验证抽屉 iframe、标题栏操作、调宽及关闭刷新。 总结遵循 references/user-facing-summary.md，命令、文件路径和验证字段保留在内部记录。"
+    },
+    {
+      "name": "yida-canvas-data-binding",
+      "path": "skills/yida-canvas-data-binding/SKILL.md",
+      "display_name": "自定义页面数据绑定",
+      "description": "使用 YidaCodeCanvas 接真实表单、个人流程任务或连接器数据；按用户描述确定任务含义、数据来源和所需能力，复用 CLI 契约及发布层 yida/utils window 桥调用表单与流程 API，处理分页、解析和刷新。",
+      "category": "yida-skills/page",
+      "tags": [
+        "YidaCodeCanvas",
+        "dataBinding",
+        "DataBridge",
+        "真实数据",
+        "window.__OPENYIDA_UTILS__"
+      ],
+      "aliases": [
+        "自定义页面数据绑定",
+        "YidaCodeCanvas 接数据"
+      ],
+      "positive_signals": [
+        "dataBinding",
+        "DataBridge",
+        "数据桥",
+        "YidaCodeCanvas 真实数据",
+        "页面显示 0 条但数据管理有数据",
+        "表单数据接入",
+        "流程数据接入",
+        "轮询刷新列表或 KPI",
+        "页面空值筛选",
+        "自定义区块展示个人流程任务",
+        "自定义内容接入我创建的或待我处理的任务数据",
+        "自定义业务详情展示关联审批进度",
+        "自定义首页个人任务数量卡片",
+        "自定义内容展示审批时间线"
+      ],
+      "negative_signals": [
+        "已有 this.dataSourceMap",
+        "设计器左侧数据源"
+      ],
+      "command_ids": [
+        "data",
+        "task-center",
+        "get-schema",
+        "sample",
+        "publish"
+      ]
+    },
+    {
+      "name": "yida-canvas-table-form",
+      "path": "skills/yida-canvas-table-form/SKILL.md",
+      "display_name": "自定义页面表格批量录入",
+      "description": "使用 YidaCodeCanvas 组件和 antd 实现批量录入，支持草稿、行级校验、分批并发和行级错误保留；写入默认消费发布层注入的 window.__OPENYIDA_YIDA_API__，根级工具消费 window.__OPENYIDA_UTILS__，也可走已验证连接器或同源业务桥。",
+      "category": "yida-skills/form",
+      "tags": [
+        "YidaCodeCanvas",
+        "antd Table",
+        "批量录入",
+        "分批并发"
+      ],
+      "aliases": [
+        "自定义页面批量录入",
+        "表格填写"
+      ],
+      "positive_signals": [
+        "批量录入",
+        "表格填写",
+        "多行编辑",
+        "YidaCodeCanvas 表格",
+        "antd Table"
+      ],
+      "negative_signals": [
+        "普通自定义页面",
+        "平台 JSX 组件页面",
+        "平台 JSX/native 直接 this.utils.yida.saveFormData",
+        "仅用 CLI 批量写数据"
+      ],
+      "command_ids": [
+        "get-schema",
+        "publish"
+      ],
+      "done_when": "自定义页面批量录入本地编译通过；只有写入桥真实验证并成功发布后，才能声明远程写入闭环。"
+    },
+    {
+      "name": "yida-canvas-upgrade",
+      "path": "skills/yida-canvas-upgrade/SKILL.md",
+      "display_name": "自定义页面迁移升级",
+      "description": "将存量平台 JSX 组件页面升级或迁移为使用 YidaCodeCanvas 组件实现的自定义页面。",
+      "category": "yida-skills/page",
+      "tags": [
+        "YidaCodeCanvas",
+        "迁移",
+        ".oyd.jsx",
+        "YidaCodeCanvas"
+      ],
+      "aliases": [
+        "YidaCodeCanvas 升级"
+      ]
+    },
+    {
+      "name": "yida-chart",
+      "path": "skills/yida-chart/SKILL.md",
+      "display_name": "ECharts 高级可视化",
+      "description": "ECharts + 普通自定义页面兼容技能。仅用于明确指定 ECharts、维护旧 ECharts 页面，或 Recharts 无法覆盖的复杂 option；聚合数据依赖宜搭原生报表接口。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "ECharts",
+        "大屏",
+        "可视化",
+        "定制图表"
+      ],
+      "aliases": [
+        "ECharts 图表",
+        "旧 ECharts 页面"
+      ],
+      "positive_signals": [
+        "ECharts",
+        "维护旧 ECharts 页面",
+        "复杂 ECharts option",
+        "custom series",
+        "graph 图"
+      ],
+      "negative_signals": [
+        "原生报表",
+        "完整驾驶舱交付",
+        "仅创建报表数据源",
+        "未指定技术栈的高级图表",
+        "Recharts"
+      ],
+      "command_ids": [
+        "publish"
+      ],
+      "done_when": "ECharts 页面源码完成并发布，必要时报表数据源已绑定。"
+    },
+    {
+      "name": "yida-dingtalk-openapi",
+      "path": "skills/yida-dingtalk-openapi/SKILL.md",
+      "display_name": "钉钉开放平台连接器",
+      "description": "将钉钉开放平台官方服务端 API 转为宜搭连接器动作，处理 DingAuth 安全配置和 Canvas 调用。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "钉钉开放平台",
+        "api.dingtalk.com",
+        "DingAuth"
+      ],
+      "aliases": [
+        "钉钉 OpenAPI",
+        "钉钉官方接口"
+      ],
+      "positive_signals": [
+        "钉钉开放平台接口",
+        "api.dingtalk.com",
+        "x-acs-dingtalk-access-token"
+      ],
+      "negative_signals": [
+        "自建系统 API",
+        "普通第三方 API",
+        "已有连接器生成动作",
+        "事件订阅",
+        "Stream 模式",
+        "HTTP 回调接收"
+      ],
+      "command_ids": [
+        "connector.create",
+        "connector.list-actions",
+        "connector.list-connections",
+        "connector.create-connection",
+        "connector.test",
+        "publish"
+      ],
+      "done_when": "官方 API 契约可追溯且无凭据；连接器、动作和鉴权账号已确定性回读，测试成功；Canvas 调用已验证。"
+    },
+    {
+      "name": "yida-connector",
+      "path": "skills/yida-connector/SKILL.md",
+      "display_name": "HTTP 连接器管理",
+      "description": "宜搭 HTTP 连接器创建与管理。打通钉钉、自建系统或第三方 API，支持多种鉴权方式。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "连接器",
+        "HTTP",
+        "API",
+        "鉴权"
+      ],
+      "aliases": [
+        "连接器创建"
+      ],
+      "positive_signals": [
+        "HTTP 连接器",
+        "第三方 API",
+        "自建系统 API",
+        "配置鉴权"
+      ],
+      "negative_signals": [
+        "钉钉开放平台官方接口",
+        "钉钉事件订阅",
+        "已有连接器生成动作"
+      ]
+    },
+    {
+      "name": "yida-connector-safe-actions",
+      "path": "skills/yida-connector-safe-actions/SKILL.md",
+      "display_name": "连接器安全动作生成",
+      "description": "从前端 API 文件或后端 Controller 代码中提取接口定义，为已有宜搭连接器生成执行动作配置。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "连接器动作",
+        "API 解析",
+        "action",
+        "接口定义"
+      ],
+      "aliases": [
+        "安全动作"
+      ]
+    },
+    {
+      "name": "yida-corp-efficiency",
+      "path": "skills/yida-corp-efficiency/SKILL.md",
+      "display_name": "企业效能数据查询",
+      "description": "企业效能数据查询，覆盖效能概览、节省预算时间、低代码学习与认证成果、明细报表和通知群。",
+      "category": "yida-skills/context",
+      "tags": [
+        "企业效能",
+        "低代码学习",
+        "认证",
+        "corpEfficiency"
+      ],
+      "aliases": [
+        "效能概览"
+      ]
+    },
+    {
+      "name": "yida-corp-manager",
+      "path": "skills/yida-corp-manager/SKILL.md",
+      "display_name": "组织平台权限管理",
+      "description": "宜搭平台权限管理。查询和维护应用管理员、平台管理员、平台子管理员，以及通讯录可见性开关。",
+      "category": "yida-skills/access",
+      "tags": [
+        "平台管理员",
+        "子管理员",
+        "通讯录",
+        "组织权限"
+      ],
+      "aliases": [
+        "平台权限"
+      ]
+    },
+    {
+      "name": "yida-create-app",
+      "path": "skills/yida-create-app/SKILL.md",
+      "display_name": "创建宜搭应用",
+      "description": "仅在没有目标 app 且允许创建时创建宜搭应用并返回 appType。完整搭建已确认 PRD 和视觉设计时，将真实 appType 写入 schema 或任务资源上下文，不回写已经确认的 requirement-brief.json。",
+      "category": "yida-skills/app",
+      "tags": [
+        "创建应用",
+        "appType",
+        "应用初始化"
+      ],
+      "aliases": [
+        "新建应用"
+      ]
+    },
+    {
+      "name": "yida-create-form-page",
+      "path": "skills/yida-create-form-page/SKILL.md",
+      "display_name": "创建或更新表单页面",
+      "description": "表单页面创建与更新，支持字段类型、联动规则和数据源绑定。适用于新建表单、设计表单结构、添加或修改字段。",
+      "category": "yida-skills/form",
+      "tags": [
+        "表单",
+        "字段结构",
+        "create-form",
+        "fieldId"
+      ],
+      "aliases": [
+        "建表单",
+        "字段设计"
+      ],
+      "positive_signals": [
+        "创建表单",
+        "新建表单",
+        "新增字段",
+        "修改字段结构",
+        "字段联动",
+        "数据源绑定字段"
+      ],
+      "negative_signals": [
+        "查询表单数据",
+        "新增记录",
+        "更新记录",
+        "删除记录",
+        "发起流程实例"
+      ],
+      "command_ids": [
+        "create-form.create",
+        "create-form.batch",
+        "create-form.update",
+        "create-form.patch",
+        "create-form.rule",
+        "create-form.validation",
+        "create-form.bind-datasource",
+        "create-form.add-option"
+      ],
+      "done_when": "表单结构创建或更新成功，并拿到真实 formUuid / fieldId 证据。"
+    },
+    {
+      "name": "yida-create-page",
+      "path": "skills/yida-create-page/SKILL.md",
+      "display_name": "创建自定义页面",
+      "description": "创建缺失的宜搭自定义展示页面，返回 pageId（即 formUuid）；已有页面改走开发和发布。",
+      "category": "yida-skills/page",
+      "tags": [
+        "自定义页面",
+        "create-page",
+        "formUuid",
+        "display"
+      ],
+      "aliases": [
+        "新建页面"
+      ],
+      "command_ids": [
+        "create-page",
+        "update-form-config",
+        "get-form-config"
+      ],
+      "done_when": "取得真实 pageId；要求 --hide-nav 时还须 navigationVerification.verified=true。若 pageCreated=true 但隐藏未确认，按 recovery 修复原页面，不重复创建。"
+    },
+    {
+      "name": "yida-create-process",
+      "path": "skills/yida-create-process/SKILL.md",
+      "display_name": "创建流程表单",
+      "description": "流程表单一体化创建，覆盖创建表单、转流程、获取 processCode 和配置流程。",
+      "category": "yida-skills/process",
+      "tags": [
+        "流程表单",
+        "审批",
+        "processCode",
+        "create-process"
+      ],
+      "aliases": [
+        "新建流程"
+      ]
+    },
+    {
+      "name": "yida-custom-page",
+      "path": "skills/yida-custom-page/SKILL.md",
+      "display_name": "JSX 自定义页面开发",
+      "description": "JSX 自定义页面开发规范。仅用于已检测到 .oyd.jsx/.oyb.jsx/renderJsx/平台 Jsx 组件页面维护。",
+      "category": "yida-skills/page",
+      "tags": [
+        "JSX",
+        "自定义页面",
+        "React 16",
+        "页面代码"
+      ],
+      "aliases": [
+        "JSX 自定义页面",
+        "历史自定义页面"
+      ],
+      "positive_signals": [
+        "平台 JSX 组件页面",
+        "Jsx 组件链路",
+        "renderJsx",
+        ".oyd.jsx",
+        ".oyb.jsx"
+      ],
+      "negative_signals": [
+        "新建自定义页面",
+        "完整应用默认页面",
+        "现代 React 页面",
+        "自定义页面开发"
+      ],
+      "command_ids": [
+        "check-page",
+        "compile",
+        "publish"
+      ],
+      "done_when": "平台 JSX 组件页面源码通过 check-page / compile 后，必须真实执行成功 openyida publish <source> <appType> <displayPageFormUuid> 发布到目标 display 页面；没有 publish 证据只能声明已完成修改，待发布。 总结遵循 references/user-facing-summary.md，命令、文件路径和验证字段保留在内部记录。"
+    },
+    {
+      "name": "yida-dashboard",
+      "path": "skills/yida-dashboard/SKILL.md",
+      "display_name": "经营看板产品化交付",
+      "description": "经营分析看板、驾驶舱和数据大屏交付，用于指标判断、趋势分析和投屏监控；普通待办工作台、操作队列和办事门户使用自定义页面技能。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "看板",
+        "驾驶舱",
+        "Dashboard",
+        "待办闭环"
+      ],
+      "aliases": [
+        "经营看板",
+        "驾驶舱"
+      ],
+      "positive_signals": [
+        "经营看板",
+        "管理驾驶舱",
+        "经营指标分析",
+        "指标闭环",
+        "分析结果派单"
+      ],
+      "negative_signals": [
+        "单个 ECharts 图",
+        "原生报表",
+        "只做页面视觉美化",
+        "待办工作台",
+        "操作队列",
+        "办事门户",
+        "任务看板"
+      ],
+      "command_ids": [
+        "create-page",
+        "create-report",
+        "publish"
+      ],
+      "done_when": "看板页面、数据来源和关键行动入口形成可访问交付。"
+    },
+    {
+      "name": "yida-data-management",
+      "path": "skills/yida-data-management/SKILL.md",
+      "display_name": "宜搭数据管理",
+      "description": "查询、新增、更新宜搭表单、子表、流程和任务数据，按当前审批人查询流程实例或统计条数，精确删除普通表单单条记录，查询流程当前任务并执行管理员转交。查询包含日期为空、区间端点、业务计数、子表条件和服务端分页。",
+      "category": "yida-skills/form",
+      "tags": [
+        "数据查询",
+        "数据新增",
+        "表单实例",
+        "流程实例",
+        "数据删除",
+        "流程任务查询",
+        "管理员转交"
+      ],
+      "aliases": [
+        "数据管理",
+        "造数"
+      ],
+      "positive_signals": [
+        "查询数据",
+        "新增记录",
+        "更新记录",
+        "批量导入",
+        "表单实例",
+        "子表数据",
+        "任务中心",
+        "删除记录",
+        "日期为空",
+        "日期区间筛选",
+        "表单空值查询",
+        "子表条件查询",
+        "查询流程当前任务",
+        "管理员转交",
+        "流程审批转交",
+        "把流程转交给",
+        "按当前审批人查询流程",
+        "指定审批人的待审批数据条数",
+        "查询关联流程详情和审批历史",
+        "查询个人任务数量"
+      ],
+      "negative_signals": [
+        "新增字段",
+        "修改表单结构",
+        "字段联动规则",
+        "页面数据源设计器配置"
+      ],
+      "command_ids": [
+        "data",
+        "task-center",
+        "get-schema",
+        "sample"
+      ],
+      "done_when": "目标数据查询或写入完成，并用 query/get 抽查真实记录；删除仅在 deleted=true 且 readbackVerified=true 时完成；转交以 transferred=true 且 readbackVerified=true 为准，ALREADY_ASSIGNED 为已分配且未再次写入。"
+    },
+    {
+      "name": "yida-data-source-connectors",
+      "path": "skills/yida-data-source-connectors/SKILL.md",
+      "display_name": "页面数据源连接器",
+      "description": "维护历史平台 JSX 页面已有的设计器数据源，通过 this.dataSourceMap 调用。普通表单搜索共用查询条件指南；YidaCodeCanvas 的数据接入交给 yida-canvas-data-binding。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "数据源",
+        "dataSourceMap",
+        "连接器",
+        "远程 API"
+      ],
+      "aliases": [
+        "数据源接入"
+      ],
+      "positive_signals": [
+        "已有 this.dataSourceMap",
+        "设计器左侧数据源",
+        "dataSource.online",
+        "历史 JSX 数据源搜索"
+      ],
+      "negative_signals": [
+        "YidaCodeCanvas",
+        ".canvas.jsx",
+        "轮询刷新列表或 KPI"
+      ]
+    },
+    {
+      "name": "yida-db-seq-fix",
+      "path": "skills/yida-db-seq-fix/SKILL.md",
+      "display_name": "PostgreSQL Sequence 修复",
+      "description": "PostgreSQL Sequence 自动修复工具。检测并修复 Sequence 起始值问题，避免主键冲突。",
+      "category": "yida-skills/ops",
+      "tags": [
+        "PostgreSQL",
+        "Sequence",
+        "主键冲突",
+        "自增ID"
+      ],
+      "aliases": [
+        "序列修复"
+      ]
+    },
+    {
+      "name": "yida-density",
+      "path": "skills/yida-density/SKILL.md",
+      "display_name": "页面信息密度设计",
+      "description": "自定义页面信息密度设计规范，提供紧凑、舒适、宽松三种模式和响应式降级。",
+      "category": "yida-skills/page",
+      "tags": [
+        "信息密度",
+        "表格",
+        "列表",
+        "紧凑模式"
+      ],
+      "aliases": [
+        "密度切换"
+      ]
+    },
+    {
+      "name": "yida-export-conversation",
+      "path": "skills/yida-export-conversation/SKILL.md",
+      "display_name": "导出 AI 对话记录",
+      "description": "导出 AI 对话记录，生成结构化 Markdown 文档。",
+      "category": "yida-skills/agent",
+      "tags": [
+        "对话导出",
+        "Markdown",
+        "Claude Code",
+        "记录"
+      ],
+      "aliases": [
+        "导出对话"
+      ]
+    },
+    {
+      "name": "yida-flash-note-to-prd",
+      "path": "skills/yida-flash-note-to-prd/SKILL.md",
+      "display_name": "闪记转 PRD",
+      "description": "从已有钉钉闪记、会议记录或需求文档内容中提取产品需求，生成结构化 PRD。若用户只给 taskUuid，先用 yida-tingji 读取内容。",
+      "category": "yida-skills/agent",
+      "tags": [
+        "闪记",
+        "会议纪要",
+        "PRD",
+        "需求文档"
+      ],
+      "aliases": [
+        "会议转需求"
+      ],
+      "positive_signals": [
+        "已有会议内容",
+        "闪记转 PRD",
+        "会议纪要转 PRD",
+        "taskUuid 转 PRD"
+      ]
+    },
+    {
+      "name": "yida-form-permission",
+      "path": "skills/yida-form-permission/SKILL.md",
+      "display_name": "表单权限组管理",
+      "command_ids": [
+        "get-permission",
+        "save-permission",
+        "permission-manage",
+        "matrix"
+      ],
+      "description": "管理表单权限组的成员范围、数据范围、操作权限和字段权限；支持差异预览和已有矩阵引用。",
+      "category": "yida-skills/access",
+      "tags": [
+        "表单权限",
+        "发起权限",
+        "START",
+        "权限组",
+        "数据权限",
+        "字段权限"
+      ],
+      "aliases": [
+        "权限组"
+      ]
+    },
+    {
+      "name": "yida-formula",
+      "path": "skills/yida-formula/SKILL.md",
+      "display_name": "宜搭公式编写",
+      "description": "宜搭公式编写与配置指南，包含常用函数速查、语法规则、字段 Schema 配置和完整嵌套示例。适用于自动计算、明细汇总、默认值、提交校验、节点筛选和报表计算；支持检查公式错误、用样例核对计算结果。",
+      "category": "yida-skills/form",
+      "tags": [
+        "公式",
+        "字段计算",
+        "校验规则",
+        "默认值",
+        "节点公式",
+        "报表计算",
+        "嵌套IF",
+        "AND/OR"
+      ],
+      "aliases": [
+        "字段公式"
+      ],
+      "command_ids": [
+        "formula.contracts",
+        "formula.functions",
+        "formula.types",
+        "formula.inspect",
+        "formula.check",
+        "formula.test"
+      ]
+    },
+    {
+      "name": "yida-formula-evaluate",
+      "path": "skills/yida-formula-evaluate/SKILL.md",
+      "display_name": "公式检查与试算",
+      "description": "检查宜搭公式的语法、字段引用和常见错误。适用于用户要求“检查公式”“公式是否能用”“定位公式报错”时；也可读取已有公式、查询函数，并用样例核对计算结果。",
+      "category": "yida-skills/form",
+      "tags": [
+        "公式检查",
+        "语法检查",
+        "字段引用",
+        "evaluate"
+      ],
+      "aliases": [
+        "检查公式"
+      ],
+      "command_ids": [
+        "formula.contracts",
+        "formula.functions",
+        "formula.types",
+        "formula.inspect",
+        "formula.check",
+        "formula.evaluate",
+        "formula.test"
+      ]
+    },
+    {
+      "name": "yida-get-schema",
+      "path": "skills/yida-get-schema/SKILL.md",
+      "display_name": "获取表单 Schema",
+      "description": "获取表单 Schema 或 compact 字段映射；页面开发优先用 --summary-json / --field-map-json 确认 fieldId。",
+      "category": "yida-skills/context",
+      "tags": [
+        "Schema",
+        "fieldId",
+        "formUuid",
+        "字段定义"
+      ],
+      "aliases": [
+        "查字段ID"
+      ]
+    },
+    {
+      "name": "yida-i18n",
+      "path": "skills/yida-i18n/SKILL.md",
+      "display_name": "应用多语言管理",
+      "description": "应用多语言管理。查询和维护语言配置、文案词条、翻译状态、一键翻译和多语言升级。",
+      "category": "yida-skills/app",
+      "tags": [
+        "多语言",
+        "i18n",
+        "翻译",
+        "全球化"
+      ],
+      "aliases": [
+        "国际化"
+      ]
+    },
+    {
+      "name": "yida-integration",
+      "path": "skills/yida-integration/SKILL.md",
+      "display_name": "集成自动化配置",
+      "description": "配置自动化何时执行、依次做哪些处理，修改已有自动化，查看日志、设置异常提醒和管理名称或副本。节点参数按需读取通用节点说明。",
+      "category": "yida-skills/integration",
+      "tags": [
+        "集成自动化",
+        "批量取数",
+        "批量新增",
+        "子表多行复制",
+        "字段与字段比较",
+        "逻辑流",
+        "节点",
+        "自动化"
+      ],
+      "aliases": [
+        "自动化流"
+      ],
+      "positive_signals": [
+        "集成自动化",
+        "逻辑流",
+        "提交后跨表写入",
+        "子表明细复制",
+        "当前库存低于库存下限",
+        "自动化触发条件比较两个字段",
+        "外部 API 自动化",
+        "开启自动化",
+        "关闭自动化",
+        "异常日志"
+      ],
+      "negative_signals": [
+        "表单内业务关联规则",
+        "只创建 HTTP 连接器动作",
+        "页面 dataSourceMap 数据源"
+      ],
+      "command_ids": [
+        "integration.create",
+        "integration.update",
+        "integration.list",
+        "integration.enable",
+        "integration.disable",
+        "integration.check",
+        "integration.diagnose",
+        "integration.log-detail",
+        "integration.monitor",
+        "integration.copy",
+        "integration.rename",
+        "integration.delete"
+      ],
+      "done_when": "集成自动化创建/启停/诊断完成，并返回 processCode 或检查结果。"
+    },
+    {
+      "name": "yida-login",
+      "path": "skills/yida-login/SKILL.md",
+      "display_name": "宜搭登录态管理",
+      "description": "宜搭登录态管理。以 OpenYida auth snapshot 为准；默认 OAuth token，snapshot 返回 env 注入状态时使用运行环境注入 token。",
+      "category": "yida-skills/context",
+      "tags": [
+        "登录",
+        "token",
+        "OAuth",
+        "Bearer",
+        "认证"
+      ],
+      "aliases": [
+        "登录态"
+      ],
+      "command_ids": [
+        "agent-capabilities",
+        "login",
+        "auth"
+      ]
+    },
+    {
+      "name": "yida-logout",
+      "path": "skills/yida-logout/SKILL.md",
+      "display_name": "退出宜搭登录",
+      "description": "退出宜搭登录或解绑当前项目登录态。默认保留共享 profile，显式 --profile/--all 才删除。",
+      "category": "yida-skills/context",
+      "tags": [
+        "退出登录",
+        "切换账号",
+        "清空 token"
+      ],
+      "aliases": [
+        "登出"
+      ],
+      "command_ids": [
+        "logout",
+        "auth"
+      ]
+    },
+    {
+      "name": "yida-nav-group",
+      "path": "skills/yida-nav-group/SKILL.md",
+      "display_name": "应用左侧导航分组",
+      "description": "整理宜搭已有的导航菜单时使用。支持查看菜单、新建或调整分组、移动和排序页面、隐藏或显示菜单项。 PRD 写明导航顺序时用 order；旧版不分前后台的应用缺少明确顺序时用 auto-order 兜底。",
+      "category": "yida-skills/app",
+      "tags": [
+        "导航",
+        "分组",
+        "排序",
+        "左侧菜单"
+      ],
+      "aliases": [
+        "导航整理"
+      ]
+    },
+    {
+      "name": "yida-nav-shell",
+      "path": "skills/yida-nav-shell/SKILL.md",
+      "display_name": "页面内导航壳",
+      "description": "为应用或独立前台页面编写自己的顶部、侧边等导航菜单时使用。只改现有导航颜色和样式用 yida-design，整理菜单分组和顺序用 yida-nav-group。只做前台菜单时保留管理端的宜搭导航；整个应用都使用自定义菜单时，才隐藏应用导航。",
+      "category": "yida-skills/page",
+      "tags": [
+        "页面内导航",
+        "隐藏原导航",
+        "isRenderNav",
+        "导航壳"
+      ],
+      "aliases": [
+        "自绘导航"
+      ]
+    },
+    {
+      "name": "yida-openyida-publish-guard",
+      "path": "skills/yida-openyida-publish-guard/SKILL.md",
+      "display_name": "页面发布保护",
+      "description": "发布已有自定义页面前检查线上设计器状态，避免本地旧源码覆盖用户在线改动。",
+      "category": "yida-skills/page",
+      "tags": [
+        "发布保护",
+        "线上改动",
+        "publish guard",
+        "覆盖检查"
+      ],
+      "aliases": [
+        "发布前检查"
+      ]
+    },
+    {
+      "name": "yida-page-config",
+      "path": "skills/yida-page-config/SKILL.md",
+      "display_name": "页面公开访问配置",
+      "description": "为已有页面设置公开访问、组织内分享，或隐藏该页的平台导航时使用。隐藏导航不会改变访问权限。",
+      "category": "yida-skills/access",
+      "tags": [
+        "公开访问",
+        "分享",
+        "短链接",
+        "页面配置"
+      ],
+      "aliases": [
+        "页面分享"
+      ]
+    },
+    {
+      "name": "yida-ppt-slider",
+      "path": "skills/yida-ppt-slider/SKILL.md",
+      "display_name": "全屏幻灯片页面",
+      "description": "宜搭全屏幻灯片页面开发，兼容旧 yida-ppt / PPT / 演示 / 幻灯片触发词，支持键盘翻页、演讲笔控制、移动端适配和多主题。",
+      "category": "yida-skills/page",
+      "tags": [
+        "PPT",
+        "幻灯片",
+        "演示",
+        "路演",
+        "培训",
+        "yida-ppt"
+      ],
+      "aliases": [
+        "PPT 页面",
+        "yida-ppt",
+        "旧版 PPT 技能",
+        "演示文稿"
+      ],
+      "positive_signals": [
+        "PPT",
+        "yida-ppt",
+        "幻灯片",
+        "演示页面",
+        "产品路演",
+        "培训课件"
+      ]
+    },
+    {
+      "name": "yida-flow-node-config",
+      "path": "skills/yida-flow-node-config/SKILL.md",
+      "display_name": "流程与自动化通用节点配置",
+      "description": "配置审批、办理、分支、并行、循环、数据和通知节点；人员、角色、条件选人、字段权限及变量各在一处说明。",
+      "category": "yida-skills/process",
+      "tags": [
+        "通用节点",
+        "指定角色",
+        "字段权限",
+        "操作按钮",
+        "条件变量",
+        "字段比较",
+        "数据节点",
+        "通知节点",
+        "扩展执行"
+      ],
+      "positive_signals": [
+        "节点指定角色",
+        "审批人条件模式",
+        "流程自动化共用节点配置",
+        "通知财务角色",
+        "审批人允许编辑单价",
+        "配置加签和转交",
+        "数据节点字段赋值",
+        "字段与字段比较",
+        "当前库存低于库存下限"
+      ],
+      "negative_signals": [
+        "表单权限组数据范围",
+        "维护角色成员",
+        "修改版本权益"
+      ]
+    },
+    {
+      "name": "yida-process-rule",
+      "path": "skills/yida-process-rule/SKILL.md",
+      "display_name": "流程规则配置",
+      "command_ids": [
+        "configure-process",
+        "process.fields",
+        "process.preview"
+      ],
+      "description": "配置已有流程的审批、办理、抄送、条件分支和字段权限，保存发布后核对配置。人员、按条件选人和节点参数按需读取通用节点说明。",
+      "category": "yida-skills/process",
+      "tags": [
+        "流程规则",
+        "发起节点",
+        "发起范围",
+        "字段加载诊断",
+        "审批节点",
+        "字段权限",
+        "分支"
+      ],
+      "aliases": [
+        "审批规则"
+      ]
+    },
+    {
+      "name": "yida-publish-page",
+      "path": "skills/yida-publish-page/SKILL.md",
+      "display_name": "发布自定义页面",
+      "description": "将自定义页面源码编译为宜搭可运行 Schema 并发布；发布 YidaCodeCanvas 页面时自动注入 yida/utils window 桥；源码依赖 dataSourceMap 但发布无数据源时不能视为完成。",
+      "command_ids": [
+        "publish"
+      ],
+      "done_when": "final 证据只认真实执行成功的 openyida publish <source> <appType> <displayPageFormUuid> 命令结果；本地文件编辑、diff、check-page 或 compile 不能证明远端页面已更新。Canvas 普通表单入口须通过 form-open-container 源码检查；抽屉实际交互另行验收。 总结遵循 references/user-facing-summary.md，命令、文件路径和验证字段保留在内部记录。",
+      "category": "yida-skills/page",
+      "tags": [
+        "发布",
+        "publish",
+        "页面发布"
+      ],
+      "aliases": [
+        "页面发布"
+      ]
+    },
+    {
+      "name": "yida-aggregate-table",
+      "path": "skills/yida-aggregate-table/SKILL.md",
+      "display_name": "聚合表管理",
+      "description": "宜搭聚合表（virtualView）读取、预览、草稿保存、发布和构建状态查询；严格区分 stash/live revision，并校验固定前端已确认的六数组契约。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "聚合表",
+        "虚拟视图",
+        "virtualView",
+        "草稿发布"
+      ],
+      "aliases": [
+        "虚拟表",
+        "聚合视图"
+      ],
+      "positive_signals": [
+        "列出聚合表",
+        "读取聚合表配置",
+        "预览聚合表",
+        "保存聚合表草稿",
+        "发布聚合表",
+        "查询聚合表构建状态"
+      ],
+      "negative_signals": [
+        "原生报表",
+        "ECharts 看板",
+        "前端数据统计"
+      ],
+      "command_ids": [
+        "aggregate-table"
+      ],
+      "done_when": "写操作返回 readbackVerified=true；save 的 stashGmtModified 与 publish 的 gmtModified GET readback 轴必须存在且前进，响应 revision 存在时须与对应 readback 一致；publish 后读取构建状态；runtime 与物理 cleanup 未证时明确 PLATFORM_PROBE_REQUIRED。"
+    },
+    {
+      "name": "yida-report",
+      "path": "skills/yida-report/SKILL.md",
+      "display_name": "原生报表创建与配置",
+      "description": "创建和配置宜搭原生报表，支持图表、表格、筛选器和指标卡；用户明确要求时，可分别隐藏原生柱状图零值、全零分类及全零指标图例，默认关闭；范围不明确时交互确认，支持保留全零分类轴名称。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "报表",
+        "统计",
+        "图表",
+        "聚合"
+      ],
+      "aliases": [
+        "原生报表"
+      ],
+      "positive_signals": [
+        "原生报表",
+        "统计报表",
+        "指标卡",
+        "表格报表",
+        "筛选器",
+        "原生报表隐藏零值"
+      ],
+      "negative_signals": [
+        "ECharts 大屏",
+        "产品化驾驶舱页面",
+        "自定义页面视觉实现"
+      ],
+      "command_ids": [
+        "create-report",
+        "append-chart",
+        "report.inspect",
+        "report.configure"
+      ],
+      "done_when": "原生报表或图表创建成功并返回 reportId / 页面链接；已有图表配置保存须严格回读并验证查询，浏览器效果单独验收。"
+    },
+    {
+      "name": "yida-rechart",
+      "path": "skills/yida-rechart/SKILL.md",
+      "display_name": "自定义页面 Recharts 图表",
+      "description": "使用 YidaCodeCanvas 组件和 Recharts 实现高级图表、可视化和看板图表；统计聚合来自原生报表或已聚合接口，禁止前端拉全量明细聚合。",
+      "category": "yida-skills/analytics",
+      "tags": [
+        "YidaCodeCanvas",
+        "Recharts",
+        "高级图表",
+        "可视化"
+      ],
+      "aliases": [
+        "Recharts 图表",
+        "看板图表"
+      ],
+      "positive_signals": [
+        "高级图表",
+        "可视化",
+        "看板图表",
+        "趋势图",
+        "组合图",
+        "Recharts"
+      ],
+      "negative_signals": [
+        "明确指定 ECharts",
+        "维护旧 ECharts 页面",
+        "复杂 ECharts option",
+        "只要原生报表"
+      ],
+      "command_ids": [
+        "publish"
+      ],
+      "done_when": "Recharts 自定义页面本地编译通过；真实交付还需验证聚合数据源并成功发布目标页面。"
+    },
+    {
+      "name": "yida-table-form",
+      "path": "skills/yida-table-form/SKILL.md",
+      "display_name": "表格批量表单提交",
+      "description": "平台 JSX 组件页面的表格批量提交兼容技能。仅用于明确指定平台 JSX/native 页面或 this.utils.yida.saveFormData 的批量录入场景。",
+      "category": "yida-skills/form",
+      "tags": [
+        "表格表单",
+        "批量提交",
+        "Excel 粘贴",
+        "saveFormData"
+      ],
+      "aliases": [
+        "native 批量录入",
+        "旧表格表单"
+      ],
+      "positive_signals": [
+        "普通自定义页面批量录入",
+        "平台 JSX 组件页面",
+        "this.utils.yida.saveFormData"
+      ],
+      "negative_signals": [
+        "YidaCodeCanvas",
+        "antd Table",
+        "默认批量录入"
+      ]
+    },
+    {
+      "name": "yida-skill-evaluator",
+      "path": "skills/yida-skill-evaluator/SKILL.md",
+      "display_name": "技能质量评测",
+      "description": "评测指定的 openyida 技能质量，自动执行多维评测（规范性、触发准确率、执行完整性、输出有效性、可维护性），生成评测报告和改进建议。",
+      "category": "yida-skills/ops",
+      "tags": [
+        "评测",
+        "技能质量",
+        "skill eval",
+        "评估"
+      ],
+      "aliases": [
+        "技能评测"
+      ]
+    },
+    {
+      "name": "yida-voc",
+      "path": "skills/yida-voc/SKILL.md",
+      "display_name": "VOC 反馈整理",
+      "description": "宜搭 VOC 用户反馈信息整理，将故障、需求、性能问题整理成可提交材料。",
+      "category": "yida-skills/ops",
+      "tags": [
+        "VOC",
+        "反馈",
+        "故障",
+        "需求"
+      ],
+      "aliases": [
+        "问题反馈"
+      ]
+    },
+    {
+      "name": "yida-feedback",
+      "path": "skills/yida-feedback/SKILL.md",
+      "display_name": "OpenYida 问题反馈与修复贡献",
+      "description": "本地使用故障根因分析和脱敏报告，无 GitHub 账号/源码也可整理；按授权提交 Issue 或从个人 Fork 贡献公开修复。",
+      "category": "yida-skills/ops",
+      "tags": [
+        "OpenYida故障",
+        "根因分析",
+        "Issue",
+        "PR",
+        "Fork",
+        "无账号"
+      ],
+      "aliases": [
+        "本地问题反馈",
+        "提交issue",
+        "贡献修复"
+      ],
+      "positive_signals": [
+        "OpenYida 一直报错帮我反馈",
+        "我没有 GitHub 账号怎么反馈",
+        "本地没有 OpenYida 源码想提 PR",
+        "反复登录失败整理问题",
+        "fork 后贡献技能修复"
+      ],
+      "negative_signals": [
+        "整理宜搭用户反馈清单",
+        "创建业务应用",
+        "发布业务页面"
+      ],
+      "command_ids": [
+        "feedback"
+      ],
+      "requires_login": false
+    }
+  ],
+  "route_groups": [
+    {
+      "name": "yida-skills/context",
+      "display_name": "环境与结构取证",
+      "description": "登录态、组织/环境、平台基础信息、Schema/fieldId 取证。用于真实资源操作前确认上下文，或任何需要 appType/formUuid/fieldId 证据的任务。",
+      "signals": [
+        "登录",
+        "退出登录",
+        "切换组织",
+        "agent-capabilities",
+        "env",
+        "basicInfo",
+        "组织版本",
+        "Schema",
+        "fieldId",
+        "字段ID",
+        "corpEfficiency"
+      ]
+    },
+    {
+      "name": "yida-skills/app",
+      "display_name": "应用架构与设置",
+      "description": "从零搭建应用、应用级导航树、多语言和已有 AI 应用主题版本升级等应用管理与配置。",
+      "signals": [
+        "升级新版主题",
+        "把应用切换到新版主题",
+        "创建应用",
+        "完整应用",
+        "管理系统",
+        "启用应用",
+        "停用应用",
+        "上线应用",
+        "下线应用",
+        "导航分组",
+        "多语言"
+      ]
+    },
+    {
+      "name": "yida-skills/design",
+      "display_name": "应用设计与主题",
+      "description": "宜搭应用设计、应用级体验蓝图、单页视觉方向、主题色、全局换肤、素材图标和去 AI 味检查。",
+      "signals": [
+        "应用设计",
+        "UI设计",
+        "视觉设计",
+        "页面美化",
+        "高级感",
+        "去AI味",
+        "页面结构规划",
+        "应用主题",
+        "品牌色",
+        "全局换肤",
+        "图片素材",
+        "联网搜图",
+        "背景图",
+        "商品图"
+      ]
+    },
+    {
+      "name": "yida-skills/form",
+      "display_name": "表单与数据采集",
+      "description": "表单字段结构、Divider 分割线分组、字段公式/校验、业务关联规则、自定义页面表格批量录入和表单/流程数据记录管理。",
+      "signals": [
+        "创建表单",
+        "新增字段",
+        "Divider",
+        "公式",
+        "校验",
+        "业务关联规则",
+        "批量录入",
+        "数据查询",
+        "按当前审批人查询",
+        "指定审批人的待审批数据条数",
+        "造数",
+        "日期为空",
+        "日期区间筛选",
+        "表单空值查询",
+        "流程任务查询",
+        "管理员转交",
+        "流程审批转交"
+      ]
+    },
+    {
+      "name": "yida-skills/process",
+      "display_name": "流程审批",
+      "description": "流程表单创建、已有流程规则配置、审批节点/分支/字段权限和流程代理。",
+      "signals": [
+        "审批",
+        "流程表单",
+        "流程规则",
+        "审批节点",
+        "分支",
+        "字段权限",
+        "代理人",
+        "代处理"
+      ]
+    },
+    {
+      "name": "yida-skills/page",
+      "display_name": "自定义页面",
+      "description": "自定义展示页创建、自定义页面开发、Canvas 运行桥、平台 JSX 组件页面维护、真实数据绑定、YidaCodeCanvas 迁移、页面发布、防覆盖、页面内导航壳和 PPT 页面。",
+      "signals": [
+        "工作台",
+        "办事门户",
+        "操作队列",
+        "任务看板",
+        "自定义页面",
+        "YidaCodeCanvas",
+        "Canvas 运行桥",
+        "window.__OPENYIDA_UTILS__",
+        "JSX",
+        "React",
+        "发布页面",
+        "导航壳",
+        "PPT页面",
+        "dataBinding",
+        "DataBridge",
+        "轮询刷新列表或 KPI",
+        "页面显示 0 条但数据管理有数据"
+      ]
+    },
+    {
+      "name": "yida-skills/analytics",
+      "display_name": "报表与看板",
+      "description": "聚合表/虚拟视图、原生报表、自定义页面 Recharts 默认高级图表、ECharts 兼容场景、经营看板/驾驶舱/数据大屏。",
+      "signals": [
+        "用户显式指定宜搭原生数据卡片",
+        "聚合表",
+        "虚拟视图",
+        "virtualView",
+        "报表",
+        "统计",
+        "图表",
+        "Recharts",
+        "ECharts",
+        "经营分析看板",
+        "驾驶舱",
+        "数据大屏"
+      ]
+    },
+    {
+      "name": "yida-skills/integration",
+      "display_name": "连接器与集成",
+      "description": "宜搭平台插件、HTTP 连接器、连接器动作、页面设计器数据源、提交后集成自动化和外部 API 接入。",
+      "signals": [
+        "宜搭平台插件",
+        "开发插件",
+        "插件管理",
+        "插件扩展点",
+        "宜搭原生酷卡片",
+        "酷卡片管理",
+        "cardPageCode",
+        "连接器",
+        "HTTP API",
+        "执行动作",
+        "dataSourceMap",
+        "远程接口",
+        "钉钉开放平台",
+        "api.dingtalk.com",
+        "集成自动化",
+        "逻辑流"
+      ]
+    },
+    {
+      "name": "yida-skills/access",
+      "display_name": "权限与访问",
+      "description": "组织、应用、表单和页面级权限；公开访问、组织内分享和页面访问配置。",
+      "signals": [
+        "权限",
+        "管理员",
+        "平台管理员",
+        "应用管理员",
+        "表单权限",
+        "公开访问",
+        "分享",
+        "页面配置"
+      ]
+    },
+    {
+      "name": "yida-skills/ops",
+      "display_name": "排障与支持",
+      "description": "数据库 Sequence 修复、VOC 整理、OpenYida 本地故障根因分析与 Issue/Fork PR 贡献。",
+      "signals": [
+        "Sequence",
+        "主键冲突",
+        "VOC",
+        "反馈",
+        "OpenYida故障",
+        "反复报错",
+        "根因分析",
+        "Issue",
+        "PR",
+        "Fork",
+        "没有GitHub账号",
+        "没有源码"
+      ]
+    },
+    {
+      "name": "yida-skills/agent",
+      "display_name": "Agent 辅助工具",
+      "description": "非宜搭业务资源本身的 agent 辅助能力：导出对话、会议/闪记转 PRD。",
+      "signals": [
+        "导出对话",
+        "钉钉文档",
+        "读取文档",
+        "Markdown 内容",
+        "钉钉听记",
+        "taskUuid",
+        "会议纪要",
+        "闪记",
+        "PRD"
+      ]
+    }
+  ]
+}

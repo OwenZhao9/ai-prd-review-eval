@@ -1,0 +1,16 @@
+# 标准答案复核记录
+
+模型和标准答案不一致时，先回头复核标准答案本身。只在标准答案确实标错时才改，并记录在这里。
+
+| 条目 | 原标注 | 改为 | 理由 |
+|---|---|---|---|
+| N078 | R2 | R1, R2 | 「near the button or content area」给了两个位置让人二选一，没说清到底放哪，符合 R1 歧义措辞。v1 运行后复核时发现漏标。 |
+
+以下分歧复核后维持原标注（问题出在模型，不改答案）：
+
+- N034、I006、I023「invalid paths, status codes, and JSON」：是同一个「提交前校验」动作的三种输入，按 R3「不算」条款属于一个要求，维持「无 R3」。
+- N088「friendly message ("Something went wrong — please reload the page")」：原文已给出确切文案，friendly 不影响验收，维持「无 R2」；提示消息和重载按钮是同一个兜底界面的组成部分，维持「无 R3」。
+- N056「the state of the project」：定冠词名词短语不是代词，维持「无 R6」。
+- I014「it must also email」：it 在同一句里指 Plugin，维持「无 R6」。
+
+| Z278（中文开发集） | R3 | R1, R3 | 「保留 PawID、PAWS 等品牌词」的「等」后列举没有封闭，符合 R1。v3 运行后复核时发现漏标。 |

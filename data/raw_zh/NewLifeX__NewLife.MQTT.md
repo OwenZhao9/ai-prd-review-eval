@@ -1,0 +1,152 @@
+# NewLife.MQTT 需求文档
+
+> 版本：v5.0 | 日期：2026-07-20
+
+本文档描述 NewLife.MQTT 的愿景、核心目标和功能方向。完成状态在[功能清单](功能清单.md)中追踪，详细设计在[架构设计](架构设计.md)或各模块架构文档中展开。
+
+## 1. 背景与愿景
+
+### 1.1 系统定位
+
+NewLife.MQTT 是一款**纯国产、零第三方依赖、客户端与服务端一体**的 MQTT 全协议实现库。面向 IoT 设备开发者、平台运维工程师、业务系统集成商和信创项目负责人，提供从协议编解码到企业级 Broker 的一站式 .NET MQTT 解决方案。
+
+| 产品/工程 | 定位 |
+|-----------|------|
+| `NewLife.MQTT`（NuGet 包） | 核心库：协议编解码 + 客户端 `MqttClient` + 服务端 `MqttServer` + 集群 + 桥接 + 规则引擎，一体化交付 |
+| `NewLife.MqttServer` | 开箱即用的 MQTT Broker 应用，集成 Stardust 注册中心 |
+| `NewLife.MQTT.Storage` | 持久化扩展：`IStorageProvider` → Redis / 数据库，消息和会话持久化 |
+
+### 1.2 愿景
+
+做 .NET 生态中最完整的 MQTT 协议实现——协议全版本覆盖、客户端与服务端一体、七种传输协议、企业功能免费内置，纯国产自主研发、MIT 开源、零第三方依赖，满足从嵌入式设备到企业级 Broker 的全部 IoT 通信需求。
+
+---
+
+## 2. 核心目标
+
+| 编号 | 目标 | 一句话描述 |
+|------|------|----------|
+| PROT | 协议编解码 | MQTT 3.1/3.1.1 全部 14 种报文 + 5.0 全部 15 种报文及 30 种属性的序列化与反序列化 |
+| TRAN | 传输协议 | TCP/TLS/WebSocket/WSS/QUIC/可靠UDP/ProxyProtocol 七种传输 + MQTT-SN v1.2 协议支持 |
+| CLNT | 客户端 | 全功能 MQTT 客户端，六种传输协议，自动重连重订阅，极简 API |
+| SRV | 服务端 | 高性能 MQTT Broker，全版本兼容，会话管理、消息路由、安全认证、DI 可扩展、HTTP 管理 |
+| ENT | 企业扩展 | 消息桥接、规则引擎、WebHook、运行统计、阿里云 IoT 适配 |
+| CLUS | 集群 | 节点管理、订阅同步、消息转发、会话迁移、Raft 共识、持久化、可观测性、安全、大规模主题路由 |
+| SEC | 安全增强 | 连接/消息速率限制、IP/ClientId/主题三级黑白名单、JWT 认证 |
+
+> 编码说明：模块编码已从 M1-M7 迁移至字母前缀方案：PROT（协议）/ TRAN（传输）/ CLNT（客户端）/ SRV（服务端）/ ENT（企业扩展）/ CLUS（集群）/ SEC（安全增强）。
+
+---
+
+## 3. 功能需求
+
+### 3.1 PROT 协议编解码
+
+协议层涵盖 MQTT 3.1 / 3.1.1 / 5.0 三个版本的完整报文与属性编解码，是所有上层功能的基础。
+
+- **PROT-1 MQTT 基础报文结构**：4 位类型 + 4 位标志 + 1~4 字节变长剩余长度（最大 256MB），`MqttCodec` + `PacketCodec` 流式解析，UInt16 报文标识符线程安全分配。所有上层报文编解码的公共基础。
+- **PROT-2 MQTT 3.1/3.1.1 报文编解码**：14 种报文类型（CONNECT ~ DISCONNECT）完整序列化与反序列化，包括 MQTT 3.1 协议名（`MQIsdp`）识别。
+- **PROT-3 MQTT 5.0 报文与属性系统**：15 种报文类型（含 AUTH）+ 30 种属性标识符 + 7 种数据类型完整编解码，所有 ACK 报文 ReasonCode 扩展，服务端断开报文（DisconnectMessage）。
+- **PROT-4 QoS 0/1/2 确认流程**：三级服务质量完整确认流程（含 QoS 2 四步握手：PUBLISH→PUBREC→PUBREL→PUBCOMP）。
+- **PROT-5 主题与通配符**：`/` 分层 + `+` 单层 + `#` 多层通配符匹配，`$SYS` 屏蔽通配符订阅，主题最大 65536 字节验证，共享订阅 `$share/{group}/{topic}` 格式解析。
+
+### 3.2 TRAN 传输协议
+
+传输层支持七种传输方式的统一接入，覆盖从标准 TCP 到弱网 UDP 的全场景。
+
+- **TRAN-1 TCP / TLS / WebSocket / WSS**：TCP 走 1883，协议泵由 `MqttCodec` 解析（内建 PROXY 头定界）；WebSocket 走独立端口（`EnableWebSocket`/`WebSocketPort`，端口为 0 时由系统分配，路径默认 `/mqtt`），由 `HttpServer` + `MqttWebSocketHandler` 桥接，子协议 `mqtt`。TLS 1.2+ 支持 pfx/pem 证书。
+- **TRAN-2 MQTT over QUIC**：基于 `System.Net.Quic`，ALPN `mqtt`，默认端口 14567，.NET 7+ 可用。
+- **TRAN-3 MQTT over 可靠 UDP**：自研可靠传输层（4 字节帧头 + 序列号 + Ack 确认 + 超时重发），全平台可用，无需操作系统 msquic 支持。
+- **TRAN-4 ProxyProtocol v1/v2**：服务端解析 HAProxy/nginx 代理协议 v1（文本）和 v2（二进制），透传真实客户端 IP。
+- **TRAN-5 MQTT-SN v1.2 客户端与网关**：UDP 传感器网络协议，包含消息编解码（23 种消息类型）、客户端（CONNECT/PUBLISH/SUBSCRIBE/遗嘱/心跳）和网关（UDP 监听 + ADVERTISE 广播 + MQTT-SN↔MQTT 透明桥接）。
+
+### 3.3 CLNT 客户端
+
+全功能 MQTT 客户端，面向设备开发者提供极简 API 和自动容错能力。
+
+- **CLNT-1 多协议传输接入**：六种传输方式统一连接接口（`tcp://` / `ssl://` / `ws://` / `wss://` / `quic://` + 可靠 UDP），支持 SOCKS5 代理。
+- **CLNT-2 发布/订阅/退订与消息回调**：QoS 0/1/2 完整流程，订阅即绑定回调，按主题通配符模糊匹配分发，重复订阅自动去重。
+- **CLNT-3 遗嘱消息**：Will Topic/Message/QoS/Retain 设置，异常断开时自动发布遗嘱消息，正常 DISCONNECT 时清除。
+- **CLNT-4 连接生命周期事件**：`Connected` / `Disconnected` / `Received` 事件通知，连接状态变更和消息到达可被外部监听。
+- **CLNT-5 断线重连与自动重订阅**：指数退避 `2^n` 重连策略，重连后自动重发所有订阅。Inflight 消息队列超时重发（DUP=1，10s/3 次），放弃回调 `OnMessageAbandoned`。KeepAlive 半周期心跳 Ping。
+- **CLNT-6 便捷接入**：连接字符串一键初始化（`Init()`），消息体编码器可替换（`IPacketEncoder`），APM 追踪（`ITracer` Span），异步锁连接保护。
+
+### 3.4 SRV 服务端
+
+高性能 MQTT Broker，面向平台运维工程师提供全版本兼容、会话管理、安全认证和可扩展架构。
+
+- **SRV-1 会话管理**：创建/注册/超时清理（30s 扫描），持久会话（CleanSession=0）保存订阅关系 + 离线消息队列（1000 条上限），MQTT 5.0 会话过期间隔（`SessionExpiryInterval`），服务端分配 ClientId（空 ClientId 自动生成 + CONNACK 回传），服务端引用（`ServerReference` 迁移指示），遗嘱延迟发布（`WillDelayInterval`）。
+- **SRV-2 消息路由与分发**：精确匹配 + 通配符匹配 + QoS 降级分发 + Retain 存储与推送。MQTT 5.0 共享订阅轮询负载均衡（`$share`）、订阅选项（NoLocal / RetainAsPublished / RetainHandling 三模式）、主题别名服务端解析（`ResolveTopicAlias` / `AssignTopicAlias`）、流控（`ReceiveMaximum` inflight 检查）、消息过期清理（`MessageExpiryInterval`）、订阅标识符端到端透传、请求/响应模式（`ResponseTopic` + `CorrelationData`）、服务端 KeepAlive 覆盖（`ServerKeepAlive`）。
+- **SRV-3 安全认证与 ACL**：可插拔 `IMqttAuthenticator` 认证接口，用户名/密码认证、OAuth 外部令牌认证，`AuthorizePublish()` / `AuthorizeSubscribe()` 主题级权限控制。MQTT 5.0 增强认证（AUTH 报文挑战/响应流程）+ SASL SCRAM-SHA-256 标准实现。
+- **SRV-4 $SYS 系统主题**：14 种标准系统主题定时发布（可配间隔，默认 60s），包括在线连接数、消息/字节累计和速率、订阅数、主题数、版本号。
+- **SRV-5 DI 可扩展架构**：`IMqttHandler`（Transient）+ `IMqttExchange`（Singleton）+ `IMqttAuthenticator` 三级可替换，通过 `ObjectContainer` 注入。`MqttSessionCapabilities` 管理 MQTT 5.0 会话能力协商。
+- **SRV-6 MQTT 3.1 兼容接入**：识别 `MQIsdp` + `ProtocolLevel=0x03` 映射 V310，CONNACK 兼容 3.1.1 格式，V310/V311/V500 三版本同服务端并存。
+- **SRV-7 持久化存储**：`IStorageProvider` 接口 → `DbExchange`（数据库）+ `RedisExchange`（Redis），消息和会话跨重启恢复。
+- **SRV-8 HTTP 管理 API 与本机看板**：RESTful JSON API（stats/clients/topics/retained + 控制操作：DisconnectClient/ClearRetained/PublishMessage），内嵌本机 WebPanel（基于 NewLife.Core `HttpServer`，参考 NewLife.Agent），仅查看本实例实时状态数据并支持基本控制操作。
+
+### 3.5 ENT 企业扩展
+
+企业级功能全部免费内置，无需额外付费。
+
+- **ENT-1 消息桥接**：`MqttBridge` 实现 In/Out/Both 三种方向桥接，主题前缀映射，QoS 上限控制，断线自动重连，V5.0→V3.x 自动裁剪属性。
+- **ENT-2 规则引擎**：`MqttRuleEngine` 基于主题过滤器匹配，5 种动作：Republish（转发）/ WebHook（推送）/ Bridge（桥接）/ Drop（丢弃）/ Custom（自定义委托）。
+- **ENT-3 WebHook 事件推送**：连接/断开/发布/投递/订阅/退订 6 种事件异步 HTTP POST 推送，失败自动重试（默认 3 次）。
+- **ENT-4 运行统计**：`MqttStats` 1 秒滑动窗口，连接数/消息数/字节数/订阅数/速率实时计算，配合 `$SYS` 发布。
+- **ENT-5 阿里云 IoT 适配**：`AliyunMqttClient` HMAC 签名自动化，属性上报，时钟同步。
+- **ENT-6 MQTT 事件总线**：`MqttEventBusFactory` 基于已连接的 `MqttClient` 创建强类型事件总线，对齐 Core `IEventBusFactory` 契约，业务可在 MQTT、Redis 与进程内通道间切换；默认广播订阅（所有节点都收到），可切换 MQTT5 共享订阅（组内轮询一个节点），并自动排除自身发布的事件回环。
+
+### 3.6 CLUS 集群
+
+集群实现跨节点协同，支持从 3 节点到千级节点的水平扩展。详细设计见 [CLUS-集群架构](CLUS-集群架构.md)，竞品对比见 [CLUS-集群竞品分析](CLUS-集群竞品分析.md)。
+
+- **CLUS-1 节点管理**：节点加入/离开/心跳保活（15s Ping）+ 故障超时剔除（5min），UDP 广播自动发现同局域网节点，手动配置 `ClusterNodes` 地址列表，注册中心发现（Stardust/Consul SPI）。
+- **CLUS-2 订阅同步**：跨节点订阅注册/退订/增量同步/全量恢复（Raft InstallSnapshot），节点离线时自动清理订阅。
+- **CLUS-3 消息转发**：按主题匹配定向转发到有订阅的节点，QoS 语义跨节点保持，TTL+NodePath 环路防护，本地订阅者优先投递，遗嘱消息跨节点发布，批量合并转发管道（按目标节点分桶，5ms/64KB 双阈值）。
+- **CLUS-4 会话迁移**：持久会话（CleanSession=0 / SessionExpiryInterval>0）跨节点查询与原子迁移，离线 QoS 1/2 消息随会话迁移，过期会话自动清理。
+- **CLUS-5 一致性保证（Raft）**：Raft 共识引擎（Leader 选举 + Log 复制 + Snapshot 快照），订阅强一致性，网络分区自动恢复（Log 回放 + InstallSnapshot），2 节点场景自动降级为最终一致性。
+- **CLUS-6 持久化**：`IStorageProvider` 接口支持 Redis 和 Database（XCode，SQLite/MySQL/SQL Server/Oracle）两种后端，运行时按配置选择，支持混合模式。
+- **CLUS-7 可观测性**：集群指标通过 `$SYS` 主题定时发布（节点数/连接数/消息数/字节数/Raft 状态），RPC 健康检查接口，结构化事件日志。
+- **CLUS-8 集群安全**：`ClusterSecret` 共享密钥验证集群端口连接，同 /24 子网局域网自动信任，跨网段强制密钥校验，密钥不匹配记录日志，**密钥热更新**（运行时变更 `ClusterSecret`，RPC 广播同步）。
+- **CLUS-9 一致哈希主题分片引擎**：1024 固定分片 + 256 虚拟节点/节点 + 3 副本，主题→分片确定性映射，节点增减仅影响相邻分片。
+- **CLUS-10 分片感知路由表**：主题→分片→节点三级路由决策，双层缓存（`_topicToShardCache` + `_shardToNodesCache`），TimerX 30s 刷新。
+- **CLUS-11 布隆过滤器订阅同步**：k 个 MurmurHash3 位数组，1% 误判率，60s 自动重建，百万元素约 10 Mbit，跨节点预检减少无效转发。
+- **CLUS-12 批量合并转发管道**：按目标节点分桶合并，5ms/64KB 双阈值触发，大消息直通，RPC 调用量减少 ≥ 100 倍。
+- **CLUS-13 热点主题自适应复制**：10s 滑动窗口统计，冷/温/热/极热四级分级，副本因子 3→51 动态调整，30s 内响应。
+- **CLUS-14 多层分级拓扑管理**：Edge/Regional/Core 三级角色，跨层注册/心跳/路由上报/下发，区域级布隆过滤器聚合。
+- **CLUS-15 连接聚合网关**：Edge 节点连接聚合（1000:1 聚合比），批量 CONNACK/PUBLISH 合并，减少上层连接压力。
+- **CLUS-16 订阅增量裁剪定向推送**：按分片定向推送订阅变更（非全集群广播），批量确认 100 条/100ms，网络流量减少 1024 倍。
+- **CLUS-17 分片全量快照恢复**：节点重启并行拉取分片快照，按分片编号分块传输，100 万订阅 10 秒恢复。
+- **CLUS-18 路由降级自适应切换**：自动检测集群规模，平坦（<50节点）↔ 分片（50~1000）↔ 多层（1000+）动态切换，切换期间消息不丢失。
+
+### 3.7 SEC 安全增强
+
+在 SRV-3 基础认证之上，提供连接/消息速率控制和高级认证机制。
+
+- **SEC-1 连接速率限制**：`MqttConnectionRateLimiter` 基于 IP 滑动窗口限流，可配窗口大小和最大连接数。
+- **SEC-2 消息速率限制**：`MqttMessageRateLimiter` 基于令牌桶算法按客户端限速，可配每秒速率和突发大小。
+- **SEC-3 三级黑白名单**：`MqttAccessList` 支持 IP / ClientId / 主题（发布+订阅）三级黑名单白名单，装饰器模式可嵌套任意 `IMqttAuthenticator`。
+- **SEC-4 JWT 认证**：`MqttJwtAuthenticator` HS256 签名验证，exp/nbf/iss/aud 标准声明校验，pub/mqtt_sub 自定义声明主题级授权，零第三方依赖。
+
+---
+
+## 4. 🧊 暂缓清单
+
+| 功能 | 暂缓理由 | 解冻前提 |
+|------|----------|----------|
+| 集群跨节点业务数据强一致性 | Raft 共识已实现订阅一致性；跨节点业务数据强一致需求不突出 | 有明确的跨节点业务强一致需求 |
+
+---
+
+## 5. 不做什么
+
+- **独立多实例集中管理 UI**：Dashboard 为本机嵌入式 WebPanel（SRV-8），不提供跨实例的集中管理前端。
+- **内置数据库持久化**：持久化通过 `IStorageProvider` 接口扩展（SRV-7 / CLUS-6），核心库不捆绑特定数据库。
+- **LDAP 认证**：OAuth 已内置支持（SRV-3），LDAP 通过 `IMqttAuthenticator` 接口供扩展。
+- **.NET Framework 4.0 及以下版本**：最低支持 net45。
+- **QUIC 服务端监听**：2026 已实现——`MqttServer.QuicPort` + `QuicCertificate` 启动 QUIC 监听（.NET 7+ / 操作系统 msquic），客户端与服务端全链路端到端测试通过（`QuicIntegrationTests`）。
+- **MQTT 6.0 协议**：标准未发布，不提前投入。
+- **AOT 兼容**：MQTTnet v5.1.0 已支持 .NET AOT/NativeAOT；NewLife.MQTT 保持 net45~net10.0 全框架兼容性优先，2026-10 已完成 NativeAOT 支持落地（控制器元数据保根 + 匿名对象载荷改字典；19 场景 JIT/AOT 双跑全部通过、库侧 0 条 ILC 告警，详见 `Doc/AOT兼容性分析.md`）。边界：`NewLife.MQTT.Storage`（XCode/Redis）与 `MqttServer` 应用（Stardust）未就绪；冒烟工程 `AotSmoke/` 已入库并接入 CI 多 RID 矩阵（win-x64 / linux-x64 / linux-arm64 / 龙芯 LA64 阻断）。
+
+---
+
+（完）

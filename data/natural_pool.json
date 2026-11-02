@@ -1,0 +1,584 @@
+[
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should fetch workbooks for a valid username\", async () => {",
+"cid": "N001"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.1: The system MUST read network settings from config/network_settings.ini at backend startup and on explicit reload.",
+"cid": "N002"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.6 (Added): Layer numbers MUST be strictly increasing; zero or negative invalid.",
+"cid": "N003"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "CoinPay needs first-party merchant plugins for WooCommerce and WHMCS so merchants can accept crypto and credit card payments through CoinPay with minimal setup, consistent branding, and a unified API experience.",
+"cid": "N004"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Logs should be human-readable and processable by standard Unix utilities",
+"cid": "N005"
+},
+{
+"repo": "MrThief123/care-compass",
+"license": "MIT",
+"text": "Must not reuse 2025 student code (OOS-2, BRIEF). Prior materials for understanding only.",
+"cid": "N006"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "*The agent. Not a person, but the tracker's most frequent caller. Needs: cheap state, clear next action, a way to record evidence and discovered work, and hard rules it can't accidentally break.",
+"cid": "N007"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "User Story (Elena): \"As a research scientist, I want to create, save, and load a recipe that specifies which material to use at which layer number, so I can design my experiments.\"",
+"cid": "N008"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "API errors should surface as useful notifications and retryable error states.",
+"cid": "N009"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 6 (Submit Booking Request): As any user, I want to be able to select an available room and time slot to create a new booking. If I am a guest, I will be prompted for my email address.",
+"cid": "N010"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "block checkout support can be phase 2 unless implementation is straightforward",
+"cid": "N011"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must register as a WHMCS payment gateway module.",
+"cid": "N012"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "Opening the app should immediately allow users to finish today's attendance.",
+"cid": "N013"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should endpoint responses be static only, or should they support templating based on request params/body?",
+"cid": "N014"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "3.2 HIGH — CORS Defaults to Allow-All in Production",
+"cid": "N015"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Support for multiple printers from a single interface.",
+"cid": "N016"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should fetch data successfully\", async () => {",
+"cid": "N017"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "Retries must not create duplicate Attempts or child Runs.",
+"cid": "N018"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Customers can pay generated invoices manually via CoinPay",
+"cid": "N019"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin must send final payable amount including taxes, shipping, and discounts",
+"cid": "N020"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Defer complex partial-payment support unless already natively supported by CoinPay session model",
+"cid": "N021"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Needs: A powerful and flexible recipe creation system; detailed logs for post-print analysis; confidence that the system will execute the plan without failure.",
+"cid": "N022"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The SQLite cache can be deleted and rebuilt from canonical files.",
+"cid": "N023"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "The app should not open to a dashboard—it should open to Today, because that's the action users perform most often.",
+"cid": "N024"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "All output should be plain text, suitable for terminal environments",
+"cid": "N025"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Each command should have one clear, well-defined function",
+"cid": "N026"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.3: The UI MUST allow view/edit with client-side validation (required fields, numeric ranges).",
+"cid": "N027"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As an operator, I want agent-created items to wait for my approval before they run, so agents can't generate unbounded work.",
+"cid": "N028"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "User Story (Ben): \"As a Student, I want a single place to configure the printer's IP address and the physical profiles of our pumps so that I can set up new hardware easily.\"",
+"cid": "N029"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin must preserve order total integrity between WooCommerce and CoinPay",
+"cid": "N030"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-5.3: The system MUST have a global Emergency Stop button that immediately halts all pump activity.",
+"cid": "N031"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "These are observations from the current codebase that future prompts and plans should account for.",
+"cid": "N032"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Tenant routing should feel automatic after login/register.",
+"cid": "N033"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Forms should prevent invalid paths, status codes, and JSON before submission.",
+"cid": "N034"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "zenta export should produce clean output suitable for awk, grep, sort",
+"cid": "N035"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "The app should be deployable as a static Vite build served by nginx.",
+"cid": "N036"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "The following deliverables must be completed before research concludes:",
+"cid": "N037"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Does CoinPay support card and crypto under the same payment session or separate session types?",
+"cid": "N038"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 7 (View My Bookings): As an authenticated user, I want to have a dedicated section where I can view all of my upcoming and past reservations.",
+"cid": "N039"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Support for Pokémon Sets: Integrate with a database or a simple JSON store to allow users to use shorthand for common Smogon sets (e.g., \"Lando-T-Scarf\").",
+"cid": "N040"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "content must not duplicate bytes or concepts. Evidence locators must be",
+"cid": "N041"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Reliability: The application should have an uptime of 99.9% and gracefully handle network connectivity issues.",
+"cid": "N042"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "distinction that matters is unchanged: what an agent can do to the board is",
+"cid": "N043"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint update invalidates a broad [\"endpoints\"] query key, while list queries are keyed as [\"endpoints\", controllerId]; future fixes should align cache invalidation.",
+"cid": "N044"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 1 (Guest Access): As a guest user, I want to view the room calendar and submit a booking request without creating an account, so I can reserve a space with minimal friction.",
+"cid": "N045"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Zenta exists solely to help terminal users cultivate mindfulness and awareness. Every feature must serve this single purpose.",
+"cid": "N046"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As a developer, I want to press stop on a running item and have the work preserved, so I can interrupt an agent without losing what it did.",
+"cid": "N047"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Security: All user data and authentication tokens must be handled securely. Communication with Firebase services must be over HTTPS.",
+"cid": "N048"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Persistent Storage: The server will be stateless. It will not save Pokémon sets, user data, or calculation history.",
+"cid": "N049"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "must inspect local evidence first, plan gaps, discover sources when permitted,",
+"cid": "N050"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must utilize automated pipelines for building, testing, and deploying the Web and Android versions.",
+"cid": "N051"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User authentication must be handled by Firebase Authentication, supporting both email/password and Google Sign-In for users who choose to create an account.",
+"cid": "N052"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Honest capabilities. Each harness's capabilities are declared in a file and exercised on the fixture; a run report states the support tier it ran at. Gantry never advertises a guarantee it cannot measure.",
+"cid": "N053"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A user can initialize repositories, assess capabilities, and start a standalone",
+"cid": "N054"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Three harness support tiers with a fixture per tier | Parity across all harnesses as a release gate",
+"cid": "N055"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "An agent can learn the state of the project in under 500 tokens. gw brief output stays under 25 lines by design.",
+"cid": "N056"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint details are loaded from the endpoint list by controller rather than directly from GET /endpoints/:id, even though the service supports direct endpoint fetching.",
+"cid": "N057"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "If /gantry encounters an older incomplete scope, it may delegate the missing planning work to this same workflow, but it must preserve the approval stop. The documented default remains the explicit /gantry-plan → approval → /gantry lifecycle.",
+"cid": "N058"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Can users achieve this by combining zenta with other Unix tools?",
+"cid": "N059"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Priya, the Web Developer: Priya is creating a \"Teambuilder\" React application. She wants to show users potential damage matchups for their team in real-time. She needs a serverless backend that can handle these calculations on demand.",
+"cid": "N060"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Support is declared per harness in capabilities/<harness>.json — hooks, structured_output, worktree_isolation, per_role_model, parallel_round, skills_path — and grouped in three tiers. A tier is announced only after the fixture runs the full loop in it.",
+"cid": "N061"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "Work done in one repo can inform work in another. When a memory backend is configured, an agent starts a run with relevant prior decisions in its prompt, and finished work leaves a condensed record behind without anyone writing it up.",
+"cid": "N062"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "Closed 2026-09-14. Each was a blocking open question; the rationale is kept because the alternatives will be proposed again.",
+"cid": "N063"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Commands should work well with other Unix tools via pipes and redirection",
+"cid": "N064"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "Never allow an Attempt to change its own evaluator or policy.",
+"cid": "N065"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "If the user marks Absent, all scheduled lectures are automatically marked Absent, but each one can still be edited individually.",
+"cid": "N066"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The system must prevent double-booking of any room for the same time slot.",
+"cid": "N067"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "This document was authored on 2026-05-17. Issues should be tracked individually in the project's issue tracker, linking back to the relevant section number in this PRD.*",
+"cid": "N068"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A standalone Run can be created immediately without a Job.",
+"cid": "N069"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "v0.1 — CLI core + read-only board + import. Must replace the current HTML tracker fully.",
+"cid": "N070"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Does this feature directly support mindfulness/awareness?",
+"cid": "N071"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The command must validate Target and Control repositories, default Control to",
+"cid": "N072"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Agentic Behavior: Each agent must demonstrate reasoning loops (not single LLM calls)",
+"cid": "N073"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Complex Turn Logic: The tool will only calculate the result of a single move. It will not handle turn order, multi-turn moves, or secondary effect probabilities (e.g., the 30% chance to burn from Flamethrower).",
+"cid": "N074"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Guard hooks where the harness supports them; run log; read-only dashboard | Database, MCP server, settings screen, capability tokens, mutating dashboard",
+"cid": "N075"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The engineering team should treat this sprint as complete when:",
+"cid": "N076"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "*Issue: POST /questions/generate makes a live call to the Gemini API on every request. There is no rate limiting or request throttling. A malicious or runaway client can exhaust the API quota within minutes.",
+"cid": "N077"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The error UI should appear where the user is looking (near the button or content area), not as a modal dialog.",
+"cid": "N078"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "The app can fetch public holidays based on country/state, but users can enable, disable, or edit them because college calendars differ.",
+"cid": "N079"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "The input will be a JSON object with three main properties: attacker, defender, and field.",
+"cid": "N080"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Input Schema Format: The inputSchema must be a JSON Schema object with:",
+"cid": "N081"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "*Issue: The file backend/.env was committed to the repository. It contains the live GEMINI_API_KEY. Any person with access to the git history can extract and abuse this key, incurring costs or exhausting the quota.",
+"cid": "N082"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Agents + code > agents alone. Every decision that must not be improvised — what is ready, what must be proven, whether gates pass, when an issue is done — is made by a workflow script. Agents never re-decide what a script decided.",
+"cid": "N083"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Reliability: Demo should complete successfully for primary scenario",
+"cid": "N084"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Mock data will simulate market research sources (competitors, locations, regulations, etc.)",
+"cid": "N085"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Collaboration: Agents must demonstrably build on each other's findings",
+"cid": "N086"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Support human-in-the-loop interaction (agents can ask user questions) | Complex UI beyond demo requirements",
+"cid": "N087"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The fallback UI should display a friendly message (\"Something went wrong — please reload the page\") and a reload button.",
+"cid": "N088"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The refactor must not change any user-visible behavior. All existing functionality must continue to work identically.",
+"cid": "N089"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Transparency: Agent reasoning and tool usage must be visible in UI",
+"cid": "N090"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "User Interface (UI): This project is for an API server only. No web frontend will be built.",
+"cid": "N091"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Demo will include both pre-recorded (high reasoning effort) and live (lower reasoning effort) versions",
+"cid": "N092"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Tool Registration: The MCP SDK uses setRequestHandler() instead of server.tool(). You must register two handlers:",
+"cid": "N093"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Tool Callback Return: Tool callbacks return Ok<CallToolResult>, and you must extract the .value property when returning from the request handler.",
+"cid": "N094"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should handle errors gracefully\", async () => {",
+"cid": "N095"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "Opening the dashboard should answer the questions students ask most.",
+"cid": "N096"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Error Handling: All errors should be caught within tool callbacks and returned as Ok results with isError: true, rather than throwing exceptions.",
+"cid": "N097"
+}
+]

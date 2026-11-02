@@ -1,0 +1,272 @@
+[
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.2: The recipe MUST be saved to config/recipe.txt in the format A,50:B,120:C,200.",
+"cid": "H001"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-4.4: The user MUST be able to send manual pause, resume, and stop commands to the printer at any time from the web interface.",
+"cid": "H002"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.3: The UI MUST validate user input to prevent duplicate layer numbers and ensure valid materials (A, B, C, D) are selected.",
+"cid": "H003"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Endpoint can be copy-pasted into CoinPay merchant dashboard",
+"cid": "H004"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Customer can retry payment if prior attempt expired or failed",
+"cid": "H005"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin should avoid blocking admin pages with remote calls unless initiated by merchant",
+"cid": "H006"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Does WHMCS need support for multiple CoinPay gateway instances per currency or per business line?",
+"cid": "H007"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "(Added) If uart-wifi library lacks async support, wrapper will provide thread-based non-blocking pattern.",
+"cid": "H008"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-5.2: Executing a manual pump command MUST immediately run the specified pump for the given duration.",
+"cid": "H009"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The session creation payload should include, as available:",
+"cid": "H010"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Admin can choose allowed payment modes if supported",
+"cid": "H011"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Merchant branding options can be passed if supported by CoinPay",
+"cid": "H012"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.2: The system MUST read pump profiles (flow rates, pins) and material change parameters (drain volume, fill volume) from config/pump_profiles.json.",
+"cid": "H013"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-3 (Performance): Web page load time should be under 3 seconds on the local network. Real-time status updates on the dashboard should have a latency of no more than 5 seconds from the actual event.",
+"cid": "H014"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Frontend should remain responsive and reliable under slow API calls.",
+"cid": "H015"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint Forge solves this by providing a UI-managed mock API layer where users can model API surfaces close to production expectations and expose them through a runnable mock server.",
+"cid": "H016"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "What should happen if two endpoints share the same method and full path?",
+"cid": "H017"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 5 (View Rooms): As any user (guest or authenticated), I want to see a clear, calendar-based view of all available rooms and their schedules so I can easily find an open slot.",
+"cid": "H018"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "What exact URL should users call for a mock endpoint: app origin, mock server port, project-specific subdomain, /api, controller base path, endpoint path, or another backend-provided URL?",
+"cid": "H019"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must allow unauthenticated (guest) users to view room schedules.",
+"cid": "H020"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Can this be accomplished better by composing with existing Unix tools?",
+"cid": "H021"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should account deletion also delete all projects/controllers/endpoints on the backend?",
+"cid": "H022"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should the landing page remain bilingual only, or should the authenticated dashboard also be localized?",
+"cid": "H023"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should controller base paths and endpoint paths allow route params such as /:id?",
+"cid": "H024"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "must probe install/build/test/cleanup, credentials, services, ports, shared state,",
+"cid": "H025"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "retrieval date, checksum, and license. The research bundle must be independently",
+"cid": "H026"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As a developer, I want to open a board in the browser that shows the current state without any build step, so I can see what's going on at a glance.",
+"cid": "H027"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 8 (Cancel a Booking): As any user, I want to be able to cancel a booking I've made. (Guests will use the link from their confirmation email, authenticated users will do it from their account).",
+"cid": "H028"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Configuration should be minimal and have sensible defaults",
+"cid": "H029"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Performance: The calendar view should load in under 2 seconds, and booking confirmations should feel instantaneous.",
+"cid": "H030"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The system must allow guest users to submit a booking request by providing an email address for confirmation.",
+"cid": "H031"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must be cross-platform, running on iOS, Android, and Web from a single codebase.",
+"cid": "H032"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The target implementation must pass at least these scenarios:",
+"cid": "H033"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "A confirmation email with a unique management link must be sent to the guest's email address upon request.",
+"cid": "H034"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A single climbhill run invocation can continue automatically within a bounded",
+"cid": "H035"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The policy must prefer diagnostic evidence when competing explanations cannot be",
+"cid": "H036"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "A human can start, stop, and gate agent work from a board without touching a terminal, and can leave the terminal running unattended within limits they set.",
+"cid": "H037"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Supports different log types: distraction, reflection, insight.",
+"cid": "H038"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "their answers rather than deleted, because each will be proposed again.",
+"cid": "H039"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "controlled evidence and returns an immutable Continuation Analysis. It must not",
+"cid": "H040"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "This demo will be used in conferences, customer presentations, workshops, and POCs to illustrate how Azure AI Agent Service can tackle open-ended, strategic research tasks where the path to answers is not predetermined.",
+"cid": "H041"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "different evaluator versions or cohorts must never be aggregated as equivalent.",
+"cid": "H042"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Will this add complexity that outweighs the benefit?",
+"cid": "H043"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "User[\"USER<br/>'Should Cofilot expand to Vienna?'\"]",
+"cid": "H044"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Support for grep-like pattern matching in log messages.",
+"cid": "H045"
+}
+]

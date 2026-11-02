@@ -1,0 +1,48 @@
+{
+  "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist (https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/)",
+  "scope": "逐条审查 PRD 中的单条需求。只收录能在单条需求内判定对错的检查项。",
+  "rules": [
+    {
+      "id": "R1",
+      "name": "歧义措辞",
+      "nasa": "C.4 Clarity: free from ambiguous terms (e.g., \"as appropriate,\" \"etc.,\" \"and/or,\" \"but not limited to\")",
+      "判定": "需求里出现会让不同读者得出不同理解的措辞，例如 as appropriate、etc.、and/or、but not limited to、as needed、if possible、where applicable、such as（后面列举未封闭）。",
+      "不算": "列举已封闭（明确列出全部选项）；and/or 只是在说明两个都允许且已写清。"
+    },
+    {
+      "id": "R2",
+      "name": "不可验证",
+      "nasa": "C.4 Verifiability: free of unverifiable terms (flexible, easy, sufficient, safe, adequate, user-friendly, usable, fast, robust, quickly, easily, minimize, maximize …)",
+      "判定": "需求用了无法测量的形容词或副词描述效果（fast、easy、user-friendly、robust、seamless、intuitive、quickly、minimal、optimal 等），且同一句没有给出可测量的标准（数字、阈值、可检查的条件）。",
+      "不算": "同一句已经给出可测量标准，例如 \"fast (p95 < 200 ms)\"。"
+    },
+    {
+      "id": "R3",
+      "name": "一条多需求",
+      "nasa": "C.4 Clarity: express only one thought per requirement statement … one subject and one predicate",
+      "判定": "一条需求里包含两个及以上可以各自独立验收的要求，通常由 and / also / as well as / 分号连接，删掉其中一个另一个仍然成立。",
+      "不算": "同一个动作的多个必要组成部分（例如 \"accept email and password\" 是一个登录动作的输入）。"
+    },
+    {
+      "id": "R4",
+      "name": "待定项未闭环",
+      "nasa": "C.3: minimize TBD; mark TBR with rationale, who is responsible and by when",
+      "判定": "需求里有 TBD、TBR、TODO、待定、[placeholder]、??? 之类的未定值，且没有写明负责人和截止时间。",
+      "不算": "待定项同时写明了负责人和截止时间。"
+    },
+    {
+      "id": "R5",
+      "name": "写了实现方式",
+      "nasa": "C.2 / C.4 Compliance: free of implementation — state WHAT is needed, NOT HOW",
+      "判定": "需求规定了具体的技术实现（某个数据库、框架、库、算法、内部数据结构），而这个技术选择本身不是业务或外部约束要求的。",
+      "不算": "实现约束来自外部且写明了原因（例如必须兼容某个已有系统的接口）；产品本身就是某个技术的插件或集成。"
+    },
+    {
+      "id": "R6",
+      "name": "指代不明",
+      "nasa": "C.4 Clarity: free from indefinite pronouns (this, these)",
+      "判定": "需求的主语或关键对象用 it / this / these / that / they 等代词表示，而在这条需求内找不到它指的是什么。",
+      "不算": "代词在同一句里有明确的先行词。"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+# NewLife.BACnet 需求文档
+
+> 版本：v1.0 | 日期：2026-07-22
+
+本文档描述 NewLife.BACnet 的愿景、核心目标和功能方向。完成状态在[功能清单](功能清单.md)中追踪，详细设计在[架构设计](架构设计.md)中展开。
+
+---
+
+## 1. 背景与愿景
+
+### 1.1 系统定位
+
+**NewLife.BACnet** 是一个基于 .NET 的纯托管 BACnet 协议栈，面向楼宇自动化（HVAC、照明、安防、能源管理）领域，实现完整的 BACnet/IP 协议通信，并深度集成 NewLife IoT 物联网平台生态。
+
+BACnet（Building Automation and Control Networks）是由 ASHRAE 制定的楼宇自动化标准协议（ANSI/ASHRAE Standard 135 / ISO 16484-5），广泛应用于约翰逊控制、霍尼韦尔、西门子楼宇、施耐德等主流设备厂商的产品。本库在 ela-compil/BACnet 开源实现的基础上，对协议核心进行重构，并构建了面向 IoT 边缘场景的高级 API 层。
+
+### 1.2 愿景
+
+**成为 .NET 生态中功能最完整、最易集成的 BACnet 协议库**，让楼宇自动化工程师和 IoT 边缘开发者能够用最少的代码实现设备发现、数据采集、属性写入和事件处理，并无缝对接 NewLife IoT 物联网平台生态，成为楼控系统与 IoT 平台之间的可靠桥梁。
+
+---
+
+## 2. 核心目标
+
+| 编号 | 目标 | 所属层级 | 一句话描述 |
+|------|------|----------|------------|
+| TRN | 传输层 | 基础层 | 提供 BACnet/IP (IPv4/IPv6) 网络传输能力，支持 BBMD 广播管理和外部设备注册 |
+| COD | 协议编解码 | 基础层 | 实现 ASN.1 BER 编解码与 APDU/NPDU/BVLC 各层协议，确保标准互操作性 |
+| DSC | 设备发现 | 核心层 | 自动发现网络中所有 BACnet 设备，支持定向发现和定时重扫 |
+| PRP | 属性读写 | 核心层 | 单属性与批量属性的读写操作，支持 Priority Array 写优先级 |
+| COV | COV 变更通知 | 核心层 | 订阅设备属性变化并实时推送，替代轮询降低网络负载 |
+| EVT | 事件与报警 | 核心层 | 处理 BACnet 事件通知、报警摘要与确认，支撑楼宇报警管理 |
+| FIL | 文件访问 | 扩展层 | 通过 BACnet 文件服务读写设备上的文件对象 |
+| OBJ | 对象管理 | 扩展层 | 在设备中动态创建和删除 BACnet 对象 |
+| SRV | BACnet 服务端 | 核心层 | 将 .NET 应用暴露为 BACnet 设备，供第三方楼控系统读写 |
+| CLI | 高级客户端 API | 核心层 | 在低层协议之上封装面向业务的高级 API，简化开发 |
+| DRV | IoT 驱动框架适配 | 集成层 | 实现 NewLife.IoT 驱动接口，使 BACnet 成为可插拔的 IoT 设备驱动 |
+| OBS | 可观测性 | 横切层 | 为 BACnet 通信提供日志、APM 追踪和指标，便于问题诊断 |
+| SEC | 安全通信 (BACnet/SC) | 扩展层 | 基于 TLS/WebSocket 的安全 BACnet 通信，提供端到端加密 |
+| GAP | 标准 BACnet 服务补齐 | 核心层 | 补齐 Who-Has/I-Have、时间同步、设备通信控制等标准服务 |
+| SCH | Schedule/Calendar 支持 | 扩展层 | BACnet 日程表和日历数据类型编解码 |
+| ASY | Async/Await 异步 API | 核心层 | 在 BacnetClient 上提供完整的 Async/Await 异步方法 |
+
+---
+
+## 3. 功能需求
+
+### 3.1 TRN — 传输层
+
+基础网络传输能力，支持不同物理/网络媒体的 BACnet 数据传输。
+
+- **TRN-1 BACnet/IP (IPv4) UDP 传输**：基于 UDP 的标准 BACnet/IP 通信，默认端口 47808（0xBAC0）
+- **TRN-2 BACnet/IP (IPv6) UDP 传输**：基于 UDP 的 IPv6 BACnet 通信
+- **TRN-3 BBMD 广播管理**：跨子网广播管理，支持 BBMD 对等体间转发
+- **TRN-4 外部设备注册**：外部设备（Foreign Device）向 BBMD 注册并接收广播
+
+> 以下串口传输实现代码存在但已从编译中排除，需跨平台串口兼容性支持后重新启用：
+> TRN-5 MS/TP (RS485) 串口传输、TRN-6 PTP (RS232) 串口传输、TRN-7 通用串口传输基类、
+> TRN-8 Ethernet 802.3 直连传输、TRN-9 Windows 管道传输
+
+### 3.2 COD — 协议编解码
+
+实现 BACnet 各层协议的编码和解码，确保与标准设备的互操作性。
+
+- **COD-1 ASN.1 BER 编解码**：BACnet 专有的简化 TLV（Tag-Length-Value）格式编解码
+- **COD-2 APDU 编解码**：应用协议数据单元编解码，含确认/未确认/错误/分片等 PDU 类型
+- **COD-3 NPDU 编解码**：网络协议数据单元编解码，含源/目标地址、跳数管理
+- **COD-4 BVLC (IPv4) 编解码**：BACnet 虚拟链路控制层（IPv4）帧编解码
+- **COD-5 BVLCV6 (IPv6) 编解码**：BACnet 虚拟链路控制层（IPv6）帧编解码
+- **COD-6 自定义标签解析器**：委托注册机制，支持厂商自定义扩展属性的解析
+- **COD-7 IEncode/IDecode 接口**：自定义数据结构的序列化接口
+- **COD-8 EncodeBuffer 编码缓冲区**：可扩展的编码缓冲区，支持分片滑动窗口写入
+
+### 3.3 DSC — 设备发现
+
+在 BACnet 网络中自动发现在线设备。
+
+- **DSC-1 Who-Is 广播发现**：发送 Who-Is 广播发现网络中所有 BACnet 设备
+- **DSC-2 I-Am 响应处理**：接收并解析 I-Am 响应，记录设备 ID、地址、最大 APDU、分片能力
+- **DSC-3 定向发现**：支持指定 IP:Port 的单播 Who-Is，用于测试环境或已知地址场景
+- **DSC-4 自动读属性列表**：发现后自动读取设备的对象列表属性
+- **DSC-5 定时重扫**：定期重新扫描以感知设备上线/下线
+
+### 3.4 PRP — 属性读写
+
+读取和写入 BACnet 设备对象的属性值。
+
+- **PRP-1 ReadProperty**：读取单个对象的单个属性
+- **PRP-2 WriteProperty**：写入单个对象的单个属性
+- **PRP-3 属性写入优先级**：支持 Priority Array 1-16 级写入优先级
+- **PRP-4 ReadPropertyMultiple**：批量读取多对象多属性
+- **PRP-5 WritePropertyMultiple**：批量写入多对象多属性
+- **PRP-6 ReadRange**：读取数组/列表属性的特定范围（如趋势日志）
+- **PRP-7 invoke-id 按设备隔离**：通过 `ConcurrentDictionary<BacnetAddress, Byte>` 按远程设备隔离 invoke-id，消除多设备并发冲突
+
+### 3.5 COV — COV 变更通知
+
+订阅设备属性变化，当值发生变化时主动推送通知。
+
+- **COV-1 SubscribeCOV**：订阅对象级 COV 变更
+- **COV-2 SubscribeCOVProperty**：订阅属性级 COV 变更，带变化阈值
+- **COV-3 无确认 COV 通知接收**：接收 UnconfirmedCOVNotification
+- **COV-4 有确认 COV 通知接收**：接收 ConfirmedCOVNotification
+- **COV-5 服务端发送 COV 通知**：通过 DeviceStorage 属性变化事件触发
+- **COV-6 COV 订阅自动续约**：通过 `StartCOVAutoRenewal()` 定时器自动续约订阅生命周期
+
+### 3.6 EVT — 事件与报警
+
+处理 BACnet 事件通知、报警摘要，用于楼宇报警管理系统。
+
+- **EVT-1 EventNotification 接收**：接收事件通知（有确认/无确认）
+- **EVT-2 EventNotification 发送**：发送有确认事件通知
+- **EVT-3 GetAlarmSummary**：获取报警摘要
+- **EVT-4 GetEventInformation**：获取详细事件信息
+- **EVT-5 AcknowledgeAlarm**：确认报警
+- **EVT-6 EventNotificationData 编解码**：完整的事件通知数据结构编解码
+
+### 3.7 FIL — 文件访问
+
+通过 BACnet 文件服务读写设备上的文件对象。
+
+- **FIL-1 AtomicReadFile**：原子读文件（按记录或流方式）
+- **FIL-2 AtomicWriteFile**：原子写文件（按记录或流方式）
+
+### 3.8 OBJ — 对象管理
+
+在设备中动态创建和删除 BACnet 对象。
+
+- **OBJ-1 CreateObject**：创建新对象
+- **OBJ-2 DeleteObject**：删除现有对象
+- **OBJ-3 AddListElement**：向列表属性添加元素
+- **OBJ-4 RemoveListElement**：从列表属性移除元素
+
+### 3.9 SRV — BACnet 服务端
+
+将 .NET 应用暴露为 BACnet 设备，供第三方楼控系统读写。
+
+- **SRV-1 DeviceStorage XML 存储**：基于 XML 的设备对象属性存储与序列化
+- **SRV-2 Who-Is 响应**：响应 Who-Is 广播，发送 I-Am 应答
+- **SRV-3 ReadProperty 服务**：响应读属性请求并返回属性值
+- **SRV-4 ReadPropertyMultiple 服务**：响应批量读属性请求
+- **SRV-5 WriteProperty 服务**：响应写属性请求
+- **SRV-6 WritePropertyMultiple 服务**：响应批量写属性请求
+- **SRV-7 WriteObjectMultiple 服务**：响应多对象批量写入请求
+- **SRV-8 启动广播 I-Am**：启动时广播 I-Am 宣告自身存在
+- **SRV-9 属性读写事件钩子**：允许应用层通过委托覆盖默认的读写行为
+- **SRV-10 属性变化事件**：属性值变化时触发事件，用于驱动 COV 通知
+
+### 3.10 CLI — 高级客户端 API
+
+在低层 `BacnetClient` 之上封装面向业务的高级 API。
+
+- **CLI-1 生命周期管理**：`BacClient.Open()`/`Close()` 管理连接启停
+- **CLI-2 Scan() 设备发现**：广播或单播 Who-Is，等待首个响应并返回
+- **CLI-3 Nodes 节点管理**：自动维护已发现设备节点集合（去重）
+- **CLI-4 定时重扫**：自动定时重新扫描，默认 60 秒周期
+- **CLI-5 GetProperties**：自动读取设备全量对象列表与属性
+- **CLI-6 单属性读写**：`ReadProperty`/`WriteProperty` 支持 `BacnetObjectId` 和字符串地址
+- **CLI-7 批量属性读写**：`ReadProperties`/`WriteProperties` 支持分批
+- **CLI-8 点位字符串寻址**：`"实例_类型"` 格式字符串直接定位点位
+- **CLI-9 GetDetail**：获取属性详细信息（名称、值、描述、单位）
+
+### 3.11 DRV — IoT 驱动框架适配
+
+实现 NewLife.IoT `IDriver`/`INode`/`IDriverParameter` 接口，使 BACnet 成为可插拔的 IoT 设备驱动。
+
+- **DRV-1 BACnetDriver**：实现 `DriverBase`，注册 `[Driver("BACnet")]`
+- **DRV-2 BACnetNode**：实现 `INode`，携带设备 ID 和客户端引用
+- **DRV-3 BACnetParameter**：实现 `IDriverParameter`，定义端口、设备 ID 和目标地址参数
+- **DRV-4 单例连接管理**：多节点共享单一 `BacClient` 连接，引用计数管理生命周期
+- **DRV-5 点位地址解析**：`"实例_类型"` 格式字符串解析为 `BacnetObjectId`
+- **DRV-6 批量点位读取**：驱动层 `Read` 方法批量读取多设备点位
+- **DRV-7 写入类型转换**：驱动层 `Write` 方法根据属性类型自动转换写入值
+
+### 3.12 OBS — 可观测性
+
+为 BACnet 通信提供日志、APM 追踪和指标。
+
+- **OBS-1 ILog 日志**：所有核心组件实现 `ILogFeature`，支持注入日志
+- **OBS-2 ITracer APM 追踪**：所有核心组件实现 `ITracerFeature`，支持注入追踪器
+- **OBS-3 Span 关键操作埋点**：`Open`/`Scan`/`ReadProperty`/`WriteProperty`/`COV` 等使用 `Tracer?.NewSpan()`
+- **OBS-4 传输层字节追踪**：记录收发字节数到链路追踪
+
+### 3.13 SEC — 安全通信 BACnet/SC
+
+基于 TLS/WebSocket 的 BACnet Secure Connect 安全通信。
+
+- **SEC-1 WebSocket 传输层**：基于 TLS 1.2+ 的 WebSocket 传输，`BacnetScTransport` 封装
+- **SEC-2 证书认证**：支持设备证书和 Hub 证书认证，客户端证书配置 + 验证回调 + 未受信允许开关
+- **SEC-3 直连模式**：BACnet/SC Direct Connect 点对点直连模式，支持 `ConnectToPeer`/`DisconnectFromPeer` 连接管理
+- **SEC-4 Hub/Node 架构**：BACnet/SC Hub 星型拓扑，支持 `ConnectedNodes` 集合追踪和连接事件
+
+### 3.14 GAP — 标准 BACnet 服务补齐
+
+对标标准 BACnet 服务补齐与竞品差距项。
+
+- **GAP-1 Who-Has / I-Have**：按对象 ID 或名称查找设备的非确认服务，客户端请求与服务端响应
+- **GAP-2 TimeSynchronization**：时间同步服务，支持 UTC 和本地时间同步
+- **GAP-3 DeviceCommunicationControl**：设备通信控制服务，远程启停设备通信（含超时密码保护）
+
+### 3.15 SCH — Schedule/Calendar 支持
+
+BACnet 日程表和日历数据类型编解码支持。
+
+- **SCH-1 BacnetTimeValue**：时间-值对数据类型编解码
+- **SCH-2 BacnetDailySchedule**：每日日程表数据类型编解码
+- **SCH-3 BacnetSpecialEvent**：特殊事件数据类型编解码（含日历条目、时间值列表和优先级）
+- **SCH-4 WeeklySchedule/ScheduleDefault**：周日程表和默认日程属性编解码
+- **SCH-5 ExceptionSchedule**：异常日程属性编解码
+
+### 3.16 ASY — Async/Await 异步 API
+
+在 `BacnetClient` 上提供完整的 Async/Await 异步方法，替代同步阻塞模型。
+
+- **ASY-1 BacnetAsyncResult**：基于 `TaskCompletionSource` 的异步结果封装，保留 `IAsyncResult` 兼容
+- **ASY-2 ReadPropertyAsync / ReadPropertyMultipleAsync**：异步读写属性
+- **ASY-3 WritePropertyAsync / WritePropertyMultipleAsync**：异步批量写入
+- **ASY-4 SubscribeCOVAsync / SubscribeCOVPropertyAsync**：异步 COV 订阅，支持 CancellationToken
+- **ASY-5 DeviceCommunicationControlAsync**：异步设备通信控制
+- **ASY-6 AtomicReadFileAsync / AtomicWriteFileAsync**：异步文件访问
+- **ASY-7 CreateObjectAsync / DeleteObjectAsync**：异步对象管理
+- **ASY-8 AddListElementAsync / RemoveListElementAsync**：异步列表元素操作
+- **ASY-9 GetAlarmSummaryAsync / GetEventInformationAsync**：异步报警/事件查询
+- **ASY-10 AcknowledgeAlarmAsync / SendConfirmedEventNotificationAsync**：异步报警确认与通知
+
+---
+
+## 4. 🧊 暂缓清单
+
+| 功能 | 暂缓理由 | 解冻前提 |
+|------|----------|----------|
+| MS/TP 串口传输 | 跨平台串口兼容性问题，代码已禁用 | 找到稳定的跨平台串口库或实现 |
+| PTP 串口传输 | 跨平台串口兼容性问题，代码已禁用 | 同上 |
+| Ethernet 802.3 直连传输 | 需原始套接字权限，多平台兼容性差 | 有明确的以太网直连需求场景 |
+
+## 5. 不做什么
+
+- **硬件串口驱动**：不提供跨平台硬件串口驱动实现
+- **BACnet 路由器**：不实现 BACnet 路由器功能（跨网段 NPDU 转发）
+- **BTL 认证**：不提供 BACnet Testing Laboratories 官方认证
+- **图形化工具**：本库为代码库，不提供类似 YABE 的图形化探索工具
+- **设备仿真框架**：`DeviceStorage` 仅提供基础属性存储，不模拟完整的设备行为状态机

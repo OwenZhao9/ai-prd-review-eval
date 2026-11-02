@@ -1,0 +1,134 @@
+# NewLife.IoT 需求文档
+
+> 版本：v3.2 | 日期：2026-10-19
+
+本文档描述 NewLife.IoT 的愿景、核心目标和功能方向。完成状态在[功能清单](功能清单.md)中追踪，详细设计在[架构设计](架构设计.md)或各模块架构文档中展开。
+
+## 1. 背景与愿景
+
+### 1.1 系统定位
+
+NewLife.IoT 是物联网标准库——为 IoT 领域定义通信协议**标准契约**，不含具体协议实现。目标是成为 IoT 平台与硬件驱动之间的**统一抽象层**：
+
+| 消费者 | 角色 | 依赖方式 |
+|--------|------|----------|
+| **IoT 平台**（星尘/ZeroIoT/FIoT 及自定义平台） | 调用方 | 引用 `IDriver`/`INode`/`IDevice` 接口，一套 API 操作所有硬件 |
+| **驱动库**（NewLife.Modbus/Siemens/OPC-UA 等） | 实现方 | 继承 `DriverBase`，重写读写虚方法，接入平台生态 |
+| **硬件厂商** | 接入方 | 实现 `IDriver` + 提供 `ThingSpec` 物模型，设备即插即用 |
+
+定位核心：**平台只调用接口，驱动只实现接口，两者永不直接耦合**。
+
+### 1.2 愿景
+
+物联网接入**像文件系统一样简单**——平台打开设备得到节点、读取节点得到带质量的数据、写入节点得到回显确认。异步优先、类型安全、零堆分配诊断。
+
+## 2. 核心目标
+
+| 编号 | 目标 | 所属层级 | 一句话描述 |
+|------|------|----------|------------|
+| SYS | 核心驱动体系 | 规范层 | 定义 IDriver 异步接口、结构化结果、传输层契约、驱动工厂等基础规范 |
+| TSL | 物模型规范 | 规范层 | 用 ThingSpec 描述设备属性/事件/服务，统一物模型解析与验证 |
+| DEV | 设备接口 | 平台层 | 定义 IDevice 逻辑设备，提供属性上报、事件推送、服务注册等平台侧能力 |
+| UTL | 工具类 | 支撑层 | 字节序转换、IoT 类型映射、表达式引擎等跨协议通用工具 |
+| CTL | 控制器接口 | 硬件层 | 抽象 IBoard/ISerialPort/IModbus/IRelayController 等物理硬件控制契约 |
+| SER | 串口驱动 | 驱动层 | NewLife.IoTSerial 包——通用串口驱动 + SerialTransport |
+| NET | 网络驱动 | 驱动层 | NewLife.IoTSocket 包——TCP/UDP/HTTP 驱动 + 对应 Transport 实现 |
+| DB  | 数据库驱动 | 驱动层 | NewLife.IoTDatabase 包——通用数据库查询驱动 |
+| RUN | 运行时能力 | 基础层 | 运行时多语言本地化、带前缀日志、NativeAOT 兼容、多操作系统与多指令集 |
+
+## 3. 功能需求
+
+### 3.1 SYS — 核心驱动体系
+
+- **SYS-1 统一异步驱动接口**：`IDriver` 定义 `OpenAsync`/`CloseAsync`/`ReadAsync`/`WriteAsync`/`ControlAsync` 全异步 I/O 方法，`CreateParameter`/`GetSpecification` 元数据同步。
+- **SYS-2 驱动抽象基类**：`DriverBase` 提供 `Diagnostics` 开关、`ServiceProvider` 注入、`RaiseDataReceived` 推送触发、`OnGetSpecification`/`OnCreateParameter` 虚钩子；泛型版 `DriverBase<TNode,TParameter>` 固定节点和参数类型。
+- **SYS-3 推送事件模型**：`DataReceived` 事件直接定义在 `IDriver` 上，`DriverDataEventArgs` 携带 `Node`/`Points`/`Result`（含时间戳和质量码），轮询驱动无需触发。
+- **SYS-4 结构化结果类型**：`IDriverResult` 统一 `IsSuccess`/`Code`/`Message`；`ReadResult` 用 `Points[]`/`Values[]` 平行数组+`Quality`+`Timestamp`；`WriteResult` 为 `readonly struct` 零堆分配含 `AffectedCount`/`EchoValue`；`ControlResult` 含 `OutputParameters` 字典；均支持可选诊断帧。
+- **SYS-5 数据质量码**：`DataQuality` 枚举参考 OPC UA——`Good`/`Uncertain`/`Bad`/`BadNotConnected`/`BadTimeout`/`BadChecksumError`/`BadProtocolError` 三级七值。
+- **SYS-6 结构化异常与错误码**：`IoTException` 携带 `IoTErrorCode`；1000 段配置错误（`InvalidParameter`/`DriverNotFound`/`NotSupported`）应抛出；2000 段运行时错误（`ConnectionFailed`/`Timeout`/`ChecksumError` 等）走 `Result.IsSuccess=false`；3000 段设备状态（`DeviceOffline`/`InvalidAddress`）。
+- **SYS-7 请求对象**：`WriteRequest` 包装点位+值，支持 `()`/`(value)`/`(point,value)` 三构造函数；`ControlRequest` 用 `ServiceName`+`Parameters`+`Create()` 工厂；均实现 `IExtend` 扩展元数据。
+- **SYS-8 设备发现**：`IDiscoverableDriver.DiscoverAsync` 扫描网络或总线上的子设备，返回 `IEnumerable<IDeviceInfo>`，适用于 Modbus/BACnet 等广播协议。
+- **SYS-9 驱动工厂**：`DriverFactory.Register<T>` 注册、`Create(name,identifier)` 创建实例（相同 `identifier` 共享单实例）、`CreateParameter(name,parameter)` 创建参数、`ScanAll()` 插件扫描；`[DriverAttribute]` 标注驱动名称。
+- **SYS-10 传输层接口**：`ITransport` 统一 `Open`/`Close`/`Send`/`Receive`/`SendReceive`（原子请求-响应），串口/TCP/UDP/HTTP 实现分别在 `NewLife.IoTSerial` 和 `NewLife.IoTSocket` 中。
+- **SYS-11 节点与参数**：`INode`（`Driver`/`Device`/`Parameter`/`IsConnected`）+ 默认 `Node`；`IDriverParameter` 空标记接口 + `IDriverParameterKey.GetKey()` 参数共享标识 + `DriverParameter` 默认实现 + `EncodeParameter`/`DecodeParameter` 序列化扩展。
+- **SYS-12 同步便利扩展**：`DriverExtensions` 提供 `Open`/`Close`/`Read`/`Write`/`Control` 同步包装，内部调用异步方法。
+
+### 3.2 TSL — 物模型规范
+
+- **TSL-1 物模型根**：`ThingSpec` 含 `Profile`（产品元数据）+ `Properties[]` + `Events[]` + `Services[]`，支持 `FromJson`/`ToJson` 往返序列化，`AddProperty`/`GetProperty` 便捷方法。
+- **TSL-2 属性规范**：`PropertySpec` 含 `AccessMode`/`DataType`（`TypeSpec`+`DataSpecs` 带 min/max/step/unit/mapping）/`Address`/`Scaling`/`Constant`/`ReadRule`/`WriteRule`。
+- **TSL-3 事件规范**：`EventSpec` 含 `Type`（info/warning/error）/`Method`/`OutputData`，描述设备主动上报的告警和通知。
+- **TSL-4 服务规范**：`ServiceSpec` 含 `Type`（sync/async）/`Method`/`InputData`/`OutputData`，描述可外部调用的设备指令。
+- **TSL-5 点位模型**：`IPoint`（`Name`/`Address`/`Type`/`Length`）+ `PointModel` 实现（含 `ReadRule`/`WriteRule`）；`PointHelper.Convert` 字节→对象转换，`GetBytes` 对象→字节转换。
+- **TSL-6 上报模型**：`PropertyModel`/`PropertyModels`（含 `DeviceCode`）/`EventModel`/`DataModel` 定义属性、事件、时序数据的平台上报结构，`DevicePropertyModel` 带设备编码。`EventModes` 枚举（`None`/`Client`/`Server`）控制属性变更事件的触发位置。
+- **TSL-7 影子模型**：`ShadowModel`（`DeviceCode`/`Shadow`）支持设备影子同步。
+- **TSL-8 服务调用模型**：`ServiceModel`/`ServiceReplyModel`/`ServiceEventArgs`/`ServiceStatus` 定义平台—设备之间的服务调用生命周期。
+
+### 3.3 DEV — 设备接口
+
+- **DEV-1 逻辑设备**：`IDevice` 含 `Code`/`Properties`/`Specification`/`Points`/`Services`，提供 `StartAsync`/`StopAsync`、`SetOnlineAsync`/`SetOfflineAsync`、`PostPropertyAsync`/`PostDataAsync`/`PostEventAsync`、`RegisterService` 等全量平台能力。
+- **DEV-2 设备信息**：`IDeviceInfo`（`Code`/`Name`/`ProductCode`）+ `DeviceInfo` 实现（含 `Protocol`/`Parameter`）+ `DeviceModel`（支持子设备数组），用于平台与客户端交换设备元数据。
+- **DEV-3 服务请求**：`ServiceRequest` 含 `DeviceId`/`ServiceName`/`InputData`/`Timeout`/`Expire`，定义平台下发服务的调度参数。
+- **DEV-4 上报类型**：`PostKinds` 枚举（`Changed`/`Always`/`Never`）定义属性上报模式。
+- **DEV-5 物模型扩展**：`ThingExtensions` 提供 `WriteInfoEvent`/`WriteAlertEvent`/`WriteErrorEvent` 便捷事件写入方法。
+
+### 3.4 UTL — 工具类
+
+- **UTL-1 字节序转换**：`DataHelper` 提供 `Int16`/`UInt16`/`Int32`/`UInt32`/`Single`/`Double` 的 `GetBytes(endian/order)` 和反向 `ToXxx` 方法，支持 Big/Little/BigSwap/LittleSwap 四种端序。
+- **UTL-2 类型映射**：`TypeHelper` 提供 IoT 类型名（`bit`/`short`/`float`/`text`/`date` 等）↔ .NET 类型 ↔ 字节长度的双向映射，`GetLength`/`GetNetType`/`SetNetType`。
+- **UTL-3 字节序枚举**：`EndianType`（`BigEndian`/`LittleEndian`/`BigSwap`/`LittleSwap`）和 `ByteOrder`（`ABCD`/`DCBA`/`BADC`/`CDAB`）两种可互转的枚举，覆盖 PLC/网络领域命名习惯。
+- **UTL-4 表达式引擎**：`IExpressionEngine` 定义 `Parse`/`Invoke` 接口，用于物模型 `ReadRule`/`WriteRule` 的动态表达式执行。
+- **UTL-5 服务命令处理器**：`IServiceHandler` 维护 `Services` 命令字典，`ServiceHandlerHelper.RegisterService` 支持 `Func<String,String>` 和异步版本注册。
+
+### 3.5 CTL — 控制器接口
+
+- **CTL-1 串口控制器**：`ISerialPort`（`PortName`/`Baudrate`/`Timeout`/`Open`/`Close`/`Received` 事件）+ `DefaultSerialPort` 基于 `System.IO.Ports` 的默认实现。
+- **CTL-2 板卡控制**：`IBoard` 提供 `Map(name)` 设备名→真实地址映射、`CreateOutput`/`CreateInput`/`CreateSerialPort` 工厂方法。
+- **CTL-3 数字 I/O**：`IInputPort`（`Read`/`KeyDown`/`KeyUp`）+ `IOutputPort`（`Read`/`Write`），含 `FileInputPort`/`FileOutputPort` 文件驱动实现。
+- **CTL-4 Modbus 原语**：`IModbus` 提供 `ReadCoil`/`ReadDiscrete`/`ReadRegister`/`ReadInput`/`WriteCoil`/`WriteRegister` 同步+异步双套 API，直接操作 Modbus 功能码。
+- **CTL-5 继电器控制**：`IRelayController` 提供 `WriteAsync(index,value)`/`InvertAsync`/`WriteAllAsync`/`InvertAllAsync`，基于 `IModbus` 操作。
+
+### 3.6 SER — 串口驱动 (NewLife.IoTSerial)
+
+- **SER-1 通用串口驱动**：`IoTSerialDriver` 继承 `DriverBase<SerialNode,IoTSerialParameter>`，`[Driver("IoTSerial")]`，管理串口连接生命周期，多节点共享同一物理串口。
+- **SER-2 串口传输**：`SerialTransport` 实现 `ITransport`，封装 `System.IO.Ports.SerialPort` 的 `Open`/`Close`/`Send`/`Receive`/`SendReceive` 操作。
+- **SER-3 串口参数与节点**：`IoTSerialParameter`（`PortName`/`Baudrate`/`DataBits`/`Parity`/`StopBits`）+ `SerialNode` + `SerialParameter` 基类。
+
+### 3.7 NET — 网络驱动 (NewLife.IoTSocket)
+
+- **NET-1 TCP 驱动**：`IoTTcpDriver` 继承 `IoTSocketDriver`，`[Driver("IoTTcp")]`，通过 `TcpClient` 连接设备。
+- **NET-2 UDP 驱动**：`IoTUdpDriver` 继承 `IoTSocketDriver` + 实现 `IDiscoverableDriver`，`[Driver("IoTUdp")]`，支持广播发现子设备。
+- **NET-3 HTTP 驱动**：`IoTHttpDriver` 继承 `DriverBase<Node,HttpParameter>`，`[Driver("IoTHttp")]`，基于 `HttpClient` 的 RESTful 设备访问。
+- **NET-4 Socket 驱动基类**：`IoTSocketDriver` 提供 TCP/UDP 公共逻辑，`CreateClient` 虚工厂方法。
+- **NET-5 网络传输实现**：`TcpTransport`/`UdpTransport`/`HttpTransport`/`SocketTransport` 分别实现 `ITransport`，封装对应协议的连接管理和数据收发。
+- **NET-6 网络参数与节点**：`SocketParameter`/`HttpParameter`（`Address`/`Port`/`Timeout`/`Token` 等）+ `SocketNode`。
+
+### 3.8 DB — 数据库驱动 (NewLife.IoTDatabase)
+
+- **DB-1 数据库驱动**：`IoTDatabaseDriver` 继承 `DriverBase<DatabseNode,DatabaseParameter>`，`[Driver("IoTDatabase")]`，将 SQL 查询结果映射为点位数据。
+- **DB-2 数据库参数与节点**：`DatabaseParameter`（`ConnectionString`/`DatabaseType`）+ `DatabseNode`，基于 XCode `DAL` 管理数据库连接。
+
+### 3.9 RUN — 运行时能力
+
+- **RUN-1 运行时多语言本地化**：运行时消息以英文为源文，仓库根 `Locales/*.yml` 提供 31 种语言译文，编译期由 NewLife.Core 源生成器打包并自动注册；异常、结果类型、IoT 类型显示名、驱动显示名/描述与参数 Xml 注释经 `Localization` 按当前语言翻译，缺译文回退英文；协议数据、类型映射与数值精度不随宿主区域性变化。
+- **RUN-2 带实例前缀日志**：驱动与传输层的 `WriteLog` 统一使用 `LogPrefix` + `InfoPrefixed`，先按日志语言翻译并格式化消息，再拼接实例前缀；前缀不进入词表键。
+- **RUN-3 NativeAOT 兼容**：net8.0+ 目标常驻启用 `IsAotCompatible`，库编译与 AOT 发布均为 0 条 IL 告警；`AotSmoke` 覆盖核心链路的 JIT/AOT 双跑冒烟。
+- **RUN-4 多操作系统与多指令集**：目标框架对齐 NewLife.Core v12（net45 → net10.0），纯托管实现可编译运行于 .NET 支持的 x64/x86/arm64/arm/loongarch64/riscv64/s390x，已验证范围见《架构设计》平台与指令集支持矩阵；字节序 API 以主机字节序为基准适配大端平台；CI 实测覆盖 Windows/Linux/macOS 的 x64/arm64。
+
+---
+
+## 4. 🧊 暂缓清单
+
+| 功能 | 暂缓理由 | 解冻前提 |
+|------|----------|----------|
+| 驱动热加载/卸载 | 目前驱动通过 NuGet 引用部署，运行时动态加载场景少 | IoT 平台明确需要插件市场且要求热加载 |
+| OTA 固件升级协议 | 标准库应聚焦数据采集与控制，固件升级属设备管理范畴 | 提炼出跨协议的 OTA 通用模式 |
+| 设备影子自动同步 | 当前影子为纯数据结构，同步策略依赖平台实现 | 有多平台反馈需要标准库层面的自动同步能力 |
+
+## 5. 不做什么
+
+- **具体协议实现**：Modbus、Siemens、OPC-UA、BACnet 等由各自独立仓库实现，标准库仅定义接口契约。
+- **IoT 平台上层**：设备管理、规则引擎、数据存储、可视化等由 ZeroIoT/星尘/FIoT 等产品仓库负责。
+- **数据持久化**：驱动不直接写数据库，数据持久化由平台层处理。
+- **跨语言通信框架**：不走 HSL 风格的跨语言 IPC 路线，专注 .NET 生态。
+- **低版本 .NET Framework**：`net40` 及以下不再支持，最低 `net45`。

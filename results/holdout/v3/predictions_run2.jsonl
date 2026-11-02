@@ -1,0 +1,32 @@
+{"id": "H004", "labels": [], "pred": []}
+{"id": "H005", "labels": [], "pred": []}
+{"id": "H006", "labels": [], "pred": []}
+{"id": "H009", "labels": ["R2"], "pred": []}
+{"id": "H011", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "if supported", "reason": "「if supported」没有说明由什么条件或谁来判定是否支持，不同读者会得出不同理解。"}]}
+{"id": "H012", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "if supported by CoinPay", "reason": "「if supported」没有说明哪些品牌选项受支持、由谁判定，不同读者会得出不同理解。"}]}
+{"id": "H014", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "Web page load time should be under 3 seconds on the local network. Real-time status updates on the dashboard should have a latency of no more than 5 seconds from the actual event.", "reason": "这条需求包含两个独立、可分别验证的性能要求（页面加载时间和仪表盘状态更新延迟），应拆分为两条需求。"}]}
+{"id": "H015", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "remain responsive and reliable", "reason": "responsive 和 reliable 都是无法测量的形容词，同一句中未给出任何可测量的标准或阈值，无法验收。"}]}
+{"id": "H018", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "clear", "reason": "“clear” 是主观形容词，没有给出可测量的标准，无法客观验收。"}, {"rule": "R2", "evidence": "easily", "reason": "“easily” 描述效果却无法测量，没有给出可检查的判定条件。"}]}
+{"id": "H020", "labels": [], "pred": []}
+{"id": "H027", "labels": [], "pred": [{"rule": "R3", "evidence": "open a board in the browser that shows the current state without any build step", "reason": "该用户故事包含两个可独立验收的动作：打开 board，以及在不经构建步骤的情况下显示当前状态。"}, {"rule": "R2", "evidence": "at a glance", "reason": "“at a glance” 是无法测量的主观效果描述，且同一句中没有给出可检查的标准。"}]}
+{"id": "H029", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "minimal", "reason": "“minimal”没有给出可测量的标准，无法客观验收配置要少到什么程度。"}, {"rule": "R2", "evidence": "sensible defaults", "reason": "“sensible”是主观形容词，没有说明哪些默认值算合理，无法验证。"}]}
+{"id": "H030", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "feel instantaneous", "reason": "“feel instantaneous”是无法测量的主观感受，同一句没有给出可测量的阈值。"}, {"rule": "R3", "evidence": "The calendar view should load in under 2 seconds, and booking confirmations should feel instantaneous", "reason": "日历加载时间和预订确认响应是两个可独立验收的要求，用 and 连接在一起。"}]}
+{"id": "H031", "labels": [], "pred": []}
+{"id": "H034", "labels": [], "pred": []}
+{"id": "H037", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "can start, stop, and gate agent work from a board ... and can leave the terminal running unattended within limits they set", "reason": "这条需求包含两组可各自独立验收的要求：从看板启动/停止/门控 agent 工作，以及让终端在自设限制内无人值守运行。"}, {"rule": "R2", "evidence": "within limits they set", "reason": "「limits」没有给出具体数值或可检查的条件，无法验证无人值守运行的边界是否满足。"}]}
+{"id": "H038", "labels": [], "pred": [{"rule": "R1", "evidence": "different log types: distraction, reflection, insight", "reason": "「different log types」范围未封闭，冒号后只列出三项，未说明是否仅限这三种，读者无法确定是否还有其他类型。"}]}
+{"id": "J001", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "and/or room details as appropriate", "reason": "「and/or」没有说明两项是都必须提供还是任选其一，「as appropriate」也没有说明由谁按什么标准判断，不同读者会得出不同理解。"}]}
+{"id": "J002", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "etc.", "reason": "「etc.」属于开放式列举，未封闭，不同读者对还需提供哪些字段会有不同理解。"}]}
+{"id": "J003", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "promptly", "reason": "“promptly”没有给出可测量的时限或阈值，无法客观验收。"}]}
+{"id": "J004", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "easily", "reason": "“easily”是无法测量的形容词，需求没有给出可测量的标准（如重试步数或耗时阈值），无法客观验收。"}]}
+{"id": "J005", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "guests must be rate-limited to 30 requests per minute", "reason": "该需求包含两个可独立验收的要求：允许访客查看房间日程，以及对访客实施每分钟 30 次的限流。"}]}
+{"id": "J006", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "A confirmation email ... must be sent ... upon request; admins must also receive a weekly booking report.", "reason": "分号连接了两个可以各自独立验收的要求：向访客发送确认邮件，以及每周向管理员发送预订报告。"}]}
+{"id": "J007", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "guest booking limit: TBD", "reason": "待定项 TBD 没有写明负责人和截止时间，未闭环。"}]}
+{"id": "J008", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "URL format TODO", "reason": "URL 格式仍是 TODO 待定项，且未写明负责人和截止时间。"}]}
+{"id": "J009", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "TBD seconds", "reason": "需求中存在未定值 TBD，且未写明负责人和截止时间。"}]}
+{"id": "J010", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "generated with uuid4 and sent via SendGrid's v3 API", "reason": "需求规定了具体的技术实现（uuid4 算法、SendGrid v3 API），而这一技术选择并非业务或外部约束所要求。"}]}
+{"id": "J011", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "implemented as a Celery task with exponential backoff", "reason": "需求指定了具体技术实现（Celery 任务、指数退避），而该技术选择并非外部约束所要求。"}]}
+{"id": "J012", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "It", "reason": "句子以代词 It 开头，整条需求中没有任何名词说明 It 指代哪个系统或组件。"}]}
+{"id": "J013", "labels": ["R6"], "pred": []}
+{"id": "J014", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "It supports these", "reason": "句首主语用的是代词 It，整条需求内没有出现它指代的名词。"}]}
+{"id": "J015", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "It should avoid blocking admin pages", "reason": "句首主语用代词 It，整条需求中没有出现它指代的名词。"}]}

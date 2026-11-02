@@ -1,0 +1,4568 @@
+[
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "结构化 Skill 输出必须通过 Schema 校验，失败不可写入有效 Brief/策略。",
+"cid": "Z001"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "痛点: 加入新团队/新项目，需要快速理解大型代码库",
+"cid": "Z002"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "📝 技术文档维护者 - 需要将 API 文档导出到本地进行版本控制",
+"cid": "Z003"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "作为用户,我希望回测在资金不足时能够自动停止,模拟真实交易场景",
+"cid": "Z004"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "*SSE 在 Android 上的行为：Android 系统可能在 App 进入后台后限制网络连接。需要实现可靠的前后台切换重连和状态恢复机制。不建议在后台保持 SSE 长连接。",
+"cid": "Z005"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "预期结果: 色彩准确，支持高刷新率，触控交互",
+"cid": "Z006"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "oops mcp：以 MCP server 暴露 list/diff/undo，让 Agent 可以自我回滚（默认只读，写操作需要用户确认）。",
+"cid": "Z007"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "是否需要在首期就提供手动清理指定群记忆的管理命令",
+"cid": "Z008"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "[x] 质量检查重置为未检查（需要重新验证）",
+"cid": "Z009"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "在现有增量分析链路和最终报告链路之间增加一层长期记忆闭环，使插件可以按群沉淀“事件、画像与风格”，并将其反哺到最终总结中。",
+"cid": "Z010"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "基础开发框架：django vue3（前后端分离开源框架，支持列级别权限、多终端认证、插件化扩展）",
+"cid": "Z011"
+},
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "上游发布新版本时必须创建新任务策略版本，不得改写已有任务策略或 CreativeIntake。",
+"cid": "Z012"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "Workspace、用户、Capture、Claim、Evidence 与附件权限必须与 Web 端保持同一服务端授权结果。",
+"cid": "Z013"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "检索结果需要兼顾速度、结构感知和证据边界。",
+"cid": "Z014"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "用户故事: 作为一个对某部美剧感兴趣的用户，我希望可以告诉 LLM 这部剧的名字，以便它能告诉我关于这部剧的详细信息，如剧情简介、主要演员、评分、播出年份和季数等。",
+"cid": "Z015"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "用户面临复杂决策，系统帮助拆解为选项列举、评估标准确定、利弊分析、风险评估等步骤。用户可以在分析过程中提供额外信息或调整权重。",
+"cid": "Z016"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "基于JWT多终端认证，接口权限严格管控，支持接口白名单配置",
+"cid": "Z017"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "“新建窗口”和“新建文件”必须是两个不同概念：",
+"cid": "Z018"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "Web 会话运行中切换为 remote 环境后，已有工具调用必须返回可修正的 artifact preview is not available for remote workspaces yet；新建 remote agent 时不注册工具。",
+"cid": "Z019"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "记录商品数据的历史变化，支持趋势分析和对比。",
+"cid": "Z020"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "M3-4 Linux Systemd：自动生成 .service 单元文件，调用 systemctl 完成服务管理，支持丰富的 systemd 配置（重启策略、资源限制、网络依赖等）。",
+"cid": "Z021"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "内容形态不限于编程：AI 产出的可以是代码 diff，也可以是调研文章、分析报告、系统设计文档。Markdown 天然兼容所有这些形态。",
+"cid": "Z022"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "一名玩家打完一场 Dota 2 比赛后，能够选中自己的英雄，按秒回看移动、刷野、补刀、经济、装备、战斗和视野事件，并看懂某段决策带来了什么收益、又放弃了什么机会。",
+"cid": "Z023"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "API 和前端状态要支持一个会话至少 100 个 Artifact，列表仍保持可用。",
+"cid": "Z024"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "SFTP | URL/凭据库密码认证，桌面/CLI 还支持省略密码后使用 SSH agent；文件大小读取、偏移续传和可选 known_hosts 校验。",
+"cid": "Z025"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "我在 A 项目里设计的角色\"陈砚\"，下次做 B 项目时不用从头再来，可以直接复用。",
+"cid": "Z026"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "交互控件需要有可读 label / tooltip，尤其是状态图标、危险参数警告、标签页置灰原因。",
+"cid": "Z027"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "开始前可选任务；没有选任务时，允许直接开始。",
+"cid": "Z028"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "衣橱支持穿戴/卸下；本期同一时刻最多穿戴一件，换装同步总览。徽章点击查看获得原因及时间。",
+"cid": "Z029"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "内部策略与用户语言 | 内部策略画像可以存在；用户侧不直接学习内部模式名，只看到自然语言状态、原因和操作",
+"cid": "Z030"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "当前 key window。菜单快捷键和文档级命令必须路由到该窗口；隐藏窗口、非 key window 和系统 Panel 不得响应。",
+"cid": "Z031"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 演示模式切换：支持进入/退出演示模式",
+"cid": "Z032"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "适应性学习: 系统需要具备适应性学习能力，能够根据识别结果不断优化识别算法和模板，提高识别准确性和适应性。",
+"cid": "Z033"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "需要保存定期快照，支持版本恢复。",
+"cid": "Z034"
+},
+{
+"repo": "Frank-ay/mimo-mcp",
+"license": "MIT",
+"text": "安全:API Key 仅出现在 .env(.gitignore)、不写日志;Web UI 默认仅 127.0.0.1 监听,不暴露公网;克隆素材本地保存,前端禁止外链。",
+"cid": "Z035"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "业务规则：按用户名精确匹配（用户名全局唯一）搜索；返回匹配用户的公开资料（用户名/昵称/头像/在线状态）；不返回任何口令/散列/敏感字段；搜索者须已登录；支持空结果返回。",
+"cid": "Z036"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "Pinterest 认证: 支持用户通过 OAuth 或 API Key 进行认证，以访问非公开内容或获取更高的速率限制。",
+"cid": "Z037"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "手动刷新状态视图能够正确显示最新状态。",
+"cid": "Z038"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "我们致力于打造一个轻量级、高度可定制化的本地AI交互与开发助手。它不仅能够作为与各类大模型便捷沟通的桥梁，更能成为一个激发创意、孵化AI原生应用的实验平台，让每一位开发者都能轻松驾驭大模型的力量。💡",
+"cid": "Z039"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "SYS-7 定时作业：基于 Cron 表达式的后台任务调度，支持作业的启用/禁用/立即执行。",
+"cid": "Z040"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "移动端: 响应式设计，支持移动设备",
+"cid": "Z041"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "Summary/Report：必须明确标注生成模式 mode=ai|offline_rule，并在 UI 中显式呈现（避免“看起来像 AI 但其实是规则”）。",
+"cid": "Z042"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "编译器不得写入或删除任何 layout-defined Source root（新建原生知识库映射为 wiki/sources/）。",
+"cid": "Z043"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "提供完整的 Web 对话应用，开箱即用，支持多轮对话、流式输出、多模态交互",
+"cid": "Z044"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "支持翻页控制（上一页 / 下一页按钮）",
+"cid": "Z045"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "现有工具配置复杂，需要命令行操作",
+"cid": "Z046"
+},
+{
+"repo": "mufflegyro/dsh-bottom-info-bar",
+"license": "MIT",
+"text": "描述：本对话、今日、本月/近30天、全部的花费统计，只统计\"当前活动服务商账户\"名下的记账记录；其他服务商的记录不得混入。",
+"cid": "Z047"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "[ ] 支持自动连接，无需额外验证步骤",
+"cid": "Z048"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "允许用户对智能体行为做基础自定义",
+"cid": "Z049"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "审核页新增文件正文读取能力时，必须确保仅审核相关角色可访问对应资源。",
+"cid": "Z050"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "*场景：散落在会议纪要、用户反馈、竞品分析中的需求，需要批量提取并整合到功能树",
+"cid": "Z051"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "Trends：7d vs 30d（技能活跃/投入）+ “缺数据”解释。（可合并到 Dashboard，但入口与语义必须清晰）",
+"cid": "Z052"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"license": "MIT",
+"text": "手动城市选择：支持真实城市和虚拟地点（家、公司）",
+"cid": "Z053"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "支持按 event 名自动分发到 channel handler，减少业务 channel 手写分发逻辑。",
+"cid": "Z054"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "true: 文本长按可以拖拽，文本长长按可以进入多选。",
+"cid": "Z055"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "用户稍后打开历史会话，Artifacts 标签显示数量。点击后可以看到该会话曾交付的报告、图表和说明文档；文件缺失时保留元数据并显示 missing 状态，下载、分享和原生打开动作禁用，同时提供“重新检测”。恢复文件后用户可重新检测并继续预览。",
+"cid": "Z056"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "PROD-3 延迟消息：18 级预设延迟（PublishDelay），gRPC 模式支持任意时间延迟（PublishDelayViaGrpcAsync）。",
+"cid": "Z057"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "CLNT-4 自动登录与令牌管理：支持自动登录和令牌管理，令牌过期自动重新认证",
+"cid": "Z058"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "Focus 热区和 pending reason；禁止三处各自维护不同分类。",
+"cid": "Z059"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "一个数据集的末端位姿位于 camera frame，训练代码需要 base frame。用户在 Transform 节点中选择输入/输出 Frame、外参、单位和旋转表达，预览转换前后的轨迹叠加，然后导出。",
+"cid": "Z060"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "不兼容时允许只读打开并提示迁移。",
+"cid": "Z061"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "审核页新增文件正文读取能力时，必须确保仅审核相关角色可访问对应资源。",
+"cid": "Z062"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "subscriber 异常时当前实现会移除 callback；需要在文档和测试中明确。",
+"cid": "Z063"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "实现人性化操作模式: 系统需要模拟人类的自然操作行为，包括操作间隔、操作轨迹、操作习惯等。人性化操作能够降低被检测的风险。",
+"cid": "Z064"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "作为 MCP Server 运行，让 Claude Code / Cursor 等工具可以直接调用工作流：",
+"cid": "Z065"
+},
+{
+"repo": "G1-kiyo/agent",
+"license": "MIT",
+"text": "C --> C2[核心需求：RAG知识库检索，支持研究决策]",
+"cid": "Z066"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "验证核心循环: 验证我们设计的“编码-喂养-反馈”核心游戏循环是否对开发者有足够的吸引力，能够促使他们持续使用。",
+"cid": "Z067"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "支持空状态：当日无任务时展示引导创建按钮。",
+"cid": "Z068"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "每条结论标注证据强度（强/中/弱），弱证据必须可解释（例如：仅窗口行为、无 diff）",
+"cid": "Z069"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "/// ⚠️ styles.xml 必须带上：w:pStyle 引用的样式得在 styles.xml 里声明，",
+"cid": "Z070"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "AI 返回值必须通过结构校验后才能生成 Suggestion。",
+"cid": "Z071"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "不需要任何 enable 配置即可在本地 Web/Desktop 会话使用。",
+"cid": "Z072"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "超大文件：展示“文件过大，暂不支持预览”，并给出下载入口。",
+"cid": "Z073"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "[ ] 支持记住已配对设备，后续快速连接",
+"cid": "Z074"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "超出允许范围直接阻止输入；接近危险边界（如 Z < −0.20）时显示黄色警告但允许继续。",
+"cid": "Z075"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "F0.4 筛选与排序：按联赛、开赛时间、置信度、价值、是否有完整情报筛选；支持\"只看高价值/高置信\"。",
+"cid": "Z076"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "platform/codemirror 可以 import drag 和 domain，但业务状态规则应调用 drag 层。",
+"cid": "Z077"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "背包空间优化: 系统需要优化背包空间的使用，包括物品分类整理、低价值物品处理、空间利用率提升等。优化需要确保背包空间得到最有效的利用。",
+"cid": "Z078"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "更丰富的搜索参数: 支持更多 Pinterest API 提供的搜索过滤条件（如画板 ID、图片尺寸、颜色等）。",
+"cid": "Z079"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "对超大文件 / 不支持预览类型应能返回明确错误或元信息，便于前端区分不可预览原因。",
+"cid": "Z080"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "反检测效果: 系统需要具备有效的反检测效果，能够避免被游戏系统检测。反检测效果需要通过检测测试来验证。",
+"cid": "Z081"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "FR4: 当用户在设定的一段时间内没有编码活动时，宠物的能量条必须减少。",
+"cid": "Z082"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "成功: 返回一个包含图片信息的列表（具体包含哪些信息，例如图片 ID、缩略图 URL 等需要明确，目前假设至少有图片 ID）。",
+"cid": "Z083"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "将现有平铺 files 列表重构为目录树，支持文件夹展开 / 合并。",
+"cid": "Z084"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "M1: 基础框架完成，能够进行简单的自动化操作",
+"cid": "Z085"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "\"上游开始输出 Markdown 图片了？那 extract_images 这趟解析可以撤掉：\\n{}\",",
+"cid": "Z086"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "[x] 批量下载：支持同时下载多个选中的文档",
+"cid": "Z087"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "如果需要短期支持旧 payload，应由业务层自己适配，不放进 Lihil core。",
+"cid": "Z088"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "两级识别流程：规则初筛（长度、关键词、历史匹配、场景标签）→ 轻量模型精判；执行中支持动态升级复杂度",
+"cid": "Z089"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "I18N-8 强制语言：语言设置统一到 NewLife.Setting.Language，填写受支持语言即全站锁定，留空表示自动跟随请求语言。",
+"cid": "Z090"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "*Objective: 作为用户，我希望能够快速上传图片到画布，以便开始分割操作",
+"cid": "Z091"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "[ ] 快捷键支持：键盘快捷键快速操作（计划中）",
+"cid": "Z092"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "模型连通性测试：支持一键测试模型接口是否正常连通",
+"cid": "Z093"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "系统需要维护一个可持续更新的群长期画像，用于描述：",
+"cid": "Z094"
+},
+{
+"repo": "kunhuang12345/wuthering-waves-automation",
+"license": "MIT",
+"text": "快速适配机制: 系统需要建立快速适配机制，能够及时发现游戏更新并快速调整系统功能。快速适配需要建立完善的测试和验证流程。",
+"cid": "Z095"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "FR5.5.1: 支持简单的字符串匹配和正则表达式匹配。",
+"cid": "Z096"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "任何漏刀、刷野价值和决策评价必须标记为推导结果。",
+"cid": "Z097"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "能够作为窗口打开目标的本地 Markdown 文件、纯文本文件或目录。",
+"cid": "Z098"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "浏览器约束 | 需兼容 Firefox ≥ 100（审查员常用浏览器，版本可能非最新）；Chrome/Edge 为一等公民，Firefox 为次等但必须可用，核心功能不依赖 File System Access API",
+"cid": "Z099"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "配置文件支持: 除了命令行参数，还支持通过配置文件进行设置。",
+"cid": "Z100"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "RPC-8 多协议客户端：客户端通过统一 API 连接远程服务，支持自动重连、故障转移和身份凭证注入",
+"cid": "Z101"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": ".mako 模板本质是执行任意 Python 代码，等同本机运行脚本，使用者须知悉。",
+"cid": "Z102"
+},
+{
+"repo": "G1-kiyo/agent",
+"license": "MIT",
+"text": "用户输入问题后，AI Agent自主决策是否需要搜索、搜索什么、何时结束并生成答案。",
+"cid": "Z103"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "支持归档合并（多段内容合并为一篇笔记）",
+"cid": "Z104"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "\"content\": \"建议将部分会议安排到下午，可以提高上午的专注度\"",
+"cid": "Z105"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "离线支持 | 断线时显示缓存内容，不崩溃",
+"cid": "Z106"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "singleStepAdvancedHint: \"单步泳道使用上方的主自动化控件即可。只有在该泳道确实需要多步工作流时，才在这里添加额外步骤。\",",
+"cid": "Z107"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "图谱工具通常需要用户手动建节点、连线，不适合大量资料导入后的自动探索。",
+"cid": "Z108"
+},
+{
+"repo": "young-nights/ota-upgrade-of-qi-charger-based-on-can",
+"license": "Apache-2.0",
+"text": "每次代码变更须在同一提交内递增 SW_VERSION_STR（默认 patch +1）",
+"cid": "Z109"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "关键操作支持键盘：快速新建、搜索、完成、打开详情、加载计划模块。",
+"cid": "Z110"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "主要用户是需要向他人汇报工作、且工作内容高度碎片化的个人开发者与知识工作者：",
+"cid": "Z111"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "执行中断和恢复？ —— 长工作流执行到一半断了，是否需要断点续跑？P2 考虑。",
+"cid": "Z112"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "作为审计人员，我需要导出审计日志并生成合规报告，这样可以满足外部审计和合规要求。",
+"cid": "Z113"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "在线监控 / 强制变量 / 中断块：TIA Portal 特定的高级 PG 功能，需 S7Plus 协议层支持",
+"cid": "Z114"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "描述：将 PLC DB 区域的连续字节直接映射为 C# struct，支持自动 S7 字节对齐",
+"cid": "Z115"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "交付物: 可运行的CLI工具，支持纯规则分析",
+"cid": "Z116"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "支持同时管理多种数据库类型（每种类型 1 个实例）",
+"cid": "Z117"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "系统需要能够从 IncrementalBatch 中抽取可复用的 episode 记忆。",
+"cid": "Z118"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "能够防止相对路径穿透到文档根目录以外；",
+"cid": "Z119"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "移动端手柄触达策略可以和桌面 hover 不同，但最终仍翻译成 source = handle 的同一种 interaction event。",
+"cid": "Z120"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "FR-010：支持 AI 一键生成学习包（词汇、对话、练习、测验）",
+"cid": "Z121"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "需要在 macOS 上用桌面界面管理 buddy-python 任务的既有用户",
+"cid": "Z122"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "PRP-3 属性写入优先级：支持 Priority Array 1-16 级写入优先级",
+"cid": "Z123"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "UTL-5 服务命令处理器：IServiceHandler 维护 Services 命令字典，ServiceHandlerHelper.RegisterService 支持 Func<String,String> 和异步版本注册。",
+"cid": "Z124"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "支持两种操作：追问（基于当前上下文提问）和请求重新分析（用当前编辑后的数据重新触发 Agent）。",
+"cid": "Z125"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "管理员可以手动更新发放状态，确保信息准确，发放记录应包括：",
+"cid": "Z126"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "表格式录入：左列学生姓名，右列分数输入框，支持 Tab / Enter 快速跳转。",
+"cid": "Z127"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "Cmd+Z、Cmd+Shift+Z 和 Edit 菜单验证必须使用当前活动窗口当前文件对应的 UndoManager。",
+"cid": "Z128"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "刷新 Web、重启 Desktop、切换后再返回会话，Artifact 列表可以从 session entries 恢复。",
+"cid": "Z129"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "评论备注：支持填写测试备注、报错原因、修复建议等自定义内容",
+"cid": "Z130"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "AC-6.4: 查询性能：单次查询 < 500ms（支持百万级日志）",
+"cid": "Z131"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "多分支叙事：支持创建具有多个选择分支和结局的互动故事",
+"cid": "Z132"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "导入必须先预检再确认，完整验证引用、版本、权限、状态依赖和附件哈希，并以事务避免部分写入。",
+"cid": "Z133"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "/// ⚠️ 这两者必须分开：Some(空) = 「读过了，没有图」，",
+"cid": "Z134"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "用户能够成功使用工具调试 HTTPS, HTTP/2 和 SSE 应用。",
+"cid": "Z135"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "*我希望 在我的宠物死亡后，有一个简单的方式可以领养一只新的,",
+"cid": "Z136"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "支持单进程与跨进程 Cluster（同语言 C# 节点间 RPC）；",
+"cid": "Z137"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "安装路径 | README 首屏一条命令：npx @deepseek-ai/dsh plugin --profile web add github:jerryjiao/dsh-wewrite#v0.1.0（必须打 version tag 并 pin，干净安装关键）",
+"cid": "Z138"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M4-7 二进制序列化：高性能二进制序列化，支持复杂对象图。",
+"cid": "Z139"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "成为金融技术领域最易用、高性能的技术指标公式解析引擎，让开发者能够轻松地在自己的应用中集成强大的技术分析功能。",
+"cid": "Z140"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "需求描述: 支持上传和解析DOCX格式文档",
+"cid": "Z141"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "guard_unavailable(guardId) 如果命中当前 selecting/holding/dragging 的 guardDeps，必须进入 terminal path 并输出对应清理事实。",
+"cid": "Z142"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "Forge：参考 Canonical Adapter、lint、format conversion 的抽象方向；在依赖前必须再次审查成熟度、维护状态和许可证。",
+"cid": "Z143"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "用户输入一句话后保存，或选择“暂不填写”保存为未命名记录；Mac 支持 Enter 保存。记录通过用户自己的方案传到另一端后，可在那里查看或补记。",
+"cid": "Z144"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "findings.append(finding(\"BLOCK\", \"STAGE-RESUME-DRIFT\", artifact.path, f\"前序产物已漂移：{relative}\", \"确认变更、更新依赖产物后重新计算 SHA-256，不得静默续跑。\"))",
+"cid": "Z145"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "需要在手机上查看 README、接口文档或技术说明的开发者。",
+"cid": "Z146"
+},
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "消息发送、确认和生成操作使用幂等键。Codex/Skill 事件携带 conversation_id、task_run_id、skill_run_id 和单调递增序号，支持重连去重。",
+"cid": "Z147"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "*模块背景：当前所有会话全局共享、无任何用户概念（chatStore 注释明确\"单用户 demo，鉴权以后再加 user_id\"）。要对外开放，必须建立账户、权限与数据隔离。",
+"cid": "Z148"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "密码验证：关键操作需要交易密码",
+"cid": "Z149"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "提供数据管理功能，支持数据清理和维护。",
+"cid": "Z150"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "云厂商适配分散：接入阿里云、华为云、腾讯云需要各自独立的 SDK，缺乏统一接口",
+"cid": "Z151"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "Terminal | v0.3 需要右侧面板终端标签页（Cmd+4），xterm.js + node-pty，交互式 Shell，独立于 Actor PTY",
+"cid": "Z152"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "更简的零配置形态：把 makoserver.py 单独拷进站点目录即可——找不到任何配置文件时，WSGI 模式以 makoserver.py 自身所在目录为文档根目录（与第 2 条查找规则同一锚点），需要改端口 / 密钥等再补 makoserver.ini。",
+"cid": "Z153"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "lifecycle 必须在查询时从目标函数 CFG + dataflow 组合 semantic effects；不能因持久化",
+"cid": "Z154"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "后续可以增加 Redis/Postgres/Kafka 等 bus 实现，但本 PRD 不要求实现。",
+"cid": "Z155"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "资料切片与资料正文必须保持一致，不允许长期漂移。",
+"cid": "Z156"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"done_when\": \"取得真实 pageId；要求 --hide-nav 时还须 navigationVerification.verified=true。若 pageCreated=true 但隐藏未确认，按 recovery 修复原页面，不重复创建。\"",
+"cid": "Z157"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "禁 AI 模板味：不出现 Lorem ipsum / \"Welcome to\" / 空洞占位文案 / 无意义硬编码颜色；空状态文案必须给真实引导（如「先在设置页填入公众号凭据」而非「暂无数据」）。",
+"cid": "Z158"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "版本兼容声明 | README 明示「支持 DSH v0.1.x developer preview（2026-08-13 发布）」+ 兼容表；DSH v0.1 处于 breaking changes 预期窗口，插件做 feature detection 防御",
+"cid": "Z159"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "支持亮色/暗色主题切换（通过 postMessage 动态同步，无需重建 iframe）",
+"cid": "Z160"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "工具接受 genre (string) 参数。 (支持中文和英文类型名，需要内部映射)",
+"cid": "Z161"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "实现必须优先处理以下现有单窗口假设，但本需求不限定具体类名或最终代码结构：",
+"cid": "Z162"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "页脚：理性购彩 / 未成年人禁止购彩声明。",
+"cid": "Z163"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "支持排序（最新发布、最受欢迎、评分最高）",
+"cid": "Z164"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "│  └── \"15:30 有 30 分钟用在微信上，可以设个提醒\"    │",
+"cid": "Z165"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "放弃首版复杂的花哨组件。面板忠实且顺滑地以时间轴形式罗列抓取到的系统日志。用户可以像查阅 Log 一样清晰地看到线性的时间分布（如：10:00 Google 搜索 -> 10:05 VS Code），并可直接交互预览带有精确时间戳的截屏流。",
+"cid": "Z166"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "支持开源自托管部署，可在电脑、平板、手机等设备通过访问地址使用。",
+"cid": "Z167"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "每条均含验收标准与理由。需要新增第三方依赖的项在 P1 显式标注 [需要新依赖]，以便决策（硬性要求：v2 默认不新增 3rd-party 依赖）。",
+"cid": "Z168"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "必需配置项：LLM_BASE_URL (模型API的基础URL), LLM_MODEL (具体模型名称), LLM_API_KEY (API密钥)。可根据LiteLLM支持的参数进行扩展。",
+"cid": "Z169"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "目标：支持可插拔的「技能」系统，扩展 AI 能力（类似 ChatGPT Plugins / Claude Skills）。",
+"cid": "Z170"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "作为审计人员，我需要查询审计日志，支持按事件类型、操作者、资源、时间范围等条件搜索，这样可以快速定位关键事件。",
+"cid": "Z171"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "FR2.5: 用户可以通过命令行参数指定自定义的根 CA 证书和私钥。",
+"cid": "Z172"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "资料、问答集、题目、练习会话之间的关系必须清晰稳定。",
+"cid": "Z173"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "(包含获取热门剧集、查询观看平台、支持电影、关键词发现、演员早期作品、剧集详情、提供商聚合等)",
+"cid": "Z174"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "支持节点拖拽、缩放、平移等基础交互操作",
+"cid": "Z175"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "REQ-STORAGE-006：派生状态/索引/未来热层须能从 RocksDB 权威数据删除后重建，不能成为成功回复/恢复唯一依据。",
+"cid": "Z176"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "所有用户可见文本均通过 translations.ts 支持 5 种语言：",
+"cid": "Z177"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[x] 支持结果缓存命中与失效策略（写操作前 query_cache.invalidate(connection_id)，识别 15 个变更动词）。",
+"cid": "Z178"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "testCasesPlaceholder: \"每行一个测试用例\\n示例：用户可以从运行历史重新打开会话\",",
+"cid": "Z179"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "流水号（SEQ） | 顺序递增的序号段，支持进制转换与补位",
+"cid": "Z180"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "交互: 点击展开底部抽屉，支持语音和文字输入",
+"cid": "Z181"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "结论中的每条 Evidence 必须评估当前版本的来源层级、发布主体和至少 10 字依据；Evidence 版本变化后旧评估失效。",
+"cid": "Z182"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "因此，需要在现有分析链路之上，引入一层面向总结任务的长期记忆能力。",
+"cid": "Z183"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "相关设置至少需要满足三个目标：可从任意桌面唤起、显示后切换桌面仍持续可见、在固定与悬浮状态之间正确切换层级。",
+"cid": "Z184"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M10-17 Unix 域套接字：unix:// 路径传输（NetUri 扩展 + AF_UNIX Socket），NetServer/NetClient/HttpServer 支持，适用于容器化 Nginx 后端与同机进程间 RPC。",
+"cid": "Z185"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "角色一致性：角色行为必须符合性格设定和成长轨迹",
+"cid": "Z186"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "管理员可以查看和管理所有用户创建的 Capture、Category 及其派生内容。",
+"cid": "Z187"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "所有业务接口必须校验资源归属：resource.owner_id == current_user.id，否则返回 403。",
+"cid": "Z188"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "AI 安装 Skill 后，可以基于模板创建一个新的、独立的、可访问的博客站点。",
+"cid": "Z189"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "大文件处理能够采用异步处理和进度提示。",
+"cid": "Z190"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "REQ-STORAGE-004：部分写、尾部损坏、metadata/log 不一致、Snapshot 损坏、磁盘满须有故障测试。",
+"cid": "Z191"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "支持基础实时协作、分享链接和细粒度权限控制。",
+"cid": "Z192"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "系统不要求、不保存用户的平台密码或 Cookie；没有授权连接器时允许管理员导入 CSV，且标注“客户导入”。",
+"cid": "Z193"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "首版采用“零门槛知识库 + 工作流驱动 + Agent 增强”策略：用户通过产品定义的工作流更新、检查和生成知识成果；高级用户可以接入 Claude Code、Codex、OpenClaw、Hermes 等本地 Agent CLI，Agent 与 BYOK 均作为可替换执行路径。",
+"cid": "Z194"
+},
+{
+"repo": "SXP-Simon/astrbot_plugin_qq_group_daily_analysis",
+"license": "MIT",
+"text": "支持按群抓取消息并做全量分析",
+"cid": "Z195"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "以下是 MVP 版本计划实现的核心功能和对应的初步用户故事。我们需要对这些故事进行细化。",
+"cid": "Z196"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "支持缩小、放大、适配范围、定位今天。",
+"cid": "Z197"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "写入前重新读取目标记录文件；如发现相较编辑开始时已发生外部修改，或无法安全解析，停止覆盖，保留原文件和草稿并提示处理。不得改动其他会话文件。",
+"cid": "Z198"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "缺失 last_index_time、last_sync_time 等可选 metadata 是正常状态，不得产生 warning；真正的查询错误才应报警。",
+"cid": "Z199"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "蓝牙 | 支持 Bluetooth 4.0+ 的蓝牙适配器（内置或外置均可）",
+"cid": "Z200"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "BitTorrent .torrent | 支持本地或远程 torrent 源，下载到指定目录；拿到 metadata 后使用真实文件列表更新任务名，多文件种子必须允许用户选择下载内容。",
+"cid": "Z201"
+},
+{
+"repo": "davidhoo/MarkdownReader",
+"license": "MIT",
+"text": "创建新窗口不得重复启动应用级后台任务，例如自动更新检查。",
+"cid": "Z202"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "因此当前 platform adapter 必须在 reducer 外部补状态，例如 committedRangeSelection、rangePointerSession、activeDragSession、pressSession。这就是 platform 层变复杂的根源。",
+"cid": "Z203"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "配置错误（路径不存在/无权限）必须即时校验并提示",
+"cid": "Z204"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "负载均衡: 自动扩缩容，支持突发流量",
+"cid": "Z205"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "附件与多模态：支持图片、文档上传，覆盖拖拽、粘贴、点击等入口。",
+"cid": "Z206"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "连续使用 14 天：每天都有 session（允许规则摘要），每周至少生成 1 次周报",
+"cid": "Z207"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "Where 质量门禁以 --strict 口径执行，the system shall 将门禁未通过的稿子标记为「未过门禁」，且禁止直接进入 F3 推草稿（用户修改或显式覆盖后可推）。",
+"cid": "Z208"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "真实工作流经常需要人确认后再继续：",
+"cid": "Z209"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "初始化数据完整度 | 默认角色、菜单、权限、字典、参数需要稳定可重复初始化",
+"cid": "Z210"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "FR6.3: 允许用户通过参数启用/禁用详细输出模式 (-v 或 --verbose)。",
+"cid": "Z211"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "当查询能力超出当前语言边界时，Atlas 必须返回结构化 diagnostics，例如 unsupported_feature、best_effort_only、missing_fact、low_confidence_resolution。用户交互中禁止只返回空路径而不解释原因。",
+"cid": "Z212"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "描述：支持简单的多轮对话上下文（具体实现依赖于ADK和大模型本身的能力）。",
+"cid": "Z213"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"license": "MIT",
+"text": "扩展机制：开发者可以创建自定义工具",
+"cid": "Z214"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "image_id: 字符串 (必需, 需要获取信息的 Pinterest 图片 ID)",
+"cid": "Z215"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "超长标题、链接和连续字符必须换行或滚动，不得撑破页面。",
+"cid": "Z216"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "Leader 筛选下拉框,支持按 Leader 过滤回测记录",
+"cid": "Z217"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "可定制的MCP工具：支持用户自定义添加和修改 ADK 中的模型中心处理（MCP）工具，增强应用的扩展性。",
+"cid": "Z218"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "能够在面板中展示详细的更新文件列表。",
+"cid": "Z219"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "stdin EOF：PTY 没有标准 EOF 信号，prompt 写入后如何通知 Claude/Codex 输入结束？需要验证 pty.write(text + '\\x04')（Ctrl+D）是否有效",
+"cid": "Z220"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"description\": \"创建和配置宜搭原生报表，支持图表、表格、筛选器和指标卡；用户明确要求时，可分别隐藏原生柱状图零值、全零分类及全零指标图例，默认关闭；范围不明确时交互确认，支持保留全零分类轴名称。\",",
+"cid": "Z221"
+},
+{
+"repo": "Yotoha0303/KnowTrace-Workflow",
+"license": "Apache-2.0",
+"text": "创建支持幂等键，网络重试不产生重复记录。",
+"cid": "Z222"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "selectProviderHint: \"仅当此卡片需要覆盖泳道默认值时才选择上方的供应商。\",",
+"cid": "Z223"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "统一部署站点：blog.01mvp.com （站点中需要有文档，README 中也说明这个仓库）",
+"cid": "Z224"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "平台整体分为基础系统模块、核心测试业务模块、AI智能扩展模块、自动化调度模块、报告统计模块五大板块，完全基于基础框架插件化开发，不改动底层原生架构，支持后续功能迭代扩展。",
+"cid": "Z225"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[ ] 支持大结果集分页或流式读取 —— execute_stream 仍是占位实现（切 chunk，非服务端游标），GUI 未打通。",
+"cid": "Z226"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "列表页支持按应用名称搜索过滤",
+"cid": "Z227"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "未登录用户访问需要登录的页面时显示登录提示",
+"cid": "Z228"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "支持符号的特殊位置调整（如\"，。\"放右下角，\"·\"放中间）",
+"cid": "Z229"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "AC-9.5: 支持从审计事件追溯到数据源，从数据源追溯到审计事件",
+"cid": "Z230"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "页面结构相关字段允许先为空或填默认值，但必须在后续结构补全任务中补出。",
+"cid": "Z231"
+},
+{
+"repo": "dtsola/xiaoyaosearch-feishu-export-md",
+"license": "MIT",
+"text": "为飞书用户提供跨平台命令行的文档/知识库导出工具，将飞书内容批量导出为本地Markdown格式，支持保留目录结构和资源文件。",
+"cid": "Z232"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "M7-15 面板创建工厂方法：ServiceBase.CreateWebPanel() 为 virtual 方法，允许子类返回自定义的 AgentWebPanel 派生类，实现嵌入式资源、路由、扩展面板的完全定制。",
+"cid": "Z233"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "快速问答：用户只是简单提问，架构师一句话回答并结束（已支持的\"反喧宾夺主 / 一句话结束\"逻辑）。",
+"cid": "Z234"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "涉及安全、审核、用户隐私、定位权限的功能必须在文档中明确边界。",
+"cid": "Z235"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "折线图：根据屏幕宽度自适应缩放，移动端支持触摸手势",
+"cid": "Z236"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "OBS-1 ILog 日志：所有核心组件实现 ILogFeature，支持注入日志",
+"cid": "Z237"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "Buddy v0.1 写入 protocol_version: \"1\"，与 buddy-python 当前版本一致。如未来需扩展字段，新字段必须有合理默认值，老版可忽略。次版本号仅在需要区分兼容性增量时引入（如 \"1.1\"），\"1\" 与 \"1.0\" 视为等价。",
+"cid": "Z238"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "由于卡片展示需要调用 iTunes API 获取应用基础信息，需实现有效的缓存机制避免不必要的接口查询：",
+"cid": "Z239"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "代码与 Markdown 展示：支持 Markdown、表格、代码高亮、复制、Mermaid、KaTeX 等渲染能力。",
+"cid": "Z240"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "允许\"透支\"买入，后续通过卖出或结算平衡",
+"cid": "Z241"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[x] 支持行内编辑，且按主键定位行（不再假设第 0 列是主键）。",
+"cid": "Z242"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "用户可以从“今天”完成核心的查看、创建、完成和打开详情流程。",
+"cid": "Z243"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "生产环境必须配置正确的 APP_URL，用于生成邀请链接和回调地址。",
+"cid": "Z244"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "用户可以执行一致性检查与修正",
+"cid": "Z245"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "支持多种格式文档（Word, PDF, Excel, 图片等）的导入和解析（含OCR）。",
+"cid": "Z246"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "Tool: pinterest_batch_download_images: 提供一个单独的 Tool，允许客户端一次传入多个图片 ID 列表进行批量下载。(此工具可支持 US-Future-003)",
+"cid": "Z247"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "能够详细分类错误类型和处理流程。",
+"cid": "Z248"
+},
+{
+"repo": "terryso/mcp-pinterest",
+"license": "MIT",
+"text": "批量获取信息: 可能需要一个 Tool 来批量获取多个图片 ID 的信息。",
+"cid": "Z249"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "所有不可预览文件都必须提供可触达的下载能力。",
+"cid": "Z250"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "现有的 Python 脚本可以把 Bambu Studio 切片产出的 .gcode.3mf 改写为 TPU 热封 G-code（改温度、Z 偏移、流量倍率、移动速度）。但它有明显的使用门槛和已知缺陷：",
+"cid": "Z251"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "基础网络传输能力，支持不同物理/网络媒体的 BACnet 数据传输。",
+"cid": "Z252"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "下表为当前基础闭环的验收，菜单栏、目录与强制退出细则以 Mac 为基线。两端还需分别验证后台计时、到时提醒与专注声音；正常后台挂起不得自动判为放弃。文件交换只验收本地读写、刷新、去重与可发现的冲突保护，不验收外部同步服务的传输时效，不实现同轮跨端控制。",
+"cid": "Z253"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "支持任务字段化管理：重要性、状态、开始日期、截止日期、时长、耗时、备注、附件、自定义列、循环规则、提醒。",
+"cid": "Z254"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "团队效能面板 (B 端探索)：允许小团队订阅，经过员工数据脱敏与汇总处理后，能够为敏捷教练展示“团队被不合理的会阻断多少开发时间”，直接从提升公司运转效率上获取商业价值。",
+"cid": "Z255"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "REQ-STORAGE-001：RocksDB 保存全量权威数据；Raft metadata/last_applied/业务状态须有原子性合同。",
+"cid": "Z256"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "兼容：支持思源 3.6.4 及以上，自定义任务复选框格式。",
+"cid": "Z257"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "PROD-10 负载均衡：ILoadBalance 接口 + WeightRoundRobin 加权轮询实现，支持 Broker 权重。",
+"cid": "Z258"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "本期允许为审核页补充新接口或扩展现有返回结构，但应避免引入数据库 schema 变化。",
+"cid": "Z259"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "可脚本化、可审计：--json、退出码、oops snap，可以嵌入 CI、devcontainer 和自研 harness。",
+"cid": "Z260"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "希望未来能借助 Agent 提升训练效率，但当前首先需要稳定资产底座的人。",
+"cid": "Z261"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "文档 diff 的重要性远高于代码 diff：AI 能力已足够写出好代码，人类需要审查的主要是文档层面的逻辑和架构决策。",
+"cid": "Z262"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "NET-2 UDP 驱动：IoTUdpDriver 继承 IoTSocketDriver + 实现 IDiscoverableDriver，[Driver(\"IoTUdp\")]，支持广播发现子设备。",
+"cid": "Z263"
+},
+{
+"repo": "LubyRuffy/ProxyCraft",
+"license": "MIT",
+"text": "请求重放: 能够重放捕获到的请求。",
+"cid": "Z264"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "提供对企业结构化和非结构化知识进行全生命周期管理的功能，包括知识的采集、处理、存储、组织和应用支持。",
+"cid": "Z265"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "每个 REQ-* 必须有可重复证据（可重复、可重放、可审计）。",
+"cid": "Z266"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "高性能: 支持大规模数据计算（10000+ 数据点），增量计算延迟 < 100ms",
+"cid": "Z267"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "以下按模块列出必须实现（MUST）与可选（OPTIONAL）功能。",
+"cid": "Z268"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "FR-009：支持导入稳定资源来源（人工整理或系统抓取后清洗）",
+"cid": "Z269"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "支持按规则编码、规则名称、分类、状态进行分页筛选查询",
+"cid": "Z270"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "未显式加载时，主 LLM 可以通过 anybox_tool_search 加载计划工具，并在同一用户轮次继续调用。",
+"cid": "Z271"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "课堂现场可用：抽签、点名、座位图必须在手机上单手 3 秒内触达。",
+"cid": "Z272"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "建议: 本版本优先手机端，平板适配后续版本支持",
+"cid": "Z273"
+},
+{
+"repo": "staklab/jianji",
+"license": "MIT",
+"text": "支持空间、知识库、文件夹、文档四级组织结构。",
+"cid": "Z274"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "IoTEdge | NewLife 生态中的工业物联网网关软件，支持驱动插件化加载",
+"cid": "Z275"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "标签/分组管理：支持按标签筛选和搜索",
+"cid": "Z276"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "支持A股、港股、美股、基金、期货等多市场",
+"cid": "Z277"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "全站中文，保留 PawID、PAWS 等品牌词；优先适配电脑路演，同时支持手机浏览。",
+"cid": "Z278"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "findings.append(finding(\"BLOCK\", \"GATE-MISSING-INPUT\", Path(\"<artifact>\"), f\"profile={args.profile} 至少需要一个 --artifact\", \"提供该阶段的主产物。\"))",
+"cid": "Z279"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "需要访问注入名的辅助函数一律定义在 <% %> 块内（每请求定义，闭包捕获注入名）；",
+"cid": "Z280"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "支持数据库数据备份到指定路径",
+"cid": "Z281"
+},
+{
+"repo": "yuqie6/WorkMirror",
+"license": "MIT",
+"text": "必须包含 daily_stats[]（自然日维度）：用于 Dashboard 热力图与趋势概览，避免前端估算/假数据。",
+"cid": "Z282"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "AUTH-2 密码登录：支持用户名/邮箱/手机号 + 密码登录，登录失败达阈值后临时封禁（用户级 + IP 级），支持 MFA 二次验证拦截。",
+"cid": "Z283"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "TimerFileManager 负责 Markdown 读写，支持编辑模式和预览模式两套路径",
+"cid": "Z284"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "需求描述: 支持多种方式上传文档",
+"cid": "Z285"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "探索性思考: 支持多种可能的解决路径和分支",
+"cid": "Z286"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "When 全部供应商失败，then the system shall 允许「无图推进」（配图是增强项不是阻断项），门禁中配图相关项降级为警告。",
+"cid": "Z287"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "本文档旨在详细描述奖学金管理系统的功能需求，以便开发团队能够设计和实现一个高效、可靠的奖学金管理平台。",
+"cid": "Z288"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "完善的图片嵌入支持：AI 可以截取部署结果的截图、生成图表、拍摄 UI 对比图，嵌入 Markdown 报告中。App 有专门的 Skill 体系教 AI 如何使用这些能力。",
+"cid": "Z289"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "testCasesPlaceholder: \"每行一个测试用例\\n示例：用户可以成功提交表单\",",
+"cid": "Z290"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "支持 12 文件多模态参考（9 图 + 3 视频 + 3 音频 + 文本）",
+"cid": "Z291"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "背景: 软件工程师，经常需要多屏调试代码",
+"cid": "Z292"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "桌面端支持展开/折叠，折叠后保留图标导航和当前页高亮。",
+"cid": "Z293"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "数据安全 | 接口支持请求加解密；写操作记录操作日志；权限校验",
+"cid": "Z294"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M4-4 池化写入器：PooledByteBufferWriter 基于 ArrayPool 的高效缓冲写入器，支持动态扩容。",
+"cid": "Z295"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "文件树能够正确展示变动文件与其文件夹。",
+"cid": "Z296"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "随着学生人数的增加（预计2024年在校生达到5000人）和奖学金种类的多样化（目前有20种不同类型的奖学金），传统的手工管理方式已无法满足当前的需求。因此，需要一个自动化的奖学金管理系统来简化流程，提高效率。",
+"cid": "Z297"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "删除操作需要二次确认，前端明确提示",
+"cid": "Z298"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M4-1 Span 读取器：SpanReader 零分配高性能二进制流解析器，支持大小端。",
+"cid": "Z299"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "SYS-16 时间表达式：解析 {dt+1M+5d:yyyyMMdd} 等时间偏移表达式，支持 y/M/d/H/m/s/w 单位。",
+"cid": "Z300"
+},
+{
+"repo": "cnjack/jcode",
+"license": "MIT",
+"text": "文件更新为新 revision 后，旧链接继续指向旧快照并明确标记；用户需要再次分享才能生成新链接。",
+"cid": "Z301"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "不包含完整鼠标轨迹和镜头移动，因此产品不得将命令 APM 标成鼠标 APM。",
+"cid": "Z302"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "REQ-STABILITY-001：启动热层生产实现前须门禁明确通过，且用户须明确批准一个单独的 implementation task。",
+"cid": "Z303"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "Agent CLI 安装引导是否需要提供平台差异化命令。",
+"cid": "Z304"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "/// ⚠️★ 内嵌图片必须被捞出来，因为 Markdown 那条路会把它整个丢掉。",
+"cid": "Z305"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "写入失败明确显示“未保存”，保留草稿，提供重试和更换目录；成功前不得显示已保存。",
+"cid": "Z306"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "需要将当前 README 专用的单文件读取能力抽象成“任意文件读取”查询逻辑，供预览弹窗复用。",
+"cid": "Z307"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "文档体系 | PRD、TRD、开发计划、部署、模块开发指南需要与实际实现一致",
+"cid": "Z308"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "学生可以注册和更新个人信息，预计每天注册或更新信息的学生数量为20人。",
+"cid": "Z309"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "语言扩展：通过 SPI 支持解析多种语言（Java 优先）",
+"cid": "Z310"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "标准化的服务契约：扩展 db/dao.Dao 为完整接口集，client.Call 支持 context；业务依赖接口与契约而非全局单例与具体实现。",
+"cid": "Z311"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "[ ] 浏览器页面支持切换查看历史报告（至少支持最近 30 天）",
+"cid": "Z312"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"license": "MIT",
+"text": "请告诉我你对这些问题的想法，这样我可以完善PRD并开始具体的设计和开发工作。",
+"cid": "Z313"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "冲突、失败和自动重命名需记录在布局定义的 Import state（新建原生映射为 .app/import-conflicts.json）或任务日志中；项目 app state 不可写时不得旁路落盘。",
+"cid": "Z314"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "动效还原: 页面切换、组件交互动效必须按设计规范实现",
+"cid": "Z315"
+},
+{
+"repo": "dasi0227/QA-Agent",
+"license": "MIT",
+"text": "各 Agent 能力必须可独立开发、独立替换、独立调优。",
+"cid": "Z316"
+},
+{
+"repo": "StoneLL1/llm-wiki-desktop",
+"license": "Apache-2.0",
+"text": "格式类型（原生 / 兼容）、信任（受信任 / 尚未信任）、文件系统访问（可写 / 只读）与健康状态分别建模；受限 只是未信任能力集合的 UI 摘要，不得作为后端唯一授权值。",
+"cid": "Z317"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "作为系统，我需要监控审计日志，检测异常行为（如异常访问、权限滥用、数据泄露迹象），并自动告警。",
+"cid": "Z318"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "US-11 作为注重安全的用户，我希望 oops 的数据只在本机、权限严格、可以一键清除，并且清楚知道它存了什么。",
+"cid": "Z319"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "支持 Markdown 文档渲染、常见文本文件源码预览，以及大文件 / 不支持文件类型的不可预览提示。",
+"cid": "Z320"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "受限网络环境（§7.1 仅国内 URL）下必须使用纯本地部署，不使用任何海外外部服务",
+"cid": "Z321"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "iii. 必须为财务、营销、研发、生产、供应链、质量、仓库、设备、员工等核心领域建立标准化的数据采集和治理模型，明确数据范围、存储规则、异常处理逻辑。",
+"cid": "Z322"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "⚠️ 条件分支依赖 LLM 输出格式，天然不可靠。实现时需要：模糊匹配 + fallback 默认分支。",
+"cid": "Z323"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "resolver 组件不得在用户文档中描述为已完成能力。",
+"cid": "Z324"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "查询和渲染性能需优化，以支持大数据量下的快速响应。",
+"cid": "Z325"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "用户输入一个研究问题，系统将问题拆解为文献回顾、研究方法确定、数据收集方案等步骤。用户可以在每个步骤执行后深入特定方向，或添加自己的见解和约束条件。",
+"cid": "Z326"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "Obsidian 用户在日常笔记中记录任务、会议、学习等活动，需要一种轻量级、零侵入的方式来追踪各项活动的耗时。现有的计时工具要么是独立应用（需要在 Obsidian 外操作），要么使用独立数据库（数据与笔记割裂）。用户希望计时数据直接嵌入笔记文本，随笔记一同迁移、版本控制。",
+"cid": "Z327"
+},
+{
+"repo": "jaylinwang/zen",
+"license": "MIT",
+"text": "本地正式记录建议以 Markdown 为唯一来源，不同时维护另一份必须手工同步的正式数据库。应用可建立可重建索引；索引损坏不影响记录。",
+"cid": "Z328"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "验收标准 | ① 构建方法级调用图 ② 查询\"谁调用了X\" ③ 查询\"X调用了谁\" ④ 支持 N 层深度追踪",
+"cid": "Z329"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "itts daemon start / stop / status：管理后台常驻 Unix Domain Socket 守护进程（支持空闲超时自动退出，如 --idle-timeout 10m）。",
+"cid": "Z330"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "✅ 创建PerformanceOptimizationService自动优化服务，支持四种优化模式",
+"cid": "Z331"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "图标/图片还原: 使用与设计稿完全一致的图标（lucide-react），图片比例/圆角/边框必须一致",
+"cid": "Z332"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "“安全兵线”必须显示为估算值及置信度。",
+"cid": "Z333"
+},
+{
+"repo": "arana-db/kiwi",
+"license": "Apache-2.0",
+"text": "REQ-WORK-007：每个实施 PR 必须关联工作包、primary Issue 和 REQ；完整交付使用 Fixes/Closes，部分实现使用 Refs/Related。",
+"cid": "Z334"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "选择非 .md 文件时拒绝读取，并说明当前仅支持 Markdown。",
+"cid": "Z335"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"done_when\": \"原生报表或图表创建成功并返回 reportId / 页面链接；已有图表配置保存须严格回读并验证查询，浏览器效果单独验收。\"",
+"cid": "Z336"
+},
+{
+"repo": "entropy-cloud/nop-entropy",
+"license": "Apache-2.0",
+"text": "每个项目有一个配置表，可以针对该项目增加一系列配置项（名称，值，类型）",
+"cid": "Z337"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "将来若想做实时常驻 App，JSON 已现成可用，零锁定——但当前需求并不需要它。",
+"cid": "Z338"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "[ ] 用户可以合并音频，生成完整对话音频",
+"cid": "Z339"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "纯只读，不支持编辑（编辑通过企微对话完成）",
+"cid": "Z340"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "SYS-15 文件存储：分布式文件存储服务，支持本地文件系统和阿里云 OSS，提供统一管理界面。支持定时清理长期未下载的附件。",
+"cid": "Z341"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "稳定性：编辑中弹窗、详情页、悬浮条、拖拽操作需要避免被后台保存/刷新打断。",
+"cid": "Z342"
+},
+{
+"repo": "caesarloo/obsidian-svn",
+"license": "MIT",
+"text": "能够检测网络状态并进行相应的错误处理。",
+"cid": "Z343"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "“下次操作失败”作用于下一次异步提交：失败不写入数据、不扣分，保留输入并允许重试。成功提交一次性更新关联数据，重复点击不重复生效。",
+"cid": "Z344"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "多模态能力集成：随着ADK和模型本身对多模态的支持，可以扩展到处理图像、声音等输入。",
+"cid": "Z345"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "assert_eq!(items.len(), 1, \"预算正好等于大小应当装得下（边界不是越界）\");",
+"cid": "Z346"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "NFR1: 扩展程序必须是高性能且轻量级的，其对 IDE 的 CPU 和内存占用必须降到最低，不能对用户的编码体验产生可感知的性能影响。",
+"cid": "Z347"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "[x] 9. MCP 确认开关 ✅ 已实现：设置→工具→「MCP 工具需人工确认」开关（默认开），开启时系统提示词注入确认策略，AI 调用 MCP 工具前必须先展示参数并获用户同意（v3.2.3-3）",
+"cid": "Z348"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "US-9 作为 P4，我希望所有命令都支持 --json，非交互环境下行为确定（不会卡在确认提示上）。",
+"cid": "Z349"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "向后兼容 | 独立项目，不需要兼容单用户模式",
+"cid": "Z350"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "技术要点：memoryEngine 已支持 scope，主要是接线；注意群组记忆 vs 项目记忆的边界与冲突合并。",
+"cid": "Z351"
+},
+{
+"repo": "ywq2019/ai_test_agent",
+"license": "MIT",
+"text": "统一管理平台对接的AI大模型，为自动化测试智能校验、用例分析、异常研判提供AI能力支撑，支持多模型自由切换。",
+"cid": "Z352"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "交互重点：支持键盘输入、文本选择、复制、粘贴、拖动、缩放、ESC 隐藏。",
+"cid": "Z353"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "背景生成：支持纯色 / 渐变 / 纹理（CSS）+ AI 生成风景 / 抽象背景",
+"cid": "Z354"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M10-14 消息匹配队列：IMatchQueue 请求响应包配对，支持超时清理。",
+"cid": "Z355"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "感知性: 色彩对比度 ≥ 4.5:1，支持屏幕阅读器",
+"cid": "Z356"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "*与原始版本的差异： v0.1.0 已支持 OCR，本测试用例验证 OCR 流程的正确性，而非\"不支持扫描件\"的错误处理。",
+"cid": "Z357"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "合规与免责：显著展示\"仅供参考、理性购彩、未成年人禁止购彩\"；不提供下注通道。",
+"cid": "Z358"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "所有模块使用同一 current_time，不得各自维护互相冲突的时间状态。",
+"cid": "Z359"
+},
+{
+"repo": "Ariestar/obsidian-dragger",
+"license": "MIT",
+"text": "这样 transition 仍然可单测，pipeline 对象负责生命周期完整性。代码里不需要继续使用 reducer 作为 public API 命名。",
+"cid": "Z360"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "构建一个完整的个人永久博客 CMS，支持：",
+"cid": "Z361"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "SPA-1 WebAPI JSON API：第三代魔方的统一 JSON API，ApiResponse<T> 响应结构，支持跨域。",
+"cid": "Z362"
+},
+{
+"repo": "xiaojilele-glitch/WhyBuddy",
+"license": "MIT",
+"text": "作为系统，我需要定期验证审计链的完整性，检测是否存在篡改或丢失的日志条目，这样确保审计链的可信性。",
+"cid": "Z363"
+},
+{
+"repo": "AlanDXiang/Google_ADK_Chat",
+"license": "MIT",
+"text": "HTML, CSS, JavaScript：用于构建用户界面。可以考虑使用简约的前端框架（如Bootstrap, Vue.js的CDN版本, 或者纯Vanilla JS）来加速开发和提升用户体验，但保持轻量级是关键。",
+"cid": "Z364"
+},
+{
+"repo": "davidhoo/buddy",
+"license": "MIT",
+"text": "buddy-python 兼容字段不得随意改名；新增字段必须可被旧版忽略。",
+"cid": "Z365"
+},
+{
+"repo": "NewLifeX/NewLife.Cube",
+"license": "MIT",
+"text": "AI-10 AI 页面操作（run_js）：AI 通过 run_js 工具把生成的脚本经 SSE 下发到当前页面执行并回传结果，支持读取与操作页面元素；回传走全局 AiController.OperationResult，检查点绑定用户、一次性消费并 30 秒超时。",
+"cid": "Z366"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "生成代码应避免 runtime reflection（除非在 debug 模式），并支持 MessagePack 属性注解。",
+"cid": "Z367"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "物理设备拔出 | 停止相关路由 → UI 提示设备已断开 → 刷新设备列表 → 设备重新插入后允许手动恢复",
+"cid": "Z368"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "错误处理: 需要为 API 调用失败、数据解析错误、速率限制等情况设计健壮的错误处理机制。",
+"cid": "Z369"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "[ ] 同步支持\"仅手动\"与\"启动时自动 + 每 30 分钟\"两种模式，默认为手动。",
+"cid": "Z370"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "US-2（分步教学）：作为学生，我可以单独运行任意一个阶段（如仅\"剧本生成\"或仅\"图生视频\"），查看该阶段的输入、输出与中间产物（JSON/图片/音频/视频片段）。",
+"cid": "Z371"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "跨域 CORS：竞彩官网 / 赔率站 / 新闻站大多禁止浏览器跨域请求。",
+"cid": "Z372"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "中小学教师日常需要处理班级、学生、课表、座位、随机点名分组、成绩统计等大量事务，现有工具零散（Excel + 微信 + 纸质表格），数据无法沉淀与联动。TeacherDesk 目标是把这些高频动作收敛到一个轻量的一体化工作台中。",
+"cid": "Z373"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "描述：支持 S7-1200/1500 的 CPU 会话密码认证，通过 UserData CPU 功能组发送密码以获取操作权限",
+"cid": "Z374"
+},
+{
+"repo": "LordCasser/atlas",
+"license": "MIT",
+"text": "可解释：非结构语义关系必须携带置信度、来源和解析策略。",
+"cid": "Z375"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "作为一名用户，我希望整个面板就是一个可直接编辑的文本区，这样我不需要理解复杂的数据结构或记录模型。",
+"cid": "Z376"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "BACnet 日程表和日历数据类型编解码支持。",
+"cid": "Z377"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "必须兼容现有技能详情页与审核详情页结构，不破坏当前三个 Tab 的主内容与既有操作。",
+"cid": "Z378"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "[ ] 每种伪装模式能够正常转换WireGuard流量",
+"cid": "Z379"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "支持播放、暂停、倍速、逐帧、时间跳转和区间选择。",
+"cid": "Z380"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "申请提交与审批：支持学生在线提交奖学金申请，管理员进行审批，预计每年审批申请数量为3000件。",
+"cid": "Z381"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "FR-022：支持跨端账号同步和多设备接续学习",
+"cid": "Z382"
+},
+{
+"repo": "mapleLeafOfficial/Skillhub",
+"license": "Apache-2.0",
+"text": "用户需要在不下载整个 zip 包的前提下，快速查看 skill 包含的目录结构与具体文件内容，提升详情浏览和审核判断效率。",
+"cid": "Z383"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "支持粘贴一列分数批量填充（按当前排序对应）。",
+"cid": "Z384"
+},
+{
+"repo": "Jonnyan404/clip9",
+"license": "MIT",
+"text": "/// 认不出格式、文档加密、结构损坏、超出安全上限、以及扫描件需要 OCR",
+"cid": "Z385"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "ThinkingMap 是一款交互式AI问题解决可视化助手，将AI的思考和问题解决过程转化为可视化的图结构，允许用户在过程中随时干预、提问。",
+"cid": "Z386"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "各面板独立滚动，长标题、窄窗口和多语言文本不得破坏布局。",
+"cid": "Z387"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "主角在不同情境下应该（SHALL）展现一致的行为模式。",
+"cid": "Z388"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[ ] 每种驱动至少 1 个集成测试用例 —— SQL Server / ClickHouse / Oracle 目前只有 mock 单测；真库集成测试需要 CI 里的容器。",
+"cid": "Z389"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "多模型支持 | 支持加载不同版本的检测模型",
+"cid": "Z390"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "待确认: 需要后端团队确认消息推送方案",
+"cid": "Z391"
+},
+{
+"repo": "bugkiwi/elons-job",
+"license": "MIT",
+"text": "用户自己定义 X 评论区应该长什么样。",
+"cid": "Z392"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "执行记录与经验提取：执行结果持久化，支持智能体自我进化（LessonsLearned）。",
+"cid": "Z393"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "候选判断不得包装成最终法律结论",
+"cid": "Z394"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "状态栏中的能量条能够实时（或准实时）地更新，以反映能量的增加。",
+"cid": "Z395"
+},
+{
+"repo": "T-THA/AITravelPlanner",
+"license": "MIT",
+"text": "[ ] 用户可以点击按钮开始/结束录音",
+"cid": "Z396"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "编写中文教材，需要专业的拼音标注。",
+"cid": "Z397"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "UPGD-1 全链路更新：支持从远程下载升级包、解压覆盖旧文件，失败时自动回滚",
+"cid": "Z398"
+},
+{
+"repo": "NewLifeX/X",
+"license": "MIT",
+"text": "M2-1 统一日志接口：ILog 核心日志接口，支持多种输出方式。",
+"cid": "Z399"
+},
+{
+"repo": "yangyunice/WorkMesh",
+"license": "MIT",
+"text": "支持\"我要开课\" (自动创建课程草稿)",
+"cid": "Z400"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "工业物联网（IIoT）领域中，西门子 PLC 是全球市场占有率最高的可编程控制器之一，广泛应用于制造业、能源、交通、楼宇自动化等行业。S7 协议是西门子专有的以太网通信协议，支持 SIMATIC S7-200/300/400/1200/1500 等主流系列 PLC。",
+"cid": "Z401"
+},
+{
+"repo": "jerryjiao/dsh-wewrite",
+"license": "MIT",
+"text": "4. 产品原则与硬约束（PRD 级红线，实现不得违反）",
+"cid": "Z402"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"description\": \"将 AI 创建的老应用升级为新版主题，同步更新页面和表单样式。仅在用户明确要求升级时使用，先核验应用资格，执行前须通过 ask_human 确认；普通换色、美化不触发。\",",
+"cid": "Z403"
+},
+{
+"repo": "wukun2005-gif/patentExaminator",
+"license": "MIT",
+"text": "出处无法定位时标注\"出处待确认\"，不得捏造",
+"cid": "Z404"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "技能递归引用：技能可 @ 引用其他技能，支持深度限制和循环检测。",
+"cid": "Z405"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "验收标准 | ① 每句台词有对应音频且时长与镜头匹配（允许音频 ≤1.2 倍提速或补静帧策略）；② 默认模式口型同步主观可用；③ 双人同屏合成在纯 CPU 环境单镜头 ≤3 分钟完成",
+"cid": "Z406"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "搜索输入需防抖；滚动时不得重复测量全部标题位置。",
+"cid": "Z407"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "FR-014：口语任务（跟读、复述、情景问答）至少支持其一",
+"cid": "Z408"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "能够同时查看多个工位的实时视频",
+"cid": "Z409"
+},
+{
+"repo": "Kerry-yangg/Dotalens",
+"license": "MIT",
+"text": "不得再用 Math.round(timestamp) 作为唯一时间。暂停、赛前阶段和比赛正式开始时间",
+"cid": "Z410"
+},
+{
+"repo": "iflytek/skillhub",
+"license": "Apache-2.0",
+"text": "审核详情页：三个 Tab 下都显示文件浏览侧边栏，并支持点击任意文件预览。",
+"cid": "Z411"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[ ] 支持跨库对象搜索 —— 已支持跨连接，跨库在单连接内已覆盖。",
+"cid": "Z412"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "反馈结构必须做严格校验：字段存在、类型正确、分数区间合法",
+"cid": "Z413"
+},
+{
+"repo": "sarahwangy/knowho",
+"license": "MIT",
+"text": "描述： 在联系人档案中支持添加多个重要日期，类型：生日、纪念日、自定义。每个日期可设置\"提前提醒天数\"（默认3天）。",
+"cid": "Z414"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "历史列表支持按内容类型筛选（番剧/漫画/小说 Tab）、按最近更新排序、关键词搜索。",
+"cid": "Z415"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "Tab 导航栏支持 sticky 定位（sticky top-16），滚动时始终保持在视口顶部附近",
+"cid": "Z416"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "Windows 用户占比高但本地生成路径只在 Mac 实测 | M2 加 Windows（CUDA/Vulkan 预编译 sd-cli）实测；不实测不写\"支持\"",
+"cid": "Z417"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "禁止绑定自身、重复父母槽位、跨物种亲缘、同一对象同时作为父母，或形成祖先循环；父母已知生日必须早于子女；性别未知可选择父母角色，已知性别与角色冲突时提示。",
+"cid": "Z418"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "外部链接 MVP 提供复制地址操作；是否允许直接跳转由微信平台规则和业务域名配置决定。",
+"cid": "Z419"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "U6 | 作为用户，我能在不访问 GitHub 的情况下提交匿名或署名反馈，并选择是否附加低敏诊断信息；网络失败时可以复制内容发送到 QQ 群",
+"cid": "Z420"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "协议覆盖不全：现有方案多数仅支持单一协议，无法同时兼容 Remoting（4.x Broker）和 gRPC（5.x Proxy）两种接入方式",
+"cid": "Z421"
+},
+{
+"repo": "NewLifeX/NewLife.AI",
+"license": "Apache-2.0",
+"text": "11 种语言：英文为默认落地页与权威版本，简体中文同批维护，其余语种允许滞后。",
+"cid": "Z422"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "S3 只要部分：这一轮大部分可以留下，只有一个文件改坏了 → oops undo --file src/auth.ts。",
+"cid": "Z423"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "当前不承诺移动端后台长期下载在所有系统版本上保持运行；这需要进一步的系统后台任务设计。",
+"cid": "Z424"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "[x] 中间状态持久化到 scope-discovery.md，支持跨会话继续",
+"cid": "Z425"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "描述 | 支持全文搜索、正则搜索、语义搜索三种模式",
+"cid": "Z426"
+},
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "Skills 采用版本化发布。每次运行保存 Skill 名称、版本、输入摘要、输出、耗时、使用工具和结果；升级需通过固定评测集并支持回滚。",
+"cid": "Z427"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "文案中引用的具体商品价格、功效、库存、活动时间等事实必须可链接到品牌资料；没有证据时使用 [待确认]，不可伪造。",
+"cid": "Z428"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "用户在任意 Mission Control 桌面，都可以通过状态栏图标或全局快捷键唤起面板。面板唤起后，应在当前桌面显示，并在用户切换桌面后继续保持可见。",
+"cid": "Z429"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "存储后端：通过接口抽象，支持多种数据库",
+"cid": "Z430"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"license": "MIT",
+"text": "需要提升专注力的学生、职场人士",
+"cid": "Z431"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "无论面板当前处于悬浮还是固定，只要处于显示状态，都必须满足跨桌面可见要求。",
+"cid": "Z432"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "支持拖拽画布、缩放、回到中心；缺少父母显示“添加父亲/母亲”虚线节点，不虚构未知亲缘。",
+"cid": "Z433"
+},
+{
+"repo": "grapeot/opencode_android_client",
+"license": "MIT",
+"text": "Steer——发现方向偏了，通过语音快速下达纠偏指令（\"停，不要用继承，换成组合模式\"），或者切换模型/Agent 重新开始。指令以自然语言下达，不需要打字。",
+"cid": "Z434"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "作为漫画读者，我希望可以切换单页/双页（左右分屏）阅读模式，以便在宽屏显示器上获得接近实体书的阅读体验。",
+"cid": "Z435"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"description\": \"仅在用户明确要求操作宜搭原生数据卡片资源时使用，支持创建、读取、配置保存、发布及投放播报。自定义页面展示卡片、仅修改原生卡片引用外层及泛称卡片、指标卡、看板或播报不触发；已明确的原生卡片操作可继续沿用。\",",
+"cid": "Z436"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "doneAutoOpenPrSessionHint: \"默认保持关闭。只有在卡片进入 Done 后需要先自动排队 PR Publisher、再执行 Done Reporter 时再打开。\",",
+"cid": "Z437"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "输入 | 主题文本（必填）；风格、文化背景、目标时长、集数、画幅比例（默认竖屏 9:16，短剧形态）（选填）；也支持直接粘贴已有剧本（进入解析模式）",
+"cid": "Z438"
+},
+{
+"repo": "Rockomate/nextjs_blog",
+"license": "ISC",
+"text": "系统应能够支持至少1000名用户同时在线，确保系统性能稳定。",
+"cid": "Z439"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "“结构补全 / 大纲提取”任务必须展示进度条。",
+"cid": "Z440"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "🎓 学生用户 - 在 Windows/macOS 等不同平台上都需要使用",
+"cid": "Z441"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "语音通话协同 | 用户在 PC 端进行语音通话时，需要将手机来电/语音消息的声音转发给对方",
+"cid": "Z442"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "信息不足时主动拒答，禁止强行编造",
+"cid": "Z443"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "信息卡片要支持快速扫读，不堆长文本。",
+"cid": "Z444"
+},
+{
+"repo": "wgcairui/airplay-receiver",
+"license": "MIT",
+"text": "*功能描述: 支持镜像和扩展两种显示模式",
+"cid": "Z445"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "可扩展性 | 编码分类、段类型、进制类型均支持字典扩展",
+"cid": "Z446"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "允许的破坏性变更：默认无；均为新增包/能力，不改动既有 API。",
+"cid": "Z447"
+},
+{
+"repo": "gwwen05/CodeCompass",
+"license": "Apache-2.0",
+"text": "数据一致性：分析结果应支持校验和版本管理",
+"cid": "Z448"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "对不支持 thinking 的模型自动隐藏，且不传参。",
+"cid": "Z449"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "关键约定：判定「是否为推送」须以消息类型字段/帧类型为准，不得仅凭「响应中回显了命令名」判断；命令与推送在帧结构上明确区分（详细字节布局见阶段 5/6）。",
+"cid": "Z450"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "极简内核：最小化默认运行时行为，仅保留必须功能（mailbox、actor lifecycle、transport abstraction、registry、call/send semantics、SourceGen integration）。",
+"cid": "Z451"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "*场景：当前迭代接近尾声或已结束，需要关闭当前迭代并规划下一个迭代的范围",
+"cid": "Z452"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "COD-8 EncodeBuffer 编码缓冲区：可扩展的编码缓冲区，支持分片滑动窗口写入",
+"cid": "Z453"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "密码规则 | 8–64 字符，ASCII 可打印（含常用符号），至少 1 字母+1 数字（服务端强制）；禁止非 ASCII、空格/制表/换行等空白与控制字符；两次确认归客户端",
+"cid": "Z454"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "\"御姐\": \"模拟成熟性感的御姐音色，声音略带磁性且沉稳，语速不快不慢，语调充满自信和一丝挑逗，尾音可以稍微拖长并上扬，给人一种游刃有余的掌控感。\"",
+"cid": "Z455"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "重构规则（源）子系统，所有内容类型（番剧/漫画/小说）共用一套规则生命周期：加载 → 校验 → 执行（搜索/详情/章节/播放地址解析）→ 错误上报。规则执行在独立隔离环境中运行（前端沙箱或 Rust 侧 quickjs/boa 引擎），单条规则异常不得影响应用主体。",
+"cid": "Z456"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "RPC-7 高可用连接管理：客户端连接支持单节点故障转移和连接池负载均衡，保障服务可用性",
+"cid": "Z457"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "支持流水号按时间周期重置与按业务字段分组独立计数",
+"cid": "Z458"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "AutomationDefinition 是独立子系统的长期执行定义。Todo 可以引用 Automation，但不复制其调度和运行记录。",
+"cid": "Z459"
+},
+{
+"repo": "cuixbo/OnePanel",
+"license": "MIT",
+"text": "对于状态栏、窗口层级、跨桌面行为、全局快捷键等能力，允许混合使用 AppKit 能力补足。",
+"cid": "Z460"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "优先级模型：P0 必须做且穿起 E2E 链路；P1 本期不做，列入「后续」。",
+"cid": "Z461"
+},
+{
+"repo": "lhxone/TeacherDesk",
+"license": "MIT",
+"text": "指定必须同组 / 必须不同组的学生对（v1 支持\"不同组\"黑名单）。",
+"cid": "Z462"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "阶段收益明确 | 每个落地阶段都先交付短而明确的用户收益，技术前置和延期边界必须可解释",
+"cid": "Z463"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "BUS-3 命名转换与创建扩展：MqEventBusNaming 把事件主题与本机标识转换为 RocketMQ 允许的字符集并截断超长名称；Producer.CreateEventBus<TEvent>() 支持复用外部已配置的生产者与消费者。",
+"cid": "Z464"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "规则引擎需足够灵活，支持复杂条件组合和时间窗口。",
+"cid": "Z465"
+},
+{
+"repo": "Frank-ay/mimo-mcp",
+"license": "MIT",
+"text": "风格标签填 \"gentle but tired\" + 合成 | 产物风格切换(若 R3 支持)",
+"cid": "Z466"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "支持文字、语音转文字、图片描述、视频描述、链接摘要",
+"cid": "Z467"
+},
+{
+"repo": "terryso/ccpet",
+"license": "MIT",
+"text": "NFR4: 扩展程序必须能在所有支持 Claude Code 的操作系统上（Windows, macOS, Linux）稳定运行。",
+"cid": "Z468"
+},
+{
+"repo": "terryso/tv-recommender-mcp-server",
+"license": "MIT",
+"text": "工具接受一个参数：genre (类型名称，字符串)。决策：需要同时支持中文和英文类型名，并进行内部映射。",
+"cid": "Z469"
+},
+{
+"repo": "hackmagic/opennavicat",
+"license": "MIT",
+"text": "[x] 支持 schema 变更生成和预览 —— SyncEngine.plan_sync()，Plan.preview_text() 用 !! 标出破坏性语句。",
+"cid": "Z470"
+},
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "AI 抽取字段保存来源、置信级别、确认状态和修改人。用户确认值高于模型推断；任务级值可以覆盖品牌默认值，但必须展示覆盖关系。",
+"cid": "Z471"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "高级自定义用户：需要自定义状态、列、主题、筛选规则和优先级算法。",
+"cid": "Z472"
+},
+{
+"repo": "NewLifeX/NewLife.BACnet",
+"license": "MIT",
+"text": "SEC-2 证书认证：支持设备证书和 Hub 证书认证，客户端证书配置 + 验证回调 + 未受信允许开关",
+"cid": "Z473"
+},
+{
+"repo": "fanfan-de/anybox",
+"license": "MIT",
+"text": "支持查任务、创建、修改、完成、排期和找空闲时间。",
+"cid": "Z474"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "M5-8 服务启动失败处理：StartWork 单次执行，禁止重入。异常/超时仅日志记录，不重试。",
+"cid": "Z475"
+},
+{
+"repo": "JetQiao/football-prediction-skill",
+"license": "MIT",
+"text": "非结构化（情报）：仅对重点场（A 级）联网搜集（见 §4.3 情报分层），标注来源 + 时间 + 可信度，允许人工覆盖。",
+"cid": "Z476"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "SYS-2 处理器基类 Handler：作业处理器抽象基类，提供 Init→Start→Acquire→Process→Execute→OnFinish 完整生命周期，支持同步/异步双模。",
+"cid": "Z477"
+},
+{
+"repo": "shikanon/cookies",
+"license": "MIT",
+"text": "Codex 选错 Skill | 清晰 Skill 描述、允许工具白名单、路由评测和用户可见纠正",
+"cid": "Z478"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "支持系统默认分类和用户自定义分类管理。",
+"cid": "Z479"
+},
+{
+"repo": "zxmqq1234/web3-pawID",
+"license": "MIT",
+"text": "反馈与弹层 | 成功 Toast 约 3 秒；错误提示保留至纠正；抽屉桌面宽 420px、手机全屏；弹窗支持关闭及 Esc，关闭未保存表单先提示",
+"cid": "Z480"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "目标：支持常用系统配置在线维护。",
+"cid": "Z481"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "这些 hook 依赖平台特定能力（存储、生物识别等），在 wasmJs 下需要 expect/actual 或降级：",
+"cid": "Z482"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "作为一个导入 prompt 的用户，我希望后续批量生图和导出 PPT 的操作与原有流程一致，这样我不需要学习一套新的使用方式。",
+"cid": "Z483"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "不支持导入后继续走“上传 Markdown 项目”的完整生成链路",
+"cid": "Z484"
+},
+{
+"repo": "flycalm/md-reader-miniprogram",
+"license": "MIT",
+"text": "公式语法错误时显示原始 LaTeX，单个公式不得导致整页加载失败。",
+"cid": "Z485"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "仅在当前选中模型支持 reasoning 时显示该按钮。",
+"cid": "Z486"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "切换不同项目时需要启动对应的数据库",
+"cid": "Z487"
+},
+{
+"repo": "KaniuBillows/english-anywhere-lab",
+"license": "Apache-2.0",
+"text": "将原始学习行为转为可解释的趋势指标，支持自我反馈与目标调整。",
+"cid": "Z488"
+},
+{
+"repo": "TY-teo/ChargeWatching",
+"license": "MIT",
+"text": "[ ] 三态 + 加载/进度/错误 + 权限被拒子态齐备：未配置→引导；权限被拒→去自动化授权引导；不支持→深链",
+"cid": "Z489"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "源大面积失效：现有源多数已不可用，需要参考 animeko / kazumi 的成熟源配置方案重建源体系。",
+"cid": "Z490"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "交易合规：需要确保符合证券交易法规",
+"cid": "Z491"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "各引擎调用时透传分辨率到引擎参数（即梦/可灵/Vidu/Minimax 都原生支持降采样）",
+"cid": "Z492"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "可操作性强: 可以通过改进产品功能直接影响这个指标",
+"cid": "Z493"
+},
+{
+"repo": "appstore-discounts/appstore-discounts",
+"license": "MIT",
+"text": "支持 iTunes API 的批量查询格式（?id=123,456,789），一次性获取多个应用信息",
+"cid": "Z494"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "如果持仓市场在接下来很短时间内会结算，可以提前释放资金",
+"cid": "Z495"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "技术博主: 使用Markdown撰写技术文章，需要优化SEO以提升文章曝光",
+"cid": "Z496"
+},
+{
+"repo": "NewLifeX/NewLife.Siemens",
+"license": "MIT",
+"text": "[x] ReadBytes 支持任意长度（超 PDU 限制时自动分多段）",
+"cid": "Z497"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "逻辑自洽：世界观设定一旦确立，必须保持一致，不得随意修改",
+"cid": "Z498"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "可恢复：支持协议应尽量保留部分文件并复用已有字节。",
+"cid": "Z499"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "支持视频回放和检测结果同步显示",
+"cid": "Z500"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "断点续传依赖协议和服务端能力。HTTP 需要服务端支持 Range；FTP 使用 REST；SFTP 使用偏移读取；部分协议或外部移交后端可能无法精确恢复。",
+"cid": "Z501"
+},
+{
+"repo": "Frank-ay/mimo-mcp",
+"license": "MIT",
+"text": "不做用户上传 .txt / .md 文件批量(只支持粘贴文本)",
+"cid": "Z502"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "向量检索：采用代码专属 Embedding 模型，支持元数据前置过滤，适配模糊功能查找、语义相似匹配",
+"cid": "Z503"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "[ ] 用户可以使用表格编辑器创建对话",
+"cid": "Z504"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "*需求：对热点和生成请求做分级：低、中、高、禁止。高风险议题默认不提供营销借势内容；禁止项直接阻断。",
+"cid": "Z505"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "支持批量操作（批量删除、批量导出）",
+"cid": "Z506"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "诚实：不猜模型 id；本地生成的画质/耗时按实测写在界面上；示例成片必须标注\"由 OpenShorts 实际生成 + 来源/模型\"。",
+"cid": "Z507"
+},
+{
+"repo": "phodal/routa",
+"license": "MIT",
+"text": "evidenceGap: \"核心路径和 API 契约需要匹配的证据才能通过审查。\",",
+"cid": "Z508"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "If 画布上没有任何分割线时用户点击生成, the 分割系统 shall 提示用户需要先添加分割线",
+"cid": "Z509"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "映射配置支持源 path、轴选择、reshape、dtype、单位、时间字段、Frame 和语义说明。",
+"cid": "Z510"
+},
+{
+"repo": "dotnet9/Vex",
+"license": "MIT",
+"text": "保存、导出、草稿分别展示失败和重试入口。继续输入不能清除尚未解决的失败标记；取消重试不能显示成功。恢复、切换、退出及更新交接均须经过未保存保护。恢复草稿不能取代用户备份，手动保存的当前实现也不提供完整文件事务保证。",
+"cid": "Z511"
+},
+{
+"repo": "sarahwangy/knowho",
+"license": "MIT",
+"text": "描述： 提供预设标签（读书会、健身群、邻居、工作、社群、家人、其他），支持用户新建自定义标签。标签存为独立实体，联系人与标签多对多关联。",
+"cid": "Z512"
+},
+{
+"repo": "shangbian/Enterprise-Brain-Platform",
+"license": "MIT",
+"text": "知识库需支持多种常见文档格式的解析（OCR, NLP）。",
+"cid": "Z513"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "开发者需要快速安装特定版本的数据库",
+"cid": "Z514"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "*场景：上线后发现生产问题，需要追溯问题来源并创建修复 CR",
+"cid": "Z515"
+},
+{
+"repo": "NewLifeX/NewLife.Modbus",
+"license": "MIT",
+"text": "为 .NET 工业物联网生态提供一套协议最完整、功能码覆盖最全、传输变体最丰富的 Modbus 协议库，支持 IoTEdge 网关及各类工业应用开发，让 .NET 开发者能用最少的代码完成工业设备对接，同时具备充分的可扩展性和可观测性。",
+"cid": "Z516"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "UPGD-5 跨平台重启：更新完成后自动重启进程，支持 Windows/Linux/OSX",
+"cid": "Z517"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "支持带声调和不带声调的拼音输出",
+"cid": "Z518"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "开启时，每次工具调用弹出确认对话框（展示工具名 + 参数），用户选择「允许本次 / 始终允许此工具 / 拒绝」。",
+"cid": "Z519"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "发送前校验：单聊须为好友；群聊须为该群成员。",
+"cid": "Z520"
+},
+{
+"repo": "gitxuzhefeng/timelines",
+"license": "MIT",
+"text": "深层上下文记录：不仅记录“应用名称（如 Chrome）”，更必须精准抓取“具体窗口标题（如：向 GPT 提问、观看 YouTube 视频）”及该标题停留的准确时间窗口，将其与这间隙截取的图片在 SQLite 中强绑定。",
+"cid": "Z521"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "不主动引入第三方 DI 容器：与 Microsoft.Extensions.Hosting 集成已满足生态需要",
+"cid": "Z522"
+},
+{
+"repo": "qtgf520/kai-qt",
+"license": "Apache-2.0",
+"text": "提供 3~5 档可选：低 / 中 / 高 / 最高（映射为 minimal / low / medium / high / xhigh，按 provider 支持的枚举适配）。",
+"cid": "Z523"
+},
+{
+"repo": "yaomindong1996/forge-admin",
+"license": "Apache-2.0",
+"text": "分页查询：支持按规则编码、规则名称、分类、状态筛选",
+"cid": "Z524"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "Web 查看页面需要服务端直接读取文件，本地模式最简单",
+"cid": "Z525"
+},
+{
+"repo": "arch-team/devpace",
+"license": "MIT",
+"text": "*场景：做到一半，发现需要加一个新功能",
+"cid": "Z526"
+},
+{
+"repo": "openyida/openyida",
+"license": "MIT",
+"text": "\"description\": \"登录态、组织/环境、平台基础信息、Schema/fieldId 取证。用于真实资源操作前确认上下文，或任何需要 appType/formUuid/fieldId 证据的任务。\",",
+"cid": "Z527"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "输出（可直接写入选中 profile 的 cordis.patch.yml，顶层必须是 patch 操作 insert）：",
+"cid": "Z528"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 美团支付支持：支持美团支付账单",
+"cid": "Z529"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "跨请求持久化不提供内置支持，脚本自己读写文件即可（本机可信环境）；",
+"cid": "Z530"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "AI 应用开发者 —— 需要一个轻量的多智能体编排方案",
+"cid": "Z531"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "项目像“教程 Demo” | 必须包含测试、部署、评估、安全这些非 AI 功能",
+"cid": "Z532"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "次要用户：需要管理复杂设定的长篇小说作者",
+"cid": "Z533"
+},
+{
+"repo": "bdim404/Qwen3-TTS-WebUI",
+"license": "Apache-2.0",
+"text": "[ ] 系统能够正确处理失败项（显示错误、支持重试）",
+"cid": "Z534"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "画面每 2–4 秒切一次（长段拆两条素材），第一镜必须是主体，不出 logo/封面卡开场（片尾放）；",
+"cid": "Z535"
+},
+{
+"repo": "Poghappy/IhuoniaoN8NFirecralwrules",
+"license": "MIT",
+"text": "提供完整的多租户架构，支持企业级用户管理。",
+"cid": "Z536"
+},
+{
+"repo": "young-nights/ota-upgrade-of-qi-charger-based-on-can",
+"license": "Apache-2.0",
+"text": "*已移除 DID（硬件不支持，读 NRC 0x31）：0x2106 输入电流, 0x2107 线圈温度, 0x210A 对准状态。",
+"cid": "Z537"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "*模块背景：现有工具中已含 read_file / list_dir / list_processes 等可触达本机资源的能力，但无任何权限/风险/沙箱/审批控制。多用户开放前必须补齐。",
+"cid": "Z538"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "*我想要 系统自动为需要配图的页面搜索或生成图片",
+"cid": "Z539"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "需要深度定制业务流程的大客户",
+"cid": "Z540"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "多盘\"全部改写\"时参数是否允许每盘不同？（v1 建议：全局统一参数，简化 UI）",
+"cid": "Z541"
+},
+{
+"repo": "lintsinghua/oops",
+"license": "MIT",
+"text": "一个词就够：慌张的用户只需要记住 oops。其余命令都是给熟练用户和脚本用的快捷方式。",
+"cid": "Z542"
+},
+{
+"repo": "yuhui0531/md2ppt",
+"license": "MIT",
+"text": "作为一个导入 prompt 的用户，我希望导入后仍然进入工作台，这样我可以逐页修改 prompt、新增页、删页，并继续做一致性修正。",
+"cid": "Z543"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "✅ 预览模式支持：预览模式下 Checkbox 点击也能触发计时器",
+"cid": "Z544"
+},
+{
+"repo": "Cicada0719/moeplay-tauri",
+"license": "MIT",
+"text": "Given 窗口宽度 < 800px，When 切换双页，Then 提示\"窗口过窄，建议单页阅读\"，仍允许强制开启但图片自适应缩放不裁剪。",
+"cid": "Z545"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "支持 direct_reply 标记的成员发言直接进入主对话流。",
+"cid": "Z546"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "CLNT-1 多协议传输接入：六种传输方式统一连接接口（tcp:// / ssl:// / ws:// / wss:// / quic:// + 可靠 UDP），支持 SOCKS5 代理。",
+"cid": "Z547"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "连接断开时：对所有已加入 channel 执行 leave 清理，但不需要向已断开的客户端发送 ack。",
+"cid": "Z548"
+},
+{
+"repo": "5kyfkr/siyuan-plugin-task-horizon",
+"license": "MIT",
+"text": "全部页签下支持白板布局和卡片流布局。",
+"cid": "Z549"
+},
+{
+"repo": "bugkiwi/elons-job",
+"license": "MIT",
+"text": "这就是“Elon的工作”第一版需要完成的完整闭环。",
+"cid": "Z550"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "理由：Spring Cloud Gateway 的对位；多服务化（方案 D/E）必须有统一边缘层，mgin 当前自身不是网关（§3.4 空白区）。",
+"cid": "Z551"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "用户故事：作为任意成员，我执行任务时发现需要另一个 agent 的专长，应能直接向它发消息并等待回复，而不必回到用户或绕道 coordinator。",
+"cid": "Z552"
+},
+{
+"repo": "Peter-cuhk/robot-data-studio",
+"license": "Apache-2.0",
+"text": "支持 OpenAI-compatible、用户自定义 HTTP 和本地模型适配器。",
+"cid": "Z553"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "未登录用户可以直接查看当天已经发布的今日简报，并通过首页日期筛选查看其他已发布日期的简报。公开访问仅包含简报概览、已发布条目卡片、原文链接、日期筛选和登录入口；历史简报工作区、信息库、我的关注、我的收藏、智能助手和管理员后台仍要求登录。登录成功后进入今日简报工作区。",
+"cid": "Z554"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "测试需要经典指标的标准结果数据",
+"cid": "Z555"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "mgin 已有大量存量项目（jh 为 1.25 系列延续），v2 必须严格向后兼容：",
+"cid": "Z556"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "*01mvp-blog-starter 是一个基于 Cloudflare 全家桶的个人永久博客 CMS，既支持小白用户通过后台可视化写作，也支持 AI Skill / OpenAPI 自动化发布和维护。",
+"cid": "Z557"
+},
+{
+"repo": "PGshen/thinking-map",
+"license": "Apache-2.0",
+"text": "提供明确的文本输入区域，支持多行输入",
+"cid": "Z558"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "当前所有演示热点、来源和品牌事实必须显著标注为模拟数据，不得直接对外发布；正式模型接入前必须先完成来源、内容安全、数据处理与标识评估（见 README 上线前清单）。",
+"cid": "Z559"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "禁止使用魔法值，状态、类型、审核结果等字段使用枚举或常量。",
+"cid": "Z560"
+},
+{
+"repo": "HowlandMai/EmberIM",
+"license": "MIT",
+"text": "以上为边界说明；若后续要纳入，须经确认并相应调整本文档与阶段 3+ 设计。",
+"cid": "Z561"
+},
+{
+"repo": "raceychan/lihil",
+"license": "MIT",
+"text": "Lihil 当前已经有 SocketHub、ChannelBase、MessageEnvelope、SocketBus 等 WebSocket channel 抽象，能够支持 topic 匹配、join/leave、连接生命周期 hook 和 topic fanout。",
+"cid": "Z562"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "主角的对话应该（SHALL）符合其身份和性格。",
+"cid": "Z563"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "作为用户,我希望回测结果能够展示详细的交易记录和收益变化,以便深入分析策略表现",
+"cid": "Z564"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "系统不得依据少量样本宣称因果归因；只展示描述性比较。",
+"cid": "Z565"
+},
+{
+"repo": "NewLifeX/NewLife.Remoting",
+"license": "MIT",
+"text": "RPC-2 可扩展编解码：支持 JSON 和二进制两种序列化方式，可按需替换编码器，兼顾调试便利性和传输效率",
+"cid": "Z566"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "UI 风格 | 现代、简洁：单页三栏式布局（左：文件与参数，中：3D 预览，右：安全检查与导出）；深色模式支持；参考 Bambu Studio 预览页的视觉语言但不抄袭其品牌元素",
+"cid": "Z567"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "支持导入“黄金问答集”（JSON），运行离线评估",
+"cid": "Z568"
+},
+{
+"repo": "jnMetaCode/agency-orchestrator",
+"license": "Apache-2.0",
+"text": "*必须处理的现实问题（张权已经遇到了）：",
+"cid": "Z569"
+},
+{
+"repo": "wordflowlab/novel-writer-openspec",
+"license": "MIT",
+"text": "第11-20章是第一卷的高潮部分，需要平衡节奏感和爽点。",
+"cid": "Z570"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "技术指标公式（不支持选股、交易系统公式）",
+"cid": "Z571"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "命名冲突：dsh-desktop / dsh_desktop 已被社区项目占用。→ 需要新应用名（待用户定）。",
+"cid": "Z572"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "能力有缺口：会话标题需手动改、无 todolist、RAG 无 query 改写、不支持文件作为消息输入、无上下文用量与压缩策略。",
+"cid": "Z573"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "M5-4 定时自动重启：达到 AutoRestart 设定分钟数且落入 RestartTimeRange 允许时间段时触发重启。",
+"cid": "Z574"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "多触发方式：支持命令面板（快捷键）、右键菜单、Checkbox 状态联动三种触发方式",
+"cid": "Z575"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "面向企业/团队场景的“AI 知识库问答系统”：管理员上传文档建立知识库，用户以自然语言提问，系统通过 RAG 检索知识库内容，结合大模型生成带引用来源的回答，并支持会话记忆、反馈评估、安全控制与可观测性。",
+"cid": "Z576"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "数据安全 | 单一写入方；异常退出不得损坏数据库；未收尾的分段必须可恢复或被安全丢弃",
+"cid": "Z577"
+},
+{
+"repo": "NewLifeX/NewLife.RocketMQ",
+"license": "MIT",
+"text": "CONS-10 gRPC PushConsumer：内置长轮询线程 + OnMessage 回调 + 自动 Ack，支持并发控制；启动时自动上报订阅关系并保持长连接（netstandard2.1+）；消费失败自动延迟重投，投递次数达到上限转 %DLQ%{group}。",
+"cid": "Z578"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "目标：模板站 blog.01mvp.com 可以作为完整博客 CMS 使用。",
+"cid": "Z579"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "WEB-5b 任务管理页面：任务列表页，按模式彩色渲染时间，状态颜色，支持批量重置。",
+"cid": "Z580"
+},
+{
+"repo": "Poghappy/IhuoniaoN8NFirecralwrules",
+"license": "MIT",
+"text": "提供完整的数据采集任务管理功能，支持多种数据源和采集方式。",
+"cid": "Z581"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "只支持单盘（plate_1.gcode 写死），多盘文件直接报错；",
+"cid": "Z582"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "调试成本高：每次调整都需要重新生成完整 .pptx 文件",
+"cid": "Z583"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "不作为跨语言 RPC 框架（仅支持 C# 节点间、以及外部客户端通过 Gate/HTTP/WebSocket）；",
+"cid": "Z584"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "脚本步骤必须输出结构化 JSON（segments[]：text、visualIntent、英文 query、emphasis 关键词），用 AO assert 做结构校验，解析失败自动返工一轮；",
+"cid": "Z585"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "自动化：支持策略回测和自动化交易执行",
+"cid": "Z586"
+},
+{
+"repo": "WrBug/PolyHermes",
+"license": "MIT",
+"text": "同一时间最多支持 5 个回测任务并发执行",
+"cid": "Z587"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "需求变更需要更新 PRD、接口说明和数据结构文档。",
+"cid": "Z588"
+},
+{
+"repo": "01MVP/blog-starter",
+"license": "MIT",
+"text": "一个 AI 可以使用的 Skill，用来自动创建新的博客站点",
+"cid": "Z589"
+},
+{
+"repo": "maczh/mgin",
+"license": "MIT",
+"text": "// 旧式：需要在 mgin.go 的 Init() 里加一整段 if Contains(...) 链（破坏框架）",
+"cid": "Z590"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "传输层支持七种传输方式的统一接入，覆盖从标准 TCP 到弱网 UDP 的全场景。",
+"cid": "Z591"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "字典项支持标签、值、颜色、排序、状态、扩展数据。",
+"cid": "Z592"
+},
+{
+"repo": "lonnnnnng/fluxdown",
+"license": "MIT",
+"text": "download、add、start、run 支持 --hls-variant-index（从 0 开始）和 --hls-keep-ts；前两者保存 HLS 任务配置，后两者可在本次执行中指定 variant 或启用 TS 输出。",
+"cid": "Z593"
+},
+{
+"repo": "TY-teo/ChargeWatching",
+"license": "MIT",
+"text": "仅 Apple Silicon（按硬件探测，非进程架构）+ macOS 26.4+ 支持\"app 内设置\"；读取与深链在支持原生上限的系统上可用。",
+"cid": "Z594"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "新增模块必须有迁移、权限码、菜单、API、页面和文档。",
+"cid": "Z595"
+},
+{
+"repo": "dotnet9/Vex",
+"license": "MIT",
+"text": "代码、长链接、宽表格、复杂公式和图表不能覆盖其他正文或按钮。PDF 正文可选取，图片嵌入及离线读取需要逐格式检查；不能从浏览器预览推导所有导出格式等价。",
+"cid": "Z596"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "这里的质量要求指当前任务需要的验证、审查和证据保障强度，不表示允许低质量交付。",
+"cid": "Z597"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "❌ 不以 90 分钟长片为 v1 交付目标（架构支持，路线图为：30 秒微短剧 → 3 分钟短剧 → 剧集 → 长片）",
+"cid": "Z598"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "回答必须附引用来源（文档名、页号或切片内容）",
+"cid": "Z599"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "模型判断与系统状态 | 模型可生成候选风险、摘要和建议；策略状态、验证结果、授权状态必须来自确定性事件或用户决策",
+"cid": "Z600"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "TSL-1 物模型根：ThingSpec 含 Profile（产品元数据）+ Properties[] + Events[] + Services[]，支持 FromJson/ToJson 往返序列化，AddProperty/GetProperty 便捷方法。",
+"cid": "Z601"
+},
+{
+"repo": "T-THA/AITravelPlanner",
+"license": "MIT",
+"text": "支持口语化表达（\"刚才吃饭花了 150 块\"）",
+"cid": "Z602"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "教育工作者: 教授技术分析课程，需要演示工具",
+"cid": "Z603"
+},
+{
+"repo": "DTrader-store/formula-ts",
+"license": "MIT",
+"text": "痛点: 需要高性能的指标计算引擎，且要支持自定义指标",
+"cid": "Z604"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "集群实现跨节点协同，支持从 3 节点到千级节点的水平扩展。详细设计见 [CLUS-集群架构](CLUS-集群架构.md)，竞品对比见 [CLUS-集群竞品分析](CLUS-集群竞品分析.md)。",
+"cid": "Z605"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "[ ] 伪装后的流量能够绕过基本的DPI检测",
+"cid": "Z606"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "集中展示所有需要关注的提醒事项。",
+"cid": "Z607"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "表必须包含主键、创建时间、更新时间，用户生成内容建议包含状态字段。",
+"cid": "Z608"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "以下规则用于“我的关注”视图的默认查询条件，用户可以在当前页面临时清除筛选，但不会改变已保存规则：",
+"cid": "Z609"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "FR-2.1 多语种与混合语种支持：支持中文（zh）、英文（en）、日文（ja）、粤语（yue）及中英混合（zh/en）合成。",
+"cid": "Z610"
+},
+{
+"repo": "NewLifeX/NewLife.Agent",
+"license": "MIT",
+"text": "M3-2 Windows 服务：使用 Win32 SCM API 实现完整的服务注册、启动、停止、卸载，支持电源/会话/时间变更系统事件。",
+"cid": "Z611"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "return [finding(\"BLOCK\", \"STAGE-RESUME-INVALID\", artifact.path, \"resume_context 必须是对象\", \"核对现有 resume_context 声明；不使用续跑时可省略，不需要套用固定版本模板。\")]",
+"cid": "Z612"
+},
+{
+"repo": "sameencai/KarvisForYou",
+"license": "MIT",
+"text": "以下功能从 Karvis-opensource 完整继承，每个功能在多用户环境下的关键要求是数据隔离——所有文件读写都必须指向当前用户的目录。",
+"cid": "Z613"
+},
+{
+"repo": "Frank-ay/mimo-mcp",
+"license": "MIT",
+"text": "V1 (MVP,本次交付) | F1-F8 全量(含 ASR);stdio MCP + 本地 Web;支持 Claude Code/Codex 双注册;voice 库 SQLite 持久化",
+"cid": "Z614"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "AST 语法解析：基于 Tree-sitter 实现多语言统一解析，精准识别函数、类、接口等代码单元，提取元数据与依赖关系，支持增量解析更新",
+"cid": "Z615"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "布局调整困难，需要手动计算每个元素的 left / top / width / height",
+"cid": "Z616"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "// wasmJsMain —— 用 KClass 本身（支持作为键，不支持反射调用）",
+"cid": "Z617"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "用户上传图片、评论、餐馆信息需要具备审核、举报和下架能力。",
+"cid": "Z618"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "作为一名金融分析师，我希望系统能够自动从investing.com等财经网站抓取最新新闻，这样我就不需要手动收集信息了。",
+"cid": "Z619"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "建议：检查 commonJvmAndroid 的 2 个文件中是否有内容是 wasmJs 也需要的——若有，需提取到 commonMain 或新建 common 层。",
+"cid": "Z620"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "统一接入网关：支持多协议接入、身份鉴权、流量控制、请求标准化转换",
+"cid": "Z621"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "持久化语义须另行决定；不把 idle 的运行时含义推断为重启后的用户偏好。",
+"cid": "Z622"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "在线会议分享手机音频 | 用户在 Zoom/Teams 会议中，需要将手机上播放的音频（录音、音乐片段）实时共享给其他参会者，同时自己仍可通过麦克风讲话",
+"cid": "Z623"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "框架化表格：使用表格状态框架支持列渲染、本页排序和后续列扩展。",
+"cid": "Z624"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "WEB-2a 蚂蚁区域注册：Cube 区域\"蚂蚁调度\"，AntEntityController\\<T\\> 基类支持 appId 导航栏。",
+"cid": "Z625"
+},
+{
+"repo": "skywind3000/toys",
+"license": "MIT",
+"text": "_REQUEST —— 合并的请求参数字典（对应 PHP 的 $_REQUEST），支持 getlist(name) 获取同名多值（如 ?tag=a&tag=b）；",
+"cid": "Z626"
+},
+{
+"repo": "cholf5/skynet",
+"license": "MIT",
+"text": "配置使用环境变量或 yaml/json 文件（支持热 reload of certain config like logging level）。",
+"cid": "Z627"
+},
+{
+"repo": "ZedeX/agentforge",
+"license": "Apache-2.0",
+"text": "准入规则：仅瞬时异常允许重试，确定性失败、合规问题禁止重试",
+"cid": "Z628"
+},
+{
+"repo": "tyxben/AI_novel",
+"license": "MIT",
+"text": "Image Agent 分析每页内容，判断是否需要配图",
+"cid": "Z629"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "LDAP 认证：OAuth 已内置支持（SRV-3），LDAP 通过 IMqttAuthenticator 接口供扩展。",
+"cid": "Z630"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "两者共同验证的结论：Electron 壳 + 内置 Node 运行时 + loopback 加载官方 Web UI 是成熟路线；插件管理必须走 dsh plugin（pnpm）语义而不是裸 pnpm 或直接改文件。",
+"cid": "Z631"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "为准：插件可用性必须由真实生产入口和端到端调用证明；SDLC Harness 不用空接口、静态候选或未预算界面贡献",
+"cid": "Z632"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "应转换为可解析的HTML DOM，支持提取H1、img、a标签",
+"cid": "Z633"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "[x] 插件安装与激活：支持 Chrome/Edge 浏览器扩展安装",
+"cid": "Z634"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "支持第三方注册（微信、QQ、微博）- 预留接口",
+"cid": "Z635"
+},
+{
+"repo": "xgwangdl/wikiknowledge",
+"license": "MIT",
+"text": "创建会话时选择知识库，会话内支持多轮提问",
+"cid": "Z636"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "人工标注: 支持手动添加标签和分类",
+"cid": "Z637"
+},
+{
+"repo": "LoD-Dawn/Fast-Vben-Admin",
+"license": "MIT",
+"text": "目标：支持后台发布公告，并向用户形成消息触达。",
+"cid": "Z638"
+},
+{
+"repo": "molix-shu/find-seafood",
+"license": "MIT",
+"text": "用户可以通过拍照或文字搜索了解某种熟海鲜是什么、怎么吃、有哪些注意事项，也可以把自己觉得好吃的餐馆标记到地图上，和其他用户共同沉淀“哪里吃这种海鲜好吃”。",
+"cid": "Z639"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "SYS-18 C# 脚本处理器：基于 Roslyn 执行任务携带的 C# 代码，脚本内可访问作业上下文，返回值作为成功处理数；不做沙箱隔离，仅用于可信代码；net45 目标不支持。",
+"cid": "Z640"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "支持广告落地页和未接线索跟进",
+"cid": "Z641"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "移动端适配: 平板设备基础功能支持",
+"cid": "Z642"
+},
+{
+"repo": "aAAaqwq/KGKB",
+"license": "MIT",
+"text": "*2周内交付一个可用的知识图谱知识库原型，支持CLI存入、WebUI可视化、基础关联。",
+"cid": "Z643"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "支持状态筛选（全部、草稿、待审核、已发布、已拒绝、下架作品）",
+"cid": "Z644"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "支持「暂停 / 恢复」整组；插话点在 UI 上可见。",
+"cid": "Z645"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "local-db 是一个跨平台的数据库管理工具，旨在简化本地开发环境中多种数据库的安装、配置和管理流程。通过提供统一的图形化界面，让开发者能够快速搭建和管理本地数据库环境。",
+"cid": "Z646"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "支持加载 YAML 格式的 glossary.yaml 进行多语种专有名词替换；",
+"cid": "Z647"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "首页中的列表和提醒卡片未来可支持跳转详情",
+"cid": "Z648"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "*描述: 支持解析YAML格式的Frontmatter，提取元数据字段",
+"cid": "Z649"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "多语言支持: 支持英文、日文等其他语言",
+"cid": "Z650"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "所有消息、预约、转人工事件必须可追踪",
+"cid": "Z651"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "我要构建一个应用，应用名称可以后续再定，核心功能如下：",
+"cid": "Z652"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 账单合并导入：支持拖拽批量导入",
+"cid": "Z653"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "支持「追加发言」——成员可在轮次内对他人发现二次回应。",
+"cid": "Z654"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "*我希望 能够简单地部署一个伪装的WireGuard服务",
+"cid": "Z655"
+},
+{
+"repo": "Mark7766/spring-ai-apps",
+"license": "MIT",
+"text": "支持个人用户和企业版（批量管理和数据分析）。",
+"cid": "Z656"
+},
+{
+"repo": "Thearetically-speaking/All-you-can-seal",
+"license": "MIT",
+"text": "不做非 Bambu 方言（Prusa/Klipper）的支持（架构上预留扩展点即可）;",
+"cid": "Z657"
+},
+{
+"repo": "wth461694678/text-block-timer",
+"license": "MIT",
+"text": "✅ Checkbox 路径控制：文件组模式（whitelist/blacklist），支持正则和前缀匹配",
+"cid": "Z658"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "原生Markdown支持: 无需转换，直接分析.md文件",
+"cid": "Z659"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "文件名处理：支持中文、特殊字符、空格",
+"cid": "Z660"
+},
+{
+"repo": "Q572071793/word-pinyin",
+"license": "MIT",
+"text": "中文拼音转换工具是一个专为教育工作者设计的实用工具，旨在帮助教师快速为中文文本添加拼音标注，生成适合教学使用的文档格式。该工具支持多种输出格式，包括HTML显示、DOCX文档生成和PDF导出，满足不同教学场景的需求。",
+"cid": "Z661"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "CLUS-6 持久化：IStorageProvider 接口支持 Redis 和 Database（XCode，SQLite/MySQL/SQL Server/Oracle）两种后端，运行时按配置选择，支持混合模式。",
+"cid": "Z662"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用",
+"cid": "Z663"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "✅ 中文搜索优化：支持拼音、中文搜索",
+"cid": "Z664"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "If 用户上传的文件不是支持的图片格式, the 分割系统 shall 显示格式不支持的错误提示",
+"cid": "Z665"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "findings.append(finding(\"GAP\", \"CLARIFY-UNKNOWN-OPEN\", artifact.path, f\"{row['id']} 仍未关闭\", \"按责任人与 blocks_stage 跟踪关闭，不得静默推断。\"))",
+"cid": "Z666"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "可控性: 用户可以干预和调整AI的每个决策",
+"cid": "Z667"
+},
+{
+"repo": "NewLifeX/NewLife.MQTT",
+"license": "MIT",
+"text": "TRAN-3 MQTT over 可靠 UDP：自研可靠传输层（4 字节帧头 + 序列号 + Ack 确认 + 超时重发），全平台可用，无需操作系统 msquic 支持。",
+"cid": "Z668"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "趋势对比 - 支持周/月/季度数据对比分析",
+"cid": "Z669"
+},
+{
+"repo": "SteveTom17/hotpulse",
+"license": "MIT",
+"text": "审批人可把低/中风险调高，并留下原因；不能把系统判定为禁止的内容强行导出。",
+"cid": "Z670"
+},
+{
+"repo": "kyre-99/MacDynamicIslandPet",
+"license": "MIT",
+"text": "把“原始记忆”转成“本轮真正需要的上下文”",
+"cid": "Z671"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "wasmJs 情况：kotlin-reflect 对 wasmJs 的支持是有限的——KClass 基本可用，但 KFunction/反射调用（call()/members）在 wasmJs 下不可用或行为不同。",
+"cid": "Z672"
+},
+{
+"repo": "T-THA/AITravelPlanner",
+"license": "MIT",
+"text": "需要预算管理和费用跟踪的用户",
+"cid": "Z673"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "*作为一个 需要绕过网络限制的用户",
+"cid": "Z674"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "长期愿景可以是“中小服务商的 AI 员工平台”，但 MVP 阶段只聚焦“接待、筛选、预约、转人工”。",
+"cid": "Z675"
+},
+{
+"repo": "weiwei929/wireguard_plus",
+"license": "MIT",
+"text": "个人用户: 需要绕过网络限制的隐私保护用户",
+"cid": "Z676"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "支持角色替换 / 内容增删 / 视频续写（2026.03 新能力）",
+"cid": "Z677"
+},
+{
+"repo": "ZJM189/Daily_News",
+"license": "MIT",
+"text": "管理员操作必须有成功/失败反馈。",
+"cid": "Z678"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "可观测性 | 静默丢数据是缺陷。解析失败、跳过的卡片、失败批次都必须计数并可在诊断界面看到",
+"cid": "Z679"
+},
+{
+"repo": "hexianWeb/Third-Person-MC",
+"license": "MIT",
+"text": "越肩切换 | 支持左/右肩视角平滑过渡",
+"cid": "Z680"
+},
+{
+"repo": "RZfive/WorldBase",
+"license": "Apache-2.0",
+"text": "成本 / 延迟：多 agent × 多轮 × 工具易爆炸。必须配预算护栏、并发上限、早停策略。",
+"cid": "Z681"
+},
+{
+"repo": "Poghappy/IhuoniaoN8NFirecralwrules",
+"license": "MIT",
+"text": "数据分析师：需要采集和分析数据",
+"cid": "Z682"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "二次确认：所有交易操作需要用户确认",
+"cid": "Z683"
+},
+{
+"repo": "sarahwangy/knowho",
+"license": "MIT",
+"text": "[ ] PATCH 支持部分更新，返回更新后完整记录",
+"cid": "Z684"
+},
+{
+"repo": "aAAaqwq/KGKB",
+"license": "MIT",
+"text": "[ ] 支持定义关联类型（相关、因果、包含等）",
+"cid": "Z685"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "后续若支持“结束日期”，可用结束日期替代当前日期参与计算",
+"cid": "Z686"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "建议：确认 io.arrow-kt:arrow-core:2.1.2 在 Maven Central 有 wasmJs klib；若没有，升级到已支持的版本。",
+"cid": "Z687"
+},
+{
+"repo": "NewLifeX/AntJob",
+"license": "MIT",
+"text": "SYS-15 模板助手：SQL 模板变量替换 {dt}/{End}/{Message}，支持自定义格式化字符串。",
+"cid": "Z688"
+},
+{
+"repo": "GCWing/OpenBitFun",
+"license": "MIT",
+"text": "AI 编码工具正在从代码补全、单轮问答和单点审查，演进为覆盖理解、修改、验证、审查、发布和复盘的智能体开发体验。OpenBitFun 需要同时服务两类场景：",
+"cid": "Z689"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "作为一名研究人员，我希望系统能够对新闻数据进行聚类分析，展示热点话题和关键词分布。",
+"cid": "Z690"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "findings.append(finding(\"GAP\", \"STAGE-PLACEHOLDER\", artifact.path, \"需求简报仍含占位内容\", \"未确定内容必须转成有责任人的 UNK-*，不得保留无主占位符。\"))",
+"cid": "Z691"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 账单解析与导入：支持上传支付宝(CSV)和微信(XLSX/CSV)账单文件",
+"cid": "Z692"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 多文件合并：支持同时上传多个账单文件并合并分析",
+"cid": "Z693"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "可选：支持多用户（管理员/普通用户）",
+"cid": "Z694"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"license": "MIT",
+"text": "子日志：支持创建带额外上下文的子 logger",
+"cid": "Z695"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "作为系统首页，用于集中展示当前最需要关注的信息。",
+"cid": "Z696"
+},
+{
+"repo": "dtsola/xiaoyaosearch-feishu-export-md",
+"license": "MIT",
+"text": "通过文档的 updated_at 字段判断是否需要更新",
+"cid": "Z697"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"license": "MIT",
+"text": "开发体验：完整的类型安全和 IDE 支持",
+"cid": "Z698"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "用户认证 | 支持用户名密码登录，支持LDAP集成",
+"cid": "Z699"
+},
+{
+"repo": "dtsola/xiaoyaosearch-dingding-export-md",
+"license": "MIT",
+"text": "[ ] 多语言支持：英文、日文等多语言界面",
+"cid": "Z700"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "需要看当前真实实现时，请直接阅读：",
+"cid": "Z701"
+},
+{
+"repo": "kyre-99/MacDynamicIslandPet",
+"license": "MIT",
+"text": "后续执行按以下阶段逐条推进，每个阶段完成后都必须进行验证。",
+"cid": "Z702"
+},
+{
+"repo": "FlashingChen/dsh-desktop-hub",
+"license": "MIT",
+"text": "HMR：profile/home 两级 cordis.patch.yml 的配置变更会被监视并事务性重应用，无需重启进程；但安装新 bundle（改依赖图）必须重启 Loader 才进入组合。",
+"cid": "Z703"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "背景 | economy 档（flash-480P、540×960）用于教学零压力跑通；但要达到主流微短剧平台的观感（真人电影感、全片一致、有配乐包装），需要交付档",
+"cid": "Z704"
+},
+{
+"repo": "Mark7766/spring-ai-apps",
+"license": "MIT",
+"text": "数据加密，符合 GDPR/CCPA，100% 企业用户支持本地部署。",
+"cid": "Z705"
+},
+{
+"repo": "armylau/tetris_game",
+"license": "Apache-2.0",
+"text": "错误处理: 所有用户输入必须有错误处理",
+"cid": "Z706"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "本期分辨率上限 720P（即梦支持 720P/1080P/4K，但本项目本期只暴露 720P 选项）",
+"cid": "Z707"
+},
+{
+"repo": "xi-lie5/Story-Platform",
+"license": "Apache-2.0",
+"text": "支持第三方登录（微信、QQ、微博）- 预留接口",
+"cid": "Z708"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "查询优化 - 支持复杂查询和数据导出",
+"cid": "Z709"
+},
+{
+"repo": "franklinxkk/ai-delivery-spec",
+"license": "MIT",
+"text": "findings.append(finding(\"GAP\", \"ASM-UNTESTED\", sidecar.path, f\"{row_id} 尚未验证\", \"执行 validation_method，或保留 GAP，禁止把假设晋升为事实。\"))",
+"cid": "Z710"
+},
+{
+"repo": "bugkiwi/elons-job",
+"license": "MIT",
+"text": "Threshold 本身可以不进入模型 cache，因为 threshold 只影响本地 decision。",
+"cid": "Z711"
+},
+{
+"repo": "ChrisChen667788/wind-comic",
+"license": "MIT",
+"text": "搜索 + 分类筛选 + 多选预览（暂不支持多风格混合，v2.1 再说）",
+"cid": "Z712"
+},
+{
+"repo": "Mark7766/spring-ai-apps",
+"license": "MIT",
+"text": "支持新增课程类型（编程、设计、语言等）。",
+"cid": "Z713"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "插件扩展 | 支持通过插件扩展功能",
+"cid": "Z714"
+},
+{
+"repo": "junerver/ComposeHooks",
+"license": "Apache-2.0",
+"text": "arrow-kt 自 2.0+ 支持 wasmJs（需确认所用 2.1.2 版本已发布 wasmJs 变体）。",
+"cid": "Z715"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "*Objective: 作为用户，我希望能够一键生成分割结果并下载所有子图片，以便获取裁剪后的文件",
+"cid": "Z716"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "同一个项目可以混用来源（口播片里第 3 段用 AI 出片，其余素材库）。",
+"cid": "Z717"
+},
+{
+"repo": "davidhoo/jsonpath",
+"license": "MIT",
+"text": "支持过滤表达式中的存在性测试语法 [?@.name]，测试字段是否存在，不进行值比较。",
+"cid": "Z718"
+},
+{
+"repo": "ZhengWG/quant_free",
+"license": "MIT",
+"text": "功能：VSCode插件，支持查看股票、基金、期货实时数据",
+"cid": "Z719"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "*依赖：与 M6（暂停/恢复需要 checkpoint 支撑）、SSE/RPC 事件协议扩展强相关。",
+"cid": "Z720"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "When 用户点击上传区域, the 分割系统 shall 打开文件选择器，仅允许选择图片格式文件（PNG、JPG、JPEG、WebP）",
+"cid": "Z721"
+},
+{
+"repo": "guobin211/local-db",
+"license": "Apache-2.0",
+"text": "启动数据库服务，支持自定义端口、数据目录、用户名密码等参数",
+"cid": "Z722"
+},
+{
+"repo": "Mingyang0018/FastVideo3",
+"license": "MIT",
+"text": "US-3（可替换性）：作为学生，我可以在配置文件中把\"图生视频\"的供应商从阿里云百炼切换为 SiliconFlow 或可灵，不改一行业务代码即可对比效果与成本。",
+"cid": "Z723"
+},
+{
+"repo": "aAAaqwq/KGKB",
+"license": "MIT",
+"text": "Then 我看到所有知识点作为节点，关联作为边，可以拖拽和缩放",
+"cid": "Z724"
+},
+{
+"repo": "259876lr/yolo-sop",
+"license": "MIT",
+"text": "以便于 系统能够正确检测工序执行情况",
+"cid": "Z725"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "FR-1.1 零样本音色提取：支持输入任意 3s ~ 15s 的常见音频文件（WAV / MP3 / FLAC / M4A，任意采样率与声道），自动完成重采样、特征提取并生成 SpeakerContext。",
+"cid": "Z726"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "上线前必须完成至少 10 条模拟测试",
+"cid": "Z727"
+},
+{
+"repo": "liamyueng/xu-ai-news-rag",
+"license": "MIT",
+"text": "作为一名内容管理员，我希望能够管理知识库中的内容，包括查看、编辑、删除和批量导入数据。",
+"cid": "Z728"
+},
+{
+"repo": "FLYFISH567/ItemMemo",
+"license": "MIT",
+"text": "支持新增、查看、编辑、删除生活物品记录。",
+"cid": "Z729"
+},
+{
+"repo": "Quirt-studio/Qurit-PPT",
+"license": "MIT",
+"text": "学术论文答辩: 研究生需要制作符合学术规范的答辩PPT",
+"cid": "Z730"
+},
+{
+"repo": "calderbuild/MD_Audit",
+"license": "MIT",
+"text": "LLM Provider抽象: 预留接口支持未来切换到其他LLM（如Claude）",
+"cid": "Z731"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "SYS-7 请求对象：WriteRequest 包装点位+值，支持 ()/(value)/(point,value) 三构造函数；ControlRequest 用 ServiceName+Parameters+Create() 工厂；均实现 IExtend 扩展元数据。",
+"cid": "Z732"
+},
+{
+"repo": "superman1006/MeetMind",
+"license": "MIT",
+"text": "用户「允许 / 拒绝」→ RPC 回传决策 → 后端在沙箱中执行或跳过 → 结果接回工具循环。",
+"cid": "Z733"
+},
+{
+"repo": "ZooHero500/imgsplit",
+"license": "MIT",
+"text": "The 落地页 shall 支持 SSR/SSG 渲染，确保搜索引擎可以抓取页面内容",
+"cid": "Z734"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "支持在文本中使用 <文本|注音> 标记：",
+"cid": "Z735"
+},
+{
+"repo": "mufflegyro/dsh-bottom-info-bar",
+"license": "MIT",
+"text": "描述：对清单外的服务商，信息栏显示\"未适配/未配置引导\"（可区分：近期将支持 vs 无接口平台），绝不显示其他服务商的余额/额度。",
+"cid": "Z736"
+},
+{
+"repo": "rzx007/nanobot-ts",
+"license": "MIT",
+"text": "Nanobot 是一个超轻量级的个人 AI 助手框架。无论用什么语言实现，都应该：",
+"cid": "Z737"
+},
+{
+"repo": "bugkiwi/elons-job",
+"license": "MIT",
+"text": "必须以实际官方 API 文档为准，不在需求阶段硬编码未经确认的格式。",
+"cid": "Z738"
+},
+{
+"repo": "dtsola/xiaoyaoprivatebill",
+"license": "MIT",
+"text": "[ ] 云闪付支持：支持银联云闪付账单",
+"cid": "Z739"
+},
+{
+"repo": "T-THA/AITravelPlanner",
+"license": "MIT",
+"text": "[ ] 支持多种出行方式（步行/驾车/公交/骑行）",
+"cid": "Z740"
+},
+{
+"repo": "Jwz-git/Daygo",
+"license": "MIT",
+"text": "隐私 | 见 [07](07-privacy-security.md)。屏幕数据只发往用户明确配置的 provider；屏蔽名单与脱敏占位帧两层保护都必须存在",
+"cid": "Z741"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "将数据存储从 CSV 文件升级为关系型数据库，支持高效查询和数据管理。",
+"cid": "Z742"
+},
+{
+"repo": "anzx01/cusops",
+"license": "MIT",
+"text": "需要复杂 CRM、ERP、派工、库存、财务系统的中大型企业",
+"cid": "Z743"
+},
+{
+"repo": "xiaodong-l/amazon-1688-selector",
+"license": "MIT",
+"text": "设计商品数据存储结构，支持商品基本信息和实时数据。",
+"cid": "Z744"
+},
+{
+"repo": "tyrchen/index-tts-rs",
+"license": "MIT",
+"text": "对 AI Agent 不友好：缺乏面向 Agent 的毫秒级常驻响应（Daemon）、结构化 JSON/JSONL 遥测输出、标准输入流式朗读（Streaming Stdin）以及原生 MCP (Model Context Protocol) 协议支持。",
+"cid": "Z745"
+},
+{
+"repo": "davidhoo/jsonpath",
+"license": "MIT",
+"text": "支持过滤表达式中 @ 作为当前节点的独立引用，不必须跟字段名。",
+"cid": "Z746"
+},
+{
+"repo": "jnMetaCode/openshorts",
+"license": "MIT",
+"text": "运行前必须展示花费预览（几条 × 几秒 × 什么档 × 哪家；免费来源标\"不花钱\"）——复用 AO media/preflight.ts。",
+"cid": "Z747"
+},
+{
+"repo": "zhewu43/FocusFlight_wxminiprogram",
+"license": "MIT",
+"text": "在继续详细设计前，我需要确认以下几个关键问题：",
+"cid": "Z748"
+},
+{
+"repo": "entropy-cloud/nop-entropy",
+"license": "Apache-2.0",
+"text": "用户选择建立一个AI项目，可以从已有的项目作为模板创建。通过prototype_id属性记录它的模板项目。",
+"cid": "Z749"
+},
+{
+"repo": "davidhoo/jsonpath",
+"license": "MIT",
+"text": "[ ] 旧方法式语法不再支持（解析错误）",
+"cid": "Z750"
+},
+{
+"repo": "bugkiwi/elons-job",
+"license": "MIT",
+"text": "用户使用自己的 TypeSafe API Key，默认提供少量过滤规则，也可以自行新增、修改和关闭规则。",
+"cid": "Z751"
+},
+{
+"repo": "L20081125/dsh-lite-theme",
+"license": "MIT",
+"text": "v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地",
+"cid": "Z752"
+},
+{
+"repo": "dtsola/xiaoyaosearch-feishu-export-md",
+"license": "MIT",
+"text": "[ ] 导出模板定制 - 支持自定义Markdown导出格式",
+"cid": "Z753"
+},
+{
+"repo": "entropy-cloud/nop-entropy",
+"license": "Apache-2.0",
+"text": "软件功能：AI辅助智能代码生成系统，用户输入需求即可自动生成各种DSL模型文件，用户可以进行局部调整，最后点击生成即可生成一个完整应用",
+"cid": "Z754"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "OpenList-STRM 专注于 STRM 文件生成，以下工具可以与其配合使用，构建完整的媒体库管理方案。",
+"cid": "Z755"
+},
+{
+"repo": "konghanghang/openlist-strm",
+"license": "MIT",
+"text": "支持常见媒体格式：视频（mp4, mkv, avi, mov, flv, wmv, ts, m4v 等）、音频（mp3, flac, wav, m4a 等）；扩展名由用户在配置中自定义",
+"cid": "Z756"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "禁止崩溃 | 所有异常必须被捕获并优雅处理，任何情况下不允许未处理异常导致进程终止",
+"cid": "Z757"
+},
+{
+"repo": "NewLifeX/NewLife.IoT",
+"license": "MIT",
+"text": "DEV-2 设备信息：IDeviceInfo（Code/Name/ProductCode）+ DeviceInfo 实现（含 Protocol/Parameter）+ DeviceModel（支持子设备数组），用于平台与客户端交换设备元数据。",
+"cid": "Z758"
+},
+{
+"repo": "Poghappy/IhuoniaoN8NFirecralwrules",
+"license": "MIT",
+"text": "企业用户：需要批量数据采集服务",
+"cid": "Z759"
+},
+{
+"repo": "Xiangyu-Lou/BlueDrop",
+"license": "MIT",
+"text": "直播/录制混音 | 主播需要将手机端的伴奏/音效与自己的语音混合后推送至 OBS 等直播软件",
+"cid": "Z760"
+},
+{
+"repo": "entropy-cloud/nop-entropy",
+"license": "Apache-2.0",
+"text": "NopAiChatPrompt关联多个Response，可以测试不同AI模型对于指定Prompt的结果，并对结果进行自动评分。Response上具有属性控制是否作为缓存",
+"cid": "Z761"
+}
+]

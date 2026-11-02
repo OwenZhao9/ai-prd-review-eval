@@ -1,0 +1,1067 @@
+[
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should fetch workbooks for a valid username\", async () => {"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.1: The system MUST read network settings from config/network_settings.ini at backend startup and on explicit reload."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.6 (Added): Layer numbers MUST be strictly increasing; zero or negative invalid."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "CoinPay needs first-party merchant plugins for WooCommerce and WHMCS so merchants can accept crypto and credit card payments through CoinPay with minimal setup, consistent branding, and a unified API experience."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Logs should be human-readable and processable by standard Unix utilities"
+},
+{
+"repo": "MrThief123/care-compass",
+"license": "MIT",
+"text": "Must not reuse 2025 student code (OOS-2, BRIEF). Prior materials for understanding only."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "*The agent. Not a person, but the tracker's most frequent caller. Needs: cheap state, clear next action, a way to record evidence and discovered work, and hard rules it can't accidentally break."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "User Story (Elena): \"As a research scientist, I want to create, save, and load a recipe that specifies which material to use at which layer number, so I can design my experiments.\""
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "API errors should surface as useful notifications and retryable error states."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 6 (Submit Booking Request): As any user, I want to be able to select an available room and time slot to create a new booking. If I am a guest, I will be prompted for my email address."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "block checkout support can be phase 2 unless implementation is straightforward"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must register as a WHMCS payment gateway module."
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "Opening the app should immediately allow users to finish today's attendance."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should endpoint responses be static only, or should they support templating based on request params/body?"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "3.2 HIGH — CORS Defaults to Allow-All in Production"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Support for multiple printers from a single interface."
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should fetch data successfully\", async () => {"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "Retries must not create duplicate Attempts or child Runs."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Customers can pay generated invoices manually via CoinPay"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin must send final payable amount including taxes, shipping, and discounts"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Defer complex partial-payment support unless already natively supported by CoinPay session model"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Needs: A powerful and flexible recipe creation system; detailed logs for post-print analysis; confidence that the system will execute the plan without failure."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The SQLite cache can be deleted and rebuilt from canonical files."
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "The app should not open to a dashboard—it should open to Today, because that's the action users perform most often."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "All output should be plain text, suitable for terminal environments"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Each command should have one clear, well-defined function"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.3: The UI MUST allow view/edit with client-side validation (required fields, numeric ranges)."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As an operator, I want agent-created items to wait for my approval before they run, so agents can't generate unbounded work."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "User Story (Ben): \"As a Student, I want a single place to configure the printer's IP address and the physical profiles of our pumps so that I can set up new hardware easily.\""
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin must preserve order total integrity between WooCommerce and CoinPay"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-5.3: The system MUST have a global Emergency Stop button that immediately halts all pump activity."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.2: The recipe MUST be saved to config/recipe.txt in the format A,50:B,120:C,200."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "These are observations from the current codebase that future prompts and plans should account for."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Tenant routing should feel automatic after login/register."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Forms should prevent invalid paths, status codes, and JSON before submission."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "zenta export should produce clean output suitable for awk, grep, sort"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "The app should be deployable as a static Vite build served by nginx."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "The following deliverables must be completed before research concludes:"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-4.4: The user MUST be able to send manual pause, resume, and stop commands to the printer at any time from the web interface."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Does CoinPay support card and crypto under the same payment session or separate session types?"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 7 (View My Bookings): As an authenticated user, I want to have a dedicated section where I can view all of my upcoming and past reservations."
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Support for Pokémon Sets: Integrate with a database or a simple JSON store to allow users to use shorthand for common Smogon sets (e.g., \"Lando-T-Scarf\")."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "content must not duplicate bytes or concepts. Evidence locators must be"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.3: The UI MUST validate user input to prevent duplicate layer numbers and ensure valid materials (A, B, C, D) are selected."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Endpoint can be copy-pasted into CoinPay merchant dashboard"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Customer can retry payment if prior attempt expired or failed"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Reliability: The application should have an uptime of 99.9% and gracefully handle network connectivity issues."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Plugin should avoid blocking admin pages with remote calls unless initiated by merchant"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "distinction that matters is unchanged: what an agent can do to the board is"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint update invalidates a broad [\"endpoints\"] query key, while list queries are keyed as [\"endpoints\", controllerId]; future fixes should align cache invalidation."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 1 (Guest Access): As a guest user, I want to view the room calendar and submit a booking request without creating an account, so I can reserve a space with minimal friction."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Zenta exists solely to help terminal users cultivate mindfulness and awareness. Every feature must serve this single purpose."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As a developer, I want to press stop on a running item and have the work preserved, so I can interrupt an agent without losing what it did."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Security: All user data and authentication tokens must be handled securely. Communication with Firebase services must be over HTTPS."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Does WHMCS need support for multiple CoinPay gateway instances per currency or per business line?"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Persistent Storage: The server will be stateless. It will not save Pokémon sets, user data, or calculation history."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "must inspect local evidence first, plan gaps, discover sources when permitted,"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must utilize automated pipelines for building, testing, and deploying the Web and Android versions."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User authentication must be handled by Firebase Authentication, supporting both email/password and Google Sign-In for users who choose to create an account."
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Honest capabilities. Each harness's capabilities are declared in a file and exercised on the fixture; a run report states the support tier it ran at. Gantry never advertises a guarantee it cannot measure."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "(Added) If uart-wifi library lacks async support, wrapper will provide thread-based non-blocking pattern."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-5.2: Executing a manual pump command MUST immediately run the specified pump for the given duration."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A user can initialize repositories, assess capabilities, and start a standalone"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Three harness support tiers with a fixture per tier | Parity across all harnesses as a release gate"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The session creation payload should include, as available:"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Admin can choose allowed payment modes if supported"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Merchant branding options can be passed if supported by CoinPay"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "An agent can learn the state of the project in under 500 tokens. gw brief output stays under 25 lines by design."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint details are loaded from the endpoint list by controller rather than directly from GET /endpoints/:id, even though the service supports direct endpoint fetching."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "support burden rises because every merchant integration is custom"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "If /gantry encounters an older incomplete scope, it may delegate the missing planning work to this same workflow, but it must preserve the approval stop. The documented default remains the explicit /gantry-plan → approval → /gantry lifecycle."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Does CoinPay support sandbox webhooks distinct from production?"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Can users achieve this by combining zenta with other Unix tools?"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "support for pay links and admin-created invoices in WooCommerce"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "No fatal checkout breakage if CoinPay is disabled or misconfigured; gateway should hide itself or fail clearly"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Support both crypto and credit card payment methods through the same CoinPay integration"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Priya, the Web Developer: Priya is creating a \"Teambuilder\" React application. She wants to show users potential damage matchups for their team in real-time. She needs a serverless backend that can handle these calculations on demand."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.2: The system MUST read pump profiles (flow rates, pins) and material change parameters (drain volume, fill volume) from config/pump_profiles.json."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-3 (Performance): Web page load time should be under 3 seconds on the local network. Real-time status updates on the dashboard should have a latency of no more than 5 seconds from the actual event."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Frontend should remain responsive and reliable under slow API calls."
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Support is declared per harness in capabilities/<harness>.json — hooks, structured_output, worktree_isolation, per_role_model, parallel_round, skills_path — and grouped in three tiers. A tier is announced only after the fixture runs the full loop in it."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "Work done in one repo can inform work in another. When a memory backend is configured, an agent starts a run with relevant prior decisions in its prompt, and finished work leaves a condensed record behind without anyone writing it up."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "Closed 2026-09-14. Each was a blocking open question; the rationale is kept because the alternatives will be proposed again."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-3.1: The web application MUST manage a persistent background process (print_manager.py) to orchestrate the print."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint Forge solves this by providing a UI-managed mock API layer where users can model API surfaces close to production expectations and expose them through a runnable mock server."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "What should happen if two endpoints share the same method and full path?"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Merchant can customize gateway title and description"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Commands should work well with other Unix tools via pipes and redirection"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "Never allow an Attempt to change its own evaluator or policy."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Objective 2: Ensure System Stability: The software must be robust enough to run for 24+ hours without crashing and gracefully handle common errors like temporary network disconnects."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Allow a merchant to install a plugin, enter API credentials, and begin accepting payments quickly"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "If the user marks Absent, all scheduled lectures are automatically marked Absent, but each one can still be edited individually."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "User Story (Elena): \"As a researcher, while a multi-material print is running, I want to see a live dashboard with the printer's status, current layer, active material, and a log of events, so I can have confidence my experiment is proceeding correctly.\""
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "The legacy C++ Qt GUI will be considered deprecated and will not receive new features. It only needs to remain minimally functional for legacy users."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The system must prevent double-booking of any room for the same time slot."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 5 (View Rooms): As any user (guest or authenticated), I want to see a clear, calendar-based view of all available rooms and their schedules so I can easily find an open slot."
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "This document was authored on 2026-05-17. Issues should be tracked individually in the project's issue tracker, linking back to the relevant section number in this PRD.*"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "What exact URL should users call for a mock endpoint: app origin, mock server port, project-specific subdomain, /api, controller base path, endpoint path, or another backend-provided URL?"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A standalone Run can be created immediately without a Job."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "v0.1 — CLI core + read-only board + import. Must replace the current HTML tracker fully."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Does this feature directly support mindfulness/awareness?"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Objective 4: Deliver Clear, Real-Time Feedback: The user must always have a clear understanding of the system's current state, the action it is performing, and a log of past events."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must allow unauthenticated (guest) users to view room schedules."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Build WooCommerce first, but define the shared SDK and webhook/status model before writing platform-specific logic. WHMCS should follow immediately after using the same API client, signature verification, event mapping, and logging conventions."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must register CoinPay as a WooCommerce payment gateway."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-4.3: The user MUST be able to stop the multi-material monitoring process without stopping the underlying print job on the printer."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-5.1: The \"Manual Controls\" page MUST allow the user to select any pump (A, B, C, Drain), a direction (Forward/Reverse), and a duration in seconds."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Can this be accomplished better by composing with existing Unix tools?"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must display clear messages to the buyer during:"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The command must validate Target and Control repositories, default Control to"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-4.2: The UI MUST include an activity log that shows timestamped events from the print_manager and other backend modules."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Agentic Behavior: Each agent must demonstrate reasoning loops (not single LLM calls)"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "Complex Turn Logic: The tool will only calculate the result of a single move. It will not handle turn order, multi-turn moves, or secondary effect probabilities (e.g., the 30% chance to burn from Flamethrower)."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should account deletion also delete all projects/controllers/endpoints on the backend?"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "However, each plugin must ultimately ship in the native format expected by the target platform:"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should the landing page remain bilingual only, or should the authenticated dashboard also be localized?"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should controller base paths and endpoint paths allow route params such as /:id?"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "must probe install/build/test/cleanup, credentials, services, ports, shared state,"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "retrieval date, checksum, and license. The research bundle must be independently"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-1 (Reliability): The print_manager service must run without crashing for the duration of a multi-day print. It must attempt to reconnect to the printer at least 3 times if a connection is lost before entering an error state."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "Objective 3: Provide a User-Friendly Interface: The primary interface (web application) must be intuitive for non-developers, allowing for easy recipe creation, print monitoring, and manual control."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Automated recurring billing tokenization or saved payment method support deferred"
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Guard hooks where the harness supports them; run log; read-only dashboard | Database, MCP server, settings screen, capability tokens, mutating dashboard"
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "As a developer, I want to open a board in the browser that shows the current state without any build step, so I can see what's going on at a glance."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Should WooCommerce block checkout support be in MVP or immediately after?"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 8 (Cancel a Booking): As any user, I want to be able to cancel a booking I've made. (Guests will use the link from their confirmation email, authenticated users will do it from their account)."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Configuration should be minimal and have sensible defaults"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Performance: The calendar view should load in under 2 seconds, and booking confirmations should feel instantaneous."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The system must allow guest users to submit a booking request by providing an email address for confirmation."
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The engineering team should treat this sprint as complete when:"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-3.4: The system MUST only perform a material change for a given layer *once*."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Should mock servers be public, private to authenticated users, or protected by project tokens?"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-4.1: The web interface dashboard MUST display the following information, updated in real-time (<= 5-second latency):"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The application must be cross-platform, running on iOS, Android, and Web from a single codebase."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-3.3: When the current layer matches a layer in the recipe, the system MUST automatically execute the Material Change Sequence:"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "*Issue: POST /questions/generate makes a live call to the Gemini API on every request. There is no rate limiting or request throttling. A malicious or runaway client can exhaust the API quota within minutes."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Both plugins should integrate against a shared CoinPay API contract."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The target implementation must pass at least these scenarios:"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Marketplace packaging, docs, support workflows, public launch"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "A confirmation email with a unique management link must be sent to the guest's email address upon request."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Usability: The user interface should be intuitive and follow Material Design guidelines. The process of booking a room should take no more than three taps."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.1: The web interface MUST provide a \"Recipe Builder\" page to add, edit, and remove material change steps (Material, Layer Number)."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Define responses that frontend code can call immediately."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Store admin can see CoinPay transaction reference in order admin"
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The error UI should appear where the user is looking (near the button or content area), not as a modal dialog."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Phase 2: merchant can initiate refunds from WooCommerce admin"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Payment creation call should complete fast enough to keep checkout responsive"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "The app can fetch public holidays based on country/state, but users can enable, disable, or edit them because college calendars differ."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "A single climbhill run invocation can continue automatically within a bounded"
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-2 (Usability): The web interface must be responsive and functional on both desktop browsers and mobile/tablet devices."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "User Story 2 (Guest Booking Confirmation): As a guest user who has submitted a request, I want to provide my email and receive a confirmation link so that I can verify my booking and manage it later."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "PHP version range aligned with WHMCS support matrix"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The policy must prefer diagnostic evidence when competing explanations cannot be"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "The success of the Room Booker application will be measured by:"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Authenticated users can manage all their bookings within the app."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must create a CoinPay payment session when a customer chooses CoinPay and submits payment."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-4 (Maintainability): All configuration (network, pumps) must be stored in external files and not hard-coded. Backend modules must have clear, single responsibilities."
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "The input will be a JSON object with three main properties: attacker, defender, and field."
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Input Schema Format: The inputSchema must be a JSON Schema object with:"
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Releases must be version-controlled and triggered by specific git tag/message patterns."
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "*Issue: The file backend/.env was committed to the repository. It contains the live GEMINI_API_KEY. Any person with access to the git history can extract and abuse this key, incurring costs or exhausting the quota."
+},
+{
+"repo": "JulioBorges/gantry",
+"license": "Apache-2.0",
+"text": "Agents + code > agents alone. Every decision that must not be improvised — what is ready, what must be proven, whether gates pass, when an issue is done — is made by a workflow script. Agents never re-decide what a script decided."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Both integrations must use CoinPay as the payment orchestration layer and should support hosted checkout first, with room for deeper native checkout and advanced platform-specific features later."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-3.2: Upon starting, the print_manager service MUST continuously poll the printer for its status (specifically the current layer number)."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Reliability: Demo should complete successfully for primary scenario"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Allow login and registration from the landing page."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Future Endpoint Forge changes should generally include:"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Mock data will simulate market research sources (competitors, locations, regulations, etc.)"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Connection test should be explicit rather than automatic on every settings page load"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Collaboration: Agents must demonstrably build on each other's findings"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Mock endpoint response rendering should preserve formatting and remain readable in light/dark themes."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "Terraform state must be stored in a secure, remote GCS bucket."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Controller update support exists in the service/API layer but does not appear exposed in the current UI."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "A human can start, stop, and gate agent work from a board without touching a terminal, and can leave the terminal running unattended within limits they set."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "optionally mention crypto and credit card support in short text"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint URL copy currently builds window.location.origin + \"/api\" + endpoint.path; it does not include the controller base path in the endpoint detail page. Future work should confirm the intended public mock URL shape."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Support human-in-the-loop interaction (agents can ask user questions) | Complex UI beyond demo requirements"
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Supports different log types: distraction, reflection, insight."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "The plugin must consume CoinPay webhook events and update platform records accordingly."
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The fallback UI should display a friendly message (\"Something went wrong — please reload the page\") and a reload button."
+},
+{
+"repo": "sudo-Harshk/Skillify",
+"license": "MIT",
+"text": "The refactor must not change any user-visible behavior. All existing functionality must continue to work identically."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "NFR-10 (Time Sync Assumption): System clock must be NTP-synchronized; if drift >60 s detected, log WARNING."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Transparency: Agent reasoning and tool usage must be visible in UI"
+},
+{
+"repo": "jpbullalayao/pokemon-vgc-calc-mcp",
+"license": "MIT",
+"text": "User Interface (UI): This project is for an API server only. No web frontend will be built."
+},
+{
+"repo": "rahilp/gatewright",
+"license": "MIT",
+"text": "their answers rather than deleted, because each will be proposed again."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.4: \"Test Connection\" MUST attempt printer status query (timeout ≤ 3 s)."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-1.5 (Added): Config changes MUST be versioned (increment integer revision persisted in file comment)."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Admin can trigger manual sync from plugin UI for a given order/invoice if feasible"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Auth redirects should be deterministic across root domain, tenant subdomain, localhost, and lvh.me."
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "Demo will include both pre-recorded (high reasoning effort) and live (lower reasoning effort) versions"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Tool Registration: The MCP SDK uses setRequestHandler() instead of server.tool(). You must register two handlers:"
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "controlled evidence and returns an immutable Continuation Analysis. It must not"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "This demo will be used in conferences, customer presentations, workshops, and POCs to illustrate how Azure AI Agent Service can tackle open-ended, strategic research tasks where the path to answers is not predetermined."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "In local/docker-oriented config, the app supports lvh.me for subdomain testing."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "Admin can restrict availability by currency or country if needed later"
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Tool Callback Return: Tool callbacks return Ok<CallToolResult>, and you must extract the .value property when returning from the request handler."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "different evaluator versions or cohorts must never be aggregated as equivalent."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "The upstream OKF v0.2 specification must be vendored with source URL, commit,"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "/: public landing page with bilingual English/Persian content, feature section, workflow section, support/donate section, login/register modals, and language toggle."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Will this add complexity that outweighs the benefit?"
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "For MVP, both plugins should use CoinPay hosted checkout after payment creation."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "All booking data must be stored and retrieved from a Cloud Firestore database."
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "it(\"should handle errors gracefully\", async () => {"
+},
+{
+"repo": "cloud-ai-summit-cz/ai",
+"license": "MIT",
+"text": "User[\"USER<br/>'Should Cofilot expand to Vienna?'\"]"
+},
+{
+"repo": "hasanraiyan/resume",
+"license": "MIT",
+"text": "Opening the dashboard should answer the questions students ask most."
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Endpoint Forge should feel like a workbench, not a marketing site once the user is authenticated."
+},
+{
+"repo": "GoForthTechnology/RoomBooker",
+"license": "MIT",
+"text": "All cloud resources (GCP, Firebase) must be defined and managed using Terraform to ensure repeatability and environment consistency."
+},
+{
+"repo": "wjsutton/tableau-public-mcp",
+"license": "Apache-2.0",
+"text": "Error Handling: All errors should be caught within tool callbacks and returned as Ok results with isError: true, rather than throwing exceptions."
+},
+{
+"repo": "e6a5/zenta",
+"license": "MIT",
+"text": "Support for grep-like pattern matching in log messages."
+},
+{
+"repo": "ScionResearch/multi-material-printer",
+"license": "MIT",
+"text": "FR-2.4: The system MUST be able to import a recipe from a raw text string."
+},
+{
+"repo": "closedloop-technologies/climbhill",
+"license": "MIT",
+"text": "Optimization: what Attempt should replace the baseline within the selected"
+},
+{
+"repo": "Bytepute/endpointForge",
+"license": "MIT",
+"text": "Some notification text is mixed English/Persian and should be standardized based on page language/context."
+},
+{
+"repo": "profullstack/coinpayportal",
+"license": "MIT",
+"text": "What exact CoinPay payment statuses exist today and which should be canonical for plugins?"
+}
+]
