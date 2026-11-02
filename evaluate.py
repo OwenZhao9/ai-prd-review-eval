@@ -55,7 +55,7 @@ def main():
     review.load_env()
     items = [json.loads(l) for l in open(os.path.join(ROOT, 'data', f'{a.set}.jsonl'))]
     system = review.load_prompt(a.version)
-    ids = rule_ids(a.version); label = '功能段落' if ids[0].startswith('D') else '需求'
+    ids = rule_ids(a.version); label = '需求' if ids[0].startswith('R') else '功能段落'
     outdir = os.path.join(ROOT, 'results', a.set, a.version); os.makedirs(outdir, exist_ok=True)
     runs = []
     for run in range(a.runs):

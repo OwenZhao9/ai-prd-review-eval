@@ -53,6 +53,6 @@ def review(system, text, temperature=0.0, label='需求'):
     out = []
     for v in data.get('violations', []):
         rid = str(v.get('rule', '')).strip().upper()[:2]
-        if re.fullmatch(r'R[1-6]|D[1-3]', rid):
+        if re.fullmatch(r'R[1-6]|D[1-3]|A[1-4]', rid):
             out.append({'rule': rid, 'evidence': v.get('evidence', ''), 'reason': v.get('reason', '')})
     return out
