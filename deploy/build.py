@@ -70,7 +70,11 @@ def write_page():
         ('<span class="hint">每个功能段落查：',
          '<span class="hint">粘贴的内容会发送给 DeepSeek 模型审查，请不要粘贴涉密内容；点「填入示例 PRD」再点「开始审查」可直接看到结果。<br>每个功能段落查：'),
         ('复核后「采纳」的条目按复核结论写成标准答案，进入 <code>data/feedback_cases.jsonl</code>，下一轮评测时补进评测集。',
-         '复核后「采纳」的条目按复核结论写成标准答案，下一轮评测时补进开发集。'),
+         '复核后「采纳」的条目按复核结论写成标准答案，下一轮评测时补进开发集。「采纳」「驳回」需要复核口令，访客可以提交和查看反馈。'),
+        ("const go=async dec=>{await post('/api/feedback/resolve',{id:f.id,decision:dec});loadFb();pending()};",
+         "const go=async dec=>{let k='';try{k=localStorage.getItem('reviewKey')||''}catch{}if(!k){k=prompt('请输入复核口令')||'';if(!k)return}"
+         "try{await post('/api/feedback/resolve',{id:f.id,decision:dec,key:k});try{localStorage.setItem('reviewKey',k)}catch{}}"
+         "catch(e){try{localStorage.removeItem('reviewKey')}catch{}alert(e.message)}loadFb();pending()};"),
     ]
     for old, new in R:
         assert s.count(old) == 1, old[:50]

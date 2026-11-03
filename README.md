@@ -172,7 +172,7 @@
 
 ## 审查网页
 
-在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`。每个访客每天最多调用模型 150 次、全站每天最多 1000 次；反馈存在 Cloudflare D1 数据库。
+在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`。每个访客每天最多调用模型 150 次、全站每天最多 1000 次；反馈存在 Cloudflare D1 数据库。访客可以审查、提交和查看反馈；「采纳」「驳回」需要复核口令（Cloudflare 密钥 `REVIEW_KEY`）。
 
 本机运行：
 

@@ -109,6 +109,8 @@ export default {
       }
       if (path === '/api/feedback/resolve' && request.method === 'POST') {
         const d = await request.json();
+        // 只有复核人能采纳或驳回：口令存在 Cloudflare 密钥 REVIEW_KEY 里，没设置时一律拒绝
+        if (!env.REVIEW_KEY || d.key !== env.REVIEW_KEY) return json({ error: '复核口令不对' }, 403);
         const status = d.decision === 'accept' ? 'accepted' : 'rejected';
         const r = await env.DB.prepare("UPDATE feedback SET status = ?1 WHERE id = ?2 AND status = 'pending'").bind(status, d.id).run();
         if (!r.meta.changes) return json({ error: '找不到这条待复核的反馈' }, 404);

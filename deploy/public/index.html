@@ -49,7 +49,7 @@ select,input[type=text]{font:inherit;font-size:13px;padding:4px 8px;border-radiu
   <div id="out"></div>
 </section>
 <section id="tab-fb" hidden>
-  <p class="hint">审查结果下点「这是误判」或「漏了问题」会进入这里。复核后「采纳」的条目按复核结论写成标准答案，下一轮评测时补进开发集。</p>
+  <p class="hint">审查结果下点「这是误判」或「漏了问题」会进入这里。复核后「采纳」的条目按复核结论写成标准答案，下一轮评测时补进开发集。「采纳」「驳回」需要复核口令，访客可以提交和查看反馈。</p>
   <div id="fblist"></div>
 </section>
 </main>
@@ -118,7 +118,7 @@ async function loadFb(){const r=await (await fetch('/api/feedback')).json();cons
   r.feedback.forEach(f=>{const rules=f.level==='doc'?DOC:SENT;const d=document.createElement('div');d.className='fb';
     d.innerHTML=`<div class="meta"><span class="pill ${f.status}">${{pending:'待复核',accepted:'已采纳',rejected:'已驳回'}[f.status]}</span> ${f.time} · ${f.level==='doc'?'整段':'单条需求'} · ${f.type==='false_positive'?'认为是误判':'认为漏了问题'}：<b>${f.rule} ${esc(rules[f.rule]||'')}</b></div><div class="rt" style="margin-top:6px">${esc(f.text)}</div>${f.note?`<div class="hint">说明：${esc(f.note)}</div>`:''}`;
     if(f.status==='pending'){const a=document.createElement('div');a.className='row';a.style.margin='8px 0 0';a.innerHTML='<button class="btn" style="padding:5px 14px">采纳</button><button class="btn ghost" style="padding:5px 14px">驳回</button>';
-      const [ok,no]=a.querySelectorAll('button');const go=async dec=>{await post('/api/feedback/resolve',{id:f.id,decision:dec});loadFb();pending()};ok.onclick=()=>go('accept');no.onclick=()=>go('reject');d.appendChild(a)}
+      const [ok,no]=a.querySelectorAll('button');const go=async dec=>{let k='';try{k=localStorage.getItem('reviewKey')||''}catch{}if(!k){k=prompt('请输入复核口令')||'';if(!k)return}try{await post('/api/feedback/resolve',{id:f.id,decision:dec,key:k});try{localStorage.setItem('reviewKey',k)}catch{}}catch(e){try{localStorage.removeItem('reviewKey')}catch{}alert(e.message)}loadFb();pending()};ok.onclick=()=>go('accept');no.onclick=()=>go('reject');d.appendChild(a)}
     L.appendChild(d)})}
 async function pending(){try{const r=await (await fetch('/api/feedback')).json();const n=r.feedback.filter(f=>f.status==='pending').length;$('#pend').textContent=n?`(${n})`:''}catch(e){}}
 pending();
