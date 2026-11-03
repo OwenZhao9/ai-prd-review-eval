@@ -1,0 +1,74 @@
+{"id": "N004", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "minimal setup", "reason": "「minimal setup」是无法测量的形容词，需求没有给出可检查的量化标准（如安装步骤数或配置项数）。"}, {"rule": "R3", "evidence": "accept crypto and credit card payments through CoinPay with minimal setup, consistent branding, and a unified API experience", "reason": "这条需求同时提出多个可独立验收的目标：支付接入、配置极简、品牌一致和统一 API 体验，应拆分为多条需求。"}, {"rule": "R5", "evidence": "for WooCommerce and WHMCS", "reason": "需求指定了要基于 WooCommerce 和 WHMCS 这两个具体平台实现插件，但没有说明这是外部约束；不过这条证据也用于说明插件本身是集成场景，需谨慎判断。"}]}
+{"id": "N005", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "human-readable", "reason": "「human-readable」是无法测量的形容词，需求没有给出可检查的标准来判定日志是否达到可读性要求。"}, {"rule": "R3", "evidence": "human-readable and processable by standard Unix utilities", "reason": "「人类可读」和「可被标准 Unix 工具处理」是两个性质不同、可以各自独立验收的目标，用 and 连接在同一条需求里。"}]}
+{"id": "N008", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "create, save, and load a recipe", "reason": "创建、保存、加载是三个可以各自独立验收的动作，却写在同一条用户故事里。"}]}
+{"id": "N009", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "useful", "reason": "“useful”是无法测量的效果形容词，同一句没有给出可测量或可检查的标准，无法客观验收。"}]}
+{"id": "N010", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "select an available room and time slot to create a new booking. If I am a guest, I will be prompted for my email address.", "reason": "选择房间与时间段并创建预订、以及访客需输入邮箱，是两个可各自独立验收的要求，却写在同一条需求里。"}]}
+{"id": "N012", "labels": [], "pred": []}
+{"id": "N013", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "immediately", "reason": "“immediately”是不可测量的速度描述，没有给出可检查的时延阈值（如启动后 X 秒内可操作）。"}]}
+{"id": "N018", "labels": [], "pred": []}
+{"id": "N019", "labels": [], "pred": []}
+{"id": "N020", "labels": [], "pred": []}
+{"id": "N026", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "clear, well-defined", "reason": "用「清晰」「定义明确」这类无法测量的形容词描述效果，没有给出可检查的判定标准。"}]}
+{"id": "N028", "labels": [], "pred": []}
+{"id": "N029", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "easily", "reason": "“easily”是无法测量的效果描述，同一句中没有给出可测量的标准。"}, {"rule": "R3", "evidence": "configure the printer's IP address and the physical profiles of our pumps", "reason": "配置打印机 IP 地址与配置泵的物理配置是两项可以各自独立验收的要求，被 and 连接在同一条需求里。"}]}
+{"id": "N031", "labels": ["R2"], "pred": []}
+{"id": "N033", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "feel automatic", "reason": "「automatic」是主观感受描述，没有给出可测量的验收标准。"}]}
+{"id": "N034", "labels": [], "pred": []}
+{"id": "N035", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "clean output suitable for awk, grep, sort", "reason": "「clean output」没有可测量的标准，不同读者无法一致判断输出是否达标。"}]}
+{"id": "N036", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "static Vite build served by nginx", "reason": "需求规定了具体技术实现（Vite 构建、nginx 部署），且未说明这是外部约束所要求。"}]}
+{"id": "N039", "labels": [], "pred": []}
+{"id": "N040", "labels": ["R1", "R5"], "pred": [{"rule": "R1", "evidence": "e.g., \"Lando-T-Scarf\"", "reason": "The example list after e.g. is not closed, so it is unclear which shorthand formats must be supported."}, {"rule": "R5", "evidence": "Integrate with a database or a simple JSON store", "reason": "The requirement specifies a concrete technical implementation (database or JSON store) even though the technology choice is not driven by an external or business constraint."}, {"rule": "R3", "evidence": "Integrate with a database or a simple JSON store to allow users to use shorthand for common Smogon sets", "reason": "The requirement combines two independently verifiable requirements: the storage integration and the user-facing shorthand capability."}]}
+{"id": "N042", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "gracefully handle network connectivity issues", "reason": "「gracefully」是无法测量的效果描述，同一句没有给出可检查的标准。"}, {"rule": "R3", "evidence": "uptime of 99.9% and gracefully handle network connectivity issues", "reason": "可用性指标和网络异常处理是两个可独立验收的要求，用 and 连接在一起。"}]}
+{"id": "N047", "labels": [], "pred": []}
+{"id": "N048", "labels": ["R2", "R3"], "pred": [{"rule": "R2", "evidence": "handled securely", "reason": "“securely”是无法测量的效果描述，同一句没有给出可检查的标准（如加密算法、存储位置、访问控制条件）。"}, {"rule": "R3", "evidence": "All user data and authentication tokens must be handled securely. Communication with Firebase services must be over HTTPS.", "reason": "两个独立句子分别提出两个可以各自验收的要求：安全处理用户数据与令牌，以及与 Firebase 的通信必须使用 HTTPS。"}]}
+{"id": "N052", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "handled by Firebase Authentication", "reason": "需求指定了具体技术实现（Firebase Authentication），而该技术选择并非由业务或外部约束要求。"}]}
+{"id": "N056", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "An agent can learn the state of the project in under 500 tokens. gw brief output stays under 25 lines by design.", "reason": "包含两个可独立验收的要求（token 上限与输出行数上限），且分属不同对象，应拆分为两条需求。"}]}
+{"id": "N064", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "work well", "reason": "「work well」是无法测量的效果描述，同一句没有给出可检查的标准（如具体兼容的管道/重定向行为或测试条件）。"}]}
+{"id": "N065", "labels": [], "pred": []}
+{"id": "N067", "labels": [], "pred": []}
+{"id": "N078", "labels": ["R1", "R2"], "pred": [{"rule": "R3", "evidence": "appear where the user is looking (near the button or content area), not as a modal dialog", "reason": "「出现在用户视线所在处」和「不要用模态对话框」是两个可各自独立验收的要求，用逗号串在一起。"}]}
+{"id": "N079", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "users can enable, disable, or edit them", "reason": "启用、禁用、编辑是三个可以各自独立验收的动作，放在一条需求里构成多条需求。"}]}
+{"id": "N080", "labels": [], "pred": []}
+{"id": "N086", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "demonstrably build on each other's findings", "reason": "「demonstrably build on」没有给出可测量的判定标准或可检查条件，无法客观验收是否达成。"}]}
+{"id": "N088", "labels": [], "pred": []}
+{"id": "N089", "labels": [], "pred": []}
+{"id": "N090", "labels": [], "pred": [{"rule": "R2", "evidence": "visible", "reason": "「visible」没有给出可测量的标准（如显示位置、显示哪些字段、是否可展开），无法客观验收。"}]}
+{"id": "N094", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "return Ok<CallToolResult> ... extract the .value property", "reason": "需求规定了具体的返回类型和代码层面的取值写法（Ok<CallToolResult>、提取 .value 属性），属于实现方式约束，且未说明这是外部约束所要求。"}]}
+{"id": "N096", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "answer the questions students ask most", "reason": "没有说明是哪些问题、也没有可测量的验收标准，无法客观判断仪表盘是否达成了目标。"}, {"rule": "R6", "evidence": "the dashboard", "reason": "句首没有明确说明 dashboard 指什么，也没有给出它指代的对象。"}]}
+{"id": "N097", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "All errors should be caught within tool callbacks and returned as Ok results with isError: true, rather than throwing exceptions", "reason": "该需求规定了代码层面的异常处理方式和返回值写法（在回调内捕获、返回 Ok 结果、不抛异常），而不是业务或外部约束所要求的实现方式。"}]}
+{"id": "I001", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "and/or an addon module as appropriate", "reason": "and/or 未说明是必须同时注册两种模块还是任选其一，as appropriate 也没有给出判断标准，不同读者会得出不同理解。"}, {"rule": "R3", "evidence": "register as a WHMCS payment gateway module, and/or an addon module", "reason": "注册为支付网关模块与注册为 addon 模块是两个可各自独立验收的要求，用 and/or 并列在一起。"}]}
+{"id": "I002", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "etc.", "reason": "「etc.」使支付方式的列举未封闭，读者无法确定还支持哪些方式，不同人会有不同理解。"}]}
+{"id": "I003", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "where applicable", "reason": "「where applicable」没有说明在什么条件下适用，不同读者会对是否包含税费、运费、折扣得出不同理解。"}]}
+{"id": "I004", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "as needed", "reason": "「as needed」是模糊限定语，不同读者会得出不同理解，无法确定在什么情况下才需要防止重复预订。"}]}
+{"id": "I005", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "including but not limited to", "reason": "「including but not limited to」属于开放列举，未封闭可见内容的范围，不同读者会得出不同理解。"}]}
+{"id": "I006", "labels": ["R1"], "pred": [{"rule": "R2", "evidence": "if possible", "reason": "「if possible」使校验行为变成可选项，无法确定系统是否必须阻止非法输入，也无法验收。"}, {"rule": "R1", "evidence": "if possible", "reason": "「if possible」未说明在什么条件下可以不做校验，不同读者会得出不同理解。"}]}
+{"id": "I007", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "upcoming and/or past", "reason": "and/or 未说明是同时显示即将到来和过去的预订，还是任选其一，不同读者会得出不同理解。"}]}
+{"id": "I008", "labels": ["R1"], "pred": [{"rule": "R1", "evidence": "such as attacker, defender, field, and so on", "reason": "「such as ... and so on」的列举未封闭，读者无法确定 JSON 对象应包含哪些属性。"}]}
+{"id": "I009", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "seamless, intuitive", "reason": "用无法测量的形容词描述支付体验，同一句没有给出可测量的验收标准。"}]}
+{"id": "I010", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "quickly and reliably", "reason": "用「快速」和「可靠」描述效果，但没有给出可测量的标准（如响应时间阈值、并发成功率），无法客观验证。"}]}
+{"id": "I011", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "friendly", "reason": "「friendly」是无法测量的主观形容词，需求没有给出可检查的标准。"}, {"rule": "R2", "evidence": "easy to find", "reason": "「easy to find」没有可测量的标准，无法客观验证按钮是否容易找到。"}]}
+{"id": "I012", "labels": ["R2"], "pred": [{"rule": "R2", "evidence": "clearly visible in a user-friendly UI", "reason": "clearly visible 和 user-friendly 都是无法测量的主观形容词，没有给出可检查的标准或阈值。"}]}
+{"id": "I013", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "Retries must not create duplicate Attempts or child Runs, and every retry must be written to the audit log", "reason": "这条需求包含两个可独立验收的要求：重试不得产生重复的 Attempts 或子 Runs，以及每次重试都必须写入审计日志。"}]}
+{"id": "I014", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "Plugin must send final payable amount including taxes, shipping, and discounts; it must also email the merchant a daily summary.", "reason": "分号连接了两个可以各自独立验收的要求：发送最终应付金额，以及向商家发送每日汇总邮件。"}]}
+{"id": "I015", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "Never allow an Attempt to change its own evaluator or policy, and Attempts must expire after 24 hours", "reason": "该条需求包含两个可独立验收的要求：Attempt 不得更改自身的 evaluator 或 policy，以及 Attempt 必须在 24 小时后过期，二者性质不同，且由 and 连接。"}]}
+{"id": "I016", "labels": ["R3"], "pred": [{"rule": "R3", "evidence": "The refactor must not change any user-visible behavior, and the bundle size must drop below 500 KB", "reason": "这条需求把两个可独立验收的要求用 and 连接：行为保持不变，以及包体积小于 500 KB。"}]}
+{"id": "I017", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "minimum WHMCS version: TBD", "reason": "最低 WHMCS 版本用 TBD 占位，且未写明负责人和截止时间，待定项未闭环。"}]}
+{"id": "I018", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "maximum retry count is TBD", "reason": "最大重试次数仍是 TBD，且未写明负责人和截止时间，待定项没有闭环。"}]}
+{"id": "I019", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "booking granularity TBD", "reason": "预约粒度是待定项，且未写明负责人和截止时间，未闭环。"}]}
+{"id": "I020", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "field schema TODO", "reason": "field 的 schema 标注为 TODO 未定，且未写明负责人和截止时间，待定项未闭环。"}]}
+{"id": "I021", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "[final copy TBD]", "reason": "提示文案仍是未定值 TBD，且未写明负责人和截止时间。"}]}
+{"id": "I022", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "??? days", "reason": "保留天数是一个未定值（???），且未写明负责人和截止时间，待定项没有闭环。"}]}
+{"id": "I023", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "max JSON size is TBR", "reason": "The maximum JSON size is left as a TBR placeholder with no owner or deadline specified."}]}
+{"id": "I024", "labels": ["R4"], "pred": [{"rule": "R4", "evidence": "performance budget TBD", "reason": "性能预算使用 TBD 占位，且未写明负责人和截止时间，待定项未闭环。"}]}
+{"id": "I025", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "invoice state stored in a Redis hash keyed by invoice ID", "reason": "需求规定了具体的技术实现（用 Redis hash 存储，并以 invoice ID 为键），这不是业务或外部约束所要求的。"}]}
+{"id": "I026", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "by using a PostgreSQL advisory lock", "reason": "需求规定了具体技术实现（PostgreSQL advisory lock），而这不是外部业务约束所要求的，属于写了实现方式。"}]}
+{"id": "I027", "labels": ["R5"], "pred": [{"rule": "R3", "evidence": "view all my upcoming and past reservations", "reason": "查看即将到来的预订和查看历史预订是两个可以各自独立验收的要求，被并列在同一条需求里。"}, {"rule": "R5", "evidence": "rendered with React Query infinite scroll", "reason": "需求规定了使用 React Query 的无限滚动这一具体技术实现，而该技术选择并非业务或外部约束所要求。"}]}
+{"id": "I028", "labels": ["R5"], "pred": [{"rule": "R5", "evidence": "enforce this with a Python decorator on the update method", "reason": "需求规定了具体技术实现方式（用 Python 装饰器加在 update 方法上），而这一技术选择并非业务或外部约束所要求。"}]}
+{"id": "I029", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "It", "reason": "句首使用代词 It，且整条需求中没有出现它所指代的名词，无法确定指代对象。"}]}
+{"id": "I030", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "these", "reason": "主语关键对象用代词 these 指代，本条需求内没有出现它指代的名词，读者无法确定重复的对象是什么。"}]}
+{"id": "I031", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "This must send", "reason": "句首用代词 This，整条需求没有出现它指代的名词，无法确定主语是什么。"}]}
+{"id": "I032", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "It", "reason": "句首就用代词 It，整条需求没有出现它指代的名词（是系统、服务还是某个模块不明确）。"}]}
+{"id": "I033", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "They", "reason": "句首使用代词 They，整条需求中没有出现它指代的名词，无法确定指代对象。"}]}
+{"id": "I034", "labels": ["R6"], "pred": []}
+{"id": "I035", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "it", "reason": "句首使用代词 it，整条需求没有出现它指代的名词，无法确定约束对象是谁。"}]}
+{"id": "I036", "labels": ["R6"], "pred": [{"rule": "R6", "evidence": "They", "reason": "句首使用代词 They，整条需求中没有任何名词说明 They 指谁。"}]}

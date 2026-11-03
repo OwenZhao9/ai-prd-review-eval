@@ -46,10 +46,25 @@ def chat(system, user, temperature=0.0, retries=3):
             time.sleep(2 * (i + 1))
 
 
-def review(system, text, temperature=0.0, label='需求'):
-    raw = chat(system, f'{label}：\n{text}', temperature)
-    m = re.search(r'\{.*\}', raw, re.S)
-    data = json.loads(m.group(0)) if m else {}
+def parse_json(raw):
+    """取模型输出里的第一个 JSON 对象，后面多出的文字忽略；取不出时返回 None。"""
+    i = raw.find('{')
+    if i < 0:
+        return None
+    try:
+        return json.JSONDecoder().raw_decode(raw[i:])[0]
+    except json.JSONDecodeError:
+        return None
+
+
+def review(system, text, temperature=0.0, label='需求', attempts=3):
+    # 输出不是合法 JSON 时重新调用，不把解析失败当成「没有问题」
+    for _ in range(attempts):
+        data = parse_json(chat(system, f'{label}：\n{text}', temperature))
+        if isinstance(data, dict):
+            break
+    else:
+        raise ValueError('模型连续返回无法解析的结果')
     out = []
     for v in data.get('violations', []):
         rid = str(v.get('rule', '')).strip().upper()[:2]

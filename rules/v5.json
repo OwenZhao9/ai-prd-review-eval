@@ -1,0 +1,53 @@
+{
+ "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist (https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/)",
+ "scope": "逐条审查 PRD 中的单条需求。只收录能在单条需求内判定对错的检查项。",
+ "rules": [
+  {
+   "id": "R1",
+   "name": "歧义措辞",
+   "nasa": "C.4 Clarity: free from ambiguous terms (e.g., \"as appropriate,\" \"etc.,\" \"and/or,\" \"but not limited to\")",
+   "判定": "需求里出现会让不同读者得出不同理解的措辞，例如 as appropriate、etc.、and/or、but not limited to、as needed、if possible、where applicable、such as（后面列举未封闭）。 中文常见形式：「等」「如……」后面的列举没有封闭；「适当」「必要时」「尽量」「若干」「部分」；「关键操作」「相关角色」这类没有说明具体范围的限定词；A/B 斜杠写法没说清是「都要」还是「任选其一」。",
+   "不算": "列举已封闭（明确列出全部选项）；and/or 只是在说明两个都允许且已写清。 「支持 A 或 B」明确表示两种方式都支持、由用户任选其一，不算。 斜杠连接的是同一个开关的两个动作（「穿戴/卸下」「展开/折叠」）或明显都要支持的两项时，不算；括号里直接列出、没有「等」字的例子视为已封闭。"
+  },
+  {
+   "id": "R2",
+   "name": "不可验证",
+   "nasa": "C.4 Verifiability: free of unverifiable terms (flexible, easy, sufficient, safe, adequate, user-friendly, usable, fast, robust, quickly, easily, minimize, maximize …)",
+   "判定": "需求用了无法测量的形容词或副词描述效果（fast、easy、user-friendly、robust、seamless、intuitive、quickly、minimal、optimal 等），且同一句没有给出可测量的标准（数字、阈值、可检查的条件）。 中文常见词：快速、高效、高性能、稳定、可靠、友好、便捷、流畅、灵活、智能、丰富、全面、完整、全生命周期、严格、明确、合理、人性化。",
+   "不算": "同一句已经给出可测量标准，例如 \"fast (p95 < 200 ms)\"。 原文已经给出确切内容（例如完整的提示文案、具体阈值）时，旁边的形容词不影响验收，不算违反。 「无需额外步骤」「不显示任何……」这种可以直接检查是否发生的否定条件，不算。 只说「支持某功能」、没有用形容词或副词描述效果的，不算；「优先适配 A」这类排序说明不算。"
+  },
+  {
+   "id": "R3",
+   "name": "一条多需求",
+   "nasa": "C.4 Clarity: express only one thought per requirement statement … one subject and one predicate",
+   "判定": "一条需求里包含两个及以上可以各自独立验收的要求。以下情况算违反：两个独立的句子各自提出一个要求；用 and / also / 分号连接两个性质不同的目标（例如「可读」和「能被工具处理」、「安全处理」和「必须走 HTTPS」、「页面加载时间」和「状态更新延迟」）；用户故事里两个及以上动作各自可以单独验收（例如「创建、保存、加载」）。 中文里多个要求常用分号、逗号串在一起，或写成「兼顾速度、结构和边界」这种并列几个不同性质的目标、「支持两种操作：追问和重新分析」这种并列几个不同动作，也算违反。 分号或顿号隔开的几项分别约束不同的对象（例如「Key 只放在 .env、不写日志；界面只监听本机；素材本地保存」），各自都能单独验收，算违反；一项能力后面再加一个独立的性能或容量目标（例如「自动扩缩容，支持突发流量」「500 token 内了解项目状态，输出不超过 25 行」），也算违反。",
+   "不算": "同一个动作作用在多个对象或输入上（例如「提交前校验路径、状态码和 JSON」是一个校验动作）；同一个界面同时展示的几个组成部分（例如「显示提示文案和重载按钮」）；一个动作的必要组成部分（例如「输入邮箱和密码登录」）。 顿号或「和」连接的只是同一个动作的几个对象或几种方式（「支持真实城市和虚拟地点」「支持 OAuth 或 API Key 认证」「按联赛、时间、置信度筛选」），不算。 「用 A 或 B 实现某功能」只是在两种实现里任选一种，不算多个要求；对同一个界面元素的修饰（「一个容易找到的重载按钮」）不算单独的要求。"
+  },
+  {
+   "id": "R4",
+   "name": "待定项未闭环",
+   "nasa": "C.3: minimize TBD; mark TBR with rationale, who is responsible and by when",
+   "判定": "需求里有 TBD、TBR、TODO、待定、[placeholder]、??? 之类的未定值，且没有写明负责人和截止时间。",
+   "不算": "待定项同时写明了负责人和截止时间。"
+  },
+  {
+   "id": "R5",
+   "name": "写了实现方式",
+   "nasa": "C.2 / C.4 Compliance: free of implementation — state WHAT is needed, NOT HOW",
+   "判定": "需求规定了具体的技术实现（某个数据库、框架、库、算法、内部数据结构），而这个技术选择本身不是业务或外部约束要求的。 也包括代码层面的规定：函数或返回值类型、异常要怎样捕获和返回、某个回调或方法的写法。 中文常见写法：「基于 XX（某种技术、协议、框架）实现」，而这个技术选择不是外部约束要求的。",
+   "不算": "实现约束来自外部且写明了原因（例如必须兼容某个已有系统的接口）；产品本身就是某个技术的插件或集成。"
+  },
+  {
+   "id": "R6",
+   "name": "指代不明",
+   "nasa": "C.4 Clarity: free from indefinite pronouns (this, these)",
+   "判定": "需求的主语或关键对象是代词（it / this / these / that / they），而且在这条需求内找不到它指的是什么。句首就用代词、整条需求没有出现它指代的名词，一律算违反。",
+   "不算": "代词在同一句或前一个分句里有明确的先行词（例如「Plugin must …; it must also …」里 it 指 Plugin）；「the project」「the system」这类带定冠词的名词短语不是代词，不算违反。"
+  }
+ ],
+ "version": "v5",
+ "changes_from_v1": "按 v1 误判分析修改 R2/R3/R5/R6 的判定与不算条款，见 results/v1/errors.md 与 README",
+ "changes_from_v2": "按中文开发集误判分析，给 R1/R2/R3/R5 补中文写法，并补 R1/R2 的不算条款",
+ "changes_from_v3": "v3 召回提升但误报大涨；按中文开发集误报分析收紧 R1/R2/R3 的不算条款",
+ "changes_from_v4": "按中英文开发集 v4 的 R3 漏判（Z035、Z205、N056）和误判（N040、I011）：R3 判定补「分号隔开、约束对象不同的几项」「一项能力加一个独立的性能或容量目标」，不算补「在两种实现里任选一种」「对同一个界面元素的修饰」"
+}
