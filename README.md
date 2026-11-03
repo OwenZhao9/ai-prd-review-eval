@@ -2,6 +2,9 @@
 
 用大模型逐条审查 PRD 里的需求，并用一套带标准答案的评测集测量它审得准不准，再根据误判修改审查规则。
 
+- 每一版规则改了什么、依据哪些误判、留出集结果：[CHANGELOG.md](CHANGELOG.md)
+- 审查网页怎么用、每条规则什么意思、怎么提反馈和复核：[docs/使用指南.md](docs/使用指南.md)
+
 ## 审查规则
 
 6 条规则，全部来自 NASA Systems Engineering Handbook 附录 C《How to Write a Good Requirement — Checklist》，只收录能在单条需求内判定对错的检查项：
@@ -163,6 +166,7 @@ python3 app.py        # 打开 http://localhost:8787
 - **复核**：「反馈复核」页列出全部反馈，复核人点「采纳」或「驳回」。采纳的反馈按复核结论写成标准答案，存进 `data/feedback_cases.jsonl`；运行 `python3 merge_feedback.py` 并入开发集（只进开发集，不进留出测试集），下一轮改规则时用。
 - 「填入示例 PRD」用的是 GitHub 开源项目 caesarloo/obsidian-svn 的需求文档（MIT 许可）。
 - API Key 只在服务端从 `.env` 读取，不发到浏览器；服务只监听本机 127.0.0.1。
+- 给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。
 
 示例 PRD 上的第一条反馈：「4.2 状态刷新」段落写了「刷新失败提示并保留上次状态」，doc_v1 仍报「缺异常处理」，复核采纳为误判，已作为用例 `Fea79b46c` 并入文档级开发集。
 
