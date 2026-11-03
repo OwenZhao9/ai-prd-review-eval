@@ -2,6 +2,8 @@
 
 用大模型逐条审查 PRD 里的需求，并用一套带标准答案的评测集测量它审得准不准，再根据误判修改审查规则。
 
+在线试用：<https://ai-prd-review.photogif.workers.dev>（粘贴 PRD 即可审查；点「填入示例 PRD」再点「开始审查」可直接看到示例结果）
+
 ## 概览
 
 | 审查层 | 审查对象 | 规则来源 | 评测集（开发集 / 留出测试集） | 留出测试集结果 |
@@ -169,6 +171,10 @@
 - 账号与权限 A3：v3 留出集 F1 0.833，仍是模块里最弱的一条。
 
 ## 审查网页
+
+在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`。每个访客每天最多调用模型 150 次、全站每天最多 1000 次；反馈存在 Cloudflare D1 数据库。
+
+本机运行：
 
 ```bash
 python3 app.py        # 打开 http://localhost:8787
