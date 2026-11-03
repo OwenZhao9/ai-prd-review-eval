@@ -1,0 +1,14 @@
+// Cloudflare 部署配置。API Key 不写在这里，部署前用 Cloudflare 后台或 `wrangler secret put LLM_API_KEY` 设置为密钥。
+{
+  "name": "ai-prd-review",
+  "main": "src/index.js",
+  "compatibility_date": "2025-10-01",
+  "assets": { "directory": "public", "binding": "ASSETS" },
+  "vars": {
+    "LLM_BASE_URL": "https://api.deepseek.com",
+    "LLM_MODEL": "deepseek-chat"
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "ai-prd-review", "database_id": "8a0da921-6ca8-4f08-8c78-f466a3bd4b6b" }
+  ]
+}
