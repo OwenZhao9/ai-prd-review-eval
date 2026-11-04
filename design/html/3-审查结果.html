@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>AI 审 PRD</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; background-color: #f6f5f2; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#e5e8ff", "on-secondary-fixed": "#002110", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#910809", "outline": "#747686", "outline-variant": "#c4c5d8", "tertiary-container": "#c33228", "error-container": "#ffdad6", "on-tertiary-container": "#ffe3df", "background": "#fcf8fb", "surface": "#fcf8fb", "surface-container-low": "#f6f3f5", "on-surface": "#1b1b1d", "on-error-container": "#93000a", "on-surface-variant": "#434655", "on-primary-fixed": "#001452", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#410001", "surface-container-high": "#eae7ea", "error": "#ba1a1a", "on-error": "#ffffff", "tertiary": "#a01713", "inverse-surface": "#303032", "primary": "#0040cf", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "surface-variant": "#e4e2e4", "surface-dim": "#dcd9dc", "on-background": "#1b1b1d", "tertiary-fixed": "#ffdad5", "surface-bright": "#fcf8fb", "surface-tint": "#1f4fdf", "surface-container-highest": "#e4e2e4", "secondary-fixed-dim": "#8cd6a8", "tertiary-fixed-dim": "#ffb4aa", "inverse-primary": "#b7c4ff", "primary-container": "#2f5bea", "primary-fixed-dim": "#b7c4ff", "on-primary-fixed-variant": "#0038b7", "primary-fixed": "#dde1ff", "on-secondary-container": "#246f49", "secondary-container": "#a5f0c0", "secondary": "#1f6b45", "surface-container": "#f0edef", "inverse-on-surface": "#f3f0f2", "on-secondary-fixed-variant": "#005230", "secondary-fixed": "#a7f3c3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-md": "0.75rem", "space-sm": "0.5rem", "margin-panel": "1rem", "space-xl": "2rem", "margin": "1.5rem", "gutter-compact": "0.75rem", "gutter": "1.25rem", "space-lg": "1.25rem" }, "fontFamily": { "headline-md": ["Noto Sans"], "headline-xl": ["Noto Sans"], "label-sm": ["Noto Sans"], "body-md": ["Noto Sans"], "label-md": ["Noto Sans"], "headline-sm": ["Noto Sans"], "headline-lg": ["Noto Sans"], "body-lg": ["Noto Sans"], "body-sm": ["Noto Sans"], "code-inline": ["JetBrains Mono"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.015em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#f6f5f2] font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 h-[60px] bg-[#ffffff] border-b border-[#e4e2dc]"><div class="h-[60px] px-8 flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="font-headline-md text-headline-md text-[#1d1d1f] tracking-tight shrink-0">AI 审 PRD</div><div class="h-4 w-px bg-[#e4e2dc] shrink-0"></div><div class="font-label-sm text-label-sm text-[#6b6b70] tracking-normal truncate select-none">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div></div><nav class="flex items-center gap-space-xs bg-[#f6f5f2] p-1 rounded-lg border border-[#e4e2dc]" data-active-classes="bg-primary-container text-on-primary font-medium shadow-none"><a aria-current="page" class="px-space-lg py-1.5 rounded transition-colors select-none bg-primary-container text-on-primary font-medium shadow-none" data-path="review" href="#">审查</a><a class="px-space-lg py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors select-none text-center" data-path="feedback-audit" href="#">反馈复核</a></nav></div></header><main class="w-full pt-[60px] bg-[#f6f5f2] min-h-[calc(100vh-60px)]"><div class="max-w-7xl mx-auto px-8 py-space-xl"><div class="flex flex-col w-full gap-space-lg select-none">
+<!-- 顶部汇总卡片 -->
+<section class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm">
+<!-- 第一行：汇总统计与操作 -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg pb-space-lg">
+<!-- 统计指标组 -->
+<div class="flex flex-wrap items-center gap-space-xl">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">审查段落</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold">6</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">个</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">需求</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold">29</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">条</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">有问题的需求</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-[#b3261e] font-semibold">8</span>
+<span class="font-label-sm text-label-sm text-[#b3261e]">条</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">整段问题</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-[#b3261e] font-semibold">10</span>
+<span class="font-label-sm text-label-sm text-[#b3261e]">个</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">未审查</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">条</span>
+</div>
+</div>
+</div>
+<!-- 右上角快捷操作 -->
+<div class="flex items-center gap-space-sm self-start lg:self-center">
+<button class="h-9 px-space-md rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-body-md text-body-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">导出 Markdown</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-body-md text-body-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+<span class="">复制</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-body-md text-body-md flex items-center gap-1.5 hover:opacity-90 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span class="">导出带批注的 Word</span>
+</button>
+</div>
+</div>
+<!-- 第二行：规则标签与开关筛选 -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-lg">
+<div class="flex flex-wrap items-center gap-space-xs" id="ruleFilterContainer">
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="R1" type="button">
+<span class="">R1 歧义措辞</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">1</span>
+</button>
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="R2" type="button">
+<span class="">R2 不可验证</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">5</span>
+</button>
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="R3" type="button">
+<span class="">R3 一条多需求</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">1</span>
+</button>
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="R5" type="button">
+<span class="">R5 写了实现方式</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">2</span>
+</button>
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="D1" type="button">
+<span class="">D1 缺验收标准</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">5</span>
+</button>
+<button class="rule-chip group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#f6f5f2] hover:bg-surface-variant text-on-surface font-body-sm text-body-sm transition-all" data-filter="D2" type="button">
+<span class="">D2 缺异常处理</span>
+<span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant group-hover:bg-on-surface-variant group-hover:text-surface-container-lowest">5</span>
+</button>
+</div>
+<!-- 只看有问题 开关 -->
+<div class="flex items-center gap-space-sm shrink-0">
+<label class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer select-none" for="toggleProblemOnly">只看有问题</label>
+<button aria-checked="true" class="w-10 h-6 bg-primary-container rounded-full p-0.5 transition-colors relative flex items-center" id="toggleProblemBtn" role="switch" type="button">
+<span class="translate-x-4 w-5 h-5 bg-surface-container-lowest rounded-full transition-transform shadow-sm" id="toggleKnob"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- 主体工作区 -->
+<div class="flex flex-col lg:flex-row items-start gap-space-lg w-full">
+<!-- 左侧目录导航 -->
+<aside class="w-full lg:w-[300px] shrink-0 bg-surface-container-lowest rounded-lg p-space-md shadow-sm">
+<div class="px-space-sm py-2 mb-1 flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">文档目录</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">6 个功能段落</span>
+</div>
+<nav class="flex flex-col gap-1" id="sectionNav">
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors group" href="#section-4.1">
+<div class="flex items-center gap-2 truncate">
+<span class="font-body-md text-body-md truncate">4.1 仓库配置</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">3</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors group" href="#section-4.2">
+<div class="flex items-center gap-2 truncate">
+<span class="font-body-md text-body-md truncate">4.2 状态刷新</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">2</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors group" href="#section-4.3">
+<div class="flex items-center gap-2 truncate">
+<span class="font-body-md text-body-md truncate">4.3 状态视图</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">1</span>
+</a>
+<!-- 当前选中项 -->
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg bg-surface-container text-on-surface transition-colors font-medium" href="#section-4.4">
+<div class="flex items-center gap-2 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span class="font-body-md text-body-md truncate font-semibold">4.4 文件操作</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">7</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors group" href="#section-4.5">
+<div class="flex items-center gap-2 truncate">
+<span class="font-body-md text-body-md truncate">4.5 更新反馈</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">5</span>
+</a>
+<a class="flex items-center justify-between px-space-sm py-2 rounded-lg text-on-surface hover:bg-surface-container transition-colors group" href="#section-4.6">
+<div class="flex items-center gap-2 truncate">
+<span class="font-body-md text-body-md truncate">4.6 更新与提交</span>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] shrink-0 font-medium">1</span>
+</a>
+</nav>
+</aside>
+<!-- 右侧主区域：审查卡片 -->
+<main class="flex-1 w-full flex flex-col gap-space-lg min-w-0">
+<!-- 章节标头 -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">4.4 文件操作</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6 条需求 · 7 个问题</span>
+</div>
+</div>
+<!-- 1. 整段检查卡片 -->
+<section class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-[#b3261e]">rule_folder</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">整段检查</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#b3261e] px-2 py-0.5 rounded bg-[#fdecea] font-medium">2 个问题</span>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- 问题 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium">D2 缺异常处理</span>
+<span class="font-body-md text-body-md text-on-surface">这些操作涉及文件读写和状态变化，存在失败可能，但段内未说明任何异常处理。</span>
+</div>
+</div>
+<div>
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors inline-flex items-center gap-1" type="button">
+<span class="">这是误判</span>
+</button>
+</div>
+</div>
+<!-- 问题 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium">D1 缺验收标准</span>
+<span class="font-body-md text-body-md text-on-surface">缺少可判定做完、做对与否的验收条件或具体结果。</span>
+</div>
+</div>
+<div>
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors inline-flex items-center gap-1" type="button">
+<span class="">这是误判</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. 逐条需求审查展示 -->
+<div class="flex flex-col gap-space-md"><div class="px-1"><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">逐条需求</span></div><!-- 需求一 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#01</span><p class="font-body-lg text-body-lg text-on-surface font-normal">文件夹“还原”采用递归还原其子项，执行前需二次确认。</p></div><div class="shrink-0"><span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-[#e6f4ec] text-[#1f6b45] font-medium inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#1f6b45]"></span>未发现问题</span></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article><!-- 需求二 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#02</span><p class="font-body-lg text-body-lg text-on-surface font-normal">标记冲突已解决（svn resolve）。</p></div><div class="shrink-0"><span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-[#e6f4ec] text-[#1f6b45] font-medium inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#1f6b45]"></span>未发现问题</span></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article><!-- 需求三 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#03</span><p class="font-body-lg text-body-lg text-on-surface font-normal">更新或提交后提供冲突处理提示。</p></div><div class="shrink-0"><span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#b3261e]"></span>R3 一条多需求</span></div></div><div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm"><p class="font-body-md text-body-md text-on-surface">「更新」和「提交」是两个可各自独立验收的动作，被「或」并列在同一条需求里。</p><div class="flex items-center justify-between"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors" type="button">这是误判</button></div><div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant">修改建议：（模型给出的改写将在此显示）</span><button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm flex items-center gap-1 self-start sm:self-auto transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">check</span><span class="">采用</span></button></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article><!-- 需求四 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#04</span><p class="font-body-lg text-body-lg text-on-surface font-normal leading-relaxed">采用内联对比<mark class="bg-[#fff2b3] px-1 rounded">为主</mark>，侧边对比<mark class="bg-[#fff2b3] px-1 rounded">为辅</mark>的展示方式</p></div></div><div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm"><div class="flex items-start gap-2"><span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium shrink-0">R2 不可验证</span><p class="font-body-md text-body-md text-on-surface">「为主/为辅」没有给出可测量的比例或判定标准，无法客观验收两种展示方式各占多少。</p></div><div class="flex items-center"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors" type="button">这是误判</button></div><div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant">修改建议：（模型给出的改写将在此显示）</span><button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm flex items-center gap-1 self-start sm:self-auto transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">check</span><span class="">采用</span></button></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article><!-- 需求五 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex flex-col md:flex-row md:items-start justify-between gap-space-sm"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#05</span><p class="font-body-lg text-body-lg text-on-surface font-normal leading-relaxed">支持与<mark class="bg-[#fff2b3] px-1 rounded">最新版本</mark>的差异对比</p></div></div><div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm"><div class="flex items-start gap-2"><span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium shrink-0">R2 不可验证</span><p class="font-body-md text-body-md text-on-surface">「最新版本」没有给出可测量的判定标准（具体版本号或版本判定方式），不同读者会得出不同理解，无法客观验收。</p></div><div class="flex items-center"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors" type="button">这是误判</button></div><div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant">修改建议：（模型给出的改写将在此显示）</span><button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm flex items-center gap-1 self-start sm:self-auto transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">check</span><span class="">采用</span></button></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article><!-- 需求六 --><article class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md"><div class="flex items-start gap-3"><span class="font-code-inline text-code-inline text-on-surface-variant font-medium mt-0.5">#06</span><p class="font-body-lg text-body-lg text-on-surface font-normal leading-relaxed">对于 <mark class="bg-[#fff2b3] px-1 rounded">大文件</mark>，<mark class="bg-[#fff2b3] px-1 rounded">采用异步加载和分页显示</mark></p></div><div class="flex flex-col gap-space-md"><div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm"><div class="flex items-start gap-2"><span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium shrink-0">R2 不可验证</span><p class="font-body-md text-body-md text-on-surface">「大文件」没有给出可测量的阈值（如文件大小或行数），无法客观判定哪些文件适用该需求。</p></div><div class="flex items-center"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors" type="button">这是误判</button></div><div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant">修改建议：（模型给出的改写将在此显示）</span><button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm flex items-center gap-1 self-start sm:self-auto transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">check</span><span class="">采用</span></button></div></div><div class="bg-surface-container-low rounded-lg p-space-md flex flex-col gap-space-sm"><div class="flex items-start gap-2"><span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-[#fdecea] text-[#b3261e] font-medium shrink-0">R5 写了实现方式</span><p class="font-body-md text-body-md text-on-surface">需求直接规定了具体技术实现方式（异步加载），而该技术选择并非外部约束要求。</p></div><div class="flex items-center"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline underline-offset-4 decoration-surface-variant hover:decoration-on-surface transition-colors" type="button">这是误判</button></div><div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2"><span class="font-body-sm text-body-sm text-on-surface-variant">修改建议：（模型给出的改写将在此显示）</span><button class="h-7 px-space-sm rounded bg-surface-container hover:bg-surface-variant text-on-surface font-label-sm text-label-sm flex items-center gap-1 self-start sm:self-auto transition-colors" type="button"><span class="material-symbols-outlined text-[14px]">check</span><span class="">采用</span></button></div></div></div><div class="pt-space-xs flex justify-end"><button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm hover:underline transition-colors inline-flex items-center gap-1" type="button"><span class="material-symbols-outlined text-[14px]">flag</span><span class="">漏了问题</span></button></div></article></div>
+</main>
+</div>
+</div>
+<script>
+  // 规则筛选与开关互动简易逻辑
+  const toggleBtn = document.getElementById('toggleProblemBtn');
+  const toggleKnob = document.getElementById('toggleKnob');
+  let problemOnly = true;
+
+  if (toggleBtn && toggleKnob) {
+    toggleBtn.addEventListener('click', () => {
+      problemOnly = !problemOnly;
+      toggleBtn.setAttribute('aria-checked', problemOnly);
+      if (problemOnly) {
+        toggleBtn.classList.remove('bg-surface-variant');
+        toggleBtn.classList.add('bg-primary-container');
+        toggleKnob.classList.add('translate-x-4');
+        toggleKnob.classList.remove('translate-x-0');
+      } else {
+        toggleBtn.classList.remove('bg-primary-container');
+        toggleBtn.classList.add('bg-surface-variant');
+        toggleKnob.classList.remove('translate-x-4');
+        toggleKnob.classList.add('translate-x-0');
+      }
+    });
+  }
+
+  const chips = document.querySelectorAll('.rule-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('ring-1');
+      chip.classList.toggle('ring-primary-container');
+      chip.classList.toggle('bg-surface-container-high');
+    });
+  });
+</script></div></main>
+
+</body></html>

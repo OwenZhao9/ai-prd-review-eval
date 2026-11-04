@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>AI 审 PRD</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; background-color: #f6f5f2; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#e5e8ff", "on-secondary-fixed": "#002110", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#910809", "outline": "#747686", "outline-variant": "#c4c5d8", "tertiary-container": "#c33228", "error-container": "#ffdad6", "on-tertiary-container": "#ffe3df", "background": "#fcf8fb", "surface": "#fcf8fb", "surface-container-low": "#f6f3f5", "on-surface": "#1b1b1d", "on-error-container": "#93000a", "on-surface-variant": "#434655", "on-primary-fixed": "#001452", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#410001", "surface-container-high": "#eae7ea", "error": "#ba1a1a", "on-error": "#ffffff", "tertiary": "#a01713", "inverse-surface": "#303032", "primary": "#0040cf", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "surface-variant": "#e4e2e4", "surface-dim": "#dcd9dc", "on-background": "#1b1b1d", "tertiary-fixed": "#ffdad5", "surface-bright": "#fcf8fb", "surface-tint": "#1f4fdf", "surface-container-highest": "#e4e2e4", "secondary-fixed-dim": "#8cd6a8", "tertiary-fixed-dim": "#ffb4aa", "inverse-primary": "#b7c4ff", "primary-container": "#2f5bea", "primary-fixed-dim": "#b7c4ff", "on-primary-fixed-variant": "#0038b7", "primary-fixed": "#dde1ff", "on-secondary-container": "#246f49", "secondary-container": "#a5f0c0", "secondary": "#1f6b45", "surface-container": "#f0edef", "inverse-on-surface": "#f3f0f2", "on-secondary-fixed-variant": "#005230", "secondary-fixed": "#a7f3c3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-md": "0.75rem", "space-sm": "0.5rem", "margin-panel": "1rem", "space-xl": "2rem", "margin": "1.5rem", "gutter-compact": "0.75rem", "gutter": "1.25rem", "space-lg": "1.25rem" }, "fontFamily": { "headline-md": ["Noto Sans"], "headline-xl": ["Noto Sans"], "label-sm": ["Noto Sans"], "body-md": ["Noto Sans"], "label-md": ["Noto Sans"], "headline-sm": ["Noto Sans"], "headline-lg": ["Noto Sans"], "body-lg": ["Noto Sans"], "body-sm": ["Noto Sans"], "code-inline": ["JetBrains Mono"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.015em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#f6f5f2] font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 h-[60px] bg-[#ffffff] border-b border-[#e4e2dc]"><div class="h-[60px] px-8 flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="font-headline-md text-headline-md text-[#1d1d1f] tracking-tight shrink-0">AI 审 PRD</div><div class="h-4 w-px bg-[#e4e2dc] shrink-0"></div><div class="font-label-sm text-label-sm text-[#6b6b70] tracking-normal truncate select-none">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div></div><nav class="flex items-center gap-space-xs bg-[#f6f5f2] p-1 rounded-lg border border-[#e4e2dc]" data-active-classes="bg-primary-container text-on-primary font-medium shadow-none"><a class="px-space-lg py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors select-none text-center" data-path="review" href="#">审查</a><a aria-current="page" class="px-space-lg py-1.5 rounded transition-colors select-none bg-primary-container text-on-primary font-medium shadow-none" data-path="feedback-audit" href="#">反馈复核</a></nav></div></header><main class="w-full pt-[60px] bg-[#f6f5f2] min-h-[calc(100vh-60px)]"><div class="max-w-7xl mx-auto px-8 py-space-xl"><div class="flex flex-col w-full">
+<div class="w-full max-w-[1180px] mx-auto flex flex-col gap-space-lg">
+<!-- 顶部操作与筛选区域 -->
+<div class="bg-surface-container-lowest rounded-lg border border-[#e4e2dc] p-[18px_24px] flex flex-col gap-space-md">
+<!-- 第一行：标题与导出操作 -->
+<div class="flex items-center justify-between gap-space-lg flex-wrap">
+<div class="flex items-baseline gap-space-md">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">反馈复核</h1>
+<span class="font-body-sm text-body-sm text-[#6b6b70]">复核「这是误判」「漏了问题」两类反馈；采纳的写成评测用例，只并入开发集</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-label-sm text-label-sm text-[#6b6b70] select-none">已采纳并写成评测用例 1 条；采纳、驳回需要复核口令</span>
+<button class="inline-flex items-center justify-center px-space-md h-[36px] bg-primary-container text-on-primary rounded font-label-md text-label-md hover:bg-[#244ac5] active:bg-[#1d3eac] transition-colors cursor-pointer select-none" id="exportBtn" type="button">
+<span class="material-symbols-outlined text-[16px] mr-1">download</span>
+            导出已采纳用例
+          </button>
+</div>
+</div>
+<!-- 分隔线 -->
+<div class="h-px w-full bg-[#e4e2dc]"></div>
+<!-- 第二行：条件筛选栏 -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-md items-center">
+<!-- 状态筛选 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-[#6b6b70]">状态</label>
+<div class="relative">
+<select class="w-full h-[36px] bg-surface-container-lowest border border-[#e4e2dc] rounded px-space-md pr-8 font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:border-primary-container cursor-pointer">
+<option selected="">全部</option>
+<option>待复核</option>
+<option>已采纳</option>
+<option>已驳回</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-[#6b6b70] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- 规则筛选 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-[#6b6b70]">规则</label>
+<div class="relative">
+<select class="w-full h-[36px] bg-surface-container-lowest border border-[#e4e2dc] rounded px-space-md pr-8 font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:border-primary-container cursor-pointer"><option selected="">全部规则</option><option>R1 歧义措辞</option><option>R2 不可验证</option><option>R3 一条多需求</option><option>R4 待定项未闭环</option><option>R5 写了实现方式</option><option>R6 指代不明</option><option>D1 缺验收标准</option><option>D2 缺异常处理</option><option>D3 前后矛盾</option><option>A1 缺失败次数限制</option><option>A2 密码规则违背标准</option><option>A3 登录状态缺失效时间</option><option>A4 账号与权限操作缺日志</option></select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-[#6b6b70] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- 反馈类型筛选 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-[#6b6b70]">反馈类型</label>
+<div class="relative">
+<select class="w-full h-[36px] bg-surface-container-lowest border border-[#e4e2dc] rounded px-space-md pr-8 font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:border-primary-container cursor-pointer">
+<option selected="">全部类型</option>
+<option>认为是误判</option>
+<option>认为漏了问题</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-[#6b6b70] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- 范围筛选 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-[#6b6b70]">范围</label>
+<div class="relative">
+<select class="w-full h-[36px] bg-surface-container-lowest border border-[#e4e2dc] rounded px-space-md pr-8 font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:border-primary-container cursor-pointer">
+<option selected="">全部范围</option>
+<option>单条需求</option>
+<option>整段</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-[#6b6b70] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- 规则版本筛选 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-[#6b6b70]">规则版本</label>
+<div class="relative">
+<select class="w-full h-[36px] bg-surface-container-lowest border border-[#e4e2dc] rounded px-space-md pr-8 font-body-sm text-body-sm text-on-surface appearance-none focus:outline-none focus:border-primary-container cursor-pointer"><option selected="">全部</option><option>v4</option><option>doc_v1</option><option>module_account_v3</option></select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-[#6b6b70] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 反馈列表区域 -->
+<div class="flex flex-col gap-space-md">
+<!-- 单条复核记录卡片 -->
+<article class="bg-[#ffffff] rounded-lg border border-[#e4e2dc] p-6 flex flex-col gap-space-md">
+<!-- 卡片顶部信息行 -->
+<div class="flex items-center justify-between flex-wrap gap-space-sm border-b border-[#e4e2dc] pb-space-md">
+<div class="flex items-center flex-wrap gap-2">
+<!-- 状态标签 -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-[6px] bg-[#e6f4ec] text-[#1f6b45] border border-[#1f6b45]/15 font-label-sm text-label-sm font-medium">
+              已采纳
+            </span>
+<!-- 范围标签 -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-[6px] bg-[#eeece6] text-[#6b6b70] border border-[#e4e2dc] font-label-sm text-label-sm">
+              整段
+            </span>
+<!-- 反馈类型标签 -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-[6px] bg-[#eeece6] text-on-surface font-label-sm text-label-sm">
+              认为是误判
+            </span>
+<!-- 规则标签 -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-[6px] bg-[#fdecea] text-[#b3261e] border border-[#b3261e]/15 font-label-sm text-label-sm">
+              D2 缺异常处理
+            </span>
+<!-- 规则版本标签 -->
+<span class="inline-flex items-center px-2 py-0.5 rounded-[6px] bg-[#eeece6] text-[#6b6b70] font-label-sm text-label-sm font-code-inline text-code-inline">
+              doc_v1
+            </span>
+</div>
+<!-- 提交时间 -->
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-[#6b6b70]">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span class="">2026-11-02 20:00</span>
+</div>
+</div>
+<!-- 卡片主体原文内容 -->
+<div class="bg-[#fcfbf9] border border-[#e4e2dc] rounded-[6px] p-[14px] flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#6b6b70] select-none">段落位置</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-medium">
+              4.2 状态刷新
+            </span>
+</div>
+<div class="font-body-md text-body-md text-on-surface leading-relaxed">
+<span class="font-label-sm text-label-sm text-[#6b6b70] mr-1 select-none">原文内容：</span>
+<span class="">手动刷新状态视图（仅重新执行状态扫描，不触发更新）。刷新失败提示并保留上次状态。</span>
+</div>
+</div>
+<!-- 卡片底部：复核判定与操作 -->
+<div class="pt-1 font-body-sm text-body-sm text-[#6b6b70]">说明：（提交人未填写）</div>
+</article>
+</div>
+<!-- 底部状态指示与数量概览 -->
+<div class="flex items-center justify-between py-2 text-[#6b6b70] font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="h-1.5 w-1.5 rounded-full bg-[#1f6b45]"></span>
+<span class="">共 1 条复核数据</span>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const exportBtn = document.getElementById('exportBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', function () {
+        const originalText = exportBtn.innerHTML;
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] mr-1">check</span>已导出 1 条测试集';
+        exportBtn.classList.remove('bg-primary-container', 'hover:bg-[#244ac5]');
+        exportBtn.classList.add('bg-[#1f6b45]');
+        setTimeout(() => {
+          exportBtn.innerHTML = originalText;
+          exportBtn.classList.add('bg-primary-container', 'hover:bg-[#244ac5]');
+          exportBtn.classList.remove('bg-[#1f6b45]');
+        }, 2200);
+      });
+    }
+  });
+</script></div></main>
+
+</body></html>

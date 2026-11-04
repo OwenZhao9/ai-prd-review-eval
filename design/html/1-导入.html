@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>AI 审 PRD</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; background-color: #f6f5f2; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary-container": "#e5e8ff", "on-secondary-fixed": "#002110", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#910809", "outline": "#747686", "outline-variant": "#c4c5d8", "tertiary-container": "#c33228", "error-container": "#ffdad6", "on-tertiary-container": "#ffe3df", "background": "#fcf8fb", "surface": "#fcf8fb", "surface-container-low": "#f6f3f5", "on-surface": "#1b1b1d", "on-error-container": "#93000a", "on-surface-variant": "#434655", "on-primary-fixed": "#001452", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#410001", "surface-container-high": "#eae7ea", "error": "#ba1a1a", "on-error": "#ffffff", "tertiary": "#a01713", "inverse-surface": "#303032", "primary": "#0040cf", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "surface-variant": "#e4e2e4", "surface-dim": "#dcd9dc", "on-background": "#1b1b1d", "tertiary-fixed": "#ffdad5", "surface-bright": "#fcf8fb", "surface-tint": "#1f4fdf", "surface-container-highest": "#e4e2e4", "secondary-fixed-dim": "#8cd6a8", "tertiary-fixed-dim": "#ffb4aa", "inverse-primary": "#b7c4ff", "primary-container": "#2f5bea", "primary-fixed-dim": "#b7c4ff", "on-primary-fixed-variant": "#0038b7", "primary-fixed": "#dde1ff", "on-secondary-container": "#246f49", "secondary-container": "#a5f0c0", "secondary": "#1f6b45", "surface-container": "#f0edef", "inverse-on-surface": "#f3f0f2", "on-secondary-fixed-variant": "#005230", "secondary-fixed": "#a7f3c3" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-md": "0.75rem", "space-sm": "0.5rem", "margin-panel": "1rem", "space-xl": "2rem", "margin": "1.5rem", "gutter-compact": "0.75rem", "gutter": "1.25rem", "space-lg": "1.25rem" }, "fontFamily": { "headline-md": ["Noto Sans"], "headline-xl": ["Noto Sans"], "label-sm": ["Noto Sans"], "body-md": ["Noto Sans"], "label-md": ["Noto Sans"], "headline-sm": ["Noto Sans"], "headline-lg": ["Noto Sans"], "body-lg": ["Noto Sans"], "body-sm": ["Noto Sans"], "code-inline": ["JetBrains Mono"] }, "fontSize": { "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.015em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-[#f6f5f2] font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 left-0 right-0 z-50 h-[60px] bg-[#ffffff] border-b border-[#e4e2dc]"><div class="h-[60px] px-8 flex items-center justify-between"><div class="flex items-center gap-space-lg"><div class="font-headline-md text-headline-md text-[#1d1d1f] tracking-tight shrink-0">AI 审 PRD</div><div class="h-4 w-px bg-[#e4e2dc] shrink-0"></div><div class="font-label-sm text-label-sm text-[#6b6b70] tracking-normal truncate select-none">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div></div><nav class="flex items-center gap-space-xs bg-[#f6f5f2] p-1 rounded-lg border border-[#e4e2dc]" data-active-classes="bg-primary-container text-on-primary font-medium shadow-none"><a aria-current="page" class="px-space-lg py-1.5 rounded transition-colors select-none bg-primary-container text-on-primary font-medium shadow-none" data-path="review" href="#">审查</a><a class="px-space-lg py-1.5 rounded font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors select-none text-center" data-path="feedback-audit" href="#">反馈复核</a></nav></div></header><main class="w-full pt-[60px] bg-[#f6f5f2] min-h-[calc(100vh-60px)]"><div class="max-w-7xl mx-auto px-8 py-space-xl"><div class="flex flex-col w-full">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<div class="w-full max-w-[1080px] mx-auto flex flex-col gap-space-xl pb-16">
+<!-- 顶部标题区 -->
+<header class="flex flex-col gap-space-xs pt-4">
+<div class="flex items-center gap-2">
+
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">导入 PRD</h1>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">粘贴文字、上传文件或导入链接；导入后先看拆分结果，再开始审查</p>
+</header>
+<!-- 三栏入口矩阵 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+<!-- 卡片 1: 粘贴文字 -->
+<section class="group relative flex flex-col bg-surface-container-lowest rounded-xl p-space-lg cursor-pointer transition-all duration-150 outline outline-1 outline-[#e4e2dc] hover:outline-primary/40 hover:bg-[#faf9f6]" id="card-paste" onclick="switchMethod('paste')">
+<div class="flex items-start justify-between pb-space-md border-b border-[#e4e2dc]">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[22px] group-hover:text-primary transition-colors">edit_note</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">粘贴文字</h2>
+</div>
+
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant pt-space-md pb-4">
+          粘贴 Markdown 或纯文本
+        </p>
+<!-- 折叠/轻量内容预览 -->
+
+</section>
+<!-- 卡片 2: 上传文件 (当前激活) -->
+<section class="relative flex flex-col bg-surface-container-lowest rounded-xl p-space-lg outline outline-2 outline-primary shadow-sm" id="card-upload" onclick="switchMethod('upload')">
+<div class="flex items-start justify-between pb-space-md border-b border-[#e4e2dc]">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">upload_file</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">上传文件</h2>
+</div>
+
+</div>
+<div class="flex flex-col gap-space-md pt-space-md">
+<!-- 虚线拖放区域 -->
+<div class="relative group/drop flex flex-col items-center justify-center text-center p-6 rounded-lg bg-[#fcfbf9] border-2 border-dashed border-primary/90 hover:border-primary transition-colors cursor-pointer" id="dropzone">
+<input accept=".docx,.pptx,.pdf,.md,.txt" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full" id="file-input" type="file">
+<div class="w-10 h-10 rounded-full bg-primary-fixed/30 flex items-center justify-center text-primary mb-3 group-hover/drop:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface mb-1">
+              把文件拖到这里，或点击选择文件
+            </p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-code-inline">
+              支持 .docx .pptx .pdf .md .txt，单个文件不超过 20 MB
+            </p>
+<div class="hidden mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-secondary-container/40 text-secondary font-label-sm text-label-sm" id="selected-file-badge">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="font-code-inline truncate max-w-[200px]" id="selected-file-name">已选文件</span>
+</div>
+</div>
+<!-- 安全与隐私说明 -->
+<p class="font-label-sm text-label-sm text-[#6b6b70] leading-relaxed">
+            上传的文件在浏览器里转成文字，原文件不发送到服务器；拆好的文字会发送给 DeepSeek 模型审查，请不要上传涉密内容。
+          </p>
+</div>
+</section>
+<!-- 卡片 3: 导入链接 -->
+<section class="group relative flex flex-col bg-surface-container-lowest rounded-xl p-space-lg outline outline-1 outline-[#e4e2dc] transition-all duration-150 hover:outline-primary/40" id="card-link" onclick="switchMethod('link')">
+<div class="flex items-start justify-between pb-space-md border-b border-[#e4e2dc]">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[22px] group-hover:text-primary transition-colors">link</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">导入链接</h2>
+</div>
+
+</div>
+<div class="flex flex-col gap-3 pt-space-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            支持 GitHub 文件链接、公开网页、直接指向文档文件的链接
+          </p>
+<!-- 输入框与主色导入按钮组合 -->
+<div class="flex items-center gap-2">
+<input class="w-full h-9 px-3 rounded-lg bg-surface-container-lowest border border-[#e4e2dc] font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all font-code-inline" id="link-input" placeholder="https://..." type="url">
+<button class="h-9 px-3.5 shrink-0 rounded-lg bg-primary hover:bg-[#244ac5] active:bg-[#1d3eac] text-on-primary font-label-md text-label-md transition-colors" type="button">
+              导入
+            </button>
+</div>
+<!-- 浅红底警示提示框 -->
+<div class="bg-[#fdecea] text-[#b3261e] rounded-md px-3 py-2 font-body-sm text-body-sm leading-snug flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">info</span>
+<span class="">这个链接需要登录才能看，请在原平台导出为 Word（.docx）或 PDF 后上传</span>
+</div>
+<!-- 次要操作 -->
+<div class="pt-1 flex items-center justify-between">
+<button class="h-8 px-3 rounded-lg bg-surface-container-lowest border border-[#e4e2dc] hover:bg-[#f6f5f2] hover:border-[#d5d3cc] font-label-sm text-label-sm text-on-surface transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">sync_alt</span>
+<span class="">从飞书导入</span>
+</button>
+
+</div>
+</div>
+</section>
+</div>
+<!-- 底部辅助入口：填入示例 PRD -->
+<footer class="flex flex-col items-center justify-center pt-4">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-primary hover:text-[#244ac5] hover:bg-primary-fixed/20 active:bg-primary-fixed/30 font-label-md text-label-md transition-colors" id="demo-prd-btn" onclick="applyDemoPrd()" type="button">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span class="">填入示例 PRD</span>
+</button>
+<div class="hidden mt-2 font-label-sm text-label-sm text-secondary flex items-center gap-1" id="demo-indicator">
+<span class="material-symbols-outlined text-[14px]">check</span>
+<span class="">已自动载入开源项目 caesarloo/obsidian-svn 的需求文档规范</span>
+</div>
+</footer>
+</div>
+<script>
+    function switchMethod(activeId) {
+      const cards = {
+        paste: document.getElementById('card-paste'),
+        upload: document.getElementById('card-upload'),
+        link: document.getElementById('card-link')
+      };
+
+      Object.keys(cards).forEach(key => {
+        const el = cards[key];
+        const tag = el.querySelector('.method-tag');
+        if (key === activeId) {
+          el.className = 'relative flex flex-col bg-surface-container-lowest rounded-xl p-space-lg outline outline-2 outline-primary shadow-sm cursor-default';
+          if (tag) {
+            tag.className = 'method-tag font-label-sm text-label-sm text-primary font-medium px-2 py-0.5 rounded bg-primary-fixed/40';
+            tag.textContent = '当前选择';
+          }
+        } else {
+          el.className = 'group relative flex flex-col bg-surface-container-lowest rounded-xl p-space-lg outline outline-1 outline-[#e4e2dc] hover:outline-primary/40 hover:bg-[#faf9f6] cursor-pointer transition-all duration-150';
+          if (tag) {
+            tag.className = 'method-tag font-label-sm text-label-sm text-outline px-2 py-0.5 rounded bg-surface-container-low';
+            tag.textContent = key === 'link' ? '网页/仓库' : '可选';
+          }
+        }
+      });
+    }
+
+    const fileInput = document.getElementById('file-input');
+    const badge = document.getElementById('selected-file-badge');
+    const nameEl = document.getElementById('selected-file-name');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+          const file = e.target.files[0];
+          nameEl.textContent = file.name;
+          badge.classList.remove('hidden');
+        }
+      });
+    }
+
+    function applyDemoPrd() {
+      switchMethod('upload');
+      nameEl.textContent = 'caesarloo_obsidian-svn_prd.md';
+      badge.classList.remove('hidden');
+      const ind = document.getElementById('demo-indicator');
+      if (ind) {
+        ind.classList.remove('hidden');
+      }
+    }
+  </script>
+</div></div></main>
+
+</body></html>
