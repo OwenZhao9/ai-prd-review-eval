@@ -1,14 +1,14 @@
-// Cloudflare 部署配置。API Key 不写在这里，部署前用 Cloudflare 后台或 `wrangler secret put LLM_API_KEY` 设置为密钥。
+// Cloudflare Pages 部署配置：静态页面在 public/，接口由 public/_worker.js（转出 src/index.js）处理。
+// API Key、复核口令不写在这里，用 `wrangler pages secret put LLM_API_KEY`、`wrangler pages secret put REVIEW_KEY` 设置为密钥。
 {
   "name": "ai-prd-review",
-  "main": "src/index.js",
+  "pages_build_output_dir": "./public",
   "compatibility_date": "2025-10-01",
-  "assets": { "directory": "public", "binding": "ASSETS" },
   "vars": {
     "LLM_BASE_URL": "https://api.deepseek.com",
     "LLM_MODEL": "deepseek-chat"
   },
   "d1_databases": [
-    { "binding": "DB", "database_name": "ai-prd-review", "database_id": "8a0da921-6ca8-4f08-8c78-f466a3bd4b6b" }
+    { "binding": "DB", "database_name": "ai-prd-review", "database_id": "8a0da921-6ca8-4f08-8c78-f466a3bd4b6b", "migrations_dir": "migrations" }
   ]
 }

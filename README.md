@@ -2,7 +2,7 @@
 
 用大模型逐条审查 PRD 里的需求，并用一套带标准答案的评测集测量它审得准不准，再根据误判修改审查规则。
 
-在线试用：<https://ai-prd-review.photogif.workers.dev>（粘贴、上传或导入链接即可审查；点「填入示例 PRD」再点「下一步」「开始审查」可直接看到示例结果）
+在线试用：<https://ai-prd-review.pages.dev>（粘贴、上传或导入链接即可审查；点「填入示例 PRD」再点「下一步」「开始审查」可直接看到示例结果）
 
 ## 概览
 
@@ -172,7 +172,7 @@
 
 ## 审查网页
 
-在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`，数据存在 Cloudflare D1 数据库。页面按 Stitch 设计稿（`design/stitch/all.html`）实现，宽 768 的窄屏下目录收成顶部下拉。需求文档见 [docs/PRD.md](docs/PRD.md)。
+在线版：<https://ai-prd-review.pages.dev>，部署在 Cloudflare Pages，代码在 `deploy/`，数据存在 Cloudflare D1 数据库。页面按 Stitch 设计稿（`design/stitch/all.html`）实现，宽 768 的窄屏下目录收成顶部下拉。需求文档见 [docs/PRD.md](docs/PRD.md)。
 
 - **导入**：粘贴文字；上传 .docx / .pptx / .pdf / .md / .txt（20 MB 以内，在浏览器里转成文字，原文件不上传）；导入 GitHub、GitLab 文件链接、公开网页和文件直链。飞书、腾讯文档、语雀、Notion、Google 文档的链接不抓取，提示导出后上传；飞书另有授权导入（需要在部署配置里填飞书应用的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`）。
 - **拆分预览**：目录树列出每个段落和拆出的需求条数，可以勾选段落、把跳过的段落改为审查、删改需求。表格行按「表头：值」转写，代码块里的行不算需求，超过 1500 字的段落分组做整段检查。标题或正文含登录、密码、权限等词的段落自动勾选账号与权限检查。
@@ -199,8 +199,9 @@
 python3 deploy/build.py                      # 生成 deploy/public/ 和 deploy/src/prompts.js
 cd deploy
 npx wrangler d1 migrations apply ai-prd-review --remote   # 首次升级在线库
-npx wrangler secret put LLM_API_KEY          # 模型 Key 只存在 Cloudflare 密钥里
-npx wrangler deploy
+npx wrangler pages secret put LLM_API_KEY --project-name ai-prd-review   # 模型 Key 只存在 Cloudflare 密钥里
+npx wrangler pages secret put REVIEW_KEY --project-name ai-prd-review    # 复核口令
+npx wrangler pages deploy --project-name ai-prd-review --branch main
 ```
 
 本机版 `python3 app.py`（打开 http://localhost:8787）保留原来的粘贴审查和反馈复核。给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。

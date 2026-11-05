@@ -6,7 +6,7 @@
 
 - 拉代码：`git clone https://github.com/OwenZhao9/ai-prd-review-eval.git`
 - 需求文档：`docs/PRD.md`，30 条需求 F1–F30，每条的验收标准就是完成标准。
-- 现有线上版：https://ai-prd-review.photogif.workers.dev
+- 现有线上版：https://ai-prd-review.pages.dev
   - 跑在 Cloudflare Workers 上，用 D1 数据库。
   - 后端：`deploy/src/index.js`，接口有 /api/meta、/api/item、/api/feedback、/api/feedback/resolve。
   - 前端：`deploy/build.py` 根据 `web/index.html` 生成 `deploy/public/index.html`。

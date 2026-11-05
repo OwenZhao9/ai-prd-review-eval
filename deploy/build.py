@@ -1,4 +1,4 @@
-"""生成 Cloudflare 版审查网页需要的文件。
+"""生成 Cloudflare Pages 版审查网页需要的文件。
 
 用法：python3 deploy/build.py [--refresh-sample]
 - src/prompts.js：三组定版规则（单句 v4、文档级 doc_v1、账号与权限 module_account_v3）的提示词和规则名，从 rules/、prompts/ 读取。
@@ -48,6 +48,8 @@ def write_page():
     s = s[:start] + json.dumps(rule_names(), ensure_ascii=False) + s[end:]
     os.makedirs(os.path.join(PUBLIC, 'github'), exist_ok=True)
     open(os.path.join(PUBLIC, 'index.html'), 'w').write(s)
+    # Pages 用 public/_worker.js 处理接口，部署时 wrangler 会把 src/index.js 一起打包
+    open(os.path.join(PUBLIC, '_worker.js'), 'w').write("// 由 deploy/build.py 生成：Pages 的接口入口，代码在 src/index.js\nexport { default } from '../src/index.js';\n")
     for f in ('split.js', 'convert.js'):
         shutil.copy(os.path.join(ROOT, 'web', f), os.path.join(PUBLIC, f))
     shutil.copy(os.path.join(HERE, 'github', 'review-pr.mjs'), os.path.join(PUBLIC, 'github', 'review-pr.mjs'))

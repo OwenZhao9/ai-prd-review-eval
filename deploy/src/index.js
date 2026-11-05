@@ -1,4 +1,4 @@
-// 审查网页的 Cloudflare Worker 版本：静态页面由 assets 提供，这里只处理 /api/*。
+// 审查网页的 Cloudflare Pages 版本：静态页面由 env.ASSETS 提供，这里只处理 /api/*。
 // 浏览器把 PRD 拆成审查项后逐项调用 /api/item（免费版每次请求最多 50 个子请求，所以不在服务端一次审完）。
 // API Key、复核口令只从 Cloudflare 密钥读取，不会发到浏览器。服务器不保存 PRD 原文。
 import { PROMPTS, RULE_NAMES, VERSIONS } from './prompts.js';
@@ -130,7 +130,7 @@ async function fetchDoc(url) {
     if (LOGIN_HOST.test(u.hostname)) throw Object.assign(new Error('没有读到正文，这个页面可能需要登录，请下载文件后上传'), { code: 'login' });
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), FETCH_MS);
     let r;
-    try { r = await fetch(cur, { redirect: 'manual', signal: ctl.signal, headers: { 'User-Agent': 'ai-prd-review (+https://ai-prd-review.photogif.workers.dev)' } }); }
+    try { r = await fetch(cur, { redirect: 'manual', signal: ctl.signal, headers: { 'User-Agent': 'ai-prd-review (+https://ai-prd-review.pages.dev)' } }); }
     catch (e) { clearTimeout(t); throw Object.assign(new Error(`这个链接打不开（${e.name === 'AbortError' ? '10 秒内没有响应' : '连接失败'}），请下载文件后上传`), { code: 'open' }); }
     if (r.status >= 300 && r.status < 400 && r.headers.get('location')) { clearTimeout(t); cur = new URL(r.headers.get('location'), cur).href; continue; }
     if (!r.ok) { clearTimeout(t); throw Object.assign(new Error(`这个链接打不开（返回 ${r.status}），请检查链接是否正确、文档是否公开，或下载文件后上传`), { code: 'open' }); }
