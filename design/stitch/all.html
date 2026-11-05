@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>AI 审 PRD - 全部界面系统</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; font-family: 'Noto Sans SC', sans-serif; }
+  body { background-color: #0f172a; color: #1e293b; margin: 0; padding: 24px; }
+  .screen-frame {
+    background: #f5f6f8;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    margin-bottom: 48px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #cbd5e1;
+  }
+  .tag-danger { background-color: #fee2e2; color: #dc2626; border-radius: 4px; padding: 2px 6px; font-size: 12px; font-weight: 500; }
+  .tag-success { background-color: #dcfce7; color: #16a34a; border-radius: 4px; padding: 2px 6px; font-size: 12px; font-weight: 500; }
+  .tag-warning { background-color: #fef3c7; color: #d97706; border-radius: 4px; padding: 2px 6px; font-size: 12px; font-weight: 500; }
+  .tag-gray { background-color: #f1f5f9; color: #64748b; border-radius: 4px; padding: 2px 6px; font-size: 12px; font-weight: 500; }
+  .tag-blue { background-color: #e0e7ff; color: #1f4fd1; border-radius: 4px; padding: 2px 6px; font-size: 12px; font-weight: 500; }
+  .btn-primary { background-color: #1f4fd1; color: #ffffff; border-radius: 6px; padding: 6px 16px; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; }
+  .btn-outline { border: 1px solid #cbd5e1; background: #ffffff; color: #334155; border-radius: 6px; padding: 5px 14px; font-weight: 500; }
+  .btn-disabled { background-color: #cbd5e1; color: #94a3b8; cursor: not-allowed; border-radius: 6px; padding: 6px 16px; font-weight: 500; }
+  .screen-header-banner {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #3b82f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="max-w-[1440px] mx-auto text-white mb-6">
+  <h1 class="text-2xl font-bold text-slate-100">AI 审 PRD — 完整桌面与响应式设计总览</h1>
+  <p class="text-sm text-slate-400 mt-1">包含规范定义的所有 42+ 个状态与视图（严格依照原文案、13 条规则代码与视觉系统设计）</p>
+</div>
+
+<!-- ==================== 0 导入·粘贴文字 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【0 导入·粘贴文字】</span><span class="text-xs text-slate-400">1440 × 800</span></div>
+  <!-- Topbar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-100 cursor-pointer">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-100 cursor-pointer">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <!-- Content -->
+  <div class="p-8 max-w-4xl mx-auto flex flex-col justify-between min-h-[600px]">
+    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+      <div class="flex border-b border-slate-200 mb-5 pb-2 space-x-6 text-sm">
+        <span class="font-bold text-[#1f4fd1] border-b-2 border-[#1f4fd1] pb-2 cursor-pointer">粘贴文字</span>
+        <span class="text-slate-500 hover:text-slate-700 cursor-pointer pb-2">上传文件</span>
+        <span class="text-slate-500 hover:text-slate-700 cursor-pointer pb-2">导入链接</span>
+      </div>
+      <textarea class="w-full h-72 border border-slate-200 rounded-lg p-4 text-sm text-slate-700 focus:outline-none focus:border-[#1f4fd1] resize-none leading-relaxed" readonly># 1. 项目背景与用户故事
+作为企业级知识库平台的注册用户，当我在移动端登录后需要快速检索过往历史文档。
+系统应该在用户输入关键字后以最快速度展示联想搜索词，并根据用户的使用频率智能重排序。
+
+# 2. 账号与权限
+用户在登录界面连续输入错误密码达到上限后，系统需要进行限制。
+对于敏感数据页面，如果管理员更改了成员的访问级别，需要立即刷新前端的查看状态并记录操作日志。</textarea>
+      <div class="flex items-center justify-between mt-4">
+        <a href="#" class="text-xs text-[#1f4fd1] hover:underline">填入示例 PRD</a>
+        <button class="btn-primary">下一步：拆分预览</button>
+      </div>
+    </div>
+    <div class="text-center text-xs text-slate-400 mt-8">文档内容只发送给审查用的模型，不保存在服务器上</div>
+  </div>
+</div>
+
+<!-- ==================== 1-2 上传完成 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【1-2 上传完成】</span><span class="text-xs text-slate-400">1440 × 800</span></div>
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <div class="p-8 max-w-4xl mx-auto flex flex-col justify-between min-h-[600px]">
+    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+      <div class="flex border-b border-slate-200 mb-5 pb-2 space-x-6 text-sm">
+        <span class="text-slate-500 pb-2">粘贴文字</span>
+        <span class="font-bold text-[#1f4fd1] border-b-2 border-[#1f4fd1] pb-2">上传文件</span>
+        <span class="text-slate-500 pb-2">导入链接</span>
+      </div>
+      <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center bg-slate-50/50">
+        <div class="text-xs text-slate-400 mb-6">支持 .md .docx .pdf .pptx .txt，单个文件不超过 20 MB</div>
+        <div class="max-w-md mx-auto bg-white border border-slate-200 rounded-lg p-4 flex items-center justify-between text-left shadow-sm">
+          <div>
+            <div class="text-sm font-semibold text-slate-800">产品需求文档.docx</div>
+            <div class="text-xs text-slate-400 mt-1">1.8 MB · 已识别 13 个段落、29 条需求</div>
+          </div>
+          <button class="btn-outline text-xs text-slate-600">重新上传</button>
+        </div>
+      </div>
+      <div class="flex justify-end mt-6">
+        <button class="btn-primary">下一步：拆分预览</button>
+      </div>
+    </div>
+    <div class="text-center text-xs text-slate-400 mt-8">文档内容只发送给审查用的模型，不保存在服务器上</div>
+  </div>
+</div>
+
+<!-- ==================== 1-3 上传失败 & 1-4 上传解析中 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 1-3 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【1-3 上传失败】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="border-2 border-dashed border-red-200 rounded-xl p-8 text-center bg-red-50/30">
+          <div class="text-red-600 text-sm font-medium mb-3">这个 PDF 是扫描图片，读不出文字。请上传可复制文字的 PDF，或改用 Word / Markdown</div>
+          <button class="btn-outline text-xs text-slate-700">重新上传</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 1-4 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【1-4 上传解析中】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center bg-slate-50">
+          <div class="text-sm font-semibold text-slate-800 mb-2">产品需求文档.docx</div>
+          <div class="text-xs text-slate-500 mb-2">正在转换为文档结构… 62%</div>
+          <div class="w-64 mx-auto bg-slate-200 rounded-full h-2 overflow-hidden mb-6">
+            <div class="bg-[#1f4fd1] h-full" style="width: 62%;"></div>
+          </div>
+          <button class="btn-disabled">下一步：拆分预览</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 1-5 拖动文件 & 1-6 格式不支持 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 1-5 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【1-5 拖动文件】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="border-2 border-dashed border-[#1f4fd1] bg-blue-50/40 rounded-xl p-12 text-center">
+          <div class="text-base font-bold text-[#1f4fd1]">松开即可上传</div>
+          <div class="text-xs text-slate-400 mt-2">支持 .md .docx .pdf .pptx .txt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 1-6 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【1-6 格式不支持】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="border-2 border-dashed border-amber-200 rounded-xl p-8 text-center bg-amber-50/30">
+          <div class="text-amber-800 text-sm font-medium mb-3">不支持 .doc 格式，请在 Word 里另存为 .docx 后再上传</div>
+          <button class="btn-outline text-xs">重新选择文件</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 1-7 ~ 1-11 导入链接各种状态 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【1-7 至 1-11 导入链接状态矩阵】</span></div>
+  <div class="p-8 grid grid-cols-2 gap-6">
+    <!-- 1-7 导入链接成功 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-5">
+      <div class="text-xs font-bold text-slate-400 mb-2">1-7 导入链接</div>
+      <input type="text" class="w-full border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 bg-slate-50 mb-2" value="https://github.com/company/repo/blob/main/docs/prd_auth_v2.md" readonly>
+      <div class="text-xs text-slate-400 mb-3">支持 GitHub、GitLab、公开网页和文件直链</div>
+      <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+        <span class="text-xs text-slate-600 font-medium">已获取：33 个段落、91 条需求</span>
+        <button class="btn-primary text-xs">下一步：拆分预览</button>
+      </div>
+    </div>
+    <!-- 1-8 链接获取中 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-5">
+      <div class="text-xs font-bold text-slate-400 mb-2">1-8 链接获取中</div>
+      <input type="text" class="w-full border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 bg-slate-50 mb-3" value="https://gitlab.internal/platform/specs/checkout.md" readonly>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2 text-xs text-slate-500">
+          <span class="inline-block w-3.5 h-3.5 border-2 border-[#1f4fd1] border-t-transparent rounded-full animate-spin"></span>
+          <span>正在获取文档…</span>
+        </div>
+        <button class="btn-disabled text-xs">下一步：拆分预览</button>
+      </div>
+    </div>
+    <!-- 1-9 需要登录的链接 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-5">
+      <div class="text-xs font-bold text-slate-400 mb-2">1-9 需要登录的链接</div>
+      <input type="text" class="w-full border border-slate-200 rounded-lg p-2.5 text-xs text-slate-700 bg-slate-50 mb-2" value="https://company.feishu.cn/docx/doxcnxxxxxxxxxxxxx" readonly>
+      <div class="p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800 mb-3">
+        这个链接需要登录才能打开。可以在飞书里导出为 Word 再上传，或点下面按钮授权导入
+      </div>
+      <button class="btn-primary text-xs">从飞书导入</button>
+    </div>
+    <!-- 1-10 链接打不开 & 1-11 文件直链 -->
+    <div class="bg-white border border-slate-200 rounded-xl p-5 space-y-4">
+      <div>
+        <div class="text-xs font-bold text-slate-400 mb-2">1-10 链接打不开</div>
+        <div class="p-2.5 bg-red-50 border border-red-200 rounded text-xs text-red-600">
+          链接打不开（返回 404），请检查链接是否正确、文档是否公开
+        </div>
+      </div>
+      <div class="pt-2 border-t border-slate-100">
+        <div class="text-xs font-bold text-slate-400 mb-2">1-11 文件直链</div>
+        <input type="text" class="w-full border border-slate-200 rounded p-2 text-xs text-slate-700 bg-slate-50 mb-2" value="https://assets.cloud.com/specs/spec_2025.md" readonly>
+        <div class="text-xs text-slate-600 flex items-center justify-between">
+          <span>识别为「Markdown 文件」· 已识别 18 个段落、45 条需求</span>
+          <button class="btn-primary text-xs">下一步：拆分预览</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 1-12 ~ 1-14 飞书弹窗 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【1-12、1-13、1-14 从飞书导入弹窗流程】</span></div>
+  <div class="p-8 grid grid-cols-3 gap-6 bg-slate-200/50">
+    <!-- 1-12 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 flex flex-col justify-between">
+      <div>
+        <div class="text-base font-bold text-slate-900 mb-2">从飞书导入</div>
+        <div class="text-xs text-slate-500 leading-relaxed">需要授权读取所选文档、只读不改。系统仅在审查过程中提取文本用于质量检验。</div>
+      </div>
+      <div class="flex justify-end space-x-3 mt-8">
+        <button class="btn-outline text-xs">取消</button>
+        <button class="btn-primary text-xs">去飞书授权</button>
+      </div>
+    </div>
+    <!-- 1-13 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 flex flex-col justify-between">
+      <div>
+        <div class="text-base font-bold text-slate-900 mb-4">从飞书导入</div>
+        <div class="space-y-3 text-xs">
+          <div class="flex items-center text-emerald-600 font-medium">
+            <span class="w-4">✓</span> 创建导出任务
+          </div>
+          <div class="flex items-center text-[#1f4fd1] font-medium">
+            <span class="inline-block w-3 h-3 border-2 border-[#1f4fd1] border-t-transparent rounded-full animate-spin mr-1"></span>
+            等待飞书导出 进行中
+          </div>
+          <div class="flex items-center text-slate-400">
+            <span class="w-4">○</span> 下载文档 未开始
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end mt-8">
+        <button class="btn-disabled text-xs">请稍候…</button>
+      </div>
+    </div>
+    <!-- 1-14 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 flex flex-col justify-between">
+      <div>
+        <div class="text-base font-bold text-red-600 mb-2">从飞书导入失败</div>
+        <div class="text-xs font-semibold text-slate-800 mb-2">飞书返回：没有这个文档的读取权限</div>
+        <div class="text-xs text-slate-500 leading-relaxed bg-slate-50 p-2.5 rounded border border-slate-200">
+          解决办法：请联系文档所有者在飞书文档权限设置中添加读取权限，或选择公开只读分享。
+        </div>
+      </div>
+      <div class="flex justify-end space-x-3 mt-8">
+        <button class="btn-outline text-xs">取消</button>
+        <button class="btn-primary text-xs">重试</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2-1 拆分预览 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【2-1 拆分预览】</span><span class="text-xs text-slate-400">1440 × 800</span></div>
+  <!-- Topbar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <!-- Summary bar -->
+  <div class="bg-slate-100 border-b border-slate-200 px-6 py-2.5 flex items-center justify-between">
+    <div class="text-xs text-slate-600 font-medium">13 个段落（跳过 5 个）· 29 条需求 · 预计调用模型 35 次</div>
+    <button class="btn-primary text-xs">开始审查</button>
+  </div>
+  <!-- Two Column Layout -->
+  <div class="grid grid-cols-12 min-h-[580px]">
+    <!-- Left Tree -->
+    <div class="col-span-4 bg-white border-r border-slate-200 p-4 space-y-1">
+      <div class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider">文档目录树</div>
+      <div class="p-2 rounded bg-slate-50 flex items-center justify-between text-xs border border-transparent hover:border-slate-200">
+        <div class="flex items-center space-x-2 text-slate-400">
+          <input type="checkbox" disabled class="rounded text-slate-400">
+          <span>目录</span>
+        </div>
+        <span class="tag-gray text-[10px]">已跳过</span>
+      </div>
+      <div class="p-2 rounded bg-slate-50 flex items-center justify-between text-xs border border-transparent hover:border-slate-200">
+        <div class="flex items-center space-x-2 text-slate-400">
+          <input type="checkbox" disabled class="rounded text-slate-400">
+          <span>修订记录</span>
+        </div>
+        <span class="tag-gray text-[10px]">已跳过</span>
+      </div>
+      <div class="p-2 rounded bg-blue-50 border border-blue-200 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-2 text-slate-800 font-semibold">
+          <input type="checkbox" checked class="rounded text-[#1f4fd1]">
+          <span>4.4 文件操作</span>
+        </div>
+        <span class="text-xs text-[#1f4fd1] font-medium">拆出 4 条需求</span>
+      </div>
+      <div class="p-2 rounded hover:bg-slate-50 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-2 text-slate-700">
+          <input type="checkbox" checked class="rounded text-[#1f4fd1]">
+          <span>5.1 历史记录查询</span>
+        </div>
+        <span class="text-xs text-slate-400">拆出 6 条需求</span>
+      </div>
+      <div class="p-2 rounded hover:bg-slate-50 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-2 text-slate-700">
+          <input type="checkbox" checked class="rounded text-[#1f4fd1]">
+          <span>8. 账号与权限</span>
+        </div>
+        <span class="text-xs text-slate-400">拆出 9 条需求</span>
+      </div>
+    </div>
+    <!-- Right Requirement list -->
+    <div class="col-span-8 p-6 space-y-4 bg-slate-50">
+      <div class="text-xs font-bold text-slate-600 mb-2">当前所选段落：4.4 文件操作</div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>需求 #1</span>
+          <button class="text-[#1f4fd1] hover:underline">编辑</button>
+        </div>
+        <div class="text-xs text-slate-800 font-medium">当用户在前端点击导出 PDF 按钮时，系统应以极快速度将文档渲染为图片后再进行封装打包。</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>需求 #2</span>
+          <button class="text-[#1f4fd1] hover:underline">编辑</button>
+        </div>
+        <div class="text-xs text-slate-800 font-medium">对于超过 20MB 的超大文件，系统弹窗提示用户并在后台进行异步压缩上传。</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>需求 #3</span>
+          <button class="text-[#1f4fd1] hover:underline">编辑</button>
+        </div>
+        <div class="text-xs text-slate-800 font-medium">文件上传成功后应当自动在云存储中创建副本，相关配置项留待后续讨论确定。</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>需求 #4</span>
+          <button class="text-[#1f4fd1] hover:underline">编辑</button>
+        </div>
+        <div class="text-xs text-slate-800 font-medium">如果出现服务器连接中断异常，必须有重试机制。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 2-2 长文档 & 2-3 额度不够 & 2-4 PPT & 2-5 Word修订 & 2-6 编辑需求 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 2-2 长文档 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【2-2 长文档】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="bg-blue-50 border border-blue-200 p-3 rounded text-xs text-blue-900 font-medium">
+        一份 25 个段落、167 条需求的长文档 · 超过 1500 字的长段落按小节分组显示
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold text-slate-800">8. 账号与权限规则组</span>
+          <span class="tag-blue">账号与权限规则组自动生效</span>
+        </div>
+        <div class="text-xs text-slate-500 mb-3">表格转写需求（保留表头字段）：</div>
+        <div class="bg-slate-50 p-2.5 rounded border border-slate-200 text-xs text-slate-700">
+          [表格行 1] 角色: 审计员 | 操作: 导出明细 | 判定条件: 需二级主管审批后方可下载
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 2-3 额度不够 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【2-3 额度不够】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="bg-amber-50 border border-amber-300 p-3 rounded text-xs text-amber-800 font-medium">
+        今天剩余额度只够审前 8 个段落，后面的段落会标为未审查
+      </div>
+      <div class="bg-white border border-slate-200 rounded-lg p-4 flex items-center justify-between">
+        <span class="text-xs text-slate-700">7.2 数据迁移脚本 (Python)</span>
+        <span class="tag-gray">代码块，不审查</span>
+      </div>
+    </div>
+  </div>
+  <!-- 2-4 PPT & 2-5 Word有修订 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【2-4 PPT】与【2-5 Word 有修订】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="bg-slate-50 border border-slate-200 p-3 rounded">
+        <div class="text-xs font-bold text-slate-700 mb-2">PPT 目录树结构：</div>
+        <div class="flex space-x-3 text-xs text-slate-600">
+          <span class="px-2 py-1 bg-white border border-slate-200 rounded">第 1 页</span>
+          <span class="px-2 py-1 bg-white border border-slate-200 rounded">第 2 页</span>
+          <span class="px-2 py-1 bg-white border border-slate-200 rounded">第 3 页</span>
+        </div>
+      </div>
+      <div class="bg-blue-50 border border-blue-200 p-3 rounded text-xs text-blue-900 font-medium">
+        这份 Word 有未接受的修订，按接受全部修订后的内容审查
+      </div>
+    </div>
+  </div>
+  <!-- 2-6 编辑需求和改为审查 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【2-6 编辑需求和改为审查】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="flex justify-between items-center bg-slate-50 p-3 rounded border border-slate-200 text-xs">
+        <span class="font-medium text-slate-700">1. 背景与目标（已改为审查，+2 条需求）</span>
+        <span class="text-xs font-semibold text-[#1f4fd1]">预计调用 38 次 (原35次)</span>
+      </div>
+      <div class="bg-white border-2 border-[#1f4fd1] rounded-lg p-3 space-y-2">
+        <div class="text-xs text-slate-400 font-semibold">需求 #2 (处于编辑状态)</div>
+        <textarea class="w-full text-xs p-2 border border-slate-200 rounded resize-none">系统应当在弱网环境下提供本地离线缓存，并在重连后静默同步至云端。</textarea>
+        <div class="flex justify-end space-x-2">
+          <button class="btn-outline text-xs">取消</button>
+          <button class="btn-primary text-xs">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-1 审查中 & 3-2 审查结束·有未完成 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 3-1 审查中 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-1 审查中】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="flex justify-between items-center">
+        <div class="w-2/3">
+          <div class="text-xs text-slate-600 font-semibold mb-1">已审 14 / 35</div>
+          <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+            <div class="bg-[#1f4fd1] h-full" style="width: 40%;"></div>
+          </div>
+        </div>
+        <button class="btn-outline text-xs text-red-600 border-red-200 hover:bg-red-50">停止</button>
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-white p-3 rounded border border-slate-200 flex justify-between items-center">
+          <span>当用户点击导出 PDF 时，系统应以极快速度渲染...</span>
+          <span class="tag-danger">R2 不可验证</span>
+        </div>
+        <div class="bg-white p-3 rounded border border-slate-200 flex justify-between items-center">
+          <span>系统在登录成功后应记录本次登录 IP 与设备序列号。</span>
+          <span class="tag-success">未发现问题</span>
+        </div>
+        <div class="bg-blue-50/50 p-3 rounded border border-blue-200 flex justify-between items-center">
+          <span class="text-slate-600">正在审查：密码重置安全校验规则...</span>
+          <span class="inline-block w-4 h-4 border-2 border-[#1f4fd1] border-t-transparent rounded-full animate-spin"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3-2 审查结束·有未完成 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-2 审查结束·有未完成】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="bg-slate-100 p-3 rounded border border-slate-200 text-xs font-semibold text-slate-800">
+        完成 160 条，失败 3 条，额度用完未审 4 条
+      </div>
+      <div class="space-y-2 text-xs">
+        <div class="bg-red-50 p-3 rounded border border-red-200 flex justify-between items-center">
+          <span class="text-red-700">需求 #45: 接口调用超时异常处理机制 (模型超时响应)</span>
+          <button class="btn-outline text-xs text-red-600 border-red-300">重试</button>
+        </div>
+        <div class="bg-slate-100 p-3 rounded border border-slate-200 text-slate-400">
+          需求 #161: 账号注销冷静期配置规则 (额度用完未审)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-3 审查结果 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【3-3 审查结果】</span><span class="text-xs text-slate-400">1440 × 850</span></div>
+  <!-- Topbar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <!-- Filter & Actions Bar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between text-xs">
+    <div class="flex items-center space-x-6">
+      <span class="font-bold text-slate-800">29 条需求，19 个问题</span>
+      <label class="flex items-center space-x-2 text-slate-600 cursor-pointer">
+        <input type="checkbox" checked class="rounded text-[#1f4fd1]">
+        <span>只看有问题</span>
+      </label>
+      <div class="flex items-center space-x-2">
+        <span class="text-slate-400">规则筛选：</span>
+        <select class="border border-slate-200 rounded px-2 py-1 text-slate-700 bg-white">
+          <option>全部规则</option>
+          <option>R1 歧义措辞</option>
+          <option>R2 不可验证</option>
+          <option>R3 一条多需求</option>
+          <option>R4 待定项未闭环</option>
+          <option>R5 写了实现方式</option>
+          <option>R6 指代不明</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex space-x-3">
+      <button class="btn-outline text-xs">导出评审意见</button>
+      <button class="btn-outline text-xs">导出带批注的 Word</button>
+    </div>
+  </div>
+  <!-- Two Columns -->
+  <div class="grid grid-cols-12 min-h-[600px]">
+    <!-- Left Tree -->
+    <div class="col-span-3 bg-white border-r border-slate-200 p-4 space-y-1 text-xs">
+      <div class="p-2.5 rounded bg-blue-50 border border-blue-200 flex justify-between font-semibold text-slate-800">
+        <span>4.4 文件操作</span>
+        <span class="tag-danger text-[10px]">3 个问题</span>
+      </div>
+      <div class="p-2.5 rounded hover:bg-slate-50 flex justify-between text-slate-600">
+        <span>5.1 历史记录查询</span>
+        <span class="tag-danger text-[10px]">4 个问题</span>
+      </div>
+      <div class="p-2.5 rounded hover:bg-slate-50 flex justify-between text-slate-600">
+        <span>8. 账号与权限</span>
+        <span class="tag-danger text-[10px]">7 个问题</span>
+      </div>
+    </div>
+    <!-- Right Problem list -->
+    <div class="col-span-9 p-6 space-y-4 bg-slate-50">
+      <div class="text-xs font-bold text-slate-500 mb-1">段落：4.4 文件操作</div>
+      <!-- Issue Card 1 -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+        <div class="text-xs text-slate-800 font-semibold leading-relaxed">
+          当用户在前端点击导出 PDF 按钮时，系统应以极快速度将文档渲染为图片后再进行封装打包。
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="tag-danger">R1 歧义措辞</span>
+          <span class="tag-danger">R2 不可验证</span>
+          <span class="tag-danger">R5 写了实现方式</span>
+        </div>
+        <div class="text-xs text-slate-500 bg-slate-50 p-2.5 rounded border border-slate-100">
+          原因：「极快速度」无量化基准不可验证测试；「渲染为图片封装打包」直接指定了底层技术实现方式。
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <button class="btn-primary text-xs">修改建议</button>
+          <div class="flex space-x-2">
+            <button class="btn-outline text-xs">这是误判</button>
+            <button class="btn-outline text-xs">漏了问题</button>
+          </div>
+        </div>
+      </div>
+      <!-- Issue Card 2 -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+        <div class="text-xs text-slate-800 font-semibold leading-relaxed">
+          文件上传成功后应当自动在云存储中创建副本，相关配置项留待后续讨论确定。
+        </div>
+        <div class="flex items-center space-x-2">
+          <span class="tag-danger">R4 待定项未闭环</span>
+        </div>
+        <div class="text-xs text-slate-500 bg-slate-50 p-2.5 rounded border border-slate-100">
+          原因：包含「留待后续讨论确定」未决说明，进入开发评审前必须明确闭环。
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <button class="btn-primary text-xs">修改建议</button>
+          <div class="flex space-x-2">
+            <button class="btn-outline text-xs">这是误判</button>
+            <button class="btn-outline text-xs">漏了问题</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-4 筛选与未审查 & 3-5 展开未发现问题 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 3-4 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-4 筛选和未审查】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="bg-white border border-slate-200 p-3 rounded text-xs space-y-1">
+        <div class="font-bold text-slate-800">当前筛选：R2 不可验证</div>
+        <div class="text-amber-700 font-medium">未审查 1 个段落</div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded p-4 text-xs space-y-2">
+        <div class="font-medium text-slate-800">系统应支持海量并发用户同时在线编辑，保证流畅。</div>
+        <span class="tag-danger">R2 不可验证</span>
+      </div>
+    </div>
+  </div>
+  <!-- 3-5 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-5 展开未发现问题】</span></div>
+    <div class="p-6 space-y-4">
+      <div class="text-xs text-slate-500 font-medium">已关闭「只看有问题」开关：</div>
+      <div class="bg-white border border-slate-200 rounded p-4 text-xs flex justify-between items-center">
+        <span class="text-slate-700">登录成功后在主界面右上角展示用户真实姓名。</span>
+        <span class="tag-success">未发现问题</span>
+      </div>
+      <div class="bg-white border border-slate-200 rounded p-4 text-xs flex justify-between items-center">
+        <span class="text-slate-700">当密码输入错误 5 次后，账号冻结 15 分钟。</span>
+        <span class="tag-gray">漏了问题 · 已提交</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-6 ~ 3-8 反馈弹窗与提交状态 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【3-6、3-7、3-8 反馈闭环流程】</span></div>
+  <div class="p-8 grid grid-cols-3 gap-6 bg-slate-200/50">
+    <!-- 3-6 这是误判 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 space-y-3">
+      <div class="text-sm font-bold text-slate-900">反馈·这是误判</div>
+      <div class="text-xs bg-slate-50 p-2 rounded text-slate-600 border border-slate-100">
+        原需求：当网络异常时系统给出 Toast 提示。<br>
+        被报出规则：<span class="tag-danger text-[10px]">D1 缺异常流程</span>
+      </div>
+      <div class="space-y-1.5 text-xs text-slate-700">
+        <div class="font-medium mb-1">误判原因：</div>
+        <label class="block"><input type="radio" name="w1" checked> 规则理解偏差（原文已包含）</label>
+        <label class="block"><input type="radio" name="w1"> 属于非功能需求不适用此规则</label>
+        <label class="block"><input type="radio" name="w1"> 上下文存在补充说明</label>
+      </div>
+      <input type="text" placeholder="填写备注说明..." class="w-full border border-slate-200 rounded p-2 text-xs">
+      <div class="text-[11px] text-slate-400">隐私提示：反馈内容将脱敏后用于规则评测数据集优化。</div>
+      <div class="flex justify-end"><button class="btn-primary text-xs">提交</button></div>
+    </div>
+    <!-- 3-7 漏了问题 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 space-y-3">
+      <div class="text-sm font-bold text-slate-900">反馈·漏了问题</div>
+      <div class="text-xs text-slate-600">原需求：支持用户使用微信一键登录并绑定原有手机号。</div>
+      <div class="text-xs">
+        <div class="font-medium mb-1 text-slate-700">选择漏掉的规则：</div>
+        <select class="w-full border border-slate-200 rounded p-2 text-xs">
+          <option>A1 登录失败处理</option>
+          <option>A4 权限变更</option>
+          <option>D1 缺异常流程</option>
+          <option>D2 缺验收标准</option>
+        </select>
+      </div>
+      <textarea placeholder="填写说明：如缺少未绑定手机号时的处理路径..." class="w-full border border-slate-200 rounded p-2 text-xs resize-none h-16"></textarea>
+      <div class="flex justify-end"><button class="btn-primary text-xs">提交</button></div>
+    </div>
+    <!-- 3-8 反馈已提交 -->
+    <div class="bg-white rounded-xl shadow-lg border border-slate-200 p-6 flex flex-col justify-between">
+      <div class="space-y-3">
+        <div class="text-sm font-bold text-slate-900">结果页状态反馈</div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded text-xs">
+          需求 #1: 当用户在前端点击导出 PDF 按钮时...<br>
+          <span class="tag-gray mt-2 inline-block">已反馈误判</span>
+        </div>
+      </div>
+      <div class="p-3 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-800 font-medium">
+        反馈已提交，维护人复核后会用于改进规则
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-9 ~ 3-12 修改建议与再审对比 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 3-9 修改建议展开 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-9 修改建议】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
+        <div class="text-xs font-semibold text-slate-700">修改建议卡片</div>
+        <div class="grid grid-cols-2 gap-3 text-xs">
+          <div class="bg-red-50/50 p-2.5 rounded border border-red-100">
+            <div class="font-bold text-red-700 mb-1">原文</div>
+            <div class="text-slate-700">系统应以<span class="bg-red-200 text-red-900 font-bold px-0.5">极快速度</span>完成渲染并打包。</div>
+          </div>
+          <div class="bg-emerald-50/50 p-2.5 rounded border border-emerald-100">
+            <div class="font-bold text-emerald-700 mb-1">建议改写</div>
+            <div class="text-slate-700">系统应在<span class="bg-emerald-200 text-emerald-900 font-bold px-0.5"> 3 秒内</span>完成导出文件打包生成。</div>
+          </div>
+        </div>
+        <div class="flex justify-end space-x-2">
+          <button class="btn-outline text-xs">复制</button>
+          <button class="btn-primary text-xs">采用</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3-10 修改建议已采用 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-10 修改建议已采用】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
+        <div class="text-xs font-medium text-slate-800">系统应在 3 秒内完成导出文件打包生成。</div>
+        <div class="flex items-center justify-between">
+          <span class="tag-blue">已采用，再审后确认</span>
+          <button class="btn-outline text-xs">重新修改</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3-11 再审对比 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-11 再审对比】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2 text-xs">
+        <div class="font-bold text-[#1f4fd1]">之前 2 个问题 → 现在 0 个</div>
+        <div class="text-slate-400 line-through">R1 歧义措辞 · 原文包含「极快速度」</div>
+        <div class="text-slate-400 line-through">R2 不可验证 · 无具体性能验收标准</div>
+        <div class="text-emerald-600 font-medium">✓ 已全部消除</div>
+      </div>
+    </div>
+  </div>
+  <!-- 3-12 再审对比·有新出现 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-12 再审对比·有新出现】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3 text-xs">
+        <div class="text-slate-700">新改写需求：管理员可在后台随时调整配置参数，配置即时生效。</div>
+        <div class="flex space-x-2">
+          <span class="tag-danger">R1 歧义措辞 <span class="text-[10px] bg-red-600 text-white rounded px-1 ml-1">新出现</span></span>
+          <span class="tag-danger">R2 不可验证 <span class="text-[10px] bg-red-600 text-white rounded px-1 ml-1">新出现</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3-13 账号与权限结果 & 3-14 上传Word后 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 3-13 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-13 账号与权限结果】</span></div>
+    <div class="p-6 space-y-3 text-xs">
+      <div class="bg-white border border-slate-200 p-3 rounded">
+        <div class="font-bold text-slate-800 mb-1">8.1 登录</div>
+        <span class="tag-danger">A1 登录失败处理</span> <span class="tag-danger">A3 登录状态时长</span>
+      </div>
+      <div class="bg-white border border-slate-200 p-3 rounded">
+        <div class="font-bold text-slate-800 mb-1">8.2 密码</div>
+        <span class="tag-danger">A2 密码规则</span>
+      </div>
+      <div class="bg-white border border-slate-200 p-3 rounded">
+        <div class="font-bold text-slate-800 mb-1">8.3 权限</div>
+        <span class="tag-danger">A4 权限变更</span>
+      </div>
+    </div>
+  </div>
+  <!-- 3-14 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【3-14 上传 Word 后】</span></div>
+    <div class="p-6 flex flex-col justify-between min-h-[220px]">
+      <div class="flex items-center space-x-4">
+        <button class="btn-primary text-xs">导出带批注的 Word</button>
+        <span class="text-xs text-emerald-600 font-medium">✓ 已支持原生 DOCX 批注挂载</span>
+      </div>
+      <div class="border-t border-slate-200 pt-3">
+        <a href="#" class="text-xs text-slate-400 hover:text-red-500">清除本机保存的结果</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 4-1 ~ 4-4 导出相关视图 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 4-1 & 4-2 导出评审意见弹窗 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【4-1 导出评审意见】与【4-2 已复制】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3 text-xs">
+        <div class="flex justify-between items-center">
+          <span class="font-bold text-slate-800 text-sm">导出评审意见预览</span>
+          <div class="flex space-x-2">
+            <span class="px-2 py-0.5 bg-blue-100 text-[#1f4fd1] font-bold rounded">Markdown</span>
+            <span class="px-2 py-0.5 text-slate-500 rounded">纯文本</span>
+          </div>
+        </div>
+        <div class="bg-slate-50 p-3 rounded border border-slate-200 font-mono text-[11px] text-slate-600 h-36 overflow-y-auto leading-relaxed">
+### 4.4 文件操作
+- 原需求：当用户在前端点击导出 PDF 按钮时，系统应以极快速度将文档渲染为图片...
+- 问题：R1 歧义措辞、R2 不可验证
+- 建议：明确最大允许渲染响应耗时不超过 3 秒。
+        </div>
+        <div class="flex justify-between items-center pt-2">
+          <span class="text-emerald-600 font-medium">已复制 19 条评审意见</span>
+          <div class="space-x-2">
+            <button class="btn-outline text-xs">复制</button>
+            <button class="btn-primary text-xs">下载</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 4-3 & 4-4 带批注的 Word -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【4-3 带批注的 Word】与【4-4 找不到原位置】</span></div>
+    <div class="p-6">
+      <div class="bg-white border border-slate-300 rounded shadow p-5 grid grid-cols-12 gap-4 text-xs min-h-[260px]">
+        <!-- Word Body -->
+        <div class="col-span-8 space-y-3 border-r border-slate-100 pr-3">
+          <div class="font-bold text-slate-900 border-b pb-1">4.4 文件操作 [批注标号 1]</div>
+          <p class="text-slate-700 leading-relaxed bg-amber-50">
+            当用户在前端点击导出 PDF 按钮时，系统应以极快速度将文档渲染为图片... [批注标号 2]
+          </p>
+        </div>
+        <!-- Annotation Sidebar -->
+        <div class="col-span-4 space-y-3 bg-slate-50 p-3 rounded">
+          <div class="p-2 bg-white border border-amber-200 rounded shadow-xs">
+            <div class="font-bold text-amber-700 text-[11px]">批注 1 (段落级)</div>
+            <div class="text-[10px] text-slate-600">原句在文档里找不到，批注加在所在段落标题上</div>
+          </div>
+          <div class="p-2 bg-white border border-red-200 rounded shadow-xs">
+            <div class="font-bold text-red-700 text-[11px]">批注 2 (句子级)</div>
+            <div class="text-[10px] text-slate-600">【R1 歧义措辞】「极快速度」无量化基准</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 5-1 ~ 5-4 反馈复核视图 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【5-1 待复核】</span><span class="text-xs text-slate-400">1440 × 800</span></div>
+  <!-- Topbar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <!-- Two Column Layout -->
+  <div class="grid grid-cols-12 min-h-[550px]">
+    <!-- Left Filter -->
+    <div class="col-span-3 bg-white border-r border-slate-200 p-5 space-y-4 text-xs">
+      <div>
+        <div class="font-bold text-slate-700 mb-2">状态筛选</div>
+        <div class="space-y-1">
+          <div class="p-1.5 bg-blue-50 text-[#1f4fd1] font-semibold rounded">待复核 (12)</div>
+          <div class="p-1.5 text-slate-600 hover:bg-slate-50 rounded">已采纳 (48)</div>
+          <div class="p-1.5 text-slate-600 hover:bg-slate-50 rounded">已驳回 (8)</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-bold text-slate-700 mb-2">反馈类型</div>
+        <div class="space-y-1">
+          <div class="p-1.5 bg-slate-100 font-semibold rounded">全部类型</div>
+          <div class="p-1.5 text-slate-600 hover:bg-slate-50 rounded">误判</div>
+          <div class="p-1.5 text-slate-600 hover:bg-slate-50 rounded">漏报</div>
+        </div>
+      </div>
+      <div>
+        <div class="font-bold text-slate-700 mb-2">规则分类</div>
+        <select class="w-full border border-slate-200 rounded p-1.5 text-xs text-slate-700">
+          <option>全部 13 条规则</option>
+          <option>R1 歧义措辞</option>
+          <option>R2 不可验证</option>
+        </select>
+      </div>
+    </div>
+    <!-- Right Feedback list -->
+    <div class="col-span-9 p-6 space-y-4 bg-slate-50">
+      <!-- Item 1 -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3 text-xs">
+        <div class="flex justify-between items-center">
+          <span class="tag-warning">误判反馈</span>
+          <span class="text-slate-400">提交时间：2025-05-12 14:32</span>
+        </div>
+        <div>
+          <div class="text-slate-400 font-medium">原需求：</div>
+          <div class="text-slate-800 font-semibold mt-0.5">当网络超时后弹出重试按钮引导用户再次尝试。</div>
+        </div>
+        <div class="bg-slate-50 p-2.5 rounded border border-slate-100 space-y-1">
+          <div><span class="text-slate-400">模型结果：</span> <span class="tag-danger text-[10px]">D1 缺异常流程</span></div>
+          <div><span class="text-slate-400">用户反馈：</span> 需求已明确给出网络超时这一具体异常的处理动作，属于模型误报。</div>
+        </div>
+        <div class="flex justify-end space-x-2 pt-2 border-t border-slate-100">
+          <button class="btn-outline text-xs text-red-600 border-red-200">驳回</button>
+          <button class="btn-primary text-xs">采纳</button>
+        </div>
+      </div>
+      <!-- 5-2 & 5-3 展示 -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white border border-emerald-200 rounded-xl p-4 text-xs space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="tag-success">5-2 已采纳</span>
+            <button class="btn-outline text-[11px]">导出已采纳用例</button>
+          </div>
+          <div class="text-emerald-700 font-medium">已写成评测用例 (Case #209)</div>
+        </div>
+        <div class="bg-white border border-red-200 rounded-xl p-4 text-xs space-y-2">
+          <span class="tag-danger">5-3 已驳回</span>
+          <div class="text-slate-600">驳回原因：原需求仅写了界面展示，未规定后台失败重试次数，模型判定准确。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 5-4 空状态 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【5-4 空】</span></div>
+  <div class="p-16 text-center bg-white flex flex-col items-center justify-center min-h-[300px]">
+    <div class="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-4">∅</div>
+    <div class="text-sm font-bold text-slate-800">还没有反馈</div>
+    <div class="text-xs text-slate-400 mt-1">当审查遇到误报或漏报时，提交的反馈会归集于此处由维护人复核</div>
+  </div>
+</div>
+
+<!-- ==================== 6-1 ~ 6-3 GitHub 集成 ==================== -->
+<div class="grid grid-cols-2 gap-6 max-w-[1440px] mx-auto mb-12">
+  <!-- 6-1 接入 GitHub -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【6-1 接入 GitHub】</span></div>
+    <div class="p-6 space-y-3 text-xs">
+      <div>
+        <label class="font-bold text-slate-700">仓库名称</label>
+        <input type="text" class="w-full border border-slate-200 rounded p-2 mt-1" value="company-org/product-specs">
+      </div>
+      <div>
+        <label class="font-bold text-slate-700">PRD 文件路径</label>
+        <input type="text" class="w-full border border-slate-200 rounded p-2 mt-1" value="docs/**/*.md">
+      </div>
+      <div>
+        <label class="font-bold text-slate-700">模型接口地址</label>
+        <input type="text" class="w-full border border-slate-200 rounded p-2 mt-1" value="https://api.deepseek.com/v1">
+      </div>
+      <div>
+        <label class="font-bold text-slate-700">密钥名称</label>
+        <input type="text" class="w-full border border-slate-200 rounded p-2 mt-1" value="DEEPSEEK_API_KEY">
+      </div>
+      <div class="bg-slate-900 text-slate-200 p-3 rounded font-mono text-[11px] leading-relaxed">
+name: PRD Review CI
+on: [pull_request]
+jobs:
+  review:
+    uses: ai-prd-review/action@v4
+      </div>
+      <button class="btn-primary text-xs w-full">复制配置</button>
+    </div>
+  </div>
+  <!-- 6-2 & 6-3 GitHub 合并请求评论 -->
+  <div class="screen-frame">
+    <div class="screen-header-banner"><span>【6-2 & 6-3 合并请求评论】</span></div>
+    <div class="p-6 space-y-4">
+      <!-- 6-3 失败提示 -->
+      <div class="bg-amber-50 border border-amber-300 p-2.5 rounded text-xs text-amber-800 font-medium">
+        整段检查调用失败，可重新运行
+      </div>
+      <!-- 评论卡片 -->
+      <div class="bg-white border border-slate-300 rounded-lg p-4 shadow-sm text-xs space-y-3">
+        <div class="font-bold text-slate-900 text-sm border-b pb-2">
+          AI 审 PRD：本次改动 2 条需求，发现 0 个问题
+        </div>
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b text-slate-400">
+              <th class="py-1">段落</th>
+              <th class="py-1">需求</th>
+              <th class="py-1">问题</th>
+              <th class="py-1">建议</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-700">
+            <tr class="border-b">
+              <td class="py-1.5 font-medium">4.1 认证</td>
+              <td class="py-1.5">支持扫码登录</td>
+              <td class="py-1.5 text-emerald-600">无</td>
+              <td class="py-1.5 text-slate-400">无修改建议</td>
+            </tr>
+            <tr>
+              <td class="py-1.5 font-medium">4.2 登出</td>
+              <td class="py-1.5">30分钟无动作自动退出</td>
+              <td class="py-1.5 text-emerald-600">无</td>
+              <td class="py-1.5 text-slate-400">无修改建议</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 7-1 & 7-2 健康看板与全部指标 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【7-1 健康看板】与【7-2 全部指标】</span><span class="text-xs text-slate-400">1440 × 900</span></div>
+  <!-- Topbar -->
+  <div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-lg font-bold text-slate-900 tracking-tight">AI 审 PRD</div>
+      <div class="text-xs text-slate-400 mt-0.5">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+    </div>
+    <div class="flex space-x-2">
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">审查</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">反馈复核</span>
+      <span class="px-4 py-1.5 rounded-md text-sm font-medium text-white bg-[#1f4fd1]">健康看板</span>
+    </div>
+    <div class="w-32"></div>
+  </div>
+  <!-- Content -->
+  <div class="p-8 space-y-8 bg-slate-50">
+    <!-- 4 Metric Cards -->
+    <div class="grid grid-cols-4 gap-6">
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs text-slate-500 font-medium">单句规则 F1</div>
+        <div class="text-2xl font-bold text-slate-900 mt-2">89.4%</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs text-slate-500 font-medium">文档级规则 F1</div>
+        <div class="text-2xl font-bold text-slate-900 mt-2">84.1%</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs text-slate-500 font-medium">账号与权限 F1</div>
+        <div class="text-2xl font-bold text-slate-900 mt-2">91.8%</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="text-xs text-slate-500 font-medium">干净需求被错报率</div>
+        <div class="text-2xl font-bold text-emerald-600 mt-2">3.2%</div>
+      </div>
+    </div>
+
+    <!-- 13 条规则横向条形图 -->
+    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+      <div class="text-sm font-bold text-slate-900 mb-4">13 条规则 F1 表现</div>
+      <div class="space-y-2.5 text-xs">
+        <div class="flex items-center"><span class="w-32 text-slate-600">R1 歧义措辞</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 88%;"></div></div><span class="w-10 text-right font-medium">88%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">R2 不可验证</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 92%;"></div></div><span class="w-10 text-right font-medium">92%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">R3 一条多需求</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 85%;"></div></div><span class="w-10 text-right font-medium">85%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">R4 待定项未闭环</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 95%;"></div></div><span class="w-10 text-right font-medium">95%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">R5 写了实现方式</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 81%;"></div></div><span class="w-10 text-right font-medium">81%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">R6 指代不明</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 84%;"></div></div><span class="w-10 text-right font-medium">84%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">D1 缺异常流程</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 86%;"></div></div><span class="w-10 text-right font-medium">86%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">D2 缺验收标准</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 83%;"></div></div><span class="w-10 text-right font-medium">83%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">D3 术语不一致</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 79%;"></div></div><span class="w-10 text-right font-medium">79%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">A1 登录失败处理</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 94%;"></div></div><span class="w-10 text-right font-medium">94%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">A2 密码规则</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 96%;"></div></div><span class="w-10 text-right font-medium">96%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">A3 登录状态时长</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 89%;"></div></div><span class="w-10 text-right font-medium">89%</span></div>
+        <div class="flex items-center"><span class="w-32 text-slate-600">A4 权限变更</span><div class="flex-1 bg-slate-100 rounded-full h-2.5 mx-3"><div class="bg-[#1f4fd1] h-full rounded-full" style="width: 90%;"></div></div><span class="w-10 text-right font-medium">90%</span></div>
+      </div>
+    </div>
+
+    <!-- 版本历史表 & 7-2 补充板块 -->
+    <div class="grid grid-cols-2 gap-6">
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-xs">
+        <div class="font-bold text-slate-900 mb-3">版本历史表 (v1–v5)</div>
+        <table class="w-full text-left">
+          <thead><tr class="border-b text-slate-400"><th class="pb-2">版本</th><th class="pb-2">综合 F1</th><th class="pb-2">是否采用</th></tr></thead>
+          <tbody class="text-slate-700">
+            <tr class="border-b"><td class="py-2">v5 (当前)</td><td class="py-2">89.4%</td><td><span class="tag-success">是</span></td></tr>
+            <tr class="border-b"><td class="py-2">v4</td><td class="py-2">87.1%</td><td><span class="tag-gray">否</span></td></tr>
+            <tr class="border-b"><td class="py-2">v3</td><td class="py-2">82.3%</td><td><span class="tag-gray">否</span></td></tr>
+            <tr class="border-b"><td class="py-2">v2</td><td class="py-2">78.0%</td><td><span class="tag-gray">否</span></td></tr>
+            <tr><td class="py-2">v1</td><td class="py-2">71.5%</td><td><span class="tag-gray">否</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-xs">
+        <div class="font-bold text-slate-900 mb-3">多人标注一致率表 (7-2)</div>
+        <table class="w-full text-left">
+          <thead><tr class="border-b text-slate-400"><th class="pb-2">评测集分类</th><th class="pb-2">Kappa 一致性</th><th class="pb-2">标注样本数</th></tr></thead>
+          <tbody class="text-slate-700">
+            <tr class="border-b"><td class="py-2">单句规则</td><td class="py-2">0.86</td><td>1,200</td></tr>
+            <tr class="border-b"><td class="py-2">文档级规则</td><td class="py-2">0.81</td><td>450</td></tr>
+            <tr><td class="py-2">账号与权限</td><td class="py-2">0.91</td><td>380</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 线上指标 9 项 (7-2) -->
+    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+      <div class="text-sm font-bold text-slate-900 mb-4">线上指标 9 项 (7-2)</div>
+      <div class="grid grid-cols-3 gap-4 text-xs">
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">审查次数</div><div class="text-lg font-bold text-slate-900 mt-1">12,480 次</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">完成率</div><div class="text-lg font-bold text-slate-900 mt-1">98.6%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">失败率</div><div class="text-lg font-bold text-red-600 mt-1">1.4%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">平均耗时</div><div class="text-lg font-bold text-slate-900 mt-1">4.2 秒</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">误判反馈率</div><div class="text-lg font-bold text-slate-900 mt-1">2.1%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">漏报反馈率</div><div class="text-lg font-bold text-slate-900 mt-1">1.8%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">采纳率</div><div class="text-lg font-bold text-emerald-600 mt-1">82.4%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">导出率</div><div class="text-lg font-bold text-slate-900 mt-1">64.5%</div></div>
+        <div class="p-3 bg-slate-50 rounded border border-slate-200"><div class="text-slate-400">再审率</div><div class="text-lg font-bold text-slate-900 mt-1">41.2%</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 7-3 提示文案一览 ==================== -->
+<div class="screen-frame max-w-[1440px] mx-auto">
+  <div class="screen-header-banner"><span>【7-3 提示文案一览】</span></div>
+  <div class="p-8 space-y-4">
+    <div class="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 font-medium">
+      <span class="font-bold mr-2">上传失败：</span>这个 PDF 是扫描图片，读不出文字。请上传可复制文字的 PDF，或改用 Word / Markdown
+    </div>
+    <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800 font-medium">
+      <span class="font-bold mr-2">格式不支持：</span>不支持 .doc 格式，请在 Word 里另存为 .docx 后再上传
+    </div>
+    <div class="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 font-medium">
+      <span class="font-bold mr-2">链接打不开：</span>链接打不开（返回 404），请检查链接是否正确、文档是否公开
+    </div>
+    <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800 font-medium">
+      <span class="font-bold mr-2">需要登录：</span>这个链接需要登录才能打开。可以在飞书里导出为 Word 再上传，或点下面按钮授权导入
+    </div>
+    <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800 font-medium">
+      <span class="font-bold mr-2">额度不够：</span>今天剩余额度只够审前 8 个段落，后面的段落会标为未审查
+    </div>
+    <div class="p-3 bg-red-50 border border-red-200 rounded text-xs text-red-700 font-medium">
+      <span class="font-bold mr-2">审查失败：</span>整段检查调用失败，可重新运行
+    </div>
+    <div class="p-3 bg-slate-100 border border-slate-300 rounded text-xs text-slate-700 font-medium">
+      <span class="font-bold mr-2">额度用完：</span>额度用完未审
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 8-1 ~ 8-5 窄屏 768 适配 ==================== -->
+<div class="max-w-[1440px] mx-auto text-white mb-6">
+  <h2 class="text-xl font-bold text-slate-100">8 系列：窄屏 768 响应式自适应布局视图</h2>
+</div>
+
+<div class="grid grid-cols-2 gap-8 max-w-[1440px] mx-auto mb-16">
+  <!-- 8-1 窄屏·导入 -->
+  <div class="screen-frame max-w-[768px] mx-auto w-full">
+    <div class="screen-header-banner"><span>【8-1 窄屏·导入】</span><span class="text-xs text-slate-400">768 宽</span></div>
+    <div class="bg-white border-b p-3 flex justify-between items-center text-xs">
+      <span class="font-bold text-slate-900">AI 审 PRD</span>
+      <div class="flex space-x-1">
+        <span class="px-2 py-1 bg-[#1f4fd1] text-white rounded text-[11px]">审查</span>
+        <span class="px-2 py-1 text-slate-600 rounded text-[11px]">反馈</span>
+        <span class="px-2 py-1 text-slate-600 rounded text-[11px]">看板</span>
+      </div>
+    </div>
+    <div class="p-4 bg-slate-50">
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex justify-around border-b pb-2 text-xs font-semibold">
+          <span class="text-[#1f4fd1] border-b-2 border-[#1f4fd1] pb-1">粘贴文字</span>
+          <span class="text-slate-500">上传文件</span>
+          <span class="text-slate-500">导入链接</span>
+        </div>
+        <textarea class="w-full h-32 text-xs p-2 border rounded resize-none" readonly># 1. 项目背景与用户故事...</textarea>
+        <button class="btn-primary w-full text-xs">下一步：拆分预览</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8-2 窄屏·拆分预览 -->
+  <div class="screen-frame max-w-[768px] mx-auto w-full">
+    <div class="screen-header-banner"><span>【8-2 窄屏·拆分预览】</span><span class="text-xs text-slate-400">768 宽</span></div>
+    <div class="p-4 bg-slate-50 space-y-3 text-xs">
+      <div class="bg-white p-2.5 rounded border border-slate-200">
+        <span class="text-slate-500">选择段落（目录树已收起）：</span>
+        <select class="w-full border rounded p-1.5 mt-1 font-semibold text-slate-800">
+          <option>4.4 文件操作 (拆出 4 条需求)</option>
+          <option>5.1 历史记录查询</option>
+        </select>
+      </div>
+      <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-2">
+        <div class="font-medium text-slate-800">全宽需求 #1: 当用户在前端点击导出 PDF 按钮时...</div>
+        <button class="text-[#1f4fd1]">编辑</button>
+      </div>
+      <button class="btn-primary w-full">开始审查</button>
+    </div>
+  </div>
+
+  <!-- 8-3 窄屏·审查结果 -->
+  <div class="screen-frame max-w-[768px] mx-auto w-full">
+    <div class="screen-header-banner"><span>【8-3 窄屏·审查结果】</span><span class="text-xs text-slate-400">768 宽</span></div>
+    <div class="p-4 bg-slate-50 space-y-3 text-xs">
+      <select class="w-full border rounded p-2 bg-white font-semibold">
+        <option>4.4 文件操作 (3 个问题)</option>
+        <option>5.1 历史记录查询</option>
+      </select>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+        <div class="font-bold text-slate-800">全宽问题卡片：导出 PDF 极快速度渲染</div>
+        <div class="flex space-x-1"><span class="tag-danger">R1 歧义措辞</span><span class="tag-danger">R2 不可验证</span></div>
+        <div class="flex space-x-2 pt-2 border-t">
+          <button class="btn-primary text-xs flex-1">修改建议</button>
+          <button class="btn-outline text-xs">反馈</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8-4 窄屏·反馈复核 -->
+  <div class="screen-frame max-w-[768px] mx-auto w-full">
+    <div class="screen-header-banner"><span>【8-4 窄屏·反馈复核】</span><span class="text-xs text-slate-400">768 宽</span></div>
+    <div class="p-4 bg-slate-50 space-y-3 text-xs">
+      <div class="flex space-x-2 overflow-x-auto pb-1">
+        <span class="px-3 py-1 bg-blue-100 text-[#1f4fd1] rounded font-semibold whitespace-nowrap">待复核 (12)</span>
+        <span class="px-3 py-1 bg-white border rounded whitespace-nowrap">已采纳 (48)</span>
+        <span class="px-3 py-1 bg-white border rounded whitespace-nowrap">已驳回 (8)</span>
+      </div>
+      <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+        <div class="text-slate-800 font-medium">全宽列表：网络超时后弹出重试按钮...</div>
+        <span class="tag-danger">D1 缺异常流程</span>
+        <div class="flex space-x-2 pt-2 border-t justify-end">
+          <button class="btn-outline text-xs text-red-600">驳回</button>
+          <button class="btn-primary text-xs">采纳</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8-5 窄屏·健康看板 -->
+  <div class="screen-frame max-w-[768px] mx-auto w-full col-span-2">
+    <div class="screen-header-banner"><span>【8-5 窄屏·健康看板】</span><span class="text-xs text-slate-400">768 宽</span></div>
+    <div class="p-6 bg-slate-50 space-y-6 text-xs">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="bg-white p-3 rounded-lg border text-center"><div class="text-slate-400">单句规则 F1</div><div class="font-bold text-lg">89.4%</div></div>
+        <div class="bg-white p-3 rounded-lg border text-center"><div class="text-slate-400">文档级规则 F1</div><div class="font-bold text-lg">84.1%</div></div>
+        <div class="bg-white p-3 rounded-lg border text-center"><div class="text-slate-400">账号与权限 F1</div><div class="font-bold text-lg">91.8%</div></div>
+        <div class="bg-white p-3 rounded-lg border text-center"><div class="text-slate-400">干净需求错报率</div><div class="font-bold text-lg text-emerald-600">3.2%</div></div>
+      </div>
+      <div class="bg-white p-4 rounded-lg border space-y-2">
+        <div class="font-bold mb-2">13 条规则全宽横向条形图</div>
+        <div class="flex items-center"><span class="w-24 text-slate-500">R1 歧义措辞</span><div class="flex-1 bg-slate-100 h-2 rounded mx-2"><div class="bg-[#1f4fd1] h-full" style="width: 88%"></div></div><span>88%</span></div>
+        <div class="flex items-center"><span class="w-24 text-slate-500">R2 不可验证</span><div class="flex-1 bg-slate-100 h-2 rounded mx-2"><div class="bg-[#1f4fd1] h-full" style="width: 92%"></div></div><span>92%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
