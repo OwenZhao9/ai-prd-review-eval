@@ -1,0 +1,218 @@
+{
+ "cards": {
+  "sentence": {
+   "version": "v4",
+   "f1": 0.86,
+   "items": 105
+  },
+  "doc": {
+   "version": "doc_v1",
+   "f1": 0.833,
+   "items": 26
+  },
+  "account": {
+   "version": "module_account_v3",
+   "f1": 0.917,
+   "items": 40
+  },
+  "clean": {
+   "fp": 2,
+   "total": 28,
+   "rate": 0.071
+  }
+ },
+ "rules": [
+  {
+   "id": "R1",
+   "f1": 0.875
+  },
+  {
+   "id": "R2",
+   "f1": 0.87
+  },
+  {
+   "id": "R3",
+   "f1": 0.7
+  },
+  {
+   "id": "R4",
+   "f1": 1.0
+  },
+  {
+   "id": "R5",
+   "f1": 0.941
+  },
+  {
+   "id": "R6",
+   "f1": 0.947
+  },
+  {
+   "id": "D1",
+   "f1": 0.762
+  },
+  {
+   "id": "D2",
+   "f1": 0.8
+  },
+  {
+   "id": "D3",
+   "f1": 1.0
+  },
+  {
+   "id": "A1",
+   "f1": 1.0
+  },
+  {
+   "id": "A2",
+   "f1": 1.0
+  },
+  {
+   "id": "A3",
+   "f1": 0.833
+  },
+  {
+   "id": "A4",
+   "f1": 0.857
+  }
+ ],
+ "versions": [
+  {
+   "group": "单句 R1–R6",
+   "version": "v1",
+   "f1": 0.789,
+   "clean_fp": 5,
+   "clean_total": 28,
+   "consistency": 0.695,
+   "adopted": false
+  },
+  {
+   "group": "单句 R1–R6",
+   "version": "v2",
+   "f1": 0.788,
+   "clean_fp": 1,
+   "clean_total": 28,
+   "consistency": 0.715,
+   "adopted": false
+  },
+  {
+   "group": "单句 R1–R6",
+   "version": "v3",
+   "f1": 0.763,
+   "clean_fp": 9,
+   "clean_total": 28,
+   "consistency": 0.657,
+   "adopted": false
+  },
+  {
+   "group": "单句 R1–R6",
+   "version": "v4",
+   "f1": 0.86,
+   "clean_fp": 2,
+   "clean_total": 28,
+   "consistency": 0.772,
+   "adopted": true
+  },
+  {
+   "group": "单句 R1–R6",
+   "version": "v5",
+   "f1": 0.848,
+   "clean_fp": 4,
+   "clean_total": 28,
+   "consistency": 0.705,
+   "adopted": false
+  },
+  {
+   "group": "文档级 D1–D3",
+   "version": "doc_v1",
+   "f1": 0.833,
+   "clean_fp": 3,
+   "clean_total": 8,
+   "consistency": 0.769,
+   "adopted": true
+  },
+  {
+   "group": "文档级 D1–D3",
+   "version": "doc_v2",
+   "f1": 0.8,
+   "clean_fp": 3,
+   "clean_total": 8,
+   "consistency": 0.692,
+   "adopted": false
+  },
+  {
+   "group": "文档级 D1–D3",
+   "version": "doc_v3",
+   "f1": 0.694,
+   "clean_fp": 2,
+   "clean_total": 8,
+   "consistency": 0.731,
+   "adopted": false
+  },
+  {
+   "group": "账号与权限 A1–A4",
+   "version": "module_account_v1",
+   "f1": 0.846,
+   "clean_fp": 1,
+   "clean_total": 20,
+   "consistency": 0.925,
+   "adopted": false
+  },
+  {
+   "group": "账号与权限 A1–A4",
+   "version": "module_account_v2",
+   "f1": 0.88,
+   "clean_fp": 1,
+   "clean_total": 20,
+   "consistency": 0.85,
+   "adopted": false
+  },
+  {
+   "group": "账号与权限 A1–A4",
+   "version": "module_account_v3",
+   "f1": 0.917,
+   "clean_fp": 1,
+   "clean_total": 20,
+   "consistency": 0.9,
+   "adopted": true
+  }
+ ],
+ "majority": [
+  {
+   "set": "holdout",
+   "version": "v4",
+   "items": 32,
+   "single_f1": 0.902,
+   "majority_f1": 0.902,
+   "single_consistency": 0.844,
+   "majority_consistency": null
+  },
+  {
+   "set": "holdout_zh",
+   "version": "v4",
+   "items": 73,
+   "single_f1": 0.843,
+   "majority_f1": 0.839,
+   "single_consistency": 0.74,
+   "majority_consistency": null
+  },
+  {
+   "set": "doc_holdout",
+   "version": "doc_v1",
+   "items": 26,
+   "single_f1": 0.833,
+   "majority_f1": 0.833,
+   "single_consistency": 0.769,
+   "majority_consistency": null
+  },
+  {
+   "set": "module_account_holdout",
+   "version": "module_account_v3",
+   "items": 40,
+   "single_f1": 0.917,
+   "majority_f1": 0.917,
+   "single_consistency": 0.9,
+   "majority_consistency": null
+  }
+ ],
+ "agreement": []
+}

@@ -17,6 +17,16 @@ CREATE TABLE IF NOT EXISTS feedback (
   text TEXT NOT NULL,
   rule TEXT NOT NULL,
   note TEXT,
-  predicted TEXT
+  predicted TEXT,
+  versions TEXT,
+  reason TEXT
 );
 CREATE INDEX IF NOT EXISTS feedback_created ON feedback (created);
+
+-- 使用计数（第 7 节）：只记次数和类别，不记 PRD 内容、文件名、链接和访客地址
+CREATE TABLE IF NOT EXISTS metrics (
+  day TEXT NOT NULL,
+  key TEXT NOT NULL,
+  n INTEGER NOT NULL,
+  PRIMARY KEY (day, key)
+);

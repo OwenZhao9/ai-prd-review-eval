@@ -2,3 +2,9 @@
 __pycache__/
 .DS_Store
 简历/
+.dev.vars
+deploy/.wrangler/
+node_modules/
+data/format/node_modules/
+data/format/package-lock.json
+data/format/pdf/
