@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"primary-fixed":"#dde1ff","error":"#ba1a1a","primary-fixed-dim":"#b7c4ff","inverse-surface":"#303032","on-primary-container":"#e5e8ff","tertiary-fixed":"#a7f3c3","on-surface":"#1b1b1d","inverse-primary":"#b7c4ff","outline":"#747686","on-primary-fixed":"#001452","secondary-container":"#fe5c4c","tertiary-container":"#2c764f","on-background":"#1b1b1d","surface-tint":"#1f4fdf","on-surface-variant":"#434655","on-secondary":"#ffffff","error-container":"#ffdad6","background":"#fcf8fb","on-secondary-container":"#610002","on-error-container":"#93000a","surface-container-low":"#f6f3f5","secondary":"#b4271f","surface-container":"#f0edef","secondary-fixed":"#ffdad5","on-tertiary-container":"#aefac9","outline-variant":"#c4c5d8","tertiary":"#095d38","on-secondary-fixed":"#410001","on-primary-fixed-variant":"#0038b7","surface-container-highest":"#e4e2e4","on-tertiary-fixed":"#002110","inverse-on-surface":"#f3f0f2","primary-container":"#2f5bea","on-secondary-fixed-variant":"#910809","primary":"#0040cf","surface-dim":"#dcd9dc","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-error":"#ffffff","surface-container-high":"#eae7ea","surface-variant":"#e4e2e4","on-tertiary-fixed-variant":"#005230","tertiary-fixed-dim":"#8cd6a8","on-primary":"#ffffff","surface":"#fcf8fb","secondary-fixed-dim":"#ffb4aa","surface-bright":"#fcf8fb"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"16px","space-xl":"32px","space-sm":"8px","margin":"80px","space-xs":"4px","space-lg":"24px","gutter":"16px"},"fontFamily":{"headline-section":["Noto Sans"],"code-inline":["JetBrains Mono"],"caption":["Noto Sans"],"headline-page":["Noto Sans"],"body-default":["Noto Sans"],"caption-medium":["Noto Sans"],"body-medium":["Noto Sans"]},"fontSize":{"headline-section":["16px",{"lineHeight":"24px","letterSpacing":"0","fontWeight":"600"}],"code-inline":["13px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"400"}],"caption":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-page":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"22px","letterSpacing":"0","fontWeight":"400"}],"caption-medium":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"500"}],"body-medium":["14px",{"lineHeight":"22px","letterSpacing":"0","fontWeight":"500"}]}}}}</script></head><body class="bg-surface-container-low font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="max-w-[1280px] h-14 mx-auto px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><span class="font-headline-section text-headline-section text-on-surface">AI 审 PRD</span><span class="h-3 w-[1px] bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant font-code-inline">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</span></div><nav class="flex items-center h-full gap-space-lg" data-active-classes="text-primary-container border-b-2 border-primary-container font-body-medium"><a class="inline-flex items-center h-full px-space-xs text-on-surface-variant font-body-default hover:text-on-surface transition-colors" data-path="import-paste-text" href="#">审查</a><a class="inline-flex items-center h-full px-space-xs text-on-surface-variant font-body-default hover:text-on-surface transition-colors" data-path="feedback-review" href="#">反馈复核</a></nav></div></header><main class="w-full pt-14 bg-surface-container-low"><div class="max-w-[1120px] mx-auto py-space-lg"><div class="flex flex-col w-full">
+<!-- Page Header -->
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-page text-headline-page text-on-surface">导入 PRD</span>
+</div>
+<p class="font-body-default text-body-default text-on-surface-variant">粘贴文字、上传文件或导入链接；导入后先看拆分结果，再开始审查</p>
+</div>
+<!-- Central Card Container -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-lg">
+<!-- Tab Navigation -->
+<div class="flex items-center gap-space-lg mb-space-lg">
+<button class="pb-space-xs font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none" id="tab-paste" onclick="switchTab('paste')" type="button">
+        粘贴文字
+      </button>
+<button class="pb-space-xs font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none" id="tab-upload" onclick="switchTab('upload')" type="button">
+        上传文件
+      </button>
+<button class="pb-space-xs font-body-medium text-body-medium text-primary-container shadow-[0_2px_0_0_currentColor] transition-colors focus:outline-none" id="tab-link" onclick="switchTab('link')" type="button">
+        导入链接
+      </button>
+</div>
+<!-- Description & Scope Hint -->
+<div class="flex flex-col gap-space-xs">
+<p class="font-body-default text-body-default text-on-surface">支持 GitHub 文件链接、公开网页、直接指向 .md .txt .docx .pptx .pdf 文件的链接</p>
+</div>
+<!-- URL Input and Import Button Row -->
+<div class="flex items-center gap-space-sm">
+<div class="relative flex-1">
+<input class="w-full h-10 px-space-md bg-surface-container-lowest rounded-lg font-body-default text-body-default text-on-surface focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" placeholder="请输入 PRD 文件源链接..." type="url" value="https://github.com/caesarloo/obsidian-svn/blob/main/requirements.md"/>
+</div>
+<button class="h-10 px-space-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-body-medium text-body-medium rounded-lg transition-colors flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>导入</span>
+</button>
+</div>
+<!-- Import Result Status Row -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<span class="px-2 py-0.5 rounded bg-[#eff1f3] text-[#6b6b70] text-xs">
+          正在获取
+        </span>
+<span class="font-body-default text-body-default text-on-surface">
+          正在获取 requirements.md
+        </span>
+</div>
+</div>
+<!-- Meta Details Grid -->
+<!-- Bottom Actions Area -->
+<div class="flex items-center justify-between pt-space-md mt-space-xs">
+<button class="h-10 px-space-xl bg-primary-container hover:bg-primary text-on-primary font-body-medium text-body-medium rounded-lg transition-colors flex items-center gap-space-xs shadow-sm opacity-40 pointer-events-none" type="button">
+<span>下一步：拆分预览</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div></div></main></body></html>

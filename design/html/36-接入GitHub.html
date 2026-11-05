@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 审 PRD</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "outline-variant": "#c4c5d8",
+          "secondary-fixed": "#ffdad5",
+          "on-background": "#1b1b1d",
+          "secondary-container": "#fe5c4c",
+          "on-secondary": "#ffffff",
+          "inverse-on-surface": "#f3f0f2",
+          "surface-tint": "#1f4fdf",
+          "on-secondary-container": "#610002",
+          "inverse-primary": "#b7c4ff",
+          "on-secondary-fixed": "#410001",
+          "primary-container": "#2f5bea",
+          "surface": "#fcf8fb",
+          "on-error": "#ffffff",
+          "tertiary": "#095d38",
+          "outline": "#747686",
+          "surface-container-low": "#f6f3f5",
+          "on-error-container": "#93000a",
+          "surface-container": "#f0edef",
+          "background": "#fcf8fb",
+          "tertiary-fixed-dim": "#8cd6a8",
+          "surface-variant": "#e4e2e4",
+          "surface-container-high": "#eae7ea",
+          "on-primary": "#ffffff",
+          "secondary": "#b4271f",
+          "inverse-surface": "#303032",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-fixed": "#002110",
+          "tertiary-fixed": "#a7f3c3",
+          "surface-container-highest": "#e4e2e4",
+          "on-tertiary-container": "#aefac9",
+          "on-primary-fixed": "#001452",
+          "error-container": "#ffdad6",
+          "on-primary-fixed-variant": "#0038b7",
+          "surface-dim": "#dcd9dc",
+          "on-tertiary-fixed-variant": "#005230",
+          "surface-bright": "#fcf8fb",
+          "primary-fixed-dim": "#b7c4ff",
+          "error": "#ba1a1a",
+          "on-primary-container": "#e5e8ff",
+          "tertiary-container": "#2c764f",
+          "on-surface-variant": "#434655",
+          "secondary-fixed-dim": "#ffb4aa",
+          "primary-fixed": "#dde1ff",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-fixed-variant": "#910809",
+          "primary": "#0040cf",
+          "on-surface": "#1b1b1d"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "8px",
+          "space-md": "16px",
+          "space-lg": "24px",
+          "space-xl": "32px",
+          "space-xs": "4px",
+          "gutter": "16px",
+          "margin": "80px"
+        },
+        "fontFamily": {
+          "caption": [
+            "Noto Sans"
+          ],
+          "code-inline": [
+            "JetBrains Mono"
+          ],
+          "body-medium": [
+            "Noto Sans"
+          ],
+          "caption-medium": [
+            "Noto Sans"
+          ],
+          "headline-page": [
+            "Noto Sans"
+          ],
+          "headline-section": [
+            "Noto Sans"
+          ],
+          "body-default": [
+            "Noto Sans"
+          ]
+        },
+        "fontSize": {
+          "caption": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ],
+          "code-inline": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ],
+          "body-medium": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0",
+              "fontWeight": "500"
+            }
+          ],
+          "caption-medium": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-page": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-section": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0",
+              "fontWeight": "600"
+            }
+          ],
+          "body-default": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      }
+    }
+  };
+</script>
+<style>
+  @layer base {
+    html {
+      overscroll-behavior: none;
+    }
+  }
+  body {
+    background-color: #f6f5f2;
+    font-family: 'Noto Sans', sans-serif;
+    color: #1b1b1d;
+    margin: 0;
+    padding: 0;
+  }
+  .code-font {
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>
+<meta content="web_standard" name="shell-type"/>
+</head>
+<body class="bg-[#f6f5f2] text-on-surface antialiased">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,0,0,0.02)] border-b border-surface-container"><div class="h-14 max-w-[1120px] mx-auto px-space-md flex items-center justify-between"><div class="flex items-center gap-space-md min-w-0"><span class="font-headline-section text-headline-section text-on-surface whitespace-nowrap">AI 审 PRD</span><div class="h-3 w-px bg-outline-variant hidden sm:block"></div><span class="font-caption text-caption text-on-surface-variant truncate hidden md:inline-block">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</span></div><div class="flex items-center gap-space-lg flex-shrink-0"><nav class="flex items-center gap-space-xs p-space-xs" data-active-classes="bg-surface-container text-on-surface font-body-medium rounded"><a class="font-body-default text-body-default px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="split-preview-sample" href="#">审查</a><a class="font-body-default text-body-default px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="audit-finished-incomplete" href="#">反馈复核</a></nav></div></div></header>
+<main class="w-full max-w-[1120px] mx-auto px-space-md pt-14 pb-space-xl"><div class="flex flex-col w-full">
+<div class="flex flex-col gap-space-xs pt-space-md pb-space-lg">
+<h1 class="font-headline-page text-headline-page text-on-surface">接入 GitHub</h1>
+<p class="font-body-default text-body-default text-[#6b6b70]">在合并请求里修改 PRD 时，自动审查改动的部分</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-body-medium text-body-medium text-on-surface" for="prd-paths">PRD 文件路径</label>
+<textarea class="w-full h-20 bg-surface-container-lowest text-on-surface font-code-inline text-code-inline px-3 py-2 rounded-lg bg-surface-container-low shadow-inner focus:outline-none focus:bg-surface-container-lowest transition-colors resize-none leading-relaxed" id="prd-paths" rows="2">requirements.md
+docs/PRD.md</textarea>
+<span class="font-caption text-caption text-[#6b6b70]">每行一个；合并请求改动这些文件时触发审查</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-body-medium text-body-medium text-on-surface" for="api-endpoint">模型接口地址</label>
+<input class="w-full h-10 bg-surface-container-lowest text-on-surface font-code-inline text-code-inline px-3 rounded-lg bg-surface-container-low shadow-inner focus:outline-none focus:bg-surface-container-lowest transition-colors" id="api-endpoint" type="text" value="https://api.deepseek.com"/>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-body-medium text-body-medium text-on-surface" for="secret-name">模型密钥</label>
+<input class="w-full h-10 bg-surface-container-lowest text-on-surface font-code-inline text-code-inline px-3 rounded-lg bg-surface-container-low shadow-inner focus:outline-none focus:bg-surface-container-lowest transition-colors" id="secret-name" type="text" value="LLM_API_KEY"/>
+<span class="font-caption text-caption text-[#6b6b70]">填仓库密钥的名字，不填密钥本身；密钥不经过本项目的服务器，也不占在线版额度</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<span class="font-body-medium text-body-medium text-on-surface">审查规则</span>
+<div class="bg-surface-container-low px-3.5 py-2.5 rounded-lg font-code-inline text-code-inline text-on-surface select-all">
+          单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3
+        </div>
+</div>
+<div class="pt-space-xs flex items-center justify-start">
+<button class="h-9 px-4 bg-primary-container hover:bg-primary text-on-primary font-body-medium text-body-medium rounded-lg shadow-sm transition-colors flex items-center gap-space-xs" id="generate-btn" type="button">
+<span>生成配置</span>
+</button>
+</div>
+
+</div>
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="font-headline-section text-headline-section text-on-surface">运行机制</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-[#6b6b70] font-caption-medium text-caption-medium flex items-center justify-center shrink-0 mt-0.5">1</span>
+<p class="font-body-default text-body-default text-[#374151] leading-relaxed">
+            审查结果作为一条评论发在合并请求下
+          </p>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-[#6b6b70] font-caption-medium text-caption-medium flex items-center justify-center shrink-0 mt-0.5">2</span>
+<p class="font-body-default text-body-default text-[#374151] leading-relaxed">
+            再推送提交时更新这条评论，不新增评论
+          </p>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-[#6b6b70] font-caption-medium text-caption-medium flex items-center justify-center shrink-0 mt-0.5">3</span>
+<p class="font-body-default text-body-default text-[#374151] leading-relaxed">
+            审查失败时在评论里写明失败的条目和原因，不阻止合并
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const navItems = document.querySelectorAll('header nav a');
+    navItems.forEach(item => {
+      if (item.getAttribute('data-path') === '接入-github') {
+        item.classList.add('font-medium', 'text-[#2f5bea]', 'bg-[#f0edef]');
+        item.classList.remove('text-[#6b6b70]');
+      }
+    });
+
+    const generateBtn = document.getElementById('generate-btn');
+    const outputPanel = document.getElementById('output-panel');
+    const copyBtn = document.getElementById('copy-btn');
+
+    if (generateBtn && outputPanel) {
+      generateBtn.addEventListener('click', function() {
+        outputPanel.classList.remove('hidden');
+        outputPanel.classList.add('flex');
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        const text = outputPanel.querySelector('pre').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          copyBtn.innerText = '已复制';
+          setTimeout(() => {
+            copyBtn.innerText = '复制全文';
+          }, 2000);
+        });
+      });
+    }
+  })();
+</script></main>
+</body></html>

@@ -96,6 +96,29 @@ out = {
     'forge_admin': count(open(os.path.join(ROOT, 'data', 'raw_zh', 'yaomindong1996__forge-admin.md'), encoding='utf-8').read()),
     'md_audit': count(open(os.path.join(ROOT, 'data', 'raw_zh', 'calderbuild__MD_Audit.md'), encoding='utf-8').read(), account=False),
 }
+
+
+def per_rule(sets, version):
+    """健康看板用的各规则留出集 F1：几个留出集第 1 次运行的 tp / fp / fn 相加后计算。"""
+    agg = {}
+    for name in sets:
+        m = json.load(open(os.path.join(ROOT, 'results', name, version, 'metrics.json')))['runs'][0]['per_rule']
+        for rule, v in m.items():
+            a = agg.setdefault(rule, [0, 0, 0])
+            a[0] += v['tp']; a[1] += v['fp']; a[2] += v['fn']
+    res = {}
+    for rule, (tp, fp, fn) in sorted(agg.items()):
+        p_ = tp / (tp + fp) if tp + fp else 0
+        r_ = tp / (tp + fn) if tp + fn else 0
+        res[rule] = {'f1': round(2 * p_ * r_ / (p_ + r_), 3) if p_ + r_ else 0, 'tp': tp, 'fp': fp, 'fn': fn}
+    return res
+
+
+out['dashboard_per_rule'] = {
+    'v4（中文 + 英文留出集）': per_rule(['holdout_zh', 'holdout'], 'v4'),
+    'doc_v1（文档级留出集）': per_rule(['doc_holdout'], 'doc_v1'),
+    'module_account_v3（账号与权限留出集）': per_rule(['module_account_holdout'], 'module_account_v3'),
+}
 json.dump(out, open(os.path.join(ROOT, 'results', 'design_counts.json'), 'w'), ensure_ascii=False, indent=1)
 for k, v in out.items():
-    print(k, v['total'])
+    print(k, v.get('total', v))
