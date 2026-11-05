@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>AI 审 PRD</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#fcf8fb", "secondary-container": "#fe5c4c", "primary-fixed": "#dde1ff", "on-surface-variant": "#434655", "on-primary-container": "#e5e8ff", "error": "#ba1a1a", "inverse-primary": "#b7c4ff", "on-primary-fixed": "#001452", "on-tertiary-container": "#aefac9", "tertiary-fixed": "#a7f3c3", "on-tertiary-fixed": "#002110", "on-secondary-fixed": "#410001", "outline-variant": "#c4c5d8", "inverse-on-surface": "#f3f0f2", "surface-container-highest": "#e4e2e4", "on-error-container": "#93000a", "secondary-fixed": "#ffdad5", "tertiary-fixed-dim": "#8cd6a8", "inverse-surface": "#303032", "on-primary": "#ffffff", "tertiary": "#095d38", "on-secondary-container": "#610002", "surface-variant": "#e4e2e4", "on-primary-fixed-variant": "#0038b7", "on-background": "#1b1b1d", "primary": "#0040cf", "primary-container": "#2f5bea", "background": "#fcf8fb", "secondary": "#b4271f", "on-secondary-fixed-variant": "#910809", "surface-container-lowest": "#ffffff", "surface-bright": "#fcf8fb", "secondary-fixed-dim": "#ffb4aa", "surface-tint": "#1f4fdf", "surface-container-low": "#f6f3f5", "error-container": "#ffdad6", "primary-fixed-dim": "#b7c4ff", "on-secondary": "#ffffff", "outline": "#747686", "surface-dim": "#dcd9dc", "on-error": "#ffffff", "surface-container": "#f0edef", "tertiary-container": "#2c764f", "on-tertiary-fixed-variant": "#005230", "on-surface": "#1b1b1d", "on-tertiary": "#ffffff", "surface-container-high": "#eae7ea" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "8px", "space-xl": "32px", "space-xs": "4px", "space-lg": "24px", "space-md": "16px", "gutter": "16px", "margin": "80px" }, "fontFamily": { "caption": [ "Noto Sans" ], "caption-medium": [ "Noto Sans" ], "body-default": [ "Noto Sans" ], "headline-section": [ "Noto Sans" ], "headline-page": [ "Noto Sans" ], "code-inline": [ "JetBrains Mono" ], "body-medium": [ "Noto Sans" ] }, "fontSize": { "caption": [ "12px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" } ], "caption-medium": [ "12px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "500" } ], "body-default": [ "14px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" } ], "headline-section": [ "16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600" } ], "headline-page": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "code-inline": [ "13px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" } ], "body-medium": [ "14px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "500" } ] } } } };</script></head><body class="bg-surface font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,0,0,0.02)] border-b border-surface-container"><div class="h-14 max-w-[1120px] mx-auto px-space-md flex items-center justify-between"><div class="flex items-center gap-space-md min-w-0"><span class="font-headline-section text-headline-section text-on-surface whitespace-nowrap">AI 审 PRD</span><div class="h-3 w-px bg-outline-variant hidden sm:block"></div><span class="font-caption text-caption text-on-surface-variant truncate hidden md:inline-block">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</span></div><div class="flex items-center gap-space-lg flex-shrink-0"><nav class="flex items-center gap-space-xs p-space-xs" data-active-classes="bg-surface-container text-on-surface font-body-medium rounded"><a class="font-body-default text-body-default px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="split-preview-sample" href="#">审查</a><a class="font-body-default text-body-default px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="audit-finished-incomplete" href="#">反馈复核</a></nav></div></div></header><main class="w-full pt-14 min-h-[calc(100vh-48px)]"><div class="max-w-[1120px] mx-auto px-space-md py-space-lg"><div class="flex flex-col w-full pb-24">
+<!-- Top Process Steps Navigation -->
+<div class="w-full flex items-center justify-between py-space-sm mb-space-lg">
+<div class="flex items-center gap-space-md">
+<!-- Step 1 Done -->
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="w-5 h-5 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+<span class="font-body-medium text-body-medium text-on-surface">1. 导入</span>
+</div>
+<span class="w-8 h-px bg-outline-variant"></span>
+<!-- Step 2 Active -->
+<div class="flex items-center gap-space-xs">
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary font-caption-medium text-caption flex items-center justify-center shadow-sm">
+          2
+        </span>
+<span class="font-headline-section text-body-medium text-primary font-semibold">2. 拆分预览</span>
+</div>
+<span class="w-8 h-px bg-outline-variant"></span>
+<!-- Step 3 Inactive -->
+<div class="flex items-center gap-space-xs text-outline">
+<span class="w-5 h-5 rounded-full bg-surface-container-high text-outline font-caption-medium text-caption flex items-center justify-center">
+          3
+        </span>
+<span class="font-body-default text-body-default text-outline">3. 审查结果</span>
+</div>
+</div>
+<!-- Right Quick Model Badge -->
+
+</div>
+<!-- Document Meta & Title Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm mb-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-page text-headline-page text-on-surface">编码规则设定 功能需求文档</h1>
+
+</div>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">terminal</span>
+          开源项目 yaomindong1996/forge-admin，Apache-2.0 许可
+        </p>
+</div>
+<div class="flex items-center gap-2">
+
+</div>
+</div>
+</div>
+<!-- 4 Data Metrics Bento Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-on-surface-variant">段落</span>
+<div class="mt-2 flex items-baseline gap-space-xs">
+<span class="font-headline-page text-headline-page text-on-surface font-semibold tracking-tight">25</span>
+<span class="font-caption text-caption text-on-surface-variant">个</span>
+</div>
+<div class="mt-1 flex items-center gap-1 font-caption text-caption text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span>其中跳过 5 个</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-on-surface-variant">需求</span>
+<div class="mt-2 flex items-baseline gap-space-xs">
+<span class="font-headline-page text-headline-page text-primary font-semibold tracking-tight">167</span>
+<span class="font-caption text-caption text-on-surface-variant">条</span>
+</div>
+<div class="mt-1 flex items-center gap-1 font-caption text-caption text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<span class="font-caption text-caption text-on-surface-variant">本次将调用模型</span>
+<div class="mt-2 flex items-baseline gap-space-xs">
+<span class="font-headline-page text-headline-page text-on-surface font-semibold tracking-tight">195</span>
+<span class="font-caption text-caption text-on-surface-variant">次</span>
+</div>
+<div class="mt-1 font-caption text-caption text-on-surface-variant truncate" title="单句 167 · 整段 22 · 账号与权限 6">
+        单句 167 · 整段 22 · 账号与权限 6
+      </div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">今天剩余额度</span>
+
+</div>
+<div class="mt-2 flex items-baseline gap-space-xs">
+<span class="font-headline-page text-headline-page text-tertiary font-semibold tracking-tight">500</span>
+<span class="font-caption text-caption text-on-surface-variant">次</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden mt-1.5">
+<div class="bg-tertiary h-full w-[72%]"></div>
+</div>
+</div>
+</div>
+<!-- Main Split Layout (Left Toc Tree / Right Inspection Workspace) -->
+<div class="grid grid-cols-12 gap-space-md items-start">
+<!-- Left Column: TOC and Clause Split Inventory (5 cols) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col max-h-[820px]">
+<!-- Panel Header -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-section text-body-medium font-semibold text-on-surface">段落目录</span>
+
+</div>
+<div class="flex items-center gap-space-xs">
+
+</div>
+</div>
+<!-- TOC List Scroll Container -->
+<div class="p-space-xs overflow-y-auto divide-y divide-surface-container-high/60 flex-1">
+<!-- 1. 概述 (Skipped) -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low/40 rounded transition-colors group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 flex-shrink-0">block</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-default text-body-default text-on-surface-variant line-through opacity-70 truncate">1. 概述</span>
+<span class="font-caption text-caption text-outline">跳过：标题含「概述」</span>
+</div>
+</div>
+<button class="font-caption text-caption text-primary hover:underline whitespace-nowrap pt-0.5" type="button">改为审查</button>
+</div>
+<!-- 1.2 功能背景 (Skipped) -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low/40 rounded transition-colors group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 flex-shrink-0">block</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-default text-body-default text-on-surface-variant line-through opacity-70 truncate">1.2 功能背景</span>
+<span class="font-caption text-caption text-outline">跳过：标题含「背景」</span>
+</div>
+</div>
+<button class="font-caption text-caption text-primary hover:underline whitespace-nowrap pt-0.5" type="button">改为审查</button>
+</div>
+<!-- 1.3 功能目标 (Skipped) -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low/40 rounded transition-colors group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 flex-shrink-0">block</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-default text-body-default text-on-surface-variant line-through opacity-70 truncate">1.3 功能目标</span>
+<span class="font-caption text-caption text-outline">跳过：标题含「目标」</span>
+</div>
+</div>
+<button class="font-caption text-caption text-primary hover:underline whitespace-nowrap pt-0.5" type="button">改为审查</button>
+</div>
+<!-- 2. 用户角色与使用场景 (Skipped) -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low/40 rounded transition-colors group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 flex-shrink-0">block</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-default text-body-default text-on-surface-variant line-through opacity-70 truncate">2. 用户角色与使用场景</span>
+<span class="font-caption text-caption text-outline">跳过：标题含「场景」</span>
+</div>
+</div>
+<button class="font-caption text-caption text-primary hover:underline whitespace-nowrap pt-0.5" type="button">改为审查</button>
+</div>
+<!-- FR1. 编码规则主表管理（CRUD） -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR1. 编码规则主表管理（CRUD）</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">10 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">账号与权限检查已打开（含「管理员」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR2. 分段明细配置 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR2. 分段明细配置</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">12 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR3. 五种段类型支持 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer bg-surface-container-low/20">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR3. 五种段类型支持</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">26 条需求</span>
+</div>
+<span class="font-caption text-caption text-outline mt-1 bg-surface-container-low p-1 rounded leading-tight">
+                本段 5077 字，已分成 5 组整段检查；跨组的前后矛盾不检查
+              </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR4. 流水号重置与分组计数 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR4. 流水号重置与分组计数</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">22 条需求</span>
+</div>
+<span class="font-caption text-caption text-outline mt-1 bg-surface-container-low p-1 rounded leading-tight">
+                本段 3759 字，已分成 3 组整段检查；跨组的前后矛盾不检查
+              </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR5. 编码实时预览 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR5. 编码实时预览</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">7 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR6. 编码生成接口 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR6. 编码生成接口</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">17 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">已打开（含「登录」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR7. 规则列表与详情查询 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR7. 规则列表与详情查询</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">7 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">已打开（含「管理员」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR8. 段类型与格式符查询 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR8. 段类型与格式符查询</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">6 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR9. 菜单与权限管理 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR9. 菜单与权限管理</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">8 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">已打开（含「权限」「管理员」「角色」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR10. 数据迁移 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR10. 数据迁移</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">10 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- FR11. 低代码业务兼容 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">FR11. 低代码业务兼容</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">7 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- 4. 非功能性需求 (ACTIVE SELECTION) -->
+<div class="p-space-sm flex items-start justify-between gap-2 bg-primary-fixed/30 rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-body-medium text-body-medium text-primary font-semibold truncate">4. 非功能性需求</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption-medium text-caption px-1.5 py-0.2 bg-primary-fixed text-on-primary-fixed rounded">2 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">已打开（含「权限」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-primary mt-1">arrow_forward_ios</span>
+</div>
+<!-- 5.1 主表业务规则 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">5.1 主表业务规则</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">5 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- 5.2 分段业务规则 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">5.2 分段业务规则</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">6 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- 5.3 生成业务规则 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">5.3 生成业务规则</span>
+<span class="font-caption text-caption text-on-surface-variant mt-0.5">5 条需求</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- 6. 验收清单 -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low rounded transition-colors cursor-pointer">
+<div class="flex items-start gap-2 min-w-0">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer accent-primary" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-body-medium text-body-medium text-on-surface truncate">6. 验收清单</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-caption text-caption px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant">17 条需求</span>
+<span class="font-caption text-caption text-secondary font-medium">已打开（含「权限」「管理员」）</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline mt-1">chevron_right</span>
+</div>
+<!-- 7. 术语表 (Skipped) -->
+<div class="p-space-sm flex items-start justify-between gap-2 hover:bg-surface-container-low/40 rounded transition-colors group">
+<div class="flex items-start gap-2 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5 flex-shrink-0">block</span>
+<div class="flex flex-col min-w-0">
+<span class="font-body-default text-body-default text-on-surface-variant line-through opacity-70 truncate">7. 术语表</span>
+<span class="font-caption text-caption text-outline">跳过：标题含「术语」</span>
+</div>
+</div>
+<button class="font-caption text-caption text-primary hover:underline whitespace-nowrap pt-0.5" type="button">改为审查</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Selected Clause Details Inspection (7 cols) -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-space-md">
+<!-- Clause Details Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<!-- Card Header -->
+<div class="flex items-start justify-between gap-space-md pb-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-2">
+
+<h2 class="font-headline-section text-headline-section text-on-surface font-semibold">4. 非功能性需求</h2>
+</div>
+<p class="font-caption text-caption text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]">table_chart</span>
+              来自表格，已按表头转写
+            </p>
+</div>
+
+</div>
+<!-- Requirements Listing (Item 1 & 2) -->
+<div class="flex flex-col gap-space-md mt-space-sm">
+<!-- Requirement Item 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-low/80 transition-colors group flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-caption-medium text-caption bg-surface-container-highest px-2 py-0.5 rounded text-on-surface font-mono">
+                  #01
+                </span>
+<span class="font-caption text-caption text-on-surface-variant">需求 1</span>
+
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="编辑条款" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded text-secondary hover:text-on-secondary-container hover:bg-secondary-fixed transition-colors" title="删除条款" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="font-body-default text-body-default text-on-surface leading-relaxed p-space-sm rounded bg-surface-container-lowest">
+<span>类别：数据安全；要求：接口支持请求加解密；写操作记录操作日志；</span><mark class="bg-[#fff2b3] text-on-surface px-1 py-0.5 rounded-none font-medium">权限校验</mark>
+</div>
+<!-- Inspection Meta Bar -->
+
+</div>
+<!-- Requirement Item 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-low/80 transition-colors group flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-caption-medium text-caption bg-surface-container-highest px-2 py-0.5 rounded text-on-surface font-mono">
+                  #02
+                </span>
+<span class="font-caption text-caption text-on-surface-variant">需求 2</span>
+
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" title="编辑条款" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded text-secondary hover:text-on-secondary-container hover:bg-secondary-fixed transition-colors" title="删除条款" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Content Area -->
+<div class="font-body-default text-body-default text-on-surface leading-relaxed p-space-sm rounded bg-surface-container-lowest">
+<span>类别：可扩展性；要求：编码分类、段类型、进制类型均支持字典扩展</span>
+</div>
+<!-- Inspection Meta Bar -->
+
+</div>
+</div>
+<!-- Inline Prompt Info Box -->
+
+</div>
+<!-- Quick Rule Setting Assistant Pill Strip -->
+
+</div>
+</div>
+<!-- Bottom Floating Sticky Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur shadow-md">
+<div class="max-w-[1120px] mx-auto px-space-md py-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<!-- Summary Counter Info -->
+<div class="flex items-center gap-space-sm text-left">
+<span class="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0"></span>
+<div class="font-body-default text-body-default text-on-surface">
+          已勾选 <span class="font-semibold text-primary">16</span> 个功能段落，将做 <span class="font-semibold">167</span> 次单句检查、<span class="font-semibold">22</span> 次整段检查和 <span class="font-semibold text-secondary">6</span> 次账号与权限检查
+        </div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-md flex-shrink-0">
+<button class="px-space-md py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-body-medium text-body-default transition-colors" type="button">
+          返回修改
+        </button>
+<button class="px-space-lg py-1.5 rounded bg-primary-container text-on-primary font-body-medium text-body-default shadow-sm hover:opacity-95 transition-opacity flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>开始审查</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for clicking TOC rows to simulate preview switching
+  document.addEventListener('DOMContentLoaded', () => {
+    const listItems = document.querySelectorAll('.divide-y > div');
+    listItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'button') {
+          return;
+        }
+      });
+    });
+  });
+</script></div></main></body></html>

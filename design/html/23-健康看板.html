@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>健康看板</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body {
+      background-color: #f6f5f2;
+      font-family: 'Noto Sans', sans-serif;
+      color: #1b1b1d;
+      margin: 0;
+      padding: 0;
+    }
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- 顶栏：严格沿用本项目已有顶栏规范 -->
+<header class="w-full bg-white border-b border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] sticky top-0 z-50">
+<div class="max-w-[1120px] mx-auto h-14 px-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="text-[16px] font-semibold text-[#1b1b1d] select-none tracking-tight">AI 审 PRD</span>
+<span class="text-[12px] text-[#6b6b70] code-font select-none hidden sm:inline-block">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</span>
+</div>
+<nav class="flex items-center gap-2">
+<a class="px-3 py-1 text-[14px] text-[#6b6b70] hover:text-[#1b1b1d] transition-colors rounded hover:bg-[#f6f5f2]" href="#">审查</a>
+<a class="px-3 py-1 text-[14px] text-[#6b6b70] hover:text-[#1b1b1d] transition-colors rounded hover:bg-[#f6f5f2]" href="#">反馈复核</a>
+<a class="px-3 py-1 text-[14px] font-medium text-[#2f5bea] bg-[#f0edef] rounded" href="#">健康看板</a>
+</nav>
+</div>
+</header>
+<!-- 内容区 -->
+<main class="w-full max-w-[1120px] mx-auto px-4 py-8 flex-1">
+<!-- 标题与副标题 -->
+<div class="mb-6">
+<h1 class="text-[24px] font-semibold text-[#1b1b1d] leading-[32px] tracking-tight mb-1">健康看板</h1>
+<p class="text-[14px] text-[#6b6b70]">留出测试集只用来打分；每个指标对应一个处理动作</p>
+</div>
+<div class="flex flex-col gap-6">
+<!-- 第一块：留出测试集（当前定版） -->
+<section class="bg-white rounded-[12px] border border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] p-6">
+<h2 class="text-[16px] font-semibold text-[#1b1b1d] mb-4">留出测试集（当前定版）</h2>
+<div class="overflow-x-auto border border-[#ebe9e4] rounded-[8px]">
+<table class="w-full text-left border-collapse text-[14px]">
+<thead>
+<tr class="bg-[#fcf8fb] border-b border-[#ebe9e4] text-[#6b6b70] text-[13px] font-medium">
+<th class="py-2.5 px-4">审查层</th>
+<th class="py-2.5 px-4">版本</th>
+<th class="py-2.5 px-4">F1</th>
+<th class="py-2.5 px-4">准确率</th>
+<th class="py-2.5 px-4">召回率</th>
+<th class="py-2.5 px-4">干净内容被错报</th>
+<th class="py-2.5 px-4">3 次运行结果相同</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ebe9e4]">
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d]">单句</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">v4</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d] font-medium">0.860</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">89%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">83%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">2 / 28</td>
+<td class="py-3 px-4 text-[#1b1b1d]">中文 74%，英文 84%</td>
+</tr>
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d]">文档级</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">doc_v1</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d] font-medium">0.833</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">71%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">100%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">3 / 8</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">77%</td>
+</tr>
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d]">账号与权限</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">module_account_v3</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d] font-medium">0.917</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">88%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">96%</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">1 / 20</td>
+<td class="py-3 px-4 code-font text-[#1b1b1d]">90%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 第二块：多数表决（每项调用 3 次，至少 2 次报出才算） -->
+<section class="bg-white rounded-[12px] border border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] p-6">
+<h2 class="text-[16px] font-semibold text-[#1b1b1d] mb-4">多数表决（每项调用 3 次，至少 2 次报出才算）</h2>
+<div class="grid grid-cols-2 gap-4 mb-3">
+<!-- 单次卡片 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col gap-3">
+<span class="text-[14px] font-medium text-[#1b1b1d]">单次</span>
+<div class="grid grid-cols-2 gap-2 border-t border-[#ebe9e4] pt-3">
+<div>
+<span class="text-[12px] text-[#6b6b70] block mb-1">F1</span>
+<span class="text-[18px] font-semibold text-[#1b1b1d] code-font">—</span>
+</div>
+<div>
+<span class="text-[12px] text-[#6b6b70] block mb-1">一致率</span>
+<span class="text-[18px] font-semibold text-[#1b1b1d] code-font">—</span>
+</div>
+</div>
+</div>
+<!-- 多数表决卡片 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col gap-3">
+<span class="text-[14px] font-medium text-[#1b1b1d]">多数表决</span>
+<div class="grid grid-cols-2 gap-2 border-t border-[#ebe9e4] pt-3">
+<div>
+<span class="text-[12px] text-[#6b6b70] block mb-1">F1</span>
+<span class="text-[18px] font-semibold text-[#1b1b1d] code-font">—</span>
+</div>
+<div>
+<span class="text-[12px] text-[#6b6b70] block mb-1">一致率</span>
+<span class="text-[18px] font-semibold text-[#1b1b1d] code-font">—</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-[12px] text-[#6b6b70]">
+          上线条件：满足换版门槛，且一致率高于单次运行
+        </div>
+</section>
+<!-- 第三块：格式一致性 -->
+<section class="bg-white rounded-[12px] border border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] p-6">
+<h2 class="text-[16px] font-semibold text-[#1b1b1d] mb-4">格式一致性</h2>
+<div class="border border-[#ebe9e4] rounded-[8px] divide-y divide-[#ebe9e4] mb-3">
+<div class="py-3 px-4 flex items-center justify-between">
+<span class="text-[14px] font-medium text-[#1b1b1d] w-[80px]">Word</span>
+<span class="text-[14px] text-[#1b1b1d]">需求条目完全一致的 PRD：<span class="code-font font-medium">— / 158</span></span>
+</div>
+<div class="py-3 px-4 flex items-center justify-between">
+<span class="text-[14px] font-medium text-[#1b1b1d] w-[80px]">PPT</span>
+<span class="text-[14px] text-[#1b1b1d]">需求条目完全一致的 PRD：<span class="code-font font-medium">— / 158</span></span>
+</div>
+<div class="py-3 px-4 flex items-center justify-between">
+<span class="text-[14px] font-medium text-[#1b1b1d] w-[80px]">PDF</span>
+<span class="text-[14px] text-[#1b1b1d]">需求条目完全一致的 PRD：<span class="code-font font-medium">— / 158</span></span>
+</div>
+</div>
+<div class="text-[12px] text-[#6b6b70]">
+          Word 需要 158 份全部一致才上线
+        </div>
+</section>
+<!-- 第四块：线上使用 -->
+<section class="bg-white rounded-[12px] border border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] p-6">
+<h2 class="text-[16px] font-semibold text-[#1b1b1d] mb-4">线上使用</h2>
+<div class="grid grid-cols-4 gap-4 mb-4">
+<!-- 卡片 1: 导入成功率 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col justify-between">
+<div>
+<span class="text-[13px] text-[#6b6b70] block mb-1">导入成功率</span>
+<span class="text-[20px] font-semibold text-[#1b1b1d] code-font block mb-3">—</span>
+</div>
+<div class="border-t border-[#ebe9e4] pt-2 text-[12px] text-[#6b6b70] leading-[18px]">
+              按失败提示的类型分别计数，对应修改解析或提示
+            </div>
+</div>
+<!-- 卡片 2: 审查完成率 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col justify-between">
+<div>
+<span class="text-[13px] text-[#6b6b70] block mb-1">审查完成率</span>
+<span class="text-[20px] font-semibold text-[#1b1b1d] code-font block mb-3">—</span>
+</div>
+<div class="border-t border-[#ebe9e4] pt-2 text-[12px] text-[#6b6b70] leading-[18px]">
+              按未完成原因分别计数：模型接口错误、额度用完、中途关闭
+            </div>
+</div>
+<!-- 卡片 3: 反馈率 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col justify-between">
+<div>
+<span class="text-[13px] text-[#6b6b70] block mb-1">反馈率</span>
+<span class="text-[20px] font-semibold text-[#1b1b1d] code-font block mb-3">—</span>
+</div>
+<div class="border-t border-[#ebe9e4] pt-2 text-[12px] text-[#6b6b70] leading-[18px]">
+              反馈多的规则先复核
+            </div>
+</div>
+<!-- 卡片 4: 采纳率 -->
+<div class="border border-[#ebe9e4] rounded-[8px] p-4 bg-[#fcf8fb]/40 flex flex-col justify-between">
+<div>
+<span class="text-[13px] text-[#6b6b70] block mb-1">采纳率</span>
+<span class="text-[20px] font-semibold text-[#1b1b1d] code-font block mb-3">—</span>
+</div>
+<div class="border-t border-[#ebe9e4] pt-2 text-[12px] text-[#6b6b70] leading-[18px]">
+              某条规则的误判反馈被采纳得多，这条规则进入下一轮修改
+            </div>
+</div>
+</div>
+<div class="text-[12px] text-[#6b6b70]">
+          只记次数和类别，不记 PRD 内容、文件名、链接和访客地址
+        </div>
+</section>
+</div>
+</main>
+</body>
+</html>

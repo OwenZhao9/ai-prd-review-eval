@@ -30,6 +30,17 @@ def code_lines(text):
     return out
 
 
+def strip_code(text):
+    out, inside = [], False
+    for line in text.splitlines():
+        if line.strip().startswith('```'):
+            inside = not inside
+            continue
+        if not inside:
+            out.append(line)
+    return '\n'.join(out)
+
+
 rows = []
 for path in sorted(glob.glob(os.path.join(ROOT, 'data', 'raw', '*.md'))) + sorted(glob.glob(os.path.join(ROOT, 'data', 'raw_zh', '*.md'))):
     text = open(path, encoding='utf-8').read()
@@ -51,7 +62,8 @@ for path in sorted(glob.glob(os.path.join(ROOT, 'data', 'raw', '*.md'))) + sorte
         'has_table': any(l.strip().startswith('|') for l in text.splitlines()),
         'table_row_reqs': sum(1 for r in reqs if r.startswith('|') or r.count('|') >= 2),
         'code_block_reqs': sum(1 for r in reqs if any(r in c for c in code)),
-        'images': len(re.findall(r'!\[[^\]]*\]\([^)]*\)|<img ', text)),
+        # 只数正文里的图片：代码块和行内代码里写的图片语法不算
+        'images': len(re.findall(r'!\[[^\]]*\]\([^)]*\)|<img ', re.sub(r'`[^`\n]*`', '', strip_code(text)))),
     })
 
 items = sorted(r['items'] for r in rows)

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>合并请求评论</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body {
+      background-color: #f6f5f2;
+      font-family: 'Noto Sans', sans-serif;
+      color: #1b1b1d;
+      margin: 0;
+      padding: 0;
+    }
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-10 flex flex-col items-center justify-start">
+<div class="w-full max-w-[1120px] px-4 mx-auto">
+<!-- 上方一行灰字 -->
+<div class="text-[13px] text-[#6b6b70] mb-3 select-none flex items-center gap-2">
+<span>合并请求 · 修改了 requirements.md</span>
+</div>
+<!-- 评论卡片：不画代码托管外框与标志，纯净卡片 -->
+<div class="bg-white rounded-[12px] border border-[#ebe9e4] shadow-[0_1px_2px_rgba(0,0,0,0.02)] p-6">
+<!-- 头部：作者与标题 -->
+<div class="flex items-center gap-3 border-b border-[#f0edef] pb-4 mb-4">
+<span class="px-2.5 py-0.5 rounded text-[12px] font-medium bg-[#f0edef] text-[#1b1b1d]">AI 审 PRD</span>
+<h2 class="text-[16px] font-semibold text-[#1b1b1d]">AI 审 PRD 审查结果</h2>
+</div>
+<!-- 第一段说明 -->
+<p class="text-[14px] leading-[22px] text-[#1b1b1d] mb-5">
+        这次修改了 requirements.md 里的 2 条需求，审查了这 2 条需求和它们所在的 1 个段落。规则：单句规则 v4 · 文档级规则 doc_v1 · 模型 deepseek-chat
+      </p>
+<!-- 表格 -->
+<div class="overflow-x-auto border border-[#ebe9e4] rounded-[8px] mb-4">
+<table class="w-full text-left border-collapse text-[14px]">
+<thead>
+<tr class="bg-[#fcf8fb] border-b border-[#ebe9e4] text-[#6b6b70] text-[13px] font-medium">
+<th class="py-2.5 px-4 w-[140px]">段落</th>
+<th class="py-2.5 px-4">需求原文</th>
+<th class="py-2.5 px-4 w-[160px]">规则</th>
+<th class="py-2.5 px-4 w-[360px]">理由</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#ebe9e4]">
+<!-- 行 1 -->
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d] align-top">4.4 文件操作</td>
+<td class="py-3 px-4 text-[#1b1b1d] align-top leading-[22px]">差异默认以内联方式显示，用户可以切换为左右并排显示</td>
+<td class="py-3 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[12px] font-medium bg-[#e6f4ec] text-[#1f6b45]">未发现问题</span>
+</td>
+<td class="py-3 px-4 text-[#6b6b70] align-top">—</td>
+</tr>
+<!-- 行 2 -->
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d] align-top">4.4 文件操作</td>
+<td class="py-3 px-4 text-[#1b1b1d] align-top leading-[22px]">文件超过 10 MB 时，差异按每页 500 行分页显示</td>
+<td class="py-3 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[12px] font-medium bg-[#e6f4ec] text-[#1f6b45]">未发现问题</span>
+</td>
+<td class="py-3 px-4 text-[#6b6b70] align-top">—</td>
+</tr>
+<!-- 行 3 -->
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d] align-top">4.4 文件操作</td>
+<td class="py-3 px-4 text-[#6b6b70] align-top">（整段）</td>
+<td class="py-3 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[12px] font-medium bg-[#fdecea] text-[#b3261e]">D2 缺异常处理</span>
+</td>
+<td class="py-3 px-4 text-[#1b1b1d] align-top leading-[22px]">这些操作涉及文件读写、外部 SVN 服务调用和状态变化，存在失败可能，但段内未说明任何出错处理。</td>
+</tr>
+<!-- 行 4 -->
+<tr class="hover:bg-[#fcf8fb]/60 transition-colors">
+<td class="py-3 px-4 font-medium text-[#1b1b1d] align-top">4.4 文件操作</td>
+<td class="py-3 px-4 text-[#6b6b70] align-top">（整段）</td>
+<td class="py-3 px-4 align-top">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[12px] font-medium bg-[#fdecea] text-[#b3261e]">D1 缺验收标准</span>
+</td>
+<td class="py-3 px-4 text-[#1b1b1d] align-top leading-[22px]">段落描述了要做的功能，但缺少可判定做完、做对的验收标准或具体可检查结果。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 卡片底部灰字 -->
+<div class="text-[12px] text-[#6b6b70] pt-2">
+        再推送提交时更新这条评论，不新增评论；审查结果不阻止合并
+      </div>
+</div>
+</div>
+</body>
+</html>

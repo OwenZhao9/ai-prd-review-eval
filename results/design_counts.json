@@ -1,0 +1,368 @@
+{
+ "sample_obsidian_svn": {
+  "total": {
+   "sections": 13,
+   "skipped": 5,
+   "reqs": 29,
+   "doc_checks": 6,
+   "account_checks": 0,
+   "calls": 35
+  },
+  "sections_with_reqs": [
+   {
+    "title": "4.1 仓库配置",
+    "chars": 101,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.2 状态刷新",
+    "chars": 58,
+    "reqs": 2,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.3 状态视图",
+    "chars": 250,
+    "reqs": 8,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.4 文件操作",
+    "chars": 230,
+    "reqs": 6,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.5 更新反馈",
+    "chars": 105,
+    "reqs": 4,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.6 更新与提交",
+    "chars": 183,
+    "reqs": 6,
+    "doc_checks": 1,
+    "account_keywords": []
+   }
+  ]
+ },
+ "forge_admin": {
+  "total": {
+   "sections": 25,
+   "skipped": 5,
+   "reqs": 167,
+   "doc_checks": 22,
+   "account_checks": 6,
+   "calls": 195
+  },
+  "sections_with_reqs": [
+   {
+    "title": "FR1. 编码规则主表管理（CRUD）",
+    "chars": 489,
+    "reqs": 10,
+    "doc_checks": 1,
+    "account_keywords": [
+     "管理员"
+    ]
+   },
+   {
+    "title": "FR2. 分段明细配置",
+    "chars": 512,
+    "reqs": 12,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR3. 五种段类型支持",
+    "chars": 5077,
+    "reqs": 26,
+    "doc_checks": 5,
+    "account_keywords": []
+   },
+   {
+    "title": "FR4. 流水号重置与分组计数",
+    "chars": 3759,
+    "reqs": 22,
+    "doc_checks": 3,
+    "account_keywords": []
+   },
+   {
+    "title": "FR5. 编码实时预览",
+    "chars": 267,
+    "reqs": 7,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR6. 编码生成接口",
+    "chars": 785,
+    "reqs": 17,
+    "doc_checks": 1,
+    "account_keywords": [
+     "登录"
+    ]
+   },
+   {
+    "title": "FR7. 规则列表与详情查询",
+    "chars": 238,
+    "reqs": 7,
+    "doc_checks": 1,
+    "account_keywords": [
+     "管理员"
+    ]
+   },
+   {
+    "title": "FR8. 段类型与格式符查询",
+    "chars": 221,
+    "reqs": 6,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR9. 菜单与权限管理",
+    "chars": 284,
+    "reqs": 8,
+    "doc_checks": 1,
+    "account_keywords": [
+     "权限",
+     "管理员",
+     "角色"
+    ]
+   },
+   {
+    "title": "FR10. 数据迁移",
+    "chars": 394,
+    "reqs": 10,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR11. 低代码业务兼容",
+    "chars": 266,
+    "reqs": 7,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4. 非功能性需求",
+    "chars": 293,
+    "reqs": 2,
+    "doc_checks": 1,
+    "account_keywords": [
+     "权限"
+    ]
+   },
+   {
+    "title": "5.1 主表业务规则",
+    "chars": 117,
+    "reqs": 5,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "5.2 分段业务规则",
+    "chars": 135,
+    "reqs": 6,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "5.3 生成业务规则",
+    "chars": 181,
+    "reqs": 5,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "6. 验收清单",
+    "chars": 446,
+    "reqs": 17,
+    "doc_checks": 1,
+    "account_keywords": [
+     "权限",
+     "管理员"
+    ]
+   }
+  ]
+ },
+ "md_audit": {
+  "total": {
+   "sections": 43,
+   "skipped": 8,
+   "reqs": 100,
+   "doc_checks": 23,
+   "account_checks": 0,
+   "calls": 123
+  },
+  "sections_with_reqs": [
+   {
+    "title": "1.3 核心价值主张",
+    "chars": 206,
+    "reqs": 5,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "2.1 核心用户角色",
+    "chars": 152,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "2.2 用户工作流",
+    "chars": 383,
+    "reqs": 9,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-1.1: Frontmatter解析",
+    "chars": 310,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-1.2: Markdown转HTML",
+    "chars": 258,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-1.3: 关键词自动提取",
+    "chars": 464,
+    "reqs": 8,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-2.1: 元数据检查 (META_*)",
+    "chars": 527,
+    "reqs": 9,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-2.2: 结构检查 (STRUC_*)",
+    "chars": 345,
+    "reqs": 7,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-2.3: 关键词检查 (KEY_*)",
+    "chars": 300,
+    "reqs": 7,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-2.4: AI语义分析 (AI_*)",
+    "chars": 236,
+    "reqs": 4,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-3.1: Markdown格式报告",
+    "chars": 259,
+    "reqs": 4,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "FR-3.2: 具体可执行建议",
+    "chars": 168,
+    "reqs": 4,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.1 性能要求",
+    "chars": 78,
+    "reqs": 2,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.2 可用性要求",
+    "chars": 138,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.3 可扩展性要求",
+    "chars": 119,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "4.4 容错性要求",
+    "chars": 102,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "5.2 LLM API配置",
+    "chars": 172,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "6.1 功能完整性",
+    "chars": 108,
+    "reqs": 5,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "6.2 质量指标",
+    "chars": 85,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "6.3 性能指标",
+    "chars": 87,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "Phase 1: MVP核心功能（Week 1）",
+    "chars": 136,
+    "reqs": 3,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "Phase 2: AI集成（Week 2）",
+    "chars": 94,
+    "reqs": 2,
+    "doc_checks": 1,
+    "account_keywords": []
+   },
+   {
+    "title": "Phase 3: 优化与测试（Week 3）",
+    "chars": 100,
+    "reqs": 4,
+    "doc_checks": 1,
+    "account_keywords": []
+   }
+  ]
+ }
+}

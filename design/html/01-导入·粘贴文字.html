@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"primary-fixed":"#dde1ff","error":"#ba1a1a","primary-fixed-dim":"#b7c4ff","inverse-surface":"#303032","on-primary-container":"#e5e8ff","tertiary-fixed":"#a7f3c3","on-surface":"#1b1b1d","inverse-primary":"#b7c4ff","outline":"#747686","on-primary-fixed":"#001452","secondary-container":"#fe5c4c","tertiary-container":"#2c764f","on-background":"#1b1b1d","surface-tint":"#1f4fdf","on-surface-variant":"#434655","on-secondary":"#ffffff","error-container":"#ffdad6","background":"#fcf8fb","on-secondary-container":"#610002","on-error-container":"#93000a","surface-container-low":"#f6f3f5","secondary":"#b4271f","surface-container":"#f0edef","secondary-fixed":"#ffdad5","on-tertiary-container":"#aefac9","outline-variant":"#c4c5d8","tertiary":"#095d38","on-secondary-fixed":"#410001","on-primary-fixed-variant":"#0038b7","surface-container-highest":"#e4e2e4","on-tertiary-fixed":"#002110","inverse-on-surface":"#f3f0f2","primary-container":"#2f5bea","on-secondary-fixed-variant":"#910809","primary":"#0040cf","surface-dim":"#dcd9dc","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","on-error":"#ffffff","surface-container-high":"#eae7ea","surface-variant":"#e4e2e4","on-tertiary-fixed-variant":"#005230","tertiary-fixed-dim":"#8cd6a8","on-primary":"#ffffff","surface":"#fcf8fb","secondary-fixed-dim":"#ffb4aa","surface-bright":"#fcf8fb"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"16px","space-xl":"32px","space-sm":"8px","margin":"80px","space-xs":"4px","space-lg":"24px","gutter":"16px"},"fontFamily":{"headline-section":["Noto Sans"],"code-inline":["JetBrains Mono"],"caption":["Noto Sans"],"headline-page":["Noto Sans"],"body-default":["Noto Sans"],"caption-medium":["Noto Sans"],"body-medium":["Noto Sans"]},"fontSize":{"headline-section":["16px",{"lineHeight":"24px","letterSpacing":"0","fontWeight":"600"}],"code-inline":["13px",{"lineHeight":"20px","letterSpacing":"0","fontWeight":"400"}],"caption":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-page":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-default":["14px",{"lineHeight":"22px","letterSpacing":"0","fontWeight":"400"}],"caption-medium":["12px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"500"}],"body-medium":["14px",{"lineHeight":"22px","letterSpacing":"0","fontWeight":"500"}]}}}}</script></head><body class="bg-surface-container-low font-body-default text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"><div class="max-w-[1280px] h-14 mx-auto px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><span class="font-headline-section text-headline-section text-on-surface">AI 审 PRD</span><span class="h-3 w-[1px] bg-outline-variant"></span><span class="font-caption text-caption text-on-surface-variant font-code-inline">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</span></div><nav class="flex items-center h-full gap-space-lg" data-active-classes="text-primary-container border-b-2 border-primary-container font-body-medium"><a aria-current="page" class="inline-flex items-center h-full px-space-xs transition-colors text-primary-container border-b-2 border-primary-container font-body-medium" data-path="import-paste-text" href="#">审查</a><a class="inline-flex items-center h-full px-space-xs text-on-surface-variant font-body-default hover:text-on-surface transition-colors" data-path="feedback-review" href="#">反馈复核</a></nav></div></header><main class="w-full pt-14 bg-surface-container-low"><div class="max-w-[1120px] mx-auto py-space-lg"><div class="flex flex-col w-full">
+<!-- 标题与副标题区 -->
+<div class="mb-space-lg">
+<h1 class="font-headline-page text-headline-page text-on-surface">导入 PRD</h1>
+<p class="font-body-default text-body-default text-on-surface-variant mt-space-xs">
+      粘贴文字、上传文件或导入链接；导入后先看拆分结果，再开始审查
+    </p>
+</div>
+<!-- 主卡片 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<!-- 顶部选项卡 -->
+<div class="flex items-center gap-space-lg mb-space-lg">
+<button class="pb-space-xs font-body-medium text-body-medium text-primary-container shadow-[0_2px_0_0_currentColor] transition-colors focus:outline-none" id="tab-paste" onclick="switchTab('paste')" type="button">
+        粘贴文字
+      </button>
+<button class="pb-space-xs font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none" id="tab-upload" onclick="switchTab('upload')" type="button">
+        上传文件
+      </button>
+<button class="pb-space-xs font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none" id="tab-link" onclick="switchTab('link')" type="button">
+        导入链接
+      </button>
+</div>
+<!-- 选项卡 1：粘贴文字视图 -->
+<div class="flex flex-col" id="view-paste">
+<div class="relative">
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-default text-body-default rounded-lg p-space-md focus:outline-none focus:bg-surface-container-low transition-colors resize-y leading-relaxed" id="prd-input" placeholder="粘贴 Markdown 或纯文本" rows="9">&gt; 示例来自 GitHub 开源项目 caesarloo/obsidian-svn 的需求文档（MIT 许可）
+# Vault SVN 版本管理插件 - 需求文档 (v1.1)
+## 1. 背景与目标
+- 在 Obsidian 内提供 SVN 版本管理能力，管理本地笔记库。
+- 降低对命令行的依赖，同时保持标准 SVN 工作流。</textarea>
+</div>
+<!-- 文本框下方操作行 -->
+<div class="flex items-center justify-between mt-space-md pt-space-xs">
+<button class="font-body-default text-body-default text-primary-container hover:underline focus:outline-none transition-all" onclick="fillSamplePrd()" type="button">
+          填入示例 PRD
+        </button>
+<div class="flex items-center gap-space-sm">
+
+<button class="h-9 px-space-md bg-primary-container hover:opacity-95 text-on-primary rounded-lg font-body-medium text-body-medium inline-flex items-center justify-center transition-opacity focus:outline-none" onclick="handleNextStep()" type="button">
+            下一步：拆分预览
+          </button>
+</div>
+</div>
+</div>
+<!-- 选项卡 2：上传文件视图 (备选态) -->
+
+<!-- 选项卡 3：导入链接视图 (备选态) -->
+
+</div>
+<!-- 卡片底部说明与系统合规提示 -->
+<div class="mt-space-md flex items-center justify-between px-space-xs">
+<p class="font-caption text-caption text-on-surface-variant">
+      粘贴的内容会发送给 DeepSeek 模型审查，请不要粘贴涉密内容
+    </p>
+
+</div>
+<!-- 规格预检提示卡片（增强信息深度与严谨气质） -->
+
+</div>
+<script>
+  function switchTab(tab) {
+    const tabs = ['paste', 'upload', 'link'];
+    tabs.forEach(t => {
+      const btn = document.getElementById('tab-' + t);
+      const view = document.getElementById('view-' + t);
+      if (t === tab) {
+        btn.className = "pb-space-xs font-body-medium text-body-medium text-primary-container shadow-[0_2px_0_0_currentColor] transition-colors focus:outline-none";
+        view.classList.remove('hidden');
+        view.classList.add('flex');
+      } else {
+        btn.className = "pb-space-xs font-body-default text-body-default text-on-surface-variant hover:text-on-surface transition-colors focus:outline-none";
+        view.classList.add('hidden');
+        view.classList.remove('flex');
+      }
+    });
+  }
+
+  function fillSamplePrd() {
+    const textarea = document.getElementById('prd-input');
+    textarea.value = `> 示例来自 GitHub 开源项目 caesarloo/obsidian-svn 的需求文档（MIT 许可）
+# Vault SVN 版本管理插件 - 需求文档 (v1.1)
+## 1. 背景与目标
+- 在 Obsidian 内提供 SVN 版本管理能力，管理本地笔记库。
+- 降低对命令行的依赖，同时保持标准 SVN 工作流。
+
+## 2. 核心功能规范
+- 状态栏实时显示当前笔记文件的 SVN 版本与同步状态（已修改、无变动、未纳管）。
+- 提交弹窗需支持快捷填入 Commit Message，并提供差异列表（Diff）快速比对。
+- 异常边界：当本地客户端未配置 svn 命令行环境时，弹出友好阻断指引，不引发运行时崩溃。`;
+    updateCharCount();
+  }
+
+  function updateCharCount() {
+    const textarea = document.getElementById('prd-input');
+    const counter = document.getElementById('char-counter');
+    if (textarea && counter) {
+      counter.innerText = textarea.value.length + ' 字';
+    }
+  }
+
+  const textareaEl = document.getElementById('prd-input');
+  if (textareaEl) {
+    textareaEl.addEventListener('input', updateCharCount);
+    updateCharCount();
+  }
+
+  function handleNextStep() {
+    const val = document.getElementById('prd-input').value.trim();
+    if (!val) {
+      alert('请先输入 PRD 文档内容');
+      return;
+    }
+    // 模拟推进到拆分预览节点
+    const nextBtn = event.currentTarget;
+    nextBtn.innerText = '正在解析文档结构...';
+    nextBtn.classList.add('opacity-70');
+    setTimeout(() => {
+      nextBtn.innerText = '下一步：拆分预览';
+      nextBtn.classList.remove('opacity-70');
+    }, 600);
+  }
+</script></div></main></body></html>
