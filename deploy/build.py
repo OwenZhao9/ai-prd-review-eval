@@ -8,7 +8,7 @@
 - public/sample.json：示例 PRD 的审查结果提前算好，点「填入示例 PRD」后不调用模型、不扣额度。
   已有结果只补算缺的审查项（例如新接入的账号与权限检查）；--refresh-sample 时全部重算。补算需要 .env。
 """
-import json, os, shutil, subprocess, sys
+import json, os, re, shutil, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -58,7 +58,13 @@ def write_page():
     end = s.index(';', start)
     s = s[:start] + json.dumps(info, ensure_ascii=False) + s[end:]
     os.makedirs(os.path.join(PUBLIC, 'github'), exist_ok=True)
+    # Tailwind 运行时换成构建时生成的样式表，配色在 deploy/tailwind.config.js
+    s = re.sub(r'<script src="https://cdn\.tailwindcss\.com[^"]*"></script>\n', '', s)
+    s = re.sub(r'<script>\n// Tailwind 的 slate[\s\S]*?</script>\n', '', s)
+    s = s.replace('<style>', '<link rel="stylesheet" href="app.css">\n<style>', 1)
     open(os.path.join(PUBLIC, 'index.html'), 'w').write(s)
+    subprocess.run(['npx', '-y', 'tailwindcss@3.4.16', '-c', 'tailwind.config.js', '-i', 'tailwind.css', '-o', 'public/app.css', '--minify'],
+                   cwd=HERE, check=True, capture_output=True)
     # Pages 用 public/_worker.js 处理接口，部署时 wrangler 会把 src/index.js 一起打包
     open(os.path.join(PUBLIC, '_worker.js'), 'w').write("// 由 deploy/build.py 生成：Pages 的接口入口，代码在 src/index.js\nexport { default } from '../src/index.js';\n")
     for f in ('split.js', 'convert.js'):

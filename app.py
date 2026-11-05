@@ -29,7 +29,7 @@ review.load_env()
 PROMPTS = {k: review.load_prompt(v) for k, v in KIND_VER.items()}
 SUGGEST = open(os.path.join(ROOT, 'prompts', 'suggest_v2.md')).read().strip()
 RULE_NAMES = {r['id']: r['name'] for v in KIND_VER.values() for r in json.load(open(os.path.join(ROOT, 'rules', f'{v}.json')))['rules']}
-TYPES = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8'}
+TYPES = {'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.json': 'application/json; charset=utf-8'}
 
 
 class UserError(Exception):

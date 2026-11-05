@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 审 PRD</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -12,10 +11,7 @@
 <script src="convert.js"></script>
 <!-- 布局沿用 Stitch 设计稿（design/stitch/all.html）；配色和字体参考 Dribbble「Tetra — Bold Minimalist」：黑白灰、黑色选中态、大号数字 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<script>
-// Tailwind 的 slate 换成不带蓝调的中性灰
-tailwind.config={theme:{extend:{colors:{slate:{50:'#fafaf9',100:'#f4f4f3',200:'#e7e7e5',300:'#d6d6d3',400:'#a3a3a0',500:'#737371',600:'#525250',700:'#3a3a38',800:'#232322',900:'#111111'}}}}};
-</script>
+<link rel="stylesheet" href="app.css">
 <style>
 *{box-sizing:border-box;font-family:'Inter','Noto Sans SC',sans-serif}
 body{background:#f3f3f2;color:#111;margin:0;-webkit-font-smoothing:antialiased}
@@ -504,13 +500,22 @@ function secCard(s,si,prevKeys){const parts=[];
   block(s.doc,'doc','整段检查');block(s.acc,'account','账号与权限检查');
   s.reqs.forEach((r,ri)=>{if(FILTER.q&&!r.text.includes(FILTER.q)&&!s.title.includes(FILTER.q))return;let fs=r.findings||[];if(FILTER.rule)fs=fs.filter(f=>f.rule===FILTER.rule);if(FILTER.hideDone)fs=fs.filter(f=>!isDone('req|'+r.text,f.rule));if(r.status==='done'&&!fs.length&&(FILTER.only||FILTER.rule||FILTER.hideDone))return;
     if(FILTER.rule&&r.status!=='done')return;const key='req|'+r.text;const pred=(r.findings||[]).map(f=>f.rule);const ctx={kind:'sentence',si,ri,text:r.text,pred};
-    parts.push(`<div class="px-5 py-3 border-b border-slate-100 last:border-0" data-goline="${window.__map?window.__map.req[si+'|'+ri]:''}" id="c-${si}-r-${ri}"><div class="text-sm text-slate-800 leading-relaxed">${fs.length?hl(r.text,fs[0].evidence):esc(r.text)}${r.adopted?' <span class="tag-blue">已采用，再审后确认</span>':''}</div>
+    parts.push(`<div class="px-5 py-3 border-b border-slate-100 last:border-0" data-goline="${window.__map?window.__map.req[si+'|'+ri]:''}" id="c-${si}-r-${ri}"><div class="text-sm text-slate-800 leading-relaxed" data-reqtext>${fs.length?hl(r.text,fs[0].evidence):esc(r.text)}${r.adopted?' <span class="tag-blue">已修改，重新审查后确认</span>':''} <button class="link !text-xs text-slate-400 ml-1" data-edit-req='${si},${ri}'>编辑</button></div>
       ${r.status==='done'?(fs.length?fs.map(f=>findingHtml(f,key,prevKeys,ctx)).join(''):'<div class="mt-1"><span class="tag-success">未发现问题</span></div>'):`<div class="mt-1">${statusLine(r)}</div>`}
       ${r.status==='done'?missBtn(ctx,key):''}</div>`)});
   if(!parts.length&&(FILTER.only||FILTER.rule||FILTER.q||FILTER.hideDone))return '';
   return `<div class="card overflow-hidden" id="sec-${si}"><div class="px-5 py-3 border-b border-slate-200 flex justify-between items-center"><div class="font-semibold text-slate-800 text-sm">${esc(s.title)}</div>${s.off?'<span class="tag-gray">未勾选，未审查</span>':`<span class="text-xs text-slate-400">${secProblems(s)} 个问题</span>`}</div>${parts.join('')||'<div class="px-5 py-3 text-sm text-slate-400">这个段落没有需要显示的条目</div>'}</div>`}
 function missBtn(ctx,key){const sent=store.get('fbm:'+key);return `<div class="mt-2">${sent?'<span class="text-xs text-slate-500">漏了问题 · 已提交</span>':`<button class="link !text-xs text-slate-500" data-miss='${esc(JSON.stringify({...ctx,key}))}'>漏了问题</button>`}</div>`}
-function bindResult(){document.querySelectorAll('[data-fp]').forEach(b=>b.onclick=()=>fpModal(JSON.parse(b.dataset.fp)));
+// 结果页直接改一条需求：预览、结果和原文里一起换，再点「重新审查」只审改过的条目
+function editReq(si,ri,host){const r=RES.sections[si].reqs[ri];
+  host.innerHTML=`<textarea class="w-full border border-slate-300 rounded-lg p-2 text-sm h-20">${esc(r.text)}</textarea><div class="flex gap-2 mt-2"><button class="btn-primary !text-xs" data-ok>保存</button><button class="btn-outline !text-xs" data-x>取消</button><span class="text-xs text-slate-400 self-center">保存后点「重新审查」，只审改过的条目</span></div>`;
+  const ta=host.querySelector('textarea');ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length);
+  host.querySelector('[data-x]').onclick=()=>renderResult();
+  host.querySelector('[data-ok]').onclick=()=>{const t=ta.value.trim().replace(/\s*\n\s*/g,' ');if(!t||t===r.text){renderResult();return}
+    const old=r.text;const p=$('#prd');if(p.value.includes(old))p.value=p.value.replace(old,t);if(RES.text&&RES.text.includes(old))RES.text=RES.text.replace(old,t);
+    adoptSuggestion(si,r,t);renderResult();toast('已修改，点「重新审查」确认')}}
+function bindResult(){document.querySelectorAll('[data-edit-req]').forEach(b=>b.onclick=e=>{e.stopPropagation();const [si,ri]=b.dataset.editReq.split(',').map(Number);editReq(si,ri,b.closest('[data-reqtext]'))});
+document.querySelectorAll('[data-fp]').forEach(b=>b.onclick=()=>fpModal(JSON.parse(b.dataset.fp)));
   document.querySelectorAll('[data-miss]').forEach(b=>b.onclick=()=>missModal(JSON.parse(b.dataset.miss)));
   document.querySelectorAll('[data-suggest]').forEach(b=>b.onclick=()=>suggest(JSON.parse(b.dataset.suggest),b.closest('.rounded-lg').querySelector('[data-sug-box]'),b))}
 
