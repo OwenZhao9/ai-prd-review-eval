@@ -652,7 +652,9 @@ pending();
 
 /* ---------- 健康看板 ---------- */
 // 健康看板里三组规则的颜色
-const RULE_GROUPS=[{name:'单句规则',ids:['R1','R2','R3','R4','R5','R6'],color:'#111111'},{name:'文档级规则',ids:['D1','D2','D3'],color:'#3e63dd'},{name:'账号与权限',ids:['A1','A2','A3','A4'],color:'#30a46c'}];
+const RULE_GROUPS=[{name:'单句规则',ids:['R1','R2','R3','R4','R5','R6']},{name:'文档级规则',ids:['D1','D2','D3']},{name:'账号与权限',ids:['A1','A2','A3','A4']}];
+// 每条规则一个颜色
+const RULE_COLOR={R1:'#e5484d',R2:'#f76b15',R3:'#ffb224',R4:'#30a46c',R5:'#12a594',R6:'#0090ff',D1:'#3e63dd',D2:'#6e56cf',D3:'#ab4aba',A1:'#d6409f',A2:'#a18072',A3:'#5b5bd6',A4:'#111111'};
 async function loadDash(){let d={},m={};try{d=await (await fetch('dashboard.json')).json()}catch{}try{m=await (await fetch('/api/metrics')).json()}catch{}
   const pct=x=>x==null?'—':(x*100).toFixed(1)+'%';const f3=x=>x==null?'—':x.toFixed(3);
   const card=(t,v,sub)=>`<div class="card p-6"><div class="label">${t}</div><div class="text-[44px] mt-4">${bigNum(v)}</div><div class="text-xs text-slate-400 mt-3">${sub||''}</div></div>`;
@@ -660,9 +662,9 @@ async function loadDash(){let d={},m={};try{d=await (await fetch('dashboard.json
   $('#tab-dash').innerHTML=`
   <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-4">${card('单句规则 F1',f3(C.sentence&&C.sentence.f1),C.sentence?`${C.sentence.version} · 留出集 ${C.sentence.items} 条`:'')}${card('文档级规则 F1',f3(C.doc&&C.doc.f1),C.doc?`${C.doc.version} · 留出集 ${C.doc.items} 段`:'')}${card('账号与权限 F1',f3(C.account&&C.account.f1),C.account?`${C.account.version} · 留出集 ${C.account.items} 段`:'')}${card('干净需求被错报率',C.clean?pct(C.clean.rate):'—',C.clean?`${C.clean.fp} / ${C.clean.total}（单句 ${C.sentence&&C.sentence.version}）`:'')}</div>
   <div class="card p-5 mb-4"><div class="flex items-center justify-between gap-3 flex-wrap mb-3"><div class="text-sm font-semibold text-slate-800">13 条规则的 F1（留出集，第 1 次运行）</div>
-    <div class="flex gap-4 text-xs text-slate-500">${RULE_GROUPS.map(g=>`<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background:${g.color}"></span>${g.name}</span>`).join('')}</div></div>
+    </div>
     ${rules.map((r,i)=>{const g=RULE_GROUPS.find(g=>g.ids.includes(r.id))||RULE_GROUPS[0];const first=i>0&&!g.ids.includes(rules[i-1].id);
-      return `<div class="flex items-center gap-3 text-xs mb-1.5 ${first?'pt-2.5 mt-2.5 border-t border-slate-100':''}"><span class="w-40 shrink-0 text-slate-600 truncate">${r.id} ${esc(RULES[r.id]||'')}</span><div class="flex-1 h-2 bg-slate-100 rounded-full"><div class="h-2 rounded-full" style="width:${(r.f1||0)*100}%;background:${g.color}"></div></div><span class="w-12 text-right text-slate-700">${f3(r.f1)}</span></div>`}).join('')||'<div class="text-sm text-slate-400">没有评测数据</div>'}</div>
+      return `${i===0||first?`<div class="label ${first?'pt-3 mt-3 border-t border-slate-100':''} mb-2">${g.name}</div>`:''}<div class="flex items-center gap-3 text-xs mb-1.5"><span class="w-40 shrink-0 text-slate-600 truncate flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-sm shrink-0" style="background:${RULE_COLOR[r.id]}"></span>${r.id} ${esc(RULES[r.id]||'')}</span><div class="flex-1 h-2 bg-slate-100 rounded-full"><div class="h-2 rounded-full" style="width:${(r.f1||0)*100}%;background:${RULE_COLOR[r.id]}"></div></div><span class="w-12 text-right text-slate-700">${f3(r.f1)}</span></div>`}).join('')||'<div class="text-sm text-slate-400">没有评测数据</div>'}</div>
   <div class="grid xl:grid-cols-2 gap-4 mb-4">
     <div class="card p-5 overflow-auto"><div class="text-sm font-semibold text-slate-800 mb-3">版本历史</div><table class="w-full text-xs"><thead><tr class="text-slate-500 text-left"><th class="py-1.5">规则组</th><th>版本</th><th>合计 F1</th><th>干净条目被错报</th><th>三次一致</th><th>是否采用</th></tr></thead><tbody>
       ${(d.versions||[]).map(v=>`<tr class="border-t border-slate-100"><td class="py-1.5">${esc(v.group)}</td><td>${esc(v.version)}</td><td>${f3(v.f1)}</td><td>${v.clean_fp} / ${v.clean_total}</td><td>${pct(v.consistency)}</td><td>${v.adopted?'<span class="tag-success">采用</span>':'<span class="tag-gray">未采用</span>'}</td></tr>`).join('')}</tbody></table></div>
