@@ -10,64 +10,89 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="split.js"></script>
 <script src="convert.js"></script>
-<!-- 页面样式取自 Stitch 设计稿（design/stitch/all.html） -->
+<!-- 布局沿用 Stitch 设计稿（design/stitch/all.html）；配色和字体参考 Dribbble「Tetra — Bold Minimalist」：黑白灰、黑色选中态、大号数字 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+// Tailwind 的 slate 换成不带蓝调的中性灰
+tailwind.config={theme:{extend:{colors:{slate:{50:'#fafaf9',100:'#f4f4f3',200:'#e7e7e5',300:'#d6d6d3',400:'#a3a3a0',500:'#737371',600:'#525250',700:'#3a3a38',800:'#232322',900:'#111111'}}}}};
+</script>
 <style>
-*{box-sizing:border-box;font-family:'Noto Sans SC',sans-serif}
-body{background:#f5f6f8;color:#1e293b;margin:0}
-.tag-danger{background:#fee2e2;color:#dc2626;border-radius:4px;padding:2px 6px;font-size:12px;font-weight:500;white-space:nowrap}
-.tag-success{background:#dcfce7;color:#16a34a;border-radius:4px;padding:2px 6px;font-size:12px;font-weight:500;white-space:nowrap}
-.tag-warning{background:#fef3c7;color:#d97706;border-radius:4px;padding:2px 6px;font-size:12px;font-weight:500;white-space:nowrap}
-.tag-gray{background:#f1f5f9;color:#64748b;border-radius:4px;padding:2px 6px;font-size:12px;font-weight:500;white-space:nowrap}
-.tag-blue{background:#e0e7ff;color:#1f4fd1;border-radius:4px;padding:2px 6px;font-size:12px;font-weight:500;white-space:nowrap}
-.btn-primary{background:#1f4fd1;color:#fff;border-radius:6px;padding:6px 16px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
-.btn-primary:disabled{background:#cbd5e1;color:#94a3b8;cursor:not-allowed}
-.btn-outline{border:1px solid #cbd5e1;background:#fff;color:#334155;border-radius:6px;padding:5px 14px;font-weight:500;font-size:13px;cursor:pointer}
-.btn-outline:disabled{color:#94a3b8;cursor:not-allowed}
-.link{color:#1f4fd1;font-size:13px;cursor:pointer;background:none;border:0;padding:0}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px}
-.tab-on{color:#fff;background:#1f4fd1}
-.subtab{padding:10px 2px;margin-right:24px;font-size:14px;color:#64748b;border-bottom:2px solid transparent;cursor:pointer;background:none}
-.subtab.on{color:#1f4fd1;border-color:#1f4fd1;font-weight:600}
-.drop{border:2px dashed #cbd5e1;border-radius:12px;background:#f8fafc}
-.drop.over{border-color:#1f4fd1;background:#eff6ff}
-mark{background:#fef08a;border-radius:3px;padding:0 2px;color:inherit}
-.spin{display:inline-block;width:14px;height:14px;border:2px solid #e2e8f0;border-top-color:#1f4fd1;border-radius:50%;animation:s 1s linear infinite;vertical-align:-2px}
+*{box-sizing:border-box;font-family:'Inter','Noto Sans SC',sans-serif}
+body{background:#f3f3f2;color:#111;margin:0;-webkit-font-smoothing:antialiased}
+.num{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:-.04em;line-height:1;font-feature-settings:'tnum'}
+.num .dim{color:#b5b5b2}
+.label{font-size:11px;letter-spacing:.12em;color:#8f8f8c;font-weight:500}
+.tag-danger,.tag-success,.tag-warning,.tag-gray,.tag-blue{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:500;white-space:nowrap;border:1px solid #e7e7e5;background:#fff;color:#111}
+.tag-danger::before,.tag-success::before,.tag-warning::before{content:'';width:6px;height:6px;border-radius:50%}
+.tag-danger::before{background:#e5484d}.tag-success::before{background:#30a46c}.tag-warning::before{background:#f5a524}
+.tag-gray{background:#f4f4f3;color:#737371;border-color:transparent}
+.tag-blue{background:#111;color:#fff;border-color:#111}
+.btn-primary{background:#111;color:#fff;border-radius:8px;padding:8px 16px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;border:1px solid #111}
+.btn-primary:hover{background:#2b2b2a}
+.btn-primary:disabled{background:#e7e7e5;border-color:#e7e7e5;color:#a3a3a0;cursor:not-allowed}
+.btn-outline{border:1px solid #e1e1de;background:#fff;color:#111;border-radius:8px;padding:6px 14px;font-weight:500;font-size:13px;cursor:pointer;display:inline-flex;align-items:center}
+.btn-outline:hover{background:#f7f7f6}.btn-outline:disabled{color:#b5b5b2;cursor:not-allowed;background:#fff}
+.chip{border:1px solid #e1e1de;background:#fff;color:#3a3a38;border-radius:8px;padding:4px 10px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap}
+.chip.on{background:#111;border-color:#111;color:#fff}
+.link{color:#111;font-size:13px;cursor:pointer;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#c9c9c6}
+.card{background:#fff;border:1px solid #e7e7e5;border-radius:14px}
+.subtab{padding:6px 14px;margin-right:4px;font-size:13px;color:#525250;border-radius:8px;cursor:pointer;background:none;font-weight:500}
+.subtab.on{color:#fff;background:#111}
+.drop{border:1.5px dashed #d6d6d3;border-radius:12px;background:#fafaf9}
+.drop.over{border-color:#111;background:#f4f4f3}
+mark{background:#111;color:#fff;border-radius:4px;padding:0 3px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #e7e7e5;border-top-color:#111;border-radius:50%;animation:s 1s linear infinite;vertical-align:-2px}
 @keyframes s{to{transform:rotate(360deg)}}
-.ins{background:#dcfce7;color:#166534;border-radius:2px}.del{background:#fee2e2;color:#991b1b;text-decoration:line-through;border-radius:2px}
-.gone{color:#94a3b8;text-decoration:line-through}
+.ins{background:#e6f4ec;color:#1a7f4b;border-radius:3px}.del{background:#fdecec;color:#b42318;text-decoration:line-through;border-radius:3px}
+.gone{color:#a3a3a0;text-decoration:line-through}
 textarea,input,select{outline:none}
-.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.45);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
-.toast{position:fixed;right:24px;bottom:24px;background:#1e293b;color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;z-index:60}
-.toc-item{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:6px;font-size:13px;cursor:pointer;color:#475569}
-.toc-item:hover{background:#f1f5f9}.toc-item.on{background:#eff6ff;color:#1e293b;font-weight:600}
+textarea:focus,input[type=text]:focus,input[type=password]:focus,select:focus{border-color:#111!important}
+.modal-bg{position:fixed;inset:0;background:rgba(17,17,17,.35);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
+.toast{position:fixed;right:24px;bottom:24px;background:#111;color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;z-index:60}
+.toc-item{display:flex;justify-content:space-between;gap:8px;padding:8px 10px;border-radius:8px;font-size:13px;cursor:pointer;color:#525250}
+.toc-item:hover{background:#f4f4f3}.toc-item.on{background:#111;color:#fff}.toc-item.on .tag-blue{background:#fff;color:#111}
+/* 侧边栏导航 */
+aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-right:1px solid #e7e7e5;padding:22px 16px;display:flex;flex-direction:column;z-index:20}
+.nav-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:8px;font-size:14px;color:#3a3a38;text-align:left}
+.nav-btn:hover{background:#f4f4f3}
+.nav-btn.tab-on{background:#111;color:#fff}
+.nav-btn svg{width:16px;height:16px;flex:none}
+.shell{margin-left:240px}
 .narrow-only{display:none}
 @media (max-width:1279px){.wide-only{display:none!important}.narrow-only{display:block}.split{grid-template-columns:1fr!important}}
-@media (max-width:767px){header .ver{display:none}}
+@media (max-width:1023px){aside{position:static;width:auto;flex-direction:row;align-items:center;gap:12px;padding:10px 16px;border-right:0;border-bottom:1px solid #e7e7e5;overflow-x:auto}
+  aside .side-extra{display:none}aside nav{display:flex;gap:4px}aside .nav-group{display:flex;gap:4px}.nav-btn{width:auto;white-space:nowrap;padding:7px 12px}.shell{margin-left:0}}
 </style>
 </head>
 <body>
-<header class="bg-white border-b border-slate-200">
-  <div class="max-w-[1440px] mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
-    <div>
-      <div class="text-lg font-bold text-slate-900">AI 审 PRD</div>
-      <div class="ver text-xs text-slate-400 mt-0.5" id="ver">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
-    </div>
-    <nav class="flex gap-1" id="nav">
-      <button data-tab="review" class="px-4 py-1.5 rounded-md text-sm font-medium tab-on">审查</button>
-      <button data-tab="fb" class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">反馈复核 <span id="pend"></span></button>
-      <button data-tab="dash" class="px-4 py-1.5 rounded-md text-sm font-medium text-slate-600">健康看板</button>
-    </nav>
-    <div class="w-24 wide-only"></div>
+<aside>
+  <div class="flex items-center gap-2.5 px-2">
+    <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><rect x="2" y="3" width="3.5" height="14" rx="1" fill="#111"/><rect x="8.25" y="3" width="3.5" height="9" rx="1" fill="#111"/><rect x="14.5" y="3" width="3.5" height="14" rx="1" fill="#111"/></svg>
+    <span class="text-[17px] font-semibold tracking-tight">AI 审 PRD</span>
   </div>
-</header>
-
-<main class="max-w-[1440px] mx-auto px-4 md:px-6 py-6">
+  <div class="side-extra px-2 mt-6 mb-5"><div class="text-[15px] font-medium">审查 PRD</div><div class="text-[15px] text-slate-400">逐条找出写得不清楚的需求</div></div>
+  <nav id="nav" class="flex-1">
+    <div class="nav-group"><div class="label side-extra px-3 mb-2 mt-2">工作台</div>
+      <button data-tab="review" class="nav-btn tab-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"/></svg>审查</button></div>
+    <div class="nav-group"><div class="label side-extra px-3 mb-2 mt-6">维护</div>
+      <button data-tab="fb" class="nav-btn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 3.5h11v7h-6l-3 2.5v-2.5h-2z"/></svg>反馈复核 <span id="pend" class="ml-auto text-xs"></span></button>
+      <button data-tab="dash" class="nav-btn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 13.5h11M4.5 11V7M8 11V4M11.5 11V8.5"/></svg>健康看板</button>
+      <button data-tab="github" class="nav-btn"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4.5" cy="4" r="1.5"/><circle cx="4.5" cy="12" r="1.5"/><circle cx="11.5" cy="8" r="1.5"/><path d="M4.5 5.5v5M6 4h2.5a3 3 0 0 1 3 3v-.5"/></svg>接入 GitHub</button></div>
+  </nav>
+  <div class="side-extra px-2 text-[11px] leading-5 text-slate-400" id="ver">单句规则 v4 · 文档级规则 doc_v1 · 账号与权限 module_account_v3 · 模型 deepseek-chat</div>
+</aside>
+<div class="shell">
+<div class="px-5 md:px-8 pt-7 pb-2 flex items-end justify-between gap-4 flex-wrap">
+  <div><div class="label mb-1.5" id="page-label">工作台</div><h1 class="text-[28px] font-medium tracking-tight leading-none" id="page-title">审查</h1></div>
+  <div class="flex gap-1" id="steps"></div>
+</div>
+<main class="max-w-[1440px] px-5 md:px-8 py-5">
 <!-- 审查 -->
 <section id="tab-review">
   <!-- 第一步：导入 -->
   <div id="step-import" class="max-w-[960px] mx-auto">
     <div class="card p-6">
-      <div class="border-b border-slate-200 mb-5 flex" id="import-tabs">
+      <div class="mb-5 flex" id="import-tabs">
         <button class="subtab on" data-src="paste">粘贴文字</button>
         <button class="subtab" data-src="upload">上传文件</button>
         <button class="subtab" data-src="link">导入链接</button>
@@ -110,6 +135,7 @@ textarea,input,select{outline:none}
 <section id="tab-dash" hidden></section>
 <section id="tab-github" hidden></section>
 </main>
+</div>
 
 <script>
 const $=s=>document.querySelector(s);
@@ -127,7 +153,8 @@ async function loadMeta(){try{META=await (await fetch('/api/meta')).json();$('#v
 loadMeta();
 
 /* ---------- 标签页 ---------- */
-function showTab(t){document.querySelectorAll('#nav button').forEach(b=>{const on=b.dataset.tab===t;b.classList.toggle('tab-on',on);b.classList.toggle('text-slate-600',!on)});
+const TITLES={review:['工作台','审查'],fb:['维护','反馈复核'],dash:['维护','健康看板'],github:['维护','接入 GitHub']};
+function showTab(t){document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('tab-on',b.dataset.tab===t));$('#page-label').textContent=TITLES[t][0];$('#page-title').textContent=TITLES[t][1];$('#steps').style.display=t==='review'?'':'none';
   ['review','fb','dash','github'].forEach(x=>$('#tab-'+x).hidden=x!==t);if(t==='fb')loadFb();if(t==='dash')loadDash();if(t==='github')renderGithub()}
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
 
@@ -156,7 +183,7 @@ async function handleFile(f){const ext=(f.name.split('.').pop()||'').toLowerCase
   if(!['md','txt','docx','pptx','pdf'].includes(ext)){event('import_fail','format');uploadError(ext==='doc'?'不支持 .doc 格式，请在 Word 里另存为 .docx 后再上传':'不支持这个格式，请另存为 .docx、.pptx 或 .pdf 后上传');return}
   if(f.size>MAX_FILE){event('import_fail','size');uploadError('文件超过 20 MB，请删去图片后再上传，或复制文字粘贴');return}
   event('import_start',ext);$('#to-preview').disabled=true;
-  const prog=p=>uploadMsg(`<div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm"><div class="flex justify-between"><span>${esc(f.name)}</span><span class="text-slate-400">正在转换为文档结构… ${p}%</span></div><div class="h-1.5 bg-slate-200 rounded mt-2"><div class="h-1.5 bg-[#1f4fd1] rounded" style="width:${p}%"></div></div></div>`);
+  const prog=p=>uploadMsg(`<div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm"><div class="flex justify-between"><span>${esc(f.name)}</span><span class="text-slate-400">正在转换为文档结构… ${p}%</span></div><div class="h-1.5 bg-slate-200 rounded mt-2"><div class="h-1.5 bg-[#111111] rounded" style="width:${p}%"></div></div></div>`);
   prog(5);
   try{const buf=await f.arrayBuffer();const r=await fileToMd(buf,ext,prog);
     if(!r.md.trim()){event('import_fail','empty');uploadError('没有读到文字，请确认文件内容');return}
@@ -220,14 +247,18 @@ let QUOTA_NOTE='';
 function fitQuota(){QUOTA_NOTE='';const left=META.quota.remaining;let used=0,n=0;
   SECS.forEach((s,i)=>{if(s.skip)return;const c=callCount(PRDSplit.jobsFor({...s,off:false},i));if(used+c>left){if(!s.off){s.off=true;s.offReason='quota'}}else{used+=c;if(c)n++}});
   if(SECS.some(s=>s.offReason==='quota'))QUOTA_NOTE=`今天的额度只够审前 ${n} 个段落，可以改选要审的段落`}
-function goStep(s){['import','preview','result'].forEach(x=>$('#step-'+x).hidden=x!==s);window.scrollTo(0,0)}
+function goStep(s){['import','preview','result'].forEach(x=>$('#step-'+x).hidden=x!==s);window.scrollTo(0,0);
+  $('#steps').innerHTML=[['import','导入'],['preview','拆分预览'],['result','审查结果']].map(([k,t],i)=>`<span class="chip ${k===s?'on':''}" style="cursor:default">${i+1}  ${t}</span>`).join('')}
+// 大号数字：小数部分和单位用浅灰
+const bigNum=(v,unit)=>{const t=String(v);const m=t.match(/^(\d[\d,]*)(\.\d+)?(.*)$/);return m?`<span class="num">${m[1]}${m[2]?`<span class="dim">${m[2]}</span>`:''}${m[3]||unit?`<span class="dim text-[0.45em] ml-1 tracking-normal">${m[3]||''}${unit||''}</span>`:''}</span>`:`<span class="num">${esc(t)}</span>`};
+const stat=(label,v,unit,sub)=>`<div class="min-w-[120px]"><div class="label mb-2">${label}</div><div class="text-[40px]">${bigNum(v,unit)}</div>${sub?`<div class="text-xs text-slate-400 mt-1.5">${sub}</div>`:''}</div>`;
 function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const func=SECS.filter(s=>!s.skip).length;const reqN=SECS.reduce((a,s)=>a+(s.skip||s.off?0:s.reqs.length),0);
   const skipped=SECS.filter(s=>s.skip).length;const images=SECS.reduce((a,s)=>a+s.images,0);const over=calls>META.quota.remaining;
   const notices=[...DOC.notices.map(n=>['blue',n]),...(images?[['gray',`有 ${images} 张图片未审查`]]:[]),...(QUOTA_NOTE?[['warning',QUOTA_NOTE]]:[]),...(over?[['warning',`本次将调用模型 ${calls} 次，超过今天剩余额度 ${META.quota.remaining} 次，请取消一些段落`]]:[])];
   const s=SECS[CUR]||{reqs:[]};
   $('#step-preview').innerHTML=`
-  <div class="card px-5 py-3 flex items-center justify-between gap-3 flex-wrap mb-4">
-    <div class="text-sm text-slate-700"><b>${SECS.length}</b> 个段落（跳过 ${skipped} 个）· 功能段落 ${func} 个 · <b>${reqN}</b> 条需求 · 本次将调用模型 <b>${calls}</b> 次 · 今天剩余额度 ${META.quota.remaining} 次</div>
+  <div class="card px-6 py-5 flex items-end justify-between gap-6 flex-wrap mb-4">
+    <div class="flex gap-10 flex-wrap">${stat('段落',SECS.length,' 个',`跳过 ${skipped} 个 · 功能段落 ${func} 个`)}${stat('需求',reqN,' 条')}${stat('本次调用模型',calls,' 次')}${stat('今天剩余额度',META.quota.remaining,' 次')}</div>
     <div class="flex gap-2"><button class="btn-outline" id="back-import">返回修改</button><button class="btn-primary" id="start" ${over||!jobs.length?'disabled':''}>开始审查</button></div>
   </div>
   ${notices.map(([c,t])=>`<div class="mb-3 px-4 py-2.5 rounded-lg text-sm ${c==='warning'?'bg-amber-50 border border-amber-200 text-amber-800':c==='blue'?'bg-blue-50 border border-blue-200 text-blue-800':'bg-slate-50 border border-slate-200 text-slate-600'}">${esc(t)}</div>`).join('')}
@@ -243,12 +274,12 @@ function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const 
   bindDetail()}
 function tocRow(x,i){const tag=x.skip?`<span class="tag-gray">已跳过</span>`:x.codeOnly?`<span class="tag-gray">代码块，不审查</span>`:x.off?`<span class="tag-gray">未勾选</span>`:`<span class="tag-blue">${x.reqs.length} 条</span>`;
   return `<div class="toc-item ${i===CUR?'on':''} ${x.skip?'opacity-60':''}" data-toc="${i}" style="padding-left:${6+(x.level-1)*14}px">
-    <label class="flex items-start gap-2 min-w-0"><input type="checkbox" data-check="${i}" ${x.skip?'disabled':''} ${!x.skip&&!x.off?'checked':''} class="mt-1"><span class="truncate">${esc(x.title)}${x.skip?`<span class="block text-[11px] text-slate-400 font-normal">标题含「${esc(x.skipReason)}」</span>`:''}${!x.skip&&x.account?'<span class="block text-[11px] text-[#1f4fd1] font-normal">账号与权限检查</span>':''}</span></label>${tag}</div>`}
+    <label class="flex items-start gap-2 min-w-0"><input type="checkbox" data-check="${i}" ${x.skip?'disabled':''} ${!x.skip&&!x.off?'checked':''} class="mt-1"><span class="truncate">${esc(x.title)}${x.skip?`<span class="block text-[11px] text-slate-400 font-normal">标题含「${esc(x.skipReason)}」</span>`:''}${!x.skip&&x.account?'<span class="block text-[11px] text-[#111111] font-normal">账号与权限检查</span>':''}</span></label>${tag}</div>`}
 function secDetail(s,i){if(!s)return '';const jobs=PRDSplit.jobsFor(s,i);
   const long=s.groups.length>1&&!s.skip?`<div class="mb-3 px-3 py-2 rounded bg-slate-50 border border-slate-200 text-xs text-slate-600">本段 ${s.chars} 字，已分成 ${s.groups.length} 组整段检查；跨组的前后矛盾不检查</div>`:'';
   return `<div class="flex items-center justify-between gap-3 flex-wrap mb-3"><div class="font-semibold text-slate-800">${esc(s.title)}</div>
     <div class="flex items-center gap-3 text-sm">${s.skip?`<button class="btn-outline" id="unskip">改为审查</button>`:`<label class="flex items-center gap-1.5 text-slate-600"><input type="checkbox" id="acc" ${s.account?'checked':''}>账号与权限检查</label>`}</div></div>
-  ${s.account&&!s.skip?'<div class="mb-3 text-xs text-[#1f4fd1]">标题或正文含登录、密码、权限等词，已自动勾选账号与权限规则组（A1–A4），可以取消。</div>':''}
+  ${s.account&&!s.skip?'<div class="mb-3 text-xs text-[#111111]">标题或正文含登录、密码、权限等词，已自动勾选账号与权限规则组（A1–A4），可以取消。</div>':''}
   ${long}
   <div class="text-xs text-slate-400 mb-2">${s.skip?'这个段落被跳过：标题含「'+esc(s.skipReason)+'」。':s.off?'这个段落未勾选，不审查。':`这个段落会调用模型 ${callCount(jobs)} 次（${jobs.filter(j=>j.kind==='doc').length?'整段检查 '+jobs.filter(j=>j.kind==='doc').length+' 次、':''}${jobs.filter(j=>j.kind==='account').length?'账号与权限 '+jobs.filter(j=>j.kind==='account').length+' 次、':''}单句 ${s.reqs.length} 条）`}</div>
   ${s.reqs.length?`<div class="divide-y divide-slate-100 border border-slate-100 rounded-lg">${s.reqs.map((r,ri)=>EDIT===ri?
@@ -285,8 +316,8 @@ async function runJobs(jobs){RUNNING=true;STOP=false;let quotaOut=false;const t0
   const incomplete=jobs.some(j=>slot(RES,j).status!=='done');event(incomplete?'review_incomplete':'review_complete',quotaOut?'quota':STOP?'stopped':incomplete?'error':'');
   saveHistory(RES);loadMeta().then(()=>{});renderResult()}
 function renderRunning(done,total,sec){const items=RES.sections.flatMap((s,si)=>s.reqs.map(r=>({s,r}))).filter(x=>x.r.status!=='skip'&&x.r.status!=='off');
-  $('#step-result').innerHTML=`<div class="card p-5 mb-4"><div class="flex justify-between items-center mb-2 gap-3"><div class="text-sm text-slate-700">已完成 <b>${done}</b> / 共 ${total} 项 · 已用时间 ${sec} 秒</div><button class="btn-outline" id="stop">停止</button></div>
-    <div class="h-2 bg-slate-100 rounded"><div class="h-2 bg-[#1f4fd1] rounded" style="width:${total?done/total*100:0}%"></div></div></div>
+  $('#step-result').innerHTML=`<div class="card px-6 py-5 mb-4"><div class="flex justify-between items-end mb-4 gap-3"><div class="flex gap-10">${stat('已完成',done,' / '+total+' 项')}${stat('已用时间',sec,' 秒')}</div><button class="btn-outline" id="stop">停止</button></div>
+    <div class="h-1.5 bg-slate-100 rounded-full"><div class="h-1.5 bg-[#111111] rounded-full transition-all" style="width:${total?done/total*100:0}%"></div></div></div>
     <div class="card divide-y divide-slate-100">${items.slice(0,300).map(({s,r})=>`<div class="px-5 py-3 text-sm flex justify-between gap-4"><span class="text-slate-700">${esc(r.text)}</span><span class="shrink-0">${r.status==='pending'?'<span class="spin"></span>':r.status==='done'?(r.findings.length?r.findings.map(f=>`<span class="tag-danger ml-1">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>`).join(''):'<span class="tag-success">未发现问题</span>'):r.status==='failed'?'<span class="tag-danger">审查失败</span>':'<span class="tag-gray">未审查</span>'}</span></div>`).join('')}</div>`;
   $('#stop').onclick=()=>{STOP=true}}
 
@@ -305,16 +336,13 @@ function saveHistory(R){const h=(store.get('history')||[]).filter(x=>x!==null);c
   if(!store.get('history')){let hh=h;while(hh.length>1){hh=hh.slice(1);store.set('history',hh);if(store.get('history'))break}}}
 function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?findingKeys(R.prev):null;const nowKeys=findingKeys(R);
   const gone=prevKeys?[...prevKeys.entries()].filter(([k])=>!nowKeys.has(k)).map(([,v])=>v):[];
-  const ruleOpts=Object.keys(RULES).map(k=>`<option value="${k}" ${FILTER.rule===k?'selected':''}>${k} ${esc(RULES[k])}${c.byRule[k]?'（'+c.byRule[k]+'）':''}</option>`).join('');
   const unrev=[c.off&&`未勾选 ${c.off} 项`,c.quota&&`额度用完 ${c.quota} 项`,c.failed&&`审查失败 ${c.failed} 项`,c.stopped&&`已停止 ${c.stopped} 项`].filter(Boolean);
   const vis=R.sections.map((s,si)=>({s,si})).filter(({s})=>!s.skipped&&(s.reqs.length||s.doc.length||s.acc.length));
   $('#step-result').innerHTML=`
-  <div class="card px-5 py-4 mb-4">
-    <div class="flex items-start justify-between gap-3 flex-wrap">
-      <div><div class="text-sm font-bold text-slate-800">${c.reqs} 条需求，${c.problems} 个问题 <span class="font-normal text-slate-500">· 审查 ${c.secs} 个段落 · ${c.flagged} 条需求有问题${R.seconds!=null?' · 用时 '+R.seconds+' 秒':''}</span></div>
-        <div class="text-xs text-slate-400 mt-1">${esc(R.name)} · ${esc(R.time)} · 单句规则 ${R.versions.sentence} · 文档级规则 ${R.versions.document} · 账号与权限 ${R.versions.account} · 模型 ${R.versions.model}</div>
-        ${unrev.length?`<div class="text-xs text-amber-700 mt-1">未审查：${unrev.join('，')}</div>`:''}
-        <div class="flex flex-wrap gap-1.5 mt-2">${Object.entries(c.byRule).sort().map(([k,n])=>`<span class="tag-danger">${k} ${esc(RULES[k])} ${n}</span>`).join('')}</div></div>
+  <div class="card px-6 py-5 mb-4">
+    <div class="flex items-start justify-between gap-4 flex-wrap">
+      <div><div class="text-[15px] font-medium">${esc(R.name)}</div>
+        <div class="text-xs text-slate-400 mt-1">${esc(R.time)} · 单句规则 ${R.versions.sentence} · 文档级规则 ${R.versions.document} · 账号与权限 ${R.versions.account} · 模型 ${R.versions.model}</div></div>
       <div class="flex gap-2 flex-wrap">
         ${c.failed?'<button class="btn-outline" id="retry-failed">重试失败的条目</button>':''}
         ${c.quota||c.stopped?'<button class="btn-outline" id="retry-quota">审查未完成的条目</button>':''}
@@ -323,9 +351,11 @@ function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?find
         <button class="btn-outline" id="re-edit">返回修改</button>
       </div>
     </div>
-    <div class="flex items-center gap-5 mt-3 text-sm flex-wrap">
-      <label class="flex items-center gap-2 text-slate-600"><input type="checkbox" id="only" ${FILTER.only?'checked':''}>只看有问题</label>
-      <label class="flex items-center gap-2 text-slate-500">规则筛选：<select id="rule" class="border border-slate-200 rounded px-2 py-1 bg-white text-slate-700"><option value="">全部规则</option>${ruleOpts}</select></label>
+    <div class="flex gap-10 flex-wrap mt-6">${stat('需求',c.reqs,' 条')}${stat('问题',c.problems,' 个')}${stat('有问题的需求',c.flagged,' 条')}${stat('审查段落',c.secs,' 个',R.seconds!=null?'用时 '+R.seconds+' 秒':'')}</div>
+    ${unrev.length?`<div class="text-xs text-slate-500 mt-4"><span class="tag-warning">未审查</span> ${unrev.join('，')}</div>`:''}
+    <div class="flex items-center gap-1.5 mt-6 flex-wrap">
+      <button class="chip ${FILTER.only?'on':''}" id="only">只看有问题</button><span class="w-px h-5 bg-slate-200 mx-2"></span>
+      <button class="chip ${!FILTER.rule?'on':''}" data-rule="">全部</button>${Object.keys(RULES).filter(k=>c.byRule[k]||FILTER.rule===k).map(k=>`<button class="chip ${FILTER.rule===k?'on':''}" data-rule="${k}" title="${esc(RULES[k])}">${k} ${esc(RULES[k])} · ${c.byRule[k]||0}</button>`).join('')}
     </div>
   </div>
   ${gone.length?`<div class="card p-4 mb-4"><div class="text-sm font-semibold text-slate-700 mb-2">上次有、这次没有（${gone.length}）</div>${gone.map(g=>`<div class="text-sm gone py-1">${esc(g.title)} · ${esc(g.text)} · ${g.f.rule} ${esc(RULES[g.f.rule]||'')}</div>`).join('')}</div>`:''}
@@ -335,7 +365,7 @@ function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?find
     <div id="sec-list" class="space-y-4">${vis.map(({s,si})=>secCard(s,si,prevKeys)).join('')||'<div class="card p-8 text-center text-slate-400">没有可显示的段落</div>'}</div>
   </div>
   <div class="text-center mt-6"><button class="link text-slate-500" id="clear-cache">清除本机保存的结果</button></div>`;
-  $('#only').onchange=e=>{FILTER.only=e.target.checked;renderResult()};$('#rule').onchange=e=>{FILTER.rule=e.target.value;renderResult()};
+  $('#only').onclick=()=>{FILTER.only=!FILTER.only;renderResult()};document.querySelectorAll('[data-rule]').forEach(b=>b.onclick=()=>{FILTER.rule=b.dataset.rule;renderResult()});
   document.querySelectorAll('[data-jump]').forEach(el=>el.onclick=()=>document.getElementById('sec-'+el.dataset.jump).scrollIntoView({behavior:'smooth'}));
   const ts=$('#toc-select');if(ts)ts.onchange=()=>document.getElementById('sec-'+ts.value).scrollIntoView({behavior:'smooth'});
   $('#export-md').onclick=exportModal;$('#export-docx').onclick=exportDocx;$('#re-edit').onclick=()=>{goStep('preview');renderPreview()};
@@ -349,14 +379,14 @@ function retry(statuses){const jobs=[];RES.sections.forEach((s,si)=>{s.doc.forEa
 const statusLine=x=>x.status==='off'?'<span class="tag-gray">未勾选，未审查</span>':x.status==='quota'?'<span class="tag-gray">未审查：今天的额度已用完</span>':x.status==='stopped'?'<span class="tag-gray">未审查：已停止</span>':x.status==='failed'?`<span class="tag-danger">审查失败${x.error?'：'+esc(x.error):''}</span>`:'';
 function findingHtml(f,key,prevKeys,ctx){const isNew=prevKeys?(prevKeys.has(key+'|'+f.rule)?'<span class="tag-gray">上次也有</span>':'<span class="tag-warning">新出现</span>'):'';
   const fbKey='fb:'+key+'|'+f.rule;const sent=store.get(fbKey);
-  return `<div class="mt-2 rounded-lg bg-red-50/60 border border-red-100 p-3"><div class="flex items-center gap-2 flex-wrap"><span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
+  return `<div class="mt-2.5 rounded-lg bg-white border border-slate-200 p-3"><div class="flex items-center gap-2 flex-wrap"><span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
     <div class="text-[13px] text-slate-600 mt-1.5">${esc(f.reason)}</div>
     <div class="flex items-center gap-3 mt-2 flex-wrap">${ctx.kind==='sentence'?`<button class="btn-outline !text-xs" data-suggest='${esc(JSON.stringify(ctx))}'>修改建议</button>`:''}
     ${sent?'<span class="text-xs text-slate-500">已反馈误判</span>':`<button class="link !text-xs text-slate-500" data-fp='${esc(JSON.stringify({...ctx,rule:f.rule,fbKey}))}'>这是误判</button>`}</div><div data-sug-box></div></div>`}
 function secCard(s,si,prevKeys){const parts=[];
   const block=(arr,kind,label)=>arr.forEach((d,gi)=>{const key=(kind==='doc'?'doc':'acc')+'|'+s.title+'|'+gi;let fs=d.findings||[];if(FILTER.rule)fs=fs.filter(f=>f.rule===FILTER.rule);
     if(d.status==='done'&&!fs.length&&(FILTER.only||FILTER.rule))return;const pred=(d.findings||[]).map(f=>f.rule);const ctx={kind,si,gi,text:s.groups[gi],pred};
-    parts.push(`<div class="px-5 py-3 bg-slate-50 border-b border-slate-100"><div class="text-xs font-semibold text-slate-500">${label}${arr.length>1?`（第 ${gi+1} 组）`:''}</div>
+    parts.push(`<div class="px-5 py-4 bg-slate-50 border-b border-slate-100"><div class="label">${label}${arr.length>1?`（第 ${gi+1} 组）`:''}</div>
       ${d.status==='done'?(fs.length?fs.map(f=>findingHtml(f,key,prevKeys,ctx)).join(''):`<div class="mt-1"><span class="tag-success">未发现问题</span></div>`):`<div class="mt-1">${statusLine(d)}</div>`}
       ${d.status==='done'?missBtn(ctx,key):''}</div>`)});
   block(s.doc,'doc','整段检查');block(s.acc,'account','账号与权限检查');
@@ -495,12 +525,12 @@ pending();
 /* ---------- 健康看板 ---------- */
 async function loadDash(){let d={},m={};try{d=await (await fetch('dashboard.json')).json()}catch{}try{m=await (await fetch('/api/metrics')).json()}catch{}
   const pct=x=>x==null?'—':(x*100).toFixed(1)+'%';const f3=x=>x==null?'—':x.toFixed(3);
-  const card=(t,v,sub)=>`<div class="card p-5"><div class="text-xs text-slate-500">${t}</div><div class="text-2xl font-bold text-slate-900 mt-1">${v}</div><div class="text-xs text-slate-400 mt-1">${sub||''}</div></div>`;
+  const card=(t,v,sub)=>`<div class="card p-6"><div class="label">${t}</div><div class="text-[44px] mt-4">${bigNum(v)}</div><div class="text-xs text-slate-400 mt-3">${sub||''}</div></div>`;
   const C=d.cards||{};const rules=d.rules||[];
   $('#tab-dash').innerHTML=`
   <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-4">${card('单句规则 F1',f3(C.sentence&&C.sentence.f1),C.sentence?`${C.sentence.version} · 留出集 ${C.sentence.items} 条`:'')}${card('文档级规则 F1',f3(C.doc&&C.doc.f1),C.doc?`${C.doc.version} · 留出集 ${C.doc.items} 段`:'')}${card('账号与权限 F1',f3(C.account&&C.account.f1),C.account?`${C.account.version} · 留出集 ${C.account.items} 段`:'')}${card('干净需求被错报率',C.clean?pct(C.clean.rate):'—',C.clean?`${C.clean.fp} / ${C.clean.total}（单句 ${C.sentence&&C.sentence.version}）`:'')}</div>
   <div class="card p-5 mb-4"><div class="text-sm font-semibold text-slate-800 mb-3">13 条规则的 F1（留出集，第 1 次运行）</div>
-    ${rules.map(r=>`<div class="flex items-center gap-3 text-xs mb-1.5"><span class="w-40 shrink-0 text-slate-600 truncate">${r.id} ${esc(RULES[r.id]||'')}</span><div class="flex-1 h-3 bg-slate-100 rounded"><div class="h-3 rounded bg-[#1f4fd1]" style="width:${(r.f1||0)*100}%"></div></div><span class="w-12 text-right text-slate-700">${f3(r.f1)}</span></div>`).join('')||'<div class="text-sm text-slate-400">没有评测数据</div>'}</div>
+    ${rules.map(r=>`<div class="flex items-center gap-3 text-xs mb-1.5"><span class="w-40 shrink-0 text-slate-600 truncate">${r.id} ${esc(RULES[r.id]||'')}</span><div class="flex-1 h-2 bg-slate-100 rounded-full"><div class="h-2 rounded-full bg-[#111111]" style="width:${(r.f1||0)*100}%"></div></div><span class="w-12 text-right text-slate-700">${f3(r.f1)}</span></div>`).join('')||'<div class="text-sm text-slate-400">没有评测数据</div>'}</div>
   <div class="grid xl:grid-cols-2 gap-4 mb-4">
     <div class="card p-5 overflow-auto"><div class="text-sm font-semibold text-slate-800 mb-3">版本历史</div><table class="w-full text-xs"><thead><tr class="text-slate-500 text-left"><th class="py-1.5">规则组</th><th>版本</th><th>合计 F1</th><th>干净条目被错报</th><th>三次一致</th><th>是否采用</th></tr></thead><tbody>
       ${(d.versions||[]).map(v=>`<tr class="border-t border-slate-100"><td class="py-1.5">${esc(v.group)}</td><td>${esc(v.version)}</td><td>${f3(v.f1)}</td><td>${v.clean_fp} / ${v.clean_total}</td><td>${pct(v.consistency)}</td><td>${v.adopted?'<span class="tag-success">采用</span>':'<span class="tag-gray">未采用</span>'}</td></tr>`).join('')}</tbody></table></div>
@@ -549,8 +579,7 @@ jobs:
           REPO: \${{ github.repository }}`;
   const upd=()=>{$('#gh-yml').textContent=yml()};upd();form.forEach(([k])=>$('#gh-'+k).oninput=upd);
   $('#gh-copy').onclick=()=>navigator.clipboard.writeText(yml()).then(()=>toast('已复制配置'))}
-document.body.insertAdjacentHTML('beforeend','<footer class="text-center text-xs text-slate-400 pb-8"><button class="link !text-xs text-slate-400" id="go-github">接入 GitHub 合并请求自动审查</button></footer>');
-$('#go-github').onclick=()=>showTab('github');
+
 // 飞书授权回来后继续导入：带着授权码换取凭证，再导出这份文档
 (async()=>{const p=new URLSearchParams(location.search);if(!p.get('feishu')||!p.get('code'))return;history.replaceState(null,'',location.pathname);
   const u=p.get('state')||'';document.querySelector('#import-tabs [data-src=link]').click();$('#url').value=u;
@@ -560,6 +589,7 @@ $('#go-github').onclick=()=>showTab('github');
     if(!r||!r.done)throw new Error('等待飞书导出超时');const bin=Uint8Array.from(atob(r.base64),c=>c.charCodeAt(0)).buffer;const x=await fileToMd(bin,'docx');
     Object.assign(DOC,{name:u,source:'feishu',docx:bin,notices:x.notices});$('#prd').value=x.md;linkMsg('');importSummary('已从飞书导入');event('import_ok','feishu')}
   catch(e){linkMsg(errBox('飞书返回：'+esc(e.message)+'。可以改用手动导出：在飞书打开文档，点右上方「…」>「下载为」> Word，再上传。'));event('import_fail','feishu')}})();
+goStep('import');
 </script>
 </body>
 </html>
