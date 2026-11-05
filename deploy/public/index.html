@@ -120,7 +120,7 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
       <div id="import-result" class="mt-4"></div>
       <div class="flex items-center justify-between mt-5">
         <button class="link" id="sample">填入示例 PRD</button>
-        <button class="btn-primary" id="to-preview">下一步：拆分预览</button>
+        <span class="flex gap-2"><button class="btn-outline" id="to-preview">调整拆分</button><button class="btn-primary" id="go-review">开始审查</button></span>
       </div>
     </div>
     <p class="text-xs text-slate-400 mt-4">文档内容只发送给审查用的模型（当前是 DeepSeek），不保存在服务器上；请不要粘贴涉密内容。</p></div>
@@ -173,10 +173,11 @@ let SAMPLE=null;
 document.querySelectorAll('#import-tabs .subtab').forEach(b=>b.onclick=()=>{document.querySelectorAll('#import-tabs .subtab').forEach(x=>x.classList.toggle('on',x===b));
   ['paste','upload','link'].forEach(s=>$('#src-'+s).hidden=s!==b.dataset.src)});
 function showPasteTab(){document.querySelector('#import-tabs [data-src=paste]').click()}
+$('#prd').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))$('#go-review').click()});
 $('#prd').addEventListener('input',()=>{if(DOC.source==='paste'||DOC.source==='sample'){DOC.source='paste';DOC.name='';DOC.docx=null;DOC.notices=[]}});
 $('#sample').onclick=async()=>{SAMPLE=SAMPLE||await (await fetch('sample.json')).json();seedSampleCache();$('#prd').value=SAMPLE.text;
   Object.assign(DOC,{name:'示例 PRD',source:'sample',docx:null,notices:[]});showPasteTab();importSummary()};
-$('#sample-run').onclick=async()=>{await $('#sample').onclick();$('#to-preview').click();await startReview(allJobs())};
+$('#sample-run').onclick=async()=>{await $('#sample').onclick();$('#go-review').click()};
 function renderImportSide(){
   const groups=[['每条需求','sentence','NASA 需求编写检查清单'],['每个功能段落','doc','NASA 需求编写检查清单'],['账号与权限段落','account','NIST 数字身份标准']];
   $('#rule-groups').innerHTML=groups.map(([t,k,src])=>`<div><div class="flex justify-between text-slate-800 font-medium"><span>${t}</span><span class="text-xs text-slate-400 font-normal">${src}</span></div>
@@ -196,13 +197,14 @@ const drop=$('#drop');
 ['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over');$('#drop-title').textContent='点击选择文件，或把文件拖到这里'}));
 drop.addEventListener('drop',ev=>{const f=ev.dataTransfer.files[0];if(f)handleFile(f)});
 $('#file').onchange=e=>{const f=e.target.files[0];if(f)handleFile(f);e.target.value=''};
+const setBusy=b=>{$('#to-preview').disabled=b;$('#go-review').disabled=b};
 function uploadMsg(html){$('#upload-state').innerHTML=html}
-function uploadError(msg){uploadMsg(`<div class="flex items-center justify-between gap-3 bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm"><span>${esc(msg)}</span><button class="btn-outline" onclick="document.getElementById('file').click()">重新上传</button></div>`);$('#to-preview').disabled=false}
+function uploadError(msg){uploadMsg(`<div class="flex items-center justify-between gap-3 bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm"><span>${esc(msg)}</span><button class="btn-outline" onclick="document.getElementById('file').click()">重新上传</button></div>`);setBusy(false)}
 const fmtSize=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
 async function handleFile(f){const ext=(f.name.split('.').pop()||'').toLowerCase();
   if(!['md','txt','docx','pptx','pdf'].includes(ext)){event('import_fail','format');uploadError(ext==='doc'?'不支持 .doc 格式，请在 Word 里另存为 .docx 后再上传':'不支持这个格式，请另存为 .docx、.pptx 或 .pdf 后上传');return}
   if(f.size>MAX_FILE){event('import_fail','size');uploadError('文件超过 20 MB，请删去图片后再上传，或复制文字粘贴');return}
-  event('import_start',ext);$('#to-preview').disabled=true;
+  event('import_start',ext);setBusy(true);
   const prog=p=>uploadMsg(`<div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm"><div class="flex justify-between"><span>${esc(f.name)}</span><span class="text-slate-400">正在转换为文档结构… ${p}%</span></div><div class="h-1.5 bg-slate-200 rounded mt-2"><div class="h-1.5 bg-[#111111] rounded" style="width:${p}%"></div></div></div>`);
   prog(5);
   try{const buf=await f.arrayBuffer();const r=await fileToMd(buf,ext,prog);
@@ -211,7 +213,7 @@ async function handleFile(f){const ext=(f.name.split('.').pop()||'').toLowerCase
     $('#prd').value=r.md;const secs=PRDSplit.splitPrd(r.md);const q=secs.reduce((a,s)=>a+(s.skip?0:s.reqs.length),0);
     if(!secs.some(s=>!s.skip&&s.reqs.length))event('import_fail','nosection');else event('import_ok',ext);
     uploadMsg(`<div class="flex items-center justify-between gap-3 bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm"><div><div class="font-medium text-slate-800">${esc(f.name)} <span class="text-slate-400 font-normal">${fmtSize(f.size)}</span></div><div class="text-slate-500 mt-1">已识别 ${secs.length} 个段落、${q} 条需求${r.notices.length?'。'+r.notices.map(esc).join('；'):''}</div></div><button class="btn-outline" onclick="document.getElementById('file').click()">重新上传</button></div>`);
-    $('#import-result').innerHTML='';$('#to-preview').disabled=false}
+    $('#import-result').innerHTML='';setBusy(false)}
   catch(e){event('import_fail',e instanceof UserError?'user':'error');uploadError(e instanceof UserError?e.message:'没有读到文字，请确认文件内容（'+e.message+'）')}}
 
 
@@ -225,14 +227,14 @@ $('#fetch').onclick=async()=>{const u=$('#url').value.trim();if(!u)return;let ho
   if(login){event('import_fail','login');const fs=login[1]==='飞书';
     linkMsg(errBox(`这个链接需要登录才能看，请在原平台导出为 Word（.docx）或 PDF 后上传。${fs?'<br>飞书的导出路径：在桌面端或网页版打开文档，点右上方「…」>「下载为」，可选 Word、PDF 或 Markdown。':''}`,fs?'<div class="mt-3"><button class="btn-outline" id="feishu-btn">从飞书导入</button></div>':''));
     if(fs)$('#feishu-btn').onclick=feishuModal;return}
-  event('import_start','link');$('#fetch').disabled=true;$('#to-preview').disabled=true;linkMsg('<div class="text-sm text-slate-500"><span class="spin"></span> 正在获取文档…</div>');
+  event('import_start','link');$('#fetch').disabled=true;setBusy(true);linkMsg('<div class="text-sm text-slate-500"><span class="spin"></span> 正在获取文档…</div>');
   try{const r=await post('/api/fetch',{url:u});let md=r.text||'';let notices=[];let label=r.label;
     if(r.base64){const bin=Uint8Array.from(atob(r.base64),c=>c.charCodeAt(0)).buffer;const x=await fileToMd(bin,r.ext);md=x.md;notices=x.notices;Object.assign(DOC,{docx:x.kind==='docx'?bin:null})}else DOC.docx=null;
     Object.assign(DOC,{name:u,source:'link',notices});$('#prd').value=md;const secs=PRDSplit.splitPrd(md);const q=secs.reduce((a,s)=>a+(s.skip?0:s.reqs.length),0);
     event('import_ok','link_'+(r.type||'web'));
     linkMsg(`<div class="bg-white border border-slate-200 rounded-lg px-4 py-3 text-sm"><span class="tag-blue">${esc(label)}</span> 已获取：${secs.length} 个段落、${q} 条需求${notices.length?'。'+notices.map(esc).join('；'):''}</div>`)}
   catch(e){event('import_fail','link_'+(e.code||'error'));linkMsg(errBox(esc(e instanceof UserError?e.message:e.message)))}
-  $('#fetch').disabled=false;$('#to-preview').disabled=false};
+  $('#fetch').disabled=false;setBusy(false)};
 
 /* 从飞书导入（F4）：授权 → 创建导出任务 → 等待导出 → 下载 */
 function modal(html,wide){const bg=document.createElement('div');bg.className='modal-bg';bg.innerHTML=`<div class="bg-white rounded-xl shadow-xl w-full ${wide?'max-w-3xl':'max-w-md'} p-6 max-h-[90vh] overflow-auto">${html}</div>`;
@@ -258,10 +260,13 @@ const cached=(kind,text)=>store.get(cacheKey(kind,text));
 function seedSampleCache(){if(!SAMPLE||!SAMPLE.cache)return;for(const [kind,text,findings] of SAMPLE.cache)store.set(cacheKey(kind,text),findings)}
 const allJobs=()=>SECS.flatMap((s,i)=>PRDSplit.jobsFor(s,i));
 const callCount=jobs=>jobs.filter(j=>!cached(j.kind,j.text)).length;
-$('#to-preview').onclick=()=>{const text=$('#prd').value.trim();if(!text){toast('请先粘贴、上传或导入 PRD');return}
-  SECS=PRDSplit.splitPrd(text);if(!SECS.length){toast('没有拆出段落');return}
+$('#go-review').onclick=async()=>{if(!preparePreview())return;SECS.forEach(x=>{if(x.offReason==='quota'){x.off=false;x.offReason=''}});QUOTA_NOTE='';event('preview',DOC.source);await startReview(allJobs())};
+$('#to-preview').onclick=()=>{if(!preparePreview())return;event('preview',DOC.source);goStep('preview');renderPreview()};
+// 拆分并按额度勾选段落；没有内容时提示并返回 false
+function preparePreview(){const text=$('#prd').value.trim();if(!text){toast('请先粘贴、上传或导入 PRD');return false}
+  SECS=PRDSplit.splitPrd(text);if(!SECS.length){toast('没有拆出段落');return false}
   if(!DOC.name)DOC.name=(SECS[0].title&&SECS[0].title!=='（无标题）')?SECS[0].title:'粘贴的 PRD';
-  fitQuota();CUR=Math.max(0,SECS.findIndex(s=>!s.skip&&s.reqs.length));event('preview',DOC.source);goStep('preview');renderPreview()};
+  fitQuota();CUR=Math.max(0,SECS.findIndex(s=>!s.skip&&s.reqs.length));return true}
 let QUOTA_NOTE='';
 // 本次调用次数超过今天剩余额度时，按文档顺序勾选到额度用完为止
 function fitQuota(){QUOTA_NOTE='';const left=META.quota.remaining;let used=0,n=0;
@@ -273,12 +278,12 @@ function goStep(s){['import','preview','result'].forEach(x=>$('#step-'+x).hidden
 const bigNum=(v,unit)=>{const t=String(v);const m=t.match(/^(\d[\d,]*)(\.\d+)?(.*)$/);return m?`<span class="num">${m[1]}${m[2]?`<span class="dim">${m[2]}</span>`:''}${m[3]||unit?`<span class="dim text-[0.45em] ml-1 tracking-normal">${m[3]||''}${unit||''}</span>`:''}</span>`:`<span class="num">${esc(t)}</span>`};
 const stat=(label,v,unit,sub)=>`<div class="min-w-[120px]"><div class="label mb-2">${label}</div><div class="text-[40px]">${bigNum(v,unit)}</div>${sub?`<div class="text-xs text-slate-400 mt-1.5">${sub}</div>`:''}</div>`;
 function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const func=SECS.filter(s=>!s.skip).length;const reqN=SECS.reduce((a,s)=>a+(s.skip||s.off?0:s.reqs.length),0);
-  const skipped=SECS.filter(s=>s.skip).length;const images=SECS.reduce((a,s)=>a+s.images,0);const over=calls>META.quota.remaining;
+  const skipped=SECS.filter(s=>s.skip).length;const images=SECS.reduce((a,s)=>a+s.images,0);const over=!!META.quota.perIp&&calls>META.quota.remaining;
   const notices=[...DOC.notices.map(n=>['blue',n]),...(images?[['gray',`有 ${images} 张图片未审查`]]:[]),...(QUOTA_NOTE?[['warning',QUOTA_NOTE]]:[]),...(over?[['warning',`本次将调用模型 ${calls} 次，超过今天剩余额度 ${META.quota.remaining} 次；额度用完后的条目会标为「未审查」，第二天可以接着审`]]:[])];
   const s=SECS[CUR]||{reqs:[]};
   $('#step-preview').innerHTML=`
   <div class="card px-6 py-5 flex items-end justify-between gap-6 flex-wrap mb-4">
-    <div class="flex gap-10 flex-wrap">${stat('段落',SECS.length,' 个',`跳过 ${skipped} 个 · 功能段落 ${func} 个`)}${stat('需求',reqN,' 条')}${stat('本次调用模型',calls,' 次')}${stat('今天剩余额度',META.quota.remaining,' 次')}</div>
+    <div class="flex gap-10 flex-wrap">${stat('段落',SECS.length,' 个',`跳过 ${skipped} 个 · 功能段落 ${func} 个`)}${stat('需求',reqN,' 条')}${stat('本次调用模型',calls,' 次')}${META.quota.perIp?stat('今天剩余额度',META.quota.remaining,' 次'):stat('今天剩余额度','不限')}</div>
     <div class="flex gap-2"><button class="btn-outline" id="back-import">返回修改</button><button class="btn-primary" id="start" ${!jobs.length?'disabled':''}>开始审查</button></div>
   </div>
   ${notices.map(([c,t])=>`<div class="mb-3 px-4 py-2.5 rounded-lg text-sm ${c==='warning'?'bg-amber-50 border border-amber-200 text-amber-800':c==='blue'?'bg-blue-50 border border-blue-200 text-blue-800':'bg-slate-50 border border-slate-200 text-slate-600'}">${esc(t)}</div>`).join('')}
@@ -301,7 +306,7 @@ function secDetail(s,i){if(!s)return '';const jobs=PRDSplit.jobsFor(s,i);
     <div class="flex items-center gap-3 text-sm">${s.skip?`<button class="btn-outline" id="unskip">改为审查</button>`:`<label class="flex items-center gap-1.5 text-slate-600"><input type="checkbox" id="acc" ${s.account?'checked':''}>账号与权限检查</label>`}</div></div>
   ${s.account&&!s.skip?'<div class="mb-3 text-xs text-[#111111]">标题或正文含登录、密码、权限等词，已自动勾选账号与权限规则组（A1–A4），可以取消。</div>':''}
   ${long}
-  <div class="text-xs text-slate-400 mb-2">${s.skip?'这个段落被跳过：标题含「'+esc(s.skipReason)+'」。':s.off?'这个段落未勾选，不审查。':`这个段落会调用模型 ${callCount(jobs)} 次（${jobs.filter(j=>j.kind==='doc').length?'整段检查 '+jobs.filter(j=>j.kind==='doc').length+' 次、':''}${jobs.filter(j=>j.kind==='account').length?'账号与权限 '+jobs.filter(j=>j.kind==='account').length+' 次、':''}单句 ${s.reqs.length} 条）`}</div>
+  <div class="text-xs text-slate-400 mb-2">${s.skip?'这个段落被跳过：标题含「'+esc(s.skipReason)+'」。':s.off?'这个段落未勾选，不审查。':`要做 ${jobs.length} 项检查（${[jobs.filter(j=>j.kind==='doc').length&&'整段检查 '+jobs.filter(j=>j.kind==='doc').length+' 项',jobs.filter(j=>j.kind==='account').length&&'账号与权限 '+jobs.filter(j=>j.kind==='account').length+' 项','单句 '+s.reqs.length+' 项'].filter(Boolean).join('、')}）${callCount(jobs)<jobs.length?`，其中 ${jobs.length-callCount(jobs)} 项用本机已有结果，调用模型 ${callCount(jobs)} 次`:''}`}</div>
   ${s.reqs.length?`<div class="divide-y divide-slate-100 border border-slate-100 rounded-lg">${s.reqs.map((r,ri)=>EDIT===ri?
     `<div class="p-3"><textarea id="edit-text" class="w-full border border-slate-300 rounded p-2 text-sm h-20">${esc(r)}</textarea><div class="flex gap-2 mt-2"><button class="btn-primary" id="edit-save">保存</button><button class="btn-outline" id="edit-cancel">取消</button></div></div>`:
     `<div class="p-3 flex justify-between gap-3 text-sm ${s.skip?'text-slate-400':'text-slate-700'}"><span>${esc(r)}</span><span class="flex gap-3 shrink-0"><button class="link" data-edit="${ri}">编辑</button><button class="link text-red-600" data-delreq="${ri}">删除</button></span></div>`).join('')}</div>`:'<div class="text-sm text-slate-400">这个段落没有拆出需求。</div>'}`}
@@ -335,7 +340,7 @@ async function runJobs(jobs){RUNNING=true;STOP=false;let quotaOut=false;const t0
   clearInterval(timer);RUNNING=false;RES.seconds=Math.round((Date.now()-t0)/1000);
   const incomplete=jobs.some(j=>slot(RES,j).status!=='done');event(incomplete?'review_incomplete':'review_complete',quotaOut?'quota':STOP?'stopped':incomplete?'error':'');
   saveHistory(RES);loadMeta().then(()=>{});renderResult()}
-function renderRunning(done,total,sec){const items=RES.sections.flatMap((s,si)=>s.reqs.map(r=>({s,r}))).filter(x=>x.r.status!=='skip'&&x.r.status!=='off');
+function renderRunning(done,total,sec){const items=RES.sections.flatMap(s=>[...s.doc.map((d,gi)=>({s,r:{...d,text:`【${s.title}】整段检查${s.doc.length>1?' 第 '+(gi+1)+' 组':''}`}})),...s.acc.map((d,gi)=>({s,r:{...d,text:`【${s.title}】账号与权限检查${s.acc.length>1?' 第 '+(gi+1)+' 组':''}`}})),...s.reqs.map(r=>({s,r}))]).filter(x=>x.r.status!=='skip'&&x.r.status!=='off');
   $('#step-result').innerHTML=`<div class="card px-6 py-5 mb-4"><div class="flex justify-between items-end mb-4 gap-3"><div class="flex gap-10">${stat('已完成',done,' / '+total+' 项')}${stat('已用时间',sec,' 秒')}</div><button class="btn-outline" id="stop">停止</button></div>
     <div class="h-1.5 bg-slate-100 rounded-full"><div class="h-1.5 bg-[#111111] rounded-full transition-all" style="width:${total?done/total*100:0}%"></div></div></div>
     <div class="card divide-y divide-slate-100">${items.slice(0,300).map(({s,r})=>`<div class="px-5 py-3 text-sm flex justify-between gap-4"><span class="text-slate-700">${esc(r.text)}</span><span class="shrink-0">${r.status==='pending'?'<span class="spin"></span>':r.status==='done'?(r.findings.length?r.findings.map(f=>`<span class="tag-danger ml-1">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>`).join(''):'<span class="tag-success">未发现问题</span>'):r.status==='failed'?'<span class="tag-danger">审查失败</span>':'<span class="tag-gray">未审查</span>'}</span></div>`).join('')}</div>`;
@@ -382,10 +387,10 @@ function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?find
   <div class="narrow-only mb-3"><select id="toc-select" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm bg-white">${vis.map(({s,si})=>`<option value="${si}">${esc(s.title)}（${secProblems(s)} 个问题）</option>`).join('')}</select></div>
   <div class="split grid gap-4" style="grid-template-columns:300px 1fr">
     <div class="card p-3 wide-only self-start sticky top-4 max-h-[85vh] overflow-auto">${vis.map(({s,si})=>`<div class="toc-item" data-jump="${si}"><span class="truncate">${esc(s.title)}</span>${s.off?'<span class="tag-gray">未审查</span>':secProblems(s)?`<span class="tag-danger">${secProblems(s)}</span>`:'<span class="tag-success">0</span>'}</div>`).join('')}</div>
-    <div id="sec-list" class="space-y-4">${vis.map(({s,si})=>secCard(s,si,prevKeys)).join('')||'<div class="card p-8 text-center text-slate-400">没有可显示的段落</div>'}</div>
+    <div id="sec-list" class="space-y-4">${vis.map(({s,si})=>secCard(s,si,prevKeys)).join('')||`<div class="card p-12 text-center"><div class="num text-[44px]">0</div><div class="text-slate-600 mt-3">${FILTER.rule?'这条规则没有报出问题':'没有发现问题'}</div>${FILTER.only&&!FILTER.rule?'<button class="link mt-3" id="show-all">查看全部条目</button>':''}</div>`}</div>
   </div>
   <div class="text-center mt-6"><button class="link text-slate-500" id="clear-cache">清除本机保存的结果</button></div>`;
-  $('#only').onclick=()=>{FILTER.only=!FILTER.only;renderResult()};document.querySelectorAll('[data-rule]').forEach(b=>b.onclick=()=>{FILTER.rule=b.dataset.rule;renderResult()});
+  $('#only').onclick=()=>{FILTER.only=!FILTER.only;renderResult()};const sa=$('#show-all');if(sa)sa.onclick=()=>{FILTER.only=false;renderResult()};document.querySelectorAll('[data-rule]').forEach(b=>b.onclick=()=>{FILTER.rule=b.dataset.rule;renderResult()});
   document.querySelectorAll('[data-jump]').forEach(el=>el.onclick=()=>document.getElementById('sec-'+el.dataset.jump).scrollIntoView({behavior:'smooth'}));
   const ts=$('#toc-select');if(ts)ts.onchange=()=>document.getElementById('sec-'+ts.value).scrollIntoView({behavior:'smooth'});
   $('#export-md').onclick=exportModal;$('#export-docx').onclick=exportDocx;$('#re-edit').onclick=()=>{goStep('preview');renderPreview()};
