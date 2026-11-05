@@ -1,0 +1,146 @@
+{
+ "checked": 20,
+ "identical": 20,
+ "rows": [
+  {
+   "repo": "FLYFISH567/ItemMemo",
+   "path": "PRDs/PRD.md",
+   "sha": "3b7fdd50c17937904838efbf3ac62a0c5d011864",
+   "identical": true,
+   "chars": 6373
+  },
+  {
+   "repo": "grapeot/opencode_android_client",
+   "path": "docs/PRD.md",
+   "sha": "970b7161e8d3634890b4ff548b4b69d311de7076",
+   "identical": true,
+   "chars": 21582
+  },
+  {
+   "repo": "MrThief123/care-compass",
+   "path": "PRD.md",
+   "sha": "afb130e25ef492e7e087735ecdc38688ec3039cb",
+   "identical": true,
+   "chars": 30468
+  },
+  {
+   "repo": "gwwen05/CodeCompass",
+   "path": "docs/PRD.md",
+   "sha": "d58f1e61843f075768930760a45258b0a4044597",
+   "identical": true,
+   "chars": 7148
+  },
+  {
+   "repo": "NewLifeX/NewLife.BACnet",
+   "path": "Doc/需求文档.md",
+   "sha": "7a26a427940ea5a0503d806539333d7b7fb44c0e",
+   "identical": true,
+   "chars": 8300
+  },
+  {
+   "repo": "NewLifeX/NewLife.Remoting",
+   "path": "Doc/需求文档.md",
+   "sha": "e393bd5d62420bb96e524654d92b3bb5598da770",
+   "identical": true,
+   "chars": 6909
+  },
+  {
+   "repo": "zxmqq1234/web3-pawID",
+   "path": "PawID_Web3项目_PRD.md",
+   "sha": "db38d7a6e48858657ee63f3ba634b45ba9489838",
+   "identical": true,
+   "chars": 8870
+  },
+  {
+   "repo": "yangyunice/WorkMesh",
+   "path": "workmesh-app/app/PRD.md",
+   "sha": "4ed6bb01139899212a280bb7839e9d71484d3f34",
+   "identical": true,
+   "chars": 19086
+  },
+  {
+   "repo": "NewLifeX/NewLife.Siemens",
+   "path": "Doc/需求文档.md",
+   "sha": "5132c2bae67ba1db39aa321091051d42ac7900a5",
+   "identical": true,
+   "chars": 16848
+  },
+  {
+   "repo": "iflytek/skillhub",
+   "path": "docs/prds/skill-file-browser-sidebar-v1.0-prd.md",
+   "sha": "2df4c913cbe7699c615ba4089411db2af4a3da91",
+   "identical": true,
+   "chars": 5880
+  },
+  {
+   "repo": "bdim404/Qwen3-TTS-WebUI",
+   "path": "docs/requirements.md",
+   "sha": "de600854ca802b067783af090a29d4c9aacbae7f",
+   "identical": true,
+   "chars": 8147
+  },
+  {
+   "repo": "yuqie6/WorkMirror",
+   "path": "docs/PRD.md",
+   "sha": "6be77a64020313a1de665976200daa4b8eebf3d2",
+   "identical": true,
+   "chars": 8705
+  },
+  {
+   "repo": "xi-lie5/Story-Platform",
+   "path": "docs/前端功能需求文档.md",
+   "sha": "a1bde33a69ed2f61d862da99be4a08b200911808",
+   "identical": true,
+   "chars": 5650
+  },
+  {
+   "repo": "hexianWeb/Third-Person-MC",
+   "path": "docs/PRD.md",
+   "sha": "0e308130974f6cffa656fc52d9dddbb615104fec",
+   "identical": true,
+   "chars": 7598
+  },
+  {
+   "repo": "sarahwangy/knowho",
+   "path": "knowho-prd.md",
+   "sha": "e801087e152c5b2c5b68d76b9a802d2323794da3",
+   "identical": true,
+   "chars": 6830
+  },
+  {
+   "repo": "zhewu43/FocusFlight_wxminiprogram",
+   "path": "PRD.md",
+   "sha": "42ee9f22a7fae08db3603dd59f5d69b9e0db4e0e",
+   "identical": true,
+   "chars": 6373
+  },
+  {
+   "repo": "liamyueng/xu-ai-news-rag",
+   "path": "docs/PRD.md",
+   "sha": "ac9652e26d4dfff5af3d72174769df85e61e37b2",
+   "identical": true,
+   "chars": 5281
+  },
+  {
+   "repo": "xiaojilele-glitch/WhyBuddy",
+   "path": ".kiro/specs/audit-chain/requirements.md",
+   "sha": "ca8eb5b4bb2d604773d797c41f67987d55874e70",
+   "identical": true,
+   "chars": 5373
+  },
+  {
+   "repo": "caesarloo/obsidian-svn",
+   "path": "requirements.md",
+   "sha": "02be6730033715c5b6310e5ab0324297e33994b5",
+   "identical": true,
+   "chars": 3453
+  },
+  {
+   "repo": "raceychan/lihil",
+   "path": "specs/socket_channel_protocol_prd.md",
+   "sha": "5a42ddd37ed43aeac4a5f3e328e42cad369cdbbd",
+   "identical": true,
+   "chars": 7792
+  }
+ ]
+}

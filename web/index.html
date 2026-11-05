@@ -254,12 +254,12 @@ const bigNum=(v,unit)=>{const t=String(v);const m=t.match(/^(\d[\d,]*)(\.\d+)?(.
 const stat=(label,v,unit,sub)=>`<div class="min-w-[120px]"><div class="label mb-2">${label}</div><div class="text-[40px]">${bigNum(v,unit)}</div>${sub?`<div class="text-xs text-slate-400 mt-1.5">${sub}</div>`:''}</div>`;
 function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const func=SECS.filter(s=>!s.skip).length;const reqN=SECS.reduce((a,s)=>a+(s.skip||s.off?0:s.reqs.length),0);
   const skipped=SECS.filter(s=>s.skip).length;const images=SECS.reduce((a,s)=>a+s.images,0);const over=calls>META.quota.remaining;
-  const notices=[...DOC.notices.map(n=>['blue',n]),...(images?[['gray',`有 ${images} 张图片未审查`]]:[]),...(QUOTA_NOTE?[['warning',QUOTA_NOTE]]:[]),...(over?[['warning',`本次将调用模型 ${calls} 次，超过今天剩余额度 ${META.quota.remaining} 次，请取消一些段落`]]:[])];
+  const notices=[...DOC.notices.map(n=>['blue',n]),...(images?[['gray',`有 ${images} 张图片未审查`]]:[]),...(QUOTA_NOTE?[['warning',QUOTA_NOTE]]:[]),...(over?[['warning',`本次将调用模型 ${calls} 次，超过今天剩余额度 ${META.quota.remaining} 次；额度用完后的条目会标为「未审查」，第二天可以接着审`]]:[])];
   const s=SECS[CUR]||{reqs:[]};
   $('#step-preview').innerHTML=`
   <div class="card px-6 py-5 flex items-end justify-between gap-6 flex-wrap mb-4">
     <div class="flex gap-10 flex-wrap">${stat('段落',SECS.length,' 个',`跳过 ${skipped} 个 · 功能段落 ${func} 个`)}${stat('需求',reqN,' 条')}${stat('本次调用模型',calls,' 次')}${stat('今天剩余额度',META.quota.remaining,' 次')}</div>
-    <div class="flex gap-2"><button class="btn-outline" id="back-import">返回修改</button><button class="btn-primary" id="start" ${over||!jobs.length?'disabled':''}>开始审查</button></div>
+    <div class="flex gap-2"><button class="btn-outline" id="back-import">返回修改</button><button class="btn-primary" id="start" ${!jobs.length?'disabled':''}>开始审查</button></div>
   </div>
   ${notices.map(([c,t])=>`<div class="mb-3 px-4 py-2.5 rounded-lg text-sm ${c==='warning'?'bg-amber-50 border border-amber-200 text-amber-800':c==='blue'?'bg-blue-50 border border-blue-200 text-blue-800':'bg-slate-50 border border-slate-200 text-slate-600'}">${esc(t)}</div>`).join('')}
   <div class="narrow-only mb-3"><select id="sec-select" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm bg-white">${SECS.map((x,i)=>`<option value="${i}" ${i===CUR?'selected':''}>${esc(x.title)}（${x.skip?'已跳过':x.off?'未勾选':x.reqs.length+' 条'}）</option>`).join('')}</select></div>

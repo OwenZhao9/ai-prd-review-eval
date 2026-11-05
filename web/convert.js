@@ -24,7 +24,10 @@ async function fileToMd(buf,ext,onProgress){
 const HEAD_RULE=/^(\d+(\.\d+)*[.、]?\s*\S|[一二三四五六七八九十]+、|（[一二三四五六七八九十]+）|第\s*[一二三四五六七八九十\d]+\s*章)/;
 const guessLevel=t=>{const m=t.match(/^(\d+(\.\d+)*)/);if(m)return Math.min(4,m[1].split('.').length);if(/^第/.test(t))return 1;if(/^[一二三四五六七八九十]+、/.test(t))return 1;return 2};
 const qn=(el,name)=>Array.from(el.getElementsByTagName(name));
-function wText(el){let s='';const walk=n=>{for(const c of Array.from(n.childNodes)){if(c.nodeName==='w:del'||c.nodeName==='w:delText')continue;if(c.nodeName==='w:t')s+=c.textContent;else if(c.nodeName==='w:tab')s+=' ';else if(c.nodeName==='w:br')s+=' ';else if(c.childNodes&&c.childNodes.length)walk(c)}};walk(el);return s.trim()}
+// 段落文字：删除的修订不要；手动换行记成「\n」；代码样式的文字加上反引号，和 Markdown 的行内代码对应
+function wText(el){let s='';const walk=n=>{for(const c of Array.from(n.childNodes)){if(c.nodeName==='w:del'||c.nodeName==='w:delText')continue;
+    if(c.nodeName==='w:r'){const st=qn(c,'w:rStyle')[0];if(st&&/verbatim|code/i.test(st.getAttribute('w:val')||'')){const t=qn(c,'w:t').map(x=>x.textContent).join('');if(t){s+='`'+t+'`';continue}}}
+    if(c.nodeName==='w:t')s+=c.textContent;else if(c.nodeName==='w:tab')s+=' ';else if(c.nodeName==='w:br')s+='\n';else if(c.childNodes&&c.childNodes.length)walk(c)}};walk(el);return s.replace(/`{2}/g,'').trim()}
 async function docxToMd(zip,onProgress){const xml=new DOMParser().parseFromString(await zip.file('word/document.xml').async('string'),'application/xml');onProgress&&onProgress(40);
   const styles={};if(zip.file('word/styles.xml')){const sx=new DOMParser().parseFromString(await zip.file('word/styles.xml').async('string'),'application/xml');
     qn(sx,'w:style').forEach(s=>{const n=qn(s,'w:name')[0];styles[s.getAttribute('w:styleId')]=(n&&n.getAttribute('w:val'))||''})}
@@ -37,13 +40,14 @@ async function docxToMd(zip,onProgress){const xml=new DOMParser().parseFromStrin
   // 代码样式的段落还原成代码块，和 Markdown 一样不算需求
   const endCode=()=>{if(inCode){out.push('```');inCode=false}};
   for(const el of Array.from(body.childNodes)){
-    if(el.nodeName==='w:p'&&isCode(el)){if(!inCode){out.push('```');inCode=true}out.push(wText(el));continue}
+    if(el.nodeName==='w:p'&&isCode(el)){if(!inCode){out.push('```');inCode=true}out.push(wText(el).replace(/^`|`$/g,''));continue}
     endCode();
     if(el.nodeName==='w:p'){const t=wText(el);if(!t)continue;let lv=headLevel(el);
       if(!useStyles&&!lv&&t.length<=30&&HEAD_RULE.test(t)&&!/[。；;]$/.test(t))lv=guessLevel(t);
-      if(lv){out.push('','#'.repeat(lv)+' '+t,'');continue}
-      if(qn(el,'w:numPr').length)out.push('- '+t);else if(isQuote(el))out.push('','> '+t,'');else out.push('',t,'')}
-    else if(el.nodeName==='w:tbl'){const rows=qn(el,'w:tr').map(tr=>qn(tr,'w:tc').map(tc=>wText(tc).replace(/\|/g,'／')));if(!rows.length)continue;
+      if(lv){out.push('','#'.repeat(lv)+' '+t.replace(/\n/g,' '),'');continue}
+      const hard=x=>x.split('\n').map((l,i,a)=>i<a.length-1?l.trim()+'  ':l.trim()).join('\n');
+      if(qn(el,'w:numPr').length)out.push('- '+hard(t));else if(isQuote(el))out.push('','> '+t.replace(/\n/g,' '),'');else out.push('',hard(t),'')}
+    else if(el.nodeName==='w:tbl'){const rows=qn(el,'w:tr').map(tr=>qn(tr,'w:tc').map(tc=>wText(tc).replace(/\n/g,' ').replace(/\|/g,'／')));if(!rows.length)continue;
       out.push('','| '+rows[0].join(' | ')+' |','|'+rows[0].map(()=>' --- ').join('|')+'|',...rows.slice(1).map(r=>'| '+r.join(' | ')+' |'),'')}}
   endCode();
   onProgress&&onProgress(90);const notices=[];if(revised)notices.push('这份 Word 有未接受的修订，已按接受全部修订后的内容审查');if(images)notices.push(`有 ${images} 张图片未审查`);

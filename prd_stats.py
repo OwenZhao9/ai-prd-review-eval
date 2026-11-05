@@ -1,13 +1,13 @@
 """统计评测集来源的 158 份开源 PRD 的结构，按审查网页现在的拆分方式算出每份会产生多少审查项。
 
 用法：python3 prd_stats.py      结果写进 results/prd_stats.json，docs/PRD.md 里的统计数字都来自这个文件。
-拆分用 app.py 的 split_prd，与审查网页（本机版和 Cloudflare 版）一致：
+拆分用 legacy_split.py 的 split_prd，即改版前审查网页的拆分方式：
 - 审查项 = 每个功能段落的整段检查（至少 2 条需求时才做）+ 每条单句需求；
 - 网页一次最多审 60 项、只审前 30000 字；在线版每个访客每天最多调用模型 150 次。
 """
 import glob, json, os, re, statistics
 
-from app import MAX_ITEMS, split_prd
+from legacy_split import MAX_ITEMS, split_prd
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PER_IP_DAILY = 150      # deploy/src/index.js

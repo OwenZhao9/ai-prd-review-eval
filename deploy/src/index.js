@@ -3,7 +3,7 @@
 // API Key、复核口令只从 Cloudflare 密钥读取，不会发到浏览器。服务器不保存 PRD 原文。
 import { PROMPTS, RULE_NAMES, VERSIONS } from './prompts.js';
 
-const PER_IP_DAILY = 500;    // 每个访客每天的额度（F11）：最长的样本 PRD 有 479 项
+const PER_IP_DEFAULT = 500;  // 每个访客每天的额度（F11）：最长的样本 PRD 有 479 项；部署变量 PER_IP_DAILY 可以改
 const LINKS_PER_DAY = 30;    // 每个访客每天最多导入的链接数（F3）
 const MAX_TEXT = 6000;       // 单个审查项最多字符数；整段检查按 1500 字分组，这里只防滥用
 const FETCH_MAX = 5 * 1024 * 1024, FETCH_MS = 10000;
@@ -16,6 +16,7 @@ const json = (obj, status = 200, extra = {}) => new Response(JSON.stringify(obj)
 const fail = (error, status = 400, code = '') => json({ error, code }, status);
 const today = () => new Date().toISOString().slice(0, 10);
 const globalDaily = env => +(env.GLOBAL_DAILY || 20000);
+const perIpDaily = env => +(env.PER_IP_DAILY || PER_IP_DEFAULT);
 
 const bump = (env, key, by = 1) => env.DB.prepare(
   'INSERT INTO usage (day, key, n) VALUES (?1, ?2, ?3) ON CONFLICT(day, key) DO UPDATE SET n = n + ?3 RETURNING n'
@@ -25,7 +26,7 @@ const usageOf = (env, key) => env.DB.prepare('SELECT n FROM usage WHERE day = ?1
 // 先占额度再调用；超出任何一个上限就不调用模型
 async function takeQuota(env, ip) {
   const [all, mine] = await Promise.all([bump(env, 'all'), bump(env, 'ip:' + ip)]);
-  if (all <= globalDaily(env) && mine <= PER_IP_DAILY) return true;
+  if (all <= globalDaily(env) && mine <= perIpDaily(env)) return true;
   await env.DB.prepare('INSERT OR IGNORE INTO usage (day, key, n) VALUES (?1, ?2, 1)').bind(today(), 'qo:' + ip).run();
   return false;
 }
@@ -267,7 +268,7 @@ export default {
     try {
       if (path === '/api/meta' && request.method === 'GET') {
         const used = (await usageOf(env, 'ip:' + ip)) || 0;
-        return json({ versions, rules: RULE_NAMES, quota: { perIp: PER_IP_DAILY, remaining: Math.max(0, PER_IP_DAILY - used) } });
+        return json({ versions, rules: RULE_NAMES, quota: { perIp: perIpDaily(env), remaining: Math.max(0, perIpDaily(env) - used) } });
       }
       if (path === '/api/item' && request.method === 'POST') {
         const { kind, text } = await request.json();

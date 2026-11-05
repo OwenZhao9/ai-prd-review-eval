@@ -1,0 +1,10 @@
+{
+ "prds": 158,
+ "reqs": 16693,
+ "table_row_reqs": 0,
+ "table_reqs_rewritten": 967,
+ "code_block_reqs": 0,
+ "doc_checks": 3156,
+ "doc_checks_over_1500": 0,
+ "longest_doc_check": 1500
+}

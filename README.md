@@ -187,8 +187,8 @@
 
 | 格式 | 段落标题完全一致 | 需求条目完全一致 | 需求条目一致率 |
 |---|---|---|---|
-| Word | 154 / 158 | 132 / 158 | 99.5% |
-| PPT | 0 / 158 | 1 / 158 | 82.8% |
+| Word | 155 / 158 | 148 / 158 | 99.8% |
+| PPT | 0 / 158 | 1 / 158 | 82.3% |
 | PDF | 15 / 158 | 3 / 158 | 35.3% |
 
 修改建议（F18）：改写后用单句 v4 再审，原来的规则不再报出、也没有报出其他规则的比例，英文留出集 19 / 23（82.6%），中文留出集 39 / 49（79.6%）。提示词 `prompts/suggest_v2.md`，评测脚本 `suggest_eval.py`，过程见 CHANGELOG。
@@ -204,7 +204,7 @@ npx wrangler pages secret put REVIEW_KEY --project-name ai-prd-review    # 复�
 npx wrangler pages deploy --project-name ai-prd-review --branch main
 ```
 
-本机版 `python3 app.py`（打开 http://localhost:8787）保留原来的粘贴审查和反馈复核。给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。
+本机版 `python3 app.py`（打开 http://localhost:8787）和在线版用同一个页面和拆分逻辑，读本机 `.env` 调用模型，不限额度。给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。
 
 ## 运行
 

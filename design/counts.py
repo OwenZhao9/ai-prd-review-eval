@@ -11,7 +11,7 @@ import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from app import split_prd  # noqa: E402
+from legacy_split import split_prd  # noqa: E402
 
 LIMIT = 1500
 KW = re.compile('登录|注册|密码|验证码|免登录|会话|权限|角色|管理员')

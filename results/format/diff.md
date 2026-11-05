@@ -14,80 +14,21 @@
 - 需求只在 Markdown：Fill pump run similarly (selected material).
 - 需求只在 Markdown：Settling delay (settle_delay_s).
 
-### Ariestar__obsidian-dragger
-
-段落标题不一致，需求条目 150 / 150 一致（docx 拆出 241 条）
-
-- 标题只在 docx：13.5 PipelineOutput
-- 标题只在 docx：13.6 Lifecycle Rules
-- 标题只在 docx：13.7 Internal reducer
-- 标题只在 docx：13.8 Target drag file architecture
-- 标题只在 docx：13.9 Drag layer rules
-- 需求只在 docx：hold_start 的 target 必须已经是平台无关的 HoldTarget。
-- 需求只在 docx：selection_start/change 只接收 domain boundary，不接收 DOM 坐标。
-- 需求只在 docx：drag_start 只表示真正进入 drag，不表示 pointerdown。
-- 需求只在 docx：drop 只接收 platform 已解析好的 DropResolution。
-- 需求只在 docx：mobile text long press、desktop handle press、mobile virtual resize handle 都只是不同的输入翻译，不是不同 pipeline。
-- 需求只在 docx：CSS class / selector / DOM node
-- 需求只在 docx：platform 可以把 drag_over 翻译成 preview DOM 更新，可以把 selection_changed 翻译成 passive selection visual 更新，可以把 drag_source_changed 翻译成当前 drag source visual 更新，可以把 terminal 翻译成 pointer capture / scroll lock / input guard 清理。
-- 需求只在 docx：完整生命周期必须由 DragPipeline 维护。
-- 需求只在 docx：已选 range 启动 drag 时，不走独立 pipeline，也不使用独立 drag origin。
-- 需求只在 docx：holding/ready_to_drag 如果来自 passive selection，必须由 pipeline state 保留 retainedSelection；press cancel 回到 selecting(passive)，不能让 platform 重新拼一份 selection。
-
 ### FLYFISH567__ItemMemo
 
-段落标题一致，需求条目 108 / 116 一致（docx 拆出 116 条）
+段落标题一致，需求条目 110 / 111 一致（docx 拆出 116 条）
 
-- 需求只在 Markdown：理性消费用户
-- 需求只在 Markdown：精致生活 / 收纳管理用户
-- 需求只在 Markdown：数码 / 家居 / 装备爱好者
-- 需求只在 Markdown：年轻上班族 / 学生
-- 需求只在 Markdown：需要一个轻量工具帮助自己管理生活和消费。
-- 需求只在 docx：理性消费用户 希望知道买的东西到底值不值，愿意做消费复盘。
-- 需求只在 docx：精致生活 / 收纳管理用户 有整理习惯，愿意把生活物品数字化管理。
-- 需求只在 docx：数码 / 家居 / 装备爱好者 购买金额高、物品使用周期长，更关心长期价值。
-- 需求只在 docx：年轻上班族 / 学生 需要一个轻量工具帮助自己管理生活和消费。
-- 需求只在 docx：固定周期提醒 用于有明确更换周期的物品，如牙刷、刀头、护肤品等。
-- 需求只在 docx：持有时间提醒 当持有时间达到阈值时提示关注。
-- 需求只在 docx：高日均成本提醒 价格较高但持有时间较短，提示关注物品使用效率。
-- 需求只在 docx：补购提醒 针对消耗型物品，提醒及时补购。
+- 需求只在 Markdown：希望知道买的东西到底值不值，愿意做消费复盘。 2.  精致生活 / 收纳管理用户 有整理习惯，愿意把生活物品数字化管理。 3.  数码 / 家居 / 装备爱好者 购买金额高、物品使用周期长，更关心长期价值。 4.  年轻上班族 / 学生 需要一个轻量工具帮助自己管理生活和消费。
+- 需求只在 docx：精致生活 / 收纳管理用户
+- 需求只在 docx：数码 / 家居 / 装备爱好者
+- 需求只在 docx：年轻上班族 / 学生
+- 需求只在 docx：需要一个轻量工具帮助自己管理生活和消费。
 
 ### FlashingChen__dsh-desktop-hub
 
 段落标题一致，需求条目 53 / 54 一致（docx 拆出 53 条）
 
 - 需求只在 Markdown：决策点：插件操作通道；选择（已落地）：主进程 spawn dsh plugin --profile web add；理由：remove；列4：update（进程树托管、输出流回 UI、支持取消）；列5：与 anywhere-labs desktopPnpm.runPlugin() 同构；dsh 是 bundle reconcile 的权威
-
-### Frank-ay__mimo-mcp
-
-段落标题一致，需求条目 61 / 62 一致（docx 拆出 62 条）
-
-- 需求只在 Markdown：新增 tts_stream(text, voice, *, model, audio_format, opts) -> AsyncIterator[bytes](若 R1 显示不支持流式,则保留 stub 抛 NotSupportedError,此时前端 fallback 一次性)
-- 需求只在 docx：新增 tts_stream(text, voice, *, model, audio_format, opts) -> AsyncIteratorbytes
-
-### G1-kiyo__agent
-
-段落标题一致，需求条目 106 / 107 一致（docx 拆出 107 条）
-
-- 需求只在 Markdown：用户输入问题后，AI Agent自主决策是否需要搜索、搜索什么、何时结束并生成答案。
-- 需求只在 docx：需求描述： 用户输入问题后，AI Agent自主决策是否需要搜索、搜索什么、何时结束并生成答案。
-
-### JetQiao__football-prediction-skill
-
-段落标题一致，需求条目 127 / 133 一致（docx 拆出 133 条）
-
-- 需求只在 Markdown：将来若想做实时常驻 App，JSON 已现成可用，零锁定——但当前需求并不需要它。
-- 需求只在 Markdown：~~产品形态~~ → Skill 优先的混合架构（核心 Skill + 可选薄前端，见 §2）。
-- 需求只在 Markdown：~~联赛覆盖范围~~ → 竞彩当日全部场次全覆盖（情报分层为强制，见 §4.3）。
-- 需求只在 Markdown：~~历史回测数据~~ → football-data.co.uk（免费 CSV，含 Pinnacle 收盘赔率，25+ 联赛）。
-- 需求只在 Markdown：~~竞彩抓取 + 价值计算~~ → SportteryAPI（MIT，可直接复用）+ 官方接口。
-- 需求只在 Markdown：~~评分/xG/伤病源~~ → clubelo + understat/soccerdata + API-Football，均免费。
-- 需求只在 docx：📌 这是一份"每日快照报告"模式：每天跑一次 Skill → 一个可离线、可转发、可存档的 HTML。 将来若想做实时常驻 App，JSON 已现成可用，零锁定——但当前需求并不需要它。
-- 需求只在 docx：产品形态 → Skill 优先的混合架构（核心 Skill + 可选薄前端，见 §2）。
-- 需求只在 docx：联赛覆盖范围 → 竞彩当日全部场次全覆盖（情报分层为强制，见 §4.3）。
-- 需求只在 docx：历史回测数据 → football-data.co.uk（免费 CSV，含 Pinnacle 收盘赔率，25+ 联赛）。
-- 需求只在 docx：竞彩抓取 + 价值计算 → SportteryAPI（MIT，可直接复用）+ 官方接口。
-- 需求只在 docx：评分/xG/伤病源 → clubelo + understat/soccerdata + API-Football，均免费。
 
 ### Jonnyan404__clip9
 
@@ -102,56 +43,6 @@
 - 需求只在 Markdown：fn a_document_without_images_reports_an_empty_set_not_none() { let converted = convert(&chinese_docx(), Some("需求.docx")).expect("应当能转"); let images = converted.images.expect("docx 读得出文档模型"); assert_eq!(images.total, 0); assert!(images.items.is_empty()); assert!(!images.truncated); }
 - 需求只在 Markdown：// 预算刚好够：一张都不截 let (items, truncated) = cap_images(&refs[..1], 10); assert!(!truncated); assert_eq!(items.len(), 1, "预算正好等于大小应当装得下（边界不是越界）");
 
-### Jwz-git__Daygo
-
-段落标题一致，需求条目 19 / 20 一致（docx 拆出 20 条）
-
-- 需求只在 Markdown：跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用
-- 需求只在 docx：F-C1 曾写成"跟随光标的活跃显示器"。原生契约冻结时把它改成了系统主显示器： 跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用 （决策）。对单显示器用户没有区别； 多显示器用户在 v1 只会记录到主显示器。是否恢复跟随行为是一个待决产品问题（§1.7）， 不是实现遗漏。
-
-### L20081125__dsh-lite-theme
-
-段落标题一致，需求条目 50 / 52 一致（docx 拆出 52 条）
-
-- 需求只在 Markdown：v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
-- 需求只在 Markdown：~~TUI 端~~：v0.2 起已移除（用户决策：仅支持 Web）。
-- 需求只在 docx：版本：v1.1（2026-08-16）｜状态：已评审（4 轮需求反问）+ 实现同步（v0.2） v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
-- 需求只在 docx：TUI 端：v0.2 起已移除（用户决策：仅支持 Web）。
-
-### NewLifeX__AntJob
-
-段落标题一致，需求条目 68 / 69 一致（docx 拆出 69 条）
-
-- 需求只在 Markdown：WEB-2a 蚂蚁区域注册：Cube 区域"蚂蚁调度"，AntEntityController\<T> 基类支持 appId 导航栏。
-- 需求只在 docx：WEB-2a 蚂蚁区域注册：Cube 区域"蚂蚁调度"，AntEntityController<T> 基类支持 appId 导航栏。
-
-### NewLifeX__NewLife.BACnet
-
-段落标题一致，需求条目 100 / 100 一致（docx 拆出 101 条）
-
-- 需求只在 docx：以下串口传输实现代码存在但已从编译中排除，需跨平台串口兼容性支持后重新启用： TRN-5 MS/TP (RS485) 串口传输、TRN-6 PTP (RS232) 串口传输、TRN-7 通用串口传输基类、 TRN-8 Ethernet 802.3 直连传输、TRN-9 Windows 管道传输
-
-### NewLifeX__X
-
-段落标题一致，需求条目 135 / 136 一致（docx 拆出 136 条）
-
-- 需求只在 Markdown：M5-10 系统配置：SysConfig 基于 Config<T> 的系统名称、版本、显示名称等基本设置管理。
-- 需求只在 docx：M5-10 系统配置：SysConfig 基于 Config 的系统名称、版本、显示名称等基本设置管理。
-
-### StoneLL1__llm-wiki-desktop
-
-段落标题一致，需求条目 200 / 202 一致（docx 拆出 200 条）
-
-- 需求只在 Markdown：导入、来源库、本地与远程媒体、OCR、ASR、平台登录态和 AI 整理的已确认产品决策，以 ../docs/superpowers/specs/2026-07-24-import-source-media-flow-design.md 为唯一可信源。本文中的概览不得被解释为"确认导入后自动编译"。
-- 需求只在 Markdown：无项目工作台、新建知识库、打开原生或兼容知识库、目录评估、信任 / 受限 / 只读、兼容启用、修复与进入 Import 的已确认产品决策，以 ../docs/superpowers/specs/2026-07-30-first-run-project-open-workbench-design.md 为唯一可信源。本文中的摘要不得被解释为允许把普通资料文件夹原地初始化成项目。
-
-### calderbuild__MD_Audit
-
-段落标题一致，需求条目 99 / 100 一致（docx 拆出 100 条）
-
-- 需求只在 Markdown：过滤掉 "http://", "www.", "class=", "<div>" 等技术术语
-- 需求只在 docx：过滤掉 "http://", "www.", "class=", "" 等技术术语
-
 ### entropy-cloud__nop-entropy
 
 段落标题一致，需求条目 22 / 24 一致（docx 拆出 23 条）
@@ -162,7 +53,7 @@
 
 ### gitxuzhefeng__timelines
 
-段落标题不一致，需求条目 124 / 127 一致（docx 拆出 137 条）
+段落标题不一致，需求条目 117 / 121 一致（docx 拆出 137 条）
 
 - 标题只在 docx：今天记录： 09:00 VSCode - main.ts 09:30 Chrome - GitHub Pull Request 10:00 Zoom - Team Standup 10:30 Slack - #general ...
 - 标题只在 docx：3.1.4 核心接口 接口 说明 参数 返回 start_tracking() 开始追踪
@@ -170,65 +61,32 @@
 - 标题只在 docx：Result<()> get_current_window() 获取当前窗口
 - 标题只在 docx：六、开发任务分发 6.1 角色与职责 角色 人数 职责 前端开发 1人 M04, M10 前端部分 后端开发 1人 M06, M07, M08, M09 客户端开发 1人 M01, M02, M03, M05 全栈开发 1人 协调 + 部署 + 测试 6.2 任务分配表 开发人员 A: 客户端开发 (Client) 任务 ID 任务名称 模块 描述 预计工时 T-001 环境搭建
 - 需求只在 Markdown：开发环境准备 工具 用途 要求 Node.js 18+ 前端开发、API 服务 必须 Rust 1.70+ Tauri 客户端核心 必须 pnpm / npm 包管理 推荐 pnpm Git 版本控制 必须 VS Code 开发 IDE 推荐 Docker 本地数据库/服务 可选 检查命令： node --version    # 需要 >= 18 rustc --version   # 需要 >= 1.70 pnpm --version
+- 需求只在 Markdown：--- 2. 账号与权限准备 服务 用途 获取方式 飞书开发者后台 创建应用获取 Webhook https://open.feishu.cn/ Supabase 免费 PostgreSQL + 认证 https://supabase.com/ Vercel 前端 + API 部署 https://vercel.com/ Claude API / OpenAI AI 分析 需要 API Key
 - 需求只在 Markdown：GET /api/v1/data/daily // Query Parameters interface DailyQueryParams { date: string;  // YYYY-MM-DD userId?: string;  // 自己的不需要传 }
 - 需求只在 Markdown：推送配置 3.10.2 设置项定义 interface AppSettings { // 追踪设置 tracking: { enabled: boolean; pauseOnLock: boolean;      // 锁屏时暂停 pauseOnIdle: boolean;      // 空闲时暂停 idleThreshold: number;     // 空闲阈值（分钟） };
 - 需求只在 docx：Windows: GetForegroundWindow + GetWindowText 数据结构： struct WindowEvent { timestamp: i64, // Unix ms app_name: String, // "VSCode" app_bundle: Option, // "com.microsoft.VSCode" window_title: String, // "main.ts - myproject" duration_ms: i64, // 持续时间 is_active: bool, // 是否正在使用 }
+- 需求只在 docx：数据库设计 5.1 本地 SQLite（客户端） -- 窗口事件表 CREATE TABLE window_events ( id INTEGER PRIMARY KEY, timestamp INTEGER NOT NULL, app_name TEXT NOT NULL, app_bundle TEXT, window_title TEXT, duration_ms INTEGER DEFAULT 0, synced INTEGER DEFAULT 0 );
+- 需求只在 docx：API 设计 6.1 客户端 → 云端 接口 方法 说明 /api/v1/upload POST 上传每日数据（ gzip 压缩） /api/v1/sync GET 获取云端配置 /api/v1/feedback POST 上传用户纠正反馈 6.2 云端 → 飞书 接口 说明 消息推送 API 每日报告卡片 Webhook 实时通知（可选）
+- 需求只在 docx：安全设计 层面 措施 传输 HTTPS + TLS 1.3 本地存储 SQLite 文件加密（AES-256） 隐私 敏感数据不上云（可选本地分析） 权限 OAuth 2.0 飞书登录 截屏 本地处理，不上传原图
 - 需求只在 docx：部署架构 ┌─────────────────────────────────────────────────────────┐ │ 开发阶段 │ ├─────────────────────────────────────────────────────────┤ │ 客户端 → Vercel Serverless → PostgreSQL (Supabase) │ │ ↓ │ │ 飞书测试号 │ └─────────────────────────────────────────────────────────┘
+- 需求只在 docx：技术栈总结 层级 技术 客户端 Tauri 2.0 + React + TypeScript 追踪核心 Rust (platform crate) 本地存储 SQLite (rusqlite) 云端 Node.js / Go / Python 数据库 PostgreSQL + Redis AI Claude API / 飞书 AI 部署 Vercel / Cloudflare / 自建 推送 飞书消息卡片 Webhook
 - 需求只在 docx：开发环境准备 工具 用途 要求 Node.js 18+ 前端开发、API 服务 必须 Rust 1.70+ Tauri 客户端核心 必须 pnpm / npm 包管理 推荐 pnpm Git 版本控制 必须 VS Code 开发 IDE 推荐 Docker 本地数据库/服务 可选 检查命令： node --version # 需要 >= 18 rustc --version # 需要 >= 1.70 pnpm --version
-- 需求只在 docx：// 序列化 + 压缩 let json = serde_json::to_string(&events)?; let compressed = gzip_compress(json.as_bytes())?;
-- 需求只在 docx：// 加密 let encrypted = aes_encrypt(compressed, get_encryption_key())?;
-- 需求只在 docx：Ok(CompressedPackage { date: date.to_string(), data: encrypted, checksum: md5(&compressed), events_count: events.len(), }) }
-- 需求只在 docx：Token 管理 3.6.2 API 接口 接口 方法 说明 鉴权 /api/v1/user/login POST 飞书 OAuth 登录
-- 需求只在 docx：GET /api/v1/data/daily // Query Parameters interface DailyQueryParams { date: string; // YYYY-MM-DD userId?: string; // 自己的不需要传 }
-- 需求只在 docx：推送配置 3.10.2 设置项定义 interface AppSettings { // 追踪设置 tracking: { enabled: boolean; pauseOnLock: boolean; // 锁屏时暂停 pauseOnIdle: boolean; // 空闲时暂停 idleThreshold: number; // 空闲阈值（分钟） };
-- 需求只在 docx：// 截屏设置 screenshot: { enabled: boolean; onWindowSwitch: boolean; // 切换窗口时截屏 interval: number; // 定时截屏间隔（分钟） quality: number; // 质量 0-100 blurSensitive: boolean; // 模糊敏感内容 };
-
-### hackmagic__opennavicat
-
-段落标题一致，需求条目 117 / 122 一致（docx 拆出 122 条）
-
-- 需求只在 Markdown：~~统一错误模型~~ ✅ open_navicat/errors.py
-- 需求只在 Markdown：~~分层核心骨架~~ ✅ open_navicat/drivers/（BaseConnector + registry.py，连接池引擎分支已删）
-- 需求只在 Markdown：~~查询取消 / 超时~~ ✅ CancelToken + timeout=（取消为 asyncio.wait 显竞速，勿用嵌套 ensure_future）
-- 需求只在 Markdown：~~数据库驱动扩展骨架~~ ✅ 注册表查表 + 连接串解析（drivers/dsn.py）
-- 需求只在 Markdown：~~DuckDB / SQL Server / ClickHouse / Oracle 支持~~ ✅（ClickHouse、Oracle 于 2026-09-30 完成；GUI 连接对话框引擎下拉框已接注册表）
-- 需求只在 docx：统一错误模型 ✅ open_navicat/errors.py
-- 需求只在 docx：分层核心骨架 ✅ open_navicat/drivers/（BaseConnector + registry.py，连接池引擎分支已删）
-- 需求只在 docx：查询取消 / 超时 ✅ CancelToken + timeout=（取消为 asyncio.wait 显竞速，勿用嵌套 ensure_future）
-- 需求只在 docx：数据库驱动扩展骨架 ✅ 注册表查表 + 连接串解析（drivers/dsn.py）
-- 需求只在 docx：DuckDB / SQL Server / ClickHouse / Oracle 支持 ✅（ClickHouse、Oracle 于 2026-09-30 完成；GUI 连接对话框引擎下拉框已接注册表）
-
-### junerver__ComposeHooks
-
-段落标题一致，需求条目 43 / 45 一致（docx 拆出 43 条）
-
-- 需求只在 Markdown：适配 §3.2 的 hooks（useRequest/useForm/useRedux 的反射问题）。
-- 需求只在 Markdown：为 §3.3 的 hooks 提供 wasmJs actual 实现（usePersistent 的 localStorage 适配）。
+- 需求只在 docx：账号与权限准备 服务 用途 获取方式 飞书开发者后台 创建应用获取 Webhook https://open.feishu.cn/ Supabase 免费 PostgreSQL + 认证 https://supabase.com/ Vercel 前端 + API 部署 https://vercel.com/ Claude API / OpenAI AI 分析 需要 API Key
+- 需求只在 docx：具体准备步骤 Step 1: 环境检查与安装
+- 需求只在 docx：第一个可运行版本（MVP） 里程碑 内容 预计 M1 Tauri 空项目跑起来 30分钟 M2 窗口追踪功能 2小时 M3 本地存储 1小时 M4 飞书推送 1小时 M5 联调测试 30分钟
 
 ### qtgf520__kai-qt
 
-段落标题一致，需求条目 98 / 114 一致（docx 拆出 114 条）
+段落标题一致，需求条目 110 / 114 一致（docx 拆出 114 条）
 
-- 需求只在 Markdown：1. 更改提供商名称 ✅ 已有：renameServiceInstance + displayName 持久化，设置页可编辑，全局生效（v3.2.2 已实现）
-- 需求只在 Markdown：2. 思考强度按钮 ✅ 已实现：设置页「思考强度」选择器（默认/低/中低/中/高/最高），写入 reasoning_effort 请求体（v3.2.3+）
-- 需求只在 Markdown：3. 流式输出开关 ✅ 已实现：设置页「流式输出」开关，关闭时 stream=false 整体渲染（v3.2.3+）
-- 需求只在 Markdown：4. 提示词字数上限 ✅ 已满足：输入框无字符硬截断，文件上限 200KB（20 万字符级），超长内容完整发送
 - 需求只在 Markdown：5.1 重新生成 ✅ 已有：BotMessage onRegenerate 按钮，保留上下文重新请求
 - 需求只在 Markdown：5.2 修改消息 ✅ 已实现：用户消息下方「编辑」按钮，就地变输入框，保存后截断旧回复并自动重新生成（v3.2.3-3）
 - 需求只在 Markdown：5.3 复制消息 ✅ 已有：BotMessage 复制按钮（含代码块复制）
 - 需求只在 Markdown：5.4 删除消息 ✅ 已实现：每条消息操作栏「删除」按钮（AI 消息 × 图标 / 用户消息文字），删除单条及其配套工具行，自动保存（v3.2.3-2）
-- 需求只在 Markdown：6. 上下文压缩 ✅ 已有：compactHistoryIfNeeded（70% 阈值自动摘要 + 保留最近 4 轮）
-- 需求只在 Markdown：7. Skill 功能 ✅ 已有：完整 skills 包（SkillManager/Registry/Marketplaces/前端 SkillsSection）
-- 需求只在 docx：更改提供商名称 ✅ 已有：renameServiceInstance + displayName 持久化，设置页可编辑，全局生效（v3.2.2 已实现）
-- 需求只在 docx：思考强度按钮 ✅ 已实现：设置页「思考强度」选择器（默认/低/中低/中/高/最高），写入 reasoning_effort 请求体（v3.2.3+）
-- 需求只在 docx：流式输出开关 ✅ 已实现：设置页「流式输出」开关，关闭时 stream=false 整体渲染（v3.2.3+）
-- 需求只在 docx：提示词字数上限 ✅ 已满足：输入框无字符硬截断，文件上限 200KB（20 万字符级），超长内容完整发送
 - 需求只在 docx：☒ 5.1 重新生成 ✅ 已有：BotMessage onRegenerate 按钮，保留上下文重新请求
 - 需求只在 docx：☒ 5.2 修改消息 ✅ 已实现：用户消息下方「编辑」按钮，就地变输入框，保存后截断旧回复并自动重新生成（v3.2.3-3）
 - 需求只在 docx：☒ 5.3 复制消息 ✅ 已有：BotMessage 复制按钮（含代码块复制）
 - 需求只在 docx：☒ 5.4 删除消息 ✅ 已实现：每条消息操作栏「删除」按钮（AI 消息 × 图标 / 用户消息文字），删除单条及其配套工具行，自动保存（v3.2.3-2）
-- 需求只在 docx：上下文压缩 ✅ 已有：compactHistoryIfNeeded（70% 阈值自动摘要 + 保留最近 4 轮）
-- 需求只在 docx：Skill 功能 ✅ 已有：完整 skills 包（SkillManager/Registry/Marketplaces/前端 SkillsSection）
 
 ### raceychan__lihil
 
@@ -257,32 +115,13 @@
 - 需求只在 Markdown：指标项：Daemon 热态请求响应开销；原版 Python index-tts-2.5-mlx：不支持（每次重跑进程）；index-tts-rs 目标值：$\le$ 5 ms；核心实现手段：Unix Domain Socket + 内存常驻 DashMap 音色池
 - 需求只在 Markdown：DSP 特征（mel_spectrogram、campplus_fbank、w2v_features）：余弦相似度 $\ge 0.9999$，最大绝对误差 $< 10^{-4}$。
 - 需求只在 Markdown：SpeakerContext 各张量：余弦相似度 $\ge 0.9995$。
-- 需求只在 Markdown：Greedy GPT 生成的 Semantic Codes：100% 序列一致（或在浮点边界步重合率 $\ge 99\%$）。
+- 需求只在 Markdown：Greedy GPT 生成的 Semantic Codes：100% 序列一致（或在浮点边界步重合率 $\ge 99%$）。
 - 需求只在 Markdown：CFM Mel 频谱（给定相同初始噪声 z）与 BigVGAN 输出波形：余弦相似度 $\ge 0.999$，听感完全无退化、无拼接爆音。
 - 需求只在 docx：指标项：Daemon 热态请求响应开销；原版 Python index-tts-2.5-mlx：不支持（每次重跑进程）；index-tts-rs 目标值：5 ms；核心实现手段：Unix Domain Socket + 内存常驻 DashMap 音色池
 - 需求只在 docx：DSP 特征（mel_spectrogram、campplus_fbank、w2v_features）：余弦相似度 ，最大绝对误差 。
 - 需求只在 docx：SpeakerContext 各张量：余弦相似度 。
 - 需求只在 docx：Greedy GPT 生成的 Semantic Codes：100% 序列一致（或在浮点边界步重合率 ）。
 - 需求只在 docx：CFM Mel 频谱（给定相同初始噪声 z）与 BigVGAN 输出波形：余弦相似度 ，听感完全无退化、无拼接爆音。
-
-### weiwei929__wireguard_plus
-
-段落标题一致，需求条目 98 / 102 一致（docx 拆出 101 条）
-
-- 需求只在 Markdown：作为一个 需要绕过网络限制的用户
-- 需求只在 Markdown：我希望 能够简单地部署一个伪装的WireGuard服务
-- 需求只在 Markdown：我希望 能够批量管理多个用户的VPN配置
-- 需求只在 Markdown：我希望 能够扩展新的伪装模块
-- 需求只在 docx：作为一个 需要绕过网络限制的用户 我希望 能够简单地部署一个伪装的WireGuard服务 以便于 在受限网络环境下正常使用VPN服务
-- 需求只在 docx：作为一个 系统管理员 我希望 能够批量管理多个用户的VPN配置 以便于 为组织提供统一的VPN服务
-- 需求只在 docx：作为一个 网络工具开发者 我希望 能够扩展新的伪装模块 以便于 适应不断变化的网络环境
-
-### wukun2005-gif__patentExaminator
-
-段落标题一致，需求条目 127 / 128 一致（docx 拆出 128 条）
-
-- 需求只在 Markdown：~~反馈系统~~：已删除（用户要求），满意度评估改为 Metrics 体系自动指标（Groundedness、Faithfulness 等）
-- 需求只在 docx：反馈系统：已删除（用户要求），满意度评估改为 Metrics 体系自动指标（Groundedness、Faithfulness 等）
 
 ### yuqie6__WorkMirror
 
@@ -298,13 +137,6 @@
 - 需求只在 Markdown：选择是否启用浏览器采集（并展示自动探测结果）
 - 需求只在 Markdown：选择隐私模式：默认开启脱敏（提供推荐规则模板）
 - 需求只在 Markdown：选择 AI 模式：离线（默认）或配置 API Key（可跳过）
-
-### ywq2019__ai_test_agent
-
-段落标题一致，需求条目 110 / 111 一致（docx 拆出 111 条）
-
-- 需求只在 Markdown：Docker \& Docker Compose：支持容器化快速部署
-- 需求只在 docx：Docker & Docker Compose：支持容器化快速部署
 
 ## pptx
 
@@ -343,7 +175,7 @@
 
 ### JulioBorges__gantry
 
-段落标题不一致，需求条目 25 / 25 一致（pptx 拆出 35 条）
+段落标题不一致，需求条目 24 / 25 一致（pptx 拆出 35 条）
 
 - 标题只在 Markdown：6.1 Preflight and models (orchestrator, inline)
 - 标题只在 Markdown：6.2 Readiness of the spec (scripts, then a critic)
@@ -354,6 +186,7 @@
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 14 页
 - 标题只在 pptx：第 18 页
+- 需求只在 Markdown：Support is declared per harness in capabilities/<harness>.json — hooks, structured_output, worktree_isolation, per_role_model, parallel_round, skills_path — and grouped in three tiers. A tier is announced only after the fixture runs the full loop in it.
 - 需求只在 pptx：What it is: a harness-neutral skill pack that runs an agentic software development life cycle inside the operator's coding harness. Deterministic scripts decide which work is ready and whether a delivery is done; agents plan, build, review and refute; the operator decides, in the conversation.
 - 需求只在 pptx：Status: requirements agreed on 2026-09-12 (see ADR-0004). The pack evolved from the asdlc skill in this repository (§14). A harness tier is announced only after the fixture exercises it (§13). Vocabulary is defined in CONTEXT.md and is used here without redefinition.
 - 需求只在 pptx：Scripts are Python 3.10+ standard library only and need nothing from the harness beyond python3 and git (gh for the run pull request). Cleanup and the Learner are steps of gantry, not skills.
@@ -412,7 +245,7 @@
 
 ### closedloop-technologies__climbhill
 
-段落标题不一致，需求条目 125 / 125 一致（pptx 拆出 192 条）
+段落标题不一致，需求条目 125 / 125 一致（pptx 拆出 191 条）
 
 - 标题只在 Markdown：5.1 In Scope
 - 标题只在 Markdown：5.2 Out Of Scope For Initial Release
@@ -512,8 +345,8 @@
 - 需求只在 pptx：一個以 C#/.NET 打造的「可插拔、事件驅動、強型別」AI Agent Runtime，可透過多種 Channel 操作並安全執行真實世界任務。
 - 需求只在 pptx：[ Channel Adapter ] ↓ [ Agent Gateway ] ↓ [ Agent Pipeline (Middleware) ] ↓ [ LLM Invoker ] ↓ [ Skill / Plugin Executor ] ↓ [ State / Memory / Storage ]
 - 需求只在 pptx：5.3 Agent Pipeline（Middleware）
-- 需求只在 pptx：IAgentPipeline  .Use<Auth>()  .Use<RateLimit>()  .Use<PromptGuard>()  .Use<LLMInvoker>()  .Use<SkillExecutor>();
-- 需求只在 pptx：public interface IAgentSkill{    string Name { get; }    string Description { get; }    Task<SkillResult> ExecuteAsync(SkillContext ctx);}
+- 需求只在 pptx：IAgentPipeline  .Use()  .Use()  .Use()  .Use()  .Use();
+- 需求只在 pptx：public interface IAgentSkill{    string Name { get; }    string Description { get; }    Task ExecuteAsync(SkillContext ctx);}
 - 需求只在 pptx：非目標（第一版）
 - 需求只在 pptx：作為 使用者，我希望 透過 Telegram 或 Line 與 OpenClaw 進行對話，以便 不需開啟電腦也能操作 Agent。
 - 需求只在 pptx：US-02：遠端桌面/瀏覽器操作可視化
@@ -611,7 +444,7 @@
 
 ### wjsutton__tableau-public-mcp
 
-段落标题不一致，需求条目 84 / 84 一致（pptx 拆出 114 条）
+段落标题不一致，需求条目 82 / 84 一致（pptx 拆出 114 条）
 
 - 标题只在 Markdown：Purpose
 - 标题只在 Markdown：Scope
@@ -621,6 +454,8 @@
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 13 页
 - 标题只在 pptx：第 21 页
+- 需求只在 Markdown：constructor(params: ToolParams<Args>): Initialises the tool
+- 需求只在 Markdown：Tool Callback Return: Tool callbacks return Ok<CallToolResult>, and you must extract the .value property when returning from the request handler.
 - 需求只在 pptx：📦 Implementation Status: ✅ COMPLETE - All 22 tools implemented, tested, and production-ready
 - 需求只在 pptx：Last Updated: 2025-12-31 | Build Status: ✅ Passing | Test Coverage: Comprehensive
 - 需求只在 pptx：Step-by-Step: Adding a New Tool
@@ -629,8 +464,8 @@
 - 需求只在 pptx：Step 4: Update Tool Name Types
 - 需求只在 pptx：export const TOOL_NAMES = [  "get_workbooks_list",  "get_user_profile",  // ... add new tool names] as const;export type ToolName = typeof TOOL_NAMES[number];export function isToolName(value: string): value is ToolName {  return TOOL_NAMES.includes(value as ToolName);}
 - 需求只在 pptx：File: src/tools/getWorkbooksList/getWorkbooksList.test.ts
-- 需求只在 pptx：interface ToolParams<Args extends ZodRawShape | undefined> {  server: Server;  name: string;  description: string;  paramsSchema: Args;  annotations?: Record<string, unknown>;  callback: (args: Args extends ZodRawShape ? z.infer<z.ZodObject<Args>> : never)    => Promise<Ok<CallToolResult>>;}
-- 需求只在 pptx：File: src/utils/errorHandling.ts
+- 需求只在 pptx：interface ToolParams {  server: Server;  name: string;  description: string;  paramsSchema: Args;  annotations?: Record<string, unknown>;  callback: (args: Args extends ZodRawShape ? z.infer<z.ZodObject> : never)    => Promise<Ok>;}
+- 需求只在 pptx：constructor(params: ToolParams): Initialises the tool
 
 ### 01MVP__blog-starter
 
@@ -736,7 +571,7 @@
 
 ### Ariestar__obsidian-dragger
 
-段落标题不一致，需求条目 135 / 150 一致（pptx 拆出 308 条）
+段落标题不一致，需求条目 191 / 241 一致（pptx 拆出 309 条）
 
 - 标题只在 Markdown：3.1 桌面端
 - 标题只在 Markdown：3.2 移动端：未开启长按文本拖拽
@@ -744,9 +579,6 @@
 - 标题只在 Markdown：5.1 Interaction Event
 - 标题只在 Markdown：5.2 Drag Interaction State
 - 标题只在 pptx：第 2 页
-- 标题只在 pptx：14. Target CodeMirror Platform File Architecture
-- 标题只在 pptx：15. 一次性重构验收范围
-- 标题只在 pptx：16. 开放问题
 - 需求只在 Markdown：通过手柄拖拽单个块。
 - 需求只在 Markdown：通过长按/范围交互进入多选。
 - 需求只在 Markdown：对已选中的块再次拖拽时，移动整个选区。
@@ -770,7 +602,7 @@
 
 ### ChrisChen667788__wind-comic
 
-段落标题不一致，需求条目 180 / 183 一致（pptx 拆出 238 条）
+段落标题不一致，需求条目 175 / 183 一致（pptx 拆出 238 条）
 
 - 标题只在 Markdown：1.1 当前 ai-comic-studio 前端基线
 - 标题只在 Markdown：1.2 OiiOii 已具备而我方缺失的能力
@@ -782,9 +614,14 @@
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 7 页
 - 标题只在 pptx：第 9 页
+- 需求只在 Markdown：点击卡片 → 路由到 /create/<mode>，向导式创作流程
+- 需求只在 Markdown：✅ 每个 /create/<mode> 路由可达
+- 需求只在 Markdown：新建 services/__tests__/seedance.test.ts
+- 需求只在 Markdown：新建 services/__tests__/jimeng-signer.test.ts
 - 需求只在 Markdown：竞品分析文档：回答"为什么要做、做什么"
 - 需求只在 Markdown：本 PRD：回答"具体怎么做、谁来做、什么时候做"
 - 需求只在 Markdown：#：6；决策：Seedance 2.0 走即梦官方 API（非 fal.ai）；时间：2026-04-08；理由：中文支持/合规友好；火山引擎稳定；fal.ai 仅作兜底
+- 需求只在 Markdown：输出 public/styles/<style_id>.jpg，分辨率 640×800
 - 需求只在 pptx：文档版本：PRD v1.1 | 编写日期：2026-04-08 关联文档：competitive-analysis-and-upgrade-plan.md v2.1 触发事件：2026.04.07 OiiOii 全球首发，与本项目架构高度同构（7 Agent vs 我方 8 Agent）
 - 需求只在 pptx：1.1 当前 ai-comic-studio 前端基线
 - 需求只在 pptx：1.2 OiiOii 已具备而我方缺失的能力
@@ -868,7 +705,7 @@
 
 ### FLYFISH567__ItemMemo
 
-段落标题不一致，需求条目 91 / 116 一致（pptx 拆出 126 条）
+段落标题不一致，需求条目 91 / 111 一致（pptx 拆出 126 条）
 
 - 标题只在 Markdown：1.1 产品名称
 - 标题只在 Markdown：1.2 产品简介
@@ -881,11 +718,11 @@
 - 需求只在 Markdown：更及时地处理更换和补购
 - 需求只在 Markdown：更直观地发现高价值物品和低效购买
 - 需求只在 Markdown：理性消费用户
-- 需求只在 Markdown：精致生活 / 收纳管理用户
-- 需求只在 Markdown：数码 / 家居 / 装备爱好者
-- 需求只在 Markdown：年轻上班族 / 学生
-- 需求只在 Markdown：需要一个轻量工具帮助自己管理生活和消费。
+- 需求只在 Markdown：希望知道买的东西到底值不值，愿意做消费复盘。 2.  精致生活 / 收纳管理用户 有整理习惯，愿意把生活物品数字化管理。 3.  数码 / 家居 / 装备爱好者 购买金额高、物品使用周期长，更关心长期价值。 4.  年轻上班族 / 学生 需要一个轻量工具帮助自己管理生活和消费。
 - 需求只在 Markdown：买了很多东西，后面不清楚是否常用
+- 需求只在 Markdown：只知道总价，不知道长期摊下来每天花了多少
+- 需求只在 Markdown：容易忘记更换周期和补购时间
+- 需求只在 Markdown：物品多时查找困难，记录零散
 - 需求只在 pptx：版本：V1.0产品形态：Web 端数据存储方式：本地保存阶段定位：MVP / 概念验证版
 - 需求只在 pptx：左侧侧边栏作为一级导航，顶部为搜索和快捷操作区，主体区域根据页面切换展示相应内容。
 - 需求只在 pptx：首页承担"管理仪表盘"的角色，让用户进入后第一时间掌握当前状态。
@@ -899,7 +736,7 @@
 
 ### FlashingChen__dsh-desktop-hub
 
-段落标题不一致，需求条目 53 / 54 一致（pptx 拆出 78 条）
+段落标题不一致，需求条目 46 / 54 一致（pptx 拆出 78 条）
 
 - 标题只在 Markdown：1.1 DSH 是什么
 - 标题只在 Markdown：1.2 生态现状（调研对象）
@@ -911,7 +748,14 @@
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 9 页
+- 需求只在 Markdown：skill 身份：kebab-case 名称（^[a-z0-9]+(?:-[a-z0-9]+)*$）。两种形态：目录包 <name>/SKILL.md 或扁平文件 <name>.md。
+- 需求只在 Markdown：模型侧消费：面向模型的 skill({ name }) 工具；会话早期以 user-role <system-reminder> 注入 <available_skills> 目录；目录 digest 变化才追加替换（增量注入，不浪费 token）。
+- 需求只在 Markdown：profile：$DSH_HOME/profiles/<name>/，package.json 的 dsh.profile.bundles 记录有序的组合包列表；另有用户自己的 cordis.patch.yml。
+- 需求只在 Markdown：dsh --profile <name> --dump-config 可预览组合结果，无需启动。
+- 需求只在 Markdown：工具注册为 mcp__<serverName>__<rawName>，与 Claude Code/Codex 的服务器限定形状一致；名称规范化 64 字符 + 确定性 hash 防碰撞。
 - 需求只在 Markdown：决策点：插件操作通道；选择（已落地）：主进程 spawn dsh plugin --profile web add；理由：remove；列4：update（进程树托管、输出流回 UI、支持取消）；列5：与 anywhere-labs desktopPnpm.runPlugin() 同构；dsh 是 bundle reconcile 的权威
+- 需求只在 Markdown：渲染层 CSP：default-src 'self'；script-src 'self'；frame-src http://127.0.0.1:*（仅允许 loopback 内嵌）；connect-src 'self' http://127.0.0.1:*。
+- 需求只在 Markdown：MCP 写入前自动备份（.bak-<ts>），原子写（tmp + rename）失败不落盘。
 - 需求只在 pptx：状态：已实现（审计修复完成）（§2 调研结论为实施依据；M0-M6 已按 plan.md 全部落地并通过验证，见 §5；AUDIT_REPORT.md 的 P0-P3 全部修复） 版本：v0.1 · 日期：2026-08-16 应用名：DSH Desktop Hub（已定名并落实，规避社区 dsh-desktop / dsh_desktop 撞名）
 - 需求只在 pptx：整体流程：写入 PRD 供审核 → 审核通过后自行制定 plan，按 MVP 拆分，每次只做一件事，以最小可验证的方式推进，自行测试。
 - 需求只在 pptx：1.2 生态现状（调研对象）
@@ -921,11 +765,11 @@
 - 需求只在 pptx：workspace 根 = 启动 dsh 命令时的目录；该目录下的 .dsh/skills、.agents/skills、AGENTS.md/CLAUDE.md（65,536 字节预算加载）都会进入 agent 上下文。
 - 需求只在 pptx：2.2 DSH harness 如何检测 skills（核心调研项①）
 - 需求只在 pptx：实现于 packages/skill/（ctx.skills 注册表 + 本地 provider + 模型侧 tool）。
-- 需求只在 pptx：对 Skills 系统的启示：管理 = 读写 $DSH_HOME/skills/（用户级）与 workspace 的 .dsh/skills（项目级）；bundled 只读展示。修改后即时生效，无需重启，天然适合 UI 管理。
+- 需求只在 pptx：skill 身份：kebab-case 名称（^[a-z0-9]+(?:-[a-z0-9]+)*$）。两种形态：目录包 /SKILL.md 或扁平文件 .md。
 
 ### Frank-ay__mimo-mcp
 
-段落标题不一致，需求条目 61 / 62 一致（pptx 拆出 82 条）
+段落标题不一致，需求条目 55 / 62 一致（pptx 拆出 79 条）
 
 - 标题只在 Markdown：目标(In Scope)
 - 标题只在 Markdown：非目标(Out of Scope,V1 不做)
@@ -937,7 +781,13 @@
 - 标题只在 pptx：第 10 页
 - 标题只在 pptx：第 12 页
 - 标题只在 pptx：第 21 页
-- 需求只在 Markdown：新增 tts_stream(text, voice, *, model, audio_format, opts) -> AsyncIterator[bytes](若 R1 显示不支持流式,则保留 stub 抛 NotSupportedError,此时前端 fallback 一次性)
+- 需求只在 Markdown：voice_refs/<voice_id>.wav 参考音频
+- 需求只在 Markdown：tts/<yyyymmdd>/<uuid>.wav 合成产物
+- 需求只在 Markdown：uploads/<yyyymmdd>/<uuid>.{jpg|mp4|...} 用户上传
+- 需求只在 Markdown：新增 tts_stream(text, voice, *, model, audio_format, **opts) -> AsyncIterator[bytes](若 R1 显示不支持流式,则保留 stub 抛 NotSupportedError,此时前端 fallback 一次性)
+- 需求只在 Markdown：GET /api/tts/audio/<filename>:把 data/artifacts/tts/**/<filename> 反代给前端的 <audio src>(已通过 path 校验,防越权读其他目录)
+- 需求只在 Markdown：简单方案:后端每 chunk 落 wav 文件,SSE 推 audio_url,前端用 <audio> 队列轮播
+- 需求只在 Markdown：不做 emotion tag(<inhale> <laugh> <sob>)—— 推迟到下一个增量任务
 - 需求只在 pptx：注:本 PRD 为立项基线文档,部分 F7(ASR)/TTS 设计已演进,实际实现以代码与 docs/USAGE.md 为准。
 - 需求只在 pptx：项目代号:mimo-mcp 文档归属:docs/PRD.md 撰写日期:2026-04-29(M0 + M1 + 增量任务 1 实施完毕,内容已包含全部实测发现)
 - 需求只在 pptx：优先级(已定稿):F1-F8 全部纳入 V1。F7 ASR 云端 API 形态需在 M1 阶段实测确认;若实测云端 API 不存在,F7 在 V1 内 tool/Web 状态显式置为 unavailable,并给出"等待 MiMo 官方开放"的清晰提示——不预置任何本地模型(决定见 §15-Q6)。
@@ -1002,7 +852,7 @@
 - 需求只在 pptx：5.2 页面与面板布局
 - 需求只在 pptx：5.3 关键用例与体验增益
 - 需求只在 pptx：组织拒绝 / 受管强制要求
-- 需求只在 pptx：允许范围内的会话/任务覆盖
+- 需求只在 pptx：安全边界 最近确认的路径或团队规则 工作区配置 允许范围内的会话/任务覆盖 全局/用户默认值
 
 ### HowlandMai__EmberIM
 
@@ -1043,7 +893,7 @@
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 9 页
-- 需求只在 Markdown：将来若想做实时常驻 App，JSON 已现成可用，零锁定——但当前需求并不需要它。
+- 需求只在 Markdown：report_{date}.html：自包含单文件 HTML 报告——数据以内联 <script> JSON 嵌入，原生 JS 渲染卡片/筛选/排序，图表用内联 SVG（零依赖、可离线）。双击即开，无需服务器/构建/部署。
 - 需求只在 Markdown：编排：智能体读 SKILL.md 按流程执行；结构化计算交给脚本（保证可复现、统计严谨），非结构化情报由智能体联网搜集与判断。
 - 需求只在 Markdown：语言：脚本用 Python（SciPy 做 Dixon-Coles / 泊松、蒙特卡洛）。
 - 需求只在 Markdown：单文件：report_{date}.html，数据以内联 <script type="application/json"> 嵌入。
@@ -1083,7 +933,7 @@
 
 ### Jwz-git__Daygo
 
-段落标题不一致，需求条目 19 / 20 一致（pptx 拆出 23 条）
+段落标题不一致，需求条目 20 / 20 一致（pptx 拆出 23 条）
 
 - 标题只在 Markdown：1.4.1 捕获
 - 标题只在 Markdown：1.4.2 分析
@@ -1095,11 +945,9 @@
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 9 页
 - 标题只在 pptx：第 10 页
-- 需求只在 Markdown：跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用
 - 需求只在 pptx：本文定义 Daygo 做什么、不做什么。它是范围争议的仲裁依据：任何"顺手加一个功能"的 提议，先回到这里确认它属于哪一节。
 - 需求只在 pptx：各需求按 09 §9.7 分配给用户功能模块， 模块可并行推进；本文件继续作为产品范围依据，不因执行方式变化而增删需求。
 - 需求只在 pptx：Daygo 的目标是保留工作本身的上下文：在构建什么、排查什么、和谁讨论什么、评审什么。
-- 需求只在 pptx：F-C1 曾写成"跟随光标的活跃显示器"。原生契约冻结时把它改成了系统主显示器： 跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用 （决策）。对单显示器用户没有区别； 多显示器用户在 v1 只会记录到主显示器。是否恢复跟随行为是一个待决产品问题（§1.7）， 不是实现遗漏。
 
 ### KaniuBillows__english-anywhere-lab
 
@@ -1158,7 +1006,7 @@
 
 ### L20081125__dsh-lite-theme
 
-段落标题不一致，需求条目 9 / 52 一致（pptx 拆出 74 条）
+段落标题不一致，需求条目 11 / 52 一致（pptx 拆出 74 条）
 
 - 标题只在 Markdown：F1 主题系统（Web 端）✅ 已实现
 - 标题只在 Markdown：F2 壁纸系统 ✅ 已实现
@@ -1167,8 +1015,6 @@
 - 标题只在 Markdown：F5 主题包导入导出 ✅ 已实现
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 6 页
-- 需求只在 Markdown：v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
-- 需求只在 Markdown：~~TUI 端~~：v0.2 起已移除（用户决策：仅支持 Web）。
 - 需求只在 Markdown：10 套主题全部可切换，切换即时生效
 - 需求只在 Markdown：主题选择持久化（localStorage dsh-lite:state），刷新/重启保持
 - 需求只在 Markdown：每套主题覆盖背景、前景、强调色、侧边栏、气泡、输入框、边框、代码块、选中态等 40+ token
@@ -1177,8 +1023,8 @@
 - 需求只在 Markdown：上传本地图片（jpg/png/webp，≤20MB，自动压缩存储）
 - 需求只在 Markdown：内置壁纸库 8 张（SVG 程序生成，樱花/星夜/极光/霓虹/花札/蒸汽波/EVA/誓约）
 - 需求只在 Markdown：模糊度滑条（0~50px）、遮罩浓度滑条（0~85%）实时生效
-- 需求只在 pptx：版本：v1.1（2026-08-16）｜状态：已评审（4 轮需求反问）+ 实现同步（v0.2） v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
-- 需求只在 pptx：TUI 端：v0.2 起已移除（用户决策：仅支持 Web）。
+- 需求只在 Markdown：壁纸选择持久化（元数据 + 独立存储键）
+- 需求只在 Markdown：遮罩保证文字可读性；壁纸开启时内容背景自动半透明化（登录页/主界面均可见）
 - 需求只在 pptx：开源发布（仅 GitHub，不发布 npm）。
 - 需求只在 pptx：F1 主题系统（Web 端）✅ 已实现
 - 需求只在 pptx：需求：内置 10 套动漫主题，可一键切换，切换即时生效并持久化。
@@ -1187,6 +1033,8 @@
 - 需求只在 pptx：☒ 主题选择持久化（localStorage dsh-lite:state），刷新/重启保持
 - 需求只在 pptx：☒ 每套主题覆盖背景、前景、强调色、侧边栏、气泡、输入框、边框、代码块、选中态等 40+ token
 - 需求只在 pptx：☒ 毛玻璃/半透明质感（背景 token 半透明 + backdrop-filter）
+- 需求只在 pptx：☒ 遵循官方 data-ds-dark-theme 机制，与系统深浅色设置不冲突
+- 需求只在 pptx：F2 壁纸系统 ✅ 已实现
 
 ### LoD-Dawn__Fast-Vben-Admin
 
@@ -1215,7 +1063,7 @@
 
 ### LordCasser__atlas
 
-段落标题不一致，需求条目 118 / 118 一致（pptx 拆出 129 条）
+段落标题不一致，需求条目 116 / 118 一致（pptx 拆出 129 条）
 
 - 标题只在 Markdown：文件发现
 - 标题只在 Markdown：源文件编码与读取
@@ -1225,8 +1073,11 @@
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 5 页
 - 标题只在 pptx：第 8 页
+- 需求只在 Markdown：默认排除 .git、.atlas、node_modules、dist、build、out、target、__pycache__、.venv、venv、.gradle、.m2。
+- 需求只在 Markdown：损坏 DB 不直接覆盖；应保留为 .corrupt.<timestamp> 备份后再创建新 DB。
 - 需求只在 pptx：Atlas 是一个 local-first Rust-native 代码语义图谱引擎。它扫描本地代码库，基于 tree-sitter 抽取符号、作用域、引用、调用、import/include、数据流和控制流事实，持久化到 .atlas/atlas.db，并通过 CLI 与 MCP 为 LLM Agent 提供搜索、调用分析、依赖分析、影响面分析、上下文构建、变量来源追踪和调用路径查询能力。
 - 需求只在 pptx：当前代码已接入 Go、Rust、C#、PHP、Ruby、Kotlin 的 DataflowInterproc frontends。所有 14 种语言均为 DataflowInterproc 级别，具备完整 dataflow 抽取能力（参数、赋值、调用、字段访问、返回）、跨函数 summary 桥接（ArgToParam/ReturnToCall）和 e2e 测试。部分语言的 CFG 和特定跨函数路径仍有个别 gap（见各语言 capability profile limitations）。
+- 需求只在 pptx：默认排除 .git、.atlas、node_modules、dist、build、out、target、pycache、.venv、venv、.gradle、.m2。
 - 需求只在 pptx：源文件编码与读取
 - 需求只在 pptx：tree-sitter queries + typed language frontend slots -> FileFacts
 - 需求只在 pptx：图查询和上下文
@@ -1234,7 +1085,6 @@
 - 需求只在 pptx：变量来源追踪与调用路径查询
 - 需求只在 pptx：target argument / variable -> local assignment source -> field/access path source -> function return source -> callee parameter -> caller argument -> caller chain / entry candidate
 - 需求只在 pptx：Atlas 不做 taint rule / finding 产品能力。Atlas 不包含 taint 代码、taint schema、taint rule/finding 产品能力——这些已从源码和 schema 中完全删除。不进入当前需求、路线图或验收门槛。当前阶段不要求、也不规划漏洞规则三元组、自动端到端漏洞传播扫描、全项目 finding 或内置漏洞规则生态。
-- 需求只在 pptx：Level 0: parse/index only, trace unsupported Level 1: symbols + references + calls Level 2: bindings + simple assignments Level 3: field access + call args + returns Level 4: CFG (未来精度增强层，不作为当前 trace MVP 前置门槛) Level 5: lightweight interprocedural summaries
 
 ### LubyRuffy__ProxyCraft
 
@@ -1338,7 +1188,7 @@
 
 ### NewLifeX__AntJob
 
-段落标题不一致，需求条目 68 / 69 一致（pptx 拆出 76 条）
+段落标题不一致，需求条目 69 / 69 一致（pptx 拆出 76 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1349,7 +1199,6 @@
 - 标题只在 pptx：第 4 页
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 7 页
-- 需求只在 Markdown：WEB-2a 蚂蚁区域注册：Cube 区域"蚂蚁调度"，AntEntityController\<T> 基类支持 appId 导航栏。
 - 需求只在 pptx：版本：v5.0 | 日期：2026-10-18 | 从代码逆向整理
 - 需求只在 pptx：本文档描述 AntJob 分布式任务调度系统的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
 - 需求只在 pptx：企业只需编写一个 Handler 类，即可获得分布式调度、弹性伸缩、失败重试、数据切片、可视化监控等全部能力——把调度复杂度交给框架，业务开发者只关心"处理一条数据"。
@@ -1357,11 +1206,10 @@
 - 需求只在 pptx：3.1 SYS — 核心调度引擎
 - 需求只在 pptx：3.4 SRV — 调度中心服务
 - 需求只在 pptx：3.5 WEB — 可视化管理后台
-- 需求只在 pptx：WEB-2a 蚂蚁区域注册：Cube 区域"蚂蚁调度"，AntEntityController<T> 基类支持 appId 导航栏。
 
 ### NewLifeX__NewLife.AI
 
-段落标题不一致，需求条目 136 / 136 一致（pptx 拆出 150 条）
+段落标题不一致，需求条目 135 / 136 一致（pptx 拆出 150 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1372,6 +1220,7 @@
 - 标题只在 pptx：第 4 页
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 11 页
+- 需求只在 Markdown：show_widget 工具：AI 可直接生成 SVG 图表或 HTML 片段渲染到对话气泡（流程图、时间线、关系图、数据卡片）。后端校验代码大小（≤ 200KB）并拦截远程 <script>，前端 sandbox iframe 隔离执行。
 - 需求只在 pptx：版本：v4.2 | 日期：2026-10-24 | 对齐代码基线：v1.7.2026.1024
 - 需求只在 pptx：本文档描述 NewLife.AI 开源项目（NewLife.AI + NewLife.ChatAI）的愿景与核心目标、模块编码和功能方向。完成状态统一维护在功能清单，详细设计在架构设计及各专项文档中展开。
 - 需求只在 pptx：2.2 模块编码映射
@@ -1380,12 +1229,12 @@
 - 需求只在 pptx：NewLife.AI 是所有上层能力的基础设施，重点是统一接入不同服务商、协议和模型能力。
 - 需求只在 pptx：WebUI 是用户最主要的交互入口，目标是建设标准、稳定、可扩展的 AI Web 对话系统。
 - 需求只在 pptx：核心能力：工具 > 技能。 工具决定 AI 能做什么，技能决定 AI 怎么做。能力扩展让 AI 从"会聊天"变成"能做事"。 职责边界：AI 模块（§3.1）定义接口（IChatClient、ToolChatClient、IChatFilter、IToolProvider、MCP 客户端核心等），TOOL 模块提供这些接口的具体实现和深入使用。
+- 需求只在 pptx：show_widget 工具：AI 可直接生成 SVG 图表或 HTML 片段渲染到对话气泡（流程图、时间线、关系图、数据卡片）。后端校验代码大小（≤ 200KB）并拦截远程 ，前端 sandbox iframe 隔离执行。
 - 需求只在 pptx：知识进化是本仓库的基础差异能力。用户记忆让 AI 从"对话工具"初步进化为"越用越懂你"的助手，自动从对话中提取结构化用户记忆。高级进化能力（痛觉、好奇心、蒸馏、融合等）不在本仓库内置，可按需基于 MemoryService 等扩展点实现。
-- 需求只在 pptx：API 网关让外部系统以标准协议接入 AI 能力，核心价值是在接口转发之外提供记忆注入与技能增强。v1.6 起默认提供「纯净转发」模式（关闭领域模式时不注入不记录），记忆注入与技能增强需开启网关领域模式。
 
 ### NewLifeX__NewLife.Agent
 
-段落标题不一致，需求条目 71 / 74 一致（pptx 拆出 77 条）
+段落标题不一致，需求条目 69 / 74 一致（pptx 拆出 77 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1398,7 +1247,11 @@
 - 需求只在 Markdown：一句话描述：继承 ServiceBase，你的程序就拥有了跨平台服务治理能力。
 - 需求只在 Markdown：目标用户：需要长期运行后台服务的 .NET 开发者与运维人员。
 - 需求只在 Markdown：核心场景：Windows 服务部署、Linux 守护进程、macOS LaunchAgent、ASP.NET Core 生产托管。
+- 需求只在 Markdown：M2-1 Setting 配置模型：基于 Config<T> 基类，Agent.config 文件持久化。
+- 需求只在 Markdown：M2-4 配置文件热加载：Config<T> 内置热加载机制，运行时修改配置即时生效。
 - 需求只在 pptx：本文档描述 NewLife.Agent 的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
+- 需求只在 pptx：M2-1 Setting 配置模型：基于 Config 基类，Agent.config 文件持久化。
+- 需求只在 pptx：M2-4 配置文件热加载：Config 内置热加载机制，运行时修改配置即时生效。
 - 需求只在 pptx：3.3 M3 服务抽象与跨平台宿主
 - 需求只在 pptx：3.4 M4 命令行运维体系
 - 需求只在 pptx：3.5 M5 健康监控与自愈
@@ -1407,7 +1260,7 @@
 
 ### NewLifeX__NewLife.BACnet
 
-段落标题不一致，需求条目 99 / 100 一致（pptx 拆出 118 条）
+段落标题不一致，需求条目 100 / 101 一致（pptx 拆出 118 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1417,7 +1270,6 @@
 - 标题只在 pptx：第 2 页
 - 需求只在 Markdown：成为 .NET 生态中功能最完整、最易集成的 BACnet 协议库，让楼宇自动化工程师和 IoT 边缘开发者能够用最少的代码实现设备发现、数据采集、属性写入和事件处理，并无缝对接 NewLife IoT 物联网平台生态，成为楼控系统与 IoT 平台之间的可靠桥梁。
 - 需求只在 pptx：本文档描述 NewLife.BACnet 的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
-- 需求只在 pptx：以下串口传输实现代码存在但已从编译中排除，需跨平台串口兼容性支持后重新启用： TRN-5 MS/TP (RS485) 串口传输、TRN-6 PTP (RS232) 串口传输、TRN-7 通用串口传输基类、 TRN-8 Ethernet 802.3 直连传输、TRN-9 Windows 管道传输
 - 需求只在 pptx：实现 BACnet 各层协议的编码和解码，确保与标准设备的互操作性。
 - 需求只在 pptx：在 BACnet 网络中自动发现在线设备。
 - 需求只在 pptx：读取和写入 BACnet 设备对象的属性值。
@@ -1426,10 +1278,11 @@
 - 需求只在 pptx：通过 BACnet 文件服务读写设备上的文件对象。
 - 需求只在 pptx：在设备中动态创建和删除 BACnet 对象。
 - 需求只在 pptx：将 .NET 应用暴露为 BACnet 设备，供第三方楼控系统读写。
+- 需求只在 pptx：在低层 BacnetClient 之上封装面向业务的高级 API。
 
 ### NewLifeX__NewLife.Cube
 
-段落标题不一致，需求条目 151 / 155 一致（pptx 拆出 155 条）
+段落标题不一致，需求条目 149 / 155 一致（pptx 拆出 155 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1441,14 +1294,18 @@
 - 需求只在 Markdown：多前端支持：Vue 为官方前端与核心库载体；仓库内另提供 Angular / Svelte / NaiveUI / ArcoVue / Vuetify / TDesign / MUI / Shadcn 等参考实现，React 皮肤独立为 CubeAntd 仓库；MVC Razor（CubeNC）保持兼容
 - 需求只在 Markdown：可扩展架构：通过 EntityController 继承、字段元数据、IModule 插件机制深度定制
 - 需求只在 Markdown：超大数据支撑：基于 XCode ORM 的分表、读写分离、二级缓存，支撑单表 100 亿级数据
+- 需求只在 Markdown：BASE-1 统一响应协议：所有 API 统一返回 ApiResponse<T> 结构，code=0 表示成功，列表接口使用 ApiListResponse<T> 携带分页信息。
+- 需求只在 Markdown：SPA-1 WebAPI JSON API：第三代魔方的统一 JSON API，ApiResponse<T> 响应结构，支持跨域。
 - 需求只在 pptx：本文档描述魔方（NewLife.Cube）快速开发平台的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
+- 需求只在 pptx：BASE-1 统一响应协议：所有 API 统一返回 ApiResponse 结构，code=0 表示成功，列表接口使用 ApiListResponse 携带分页信息。
 - 需求只在 pptx：主题皮肤（AdminLTE/ElementUI/LayuiAdmin/Metronic/Metronic8/Tabler/Blazor）已冻结，见 §4 暂缓清单。
+- 需求只在 pptx：SPA-1 WebAPI JSON API：第三代魔方的统一 JSON API，ApiResponse 响应结构，支持跨域。
 - 需求只在 pptx：前端核心以 Vue 皮肤为准；其余前端皮肤为仓库内参考实现，暂不投入，也未发布 NuGet；React 皮肤已独立为 CubeAntd 仓库。
 - 需求只在 pptx：3.12 I18N 多语言本地化
 
 ### NewLifeX__NewLife.IoT
 
-段落标题不一致，需求条目 57 / 57 一致（pptx 拆出 64 条）
+段落标题不一致，需求条目 55 / 57 一致（pptx 拆出 64 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1457,10 +1314,14 @@
 - 标题只在 Markdown：3.3 DEV — 设备接口
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 4 页
+- 需求只在 Markdown：SYS-8 设备发现：IDiscoverableDriver.DiscoverAsync 扫描网络或总线上的子设备，返回 IEnumerable<IDeviceInfo>，适用于 Modbus/BACnet 等广播协议。
+- 需求只在 Markdown：SYS-9 驱动工厂：DriverFactory.Register<T> 注册、Create(name,identifier) 创建实例（相同 identifier 共享单实例）、CreateParameter(name,parameter) 创建参数、ScanAll() 插件扫描；[DriverAttribute] 标注驱动名称。
 - 需求只在 pptx：本文档描述 NewLife.IoT 的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计或各模块架构文档中展开。
 - 需求只在 pptx：定位核心：平台只调用接口，驱动只实现接口，两者永不直接耦合。
 - 需求只在 pptx：物联网接入像文件系统一样简单——平台打开设备得到节点、读取节点得到带质量的数据、写入节点得到回显确认。异步优先、类型安全、零堆分配诊断。
 - 需求只在 pptx：3.1 SYS — 核心驱动体系
+- 需求只在 pptx：SYS-8 设备发现：IDiscoverableDriver.DiscoverAsync 扫描网络或总线上的子设备，返回 IEnumerable，适用于 Modbus/BACnet 等广播协议。
+- 需求只在 pptx：SYS-9 驱动工厂：DriverFactory.Register 注册、Create(name,identifier) 创建实例（相同 identifier 共享单实例）、CreateParameter(name,parameter) 创建参数、ScanAll() 插件扫描；[DriverAttribute] 标注驱动名称。
 - 需求只在 pptx：3.6 SER — 串口驱动 (NewLife.IoTSerial)
 - 需求只在 pptx：3.7 NET — 网络驱动 (NewLife.IoTSocket)
 - 需求只在 pptx：3.8 DB — 数据库驱动 (NewLife.IoTDatabase)
@@ -1532,7 +1393,7 @@
 
 ### NewLifeX__NewLife.RocketMQ
 
-段落标题不一致，需求条目 63 / 68 一致（pptx 拆出 64 条）
+段落标题不一致，需求条目 60 / 68 一致（pptx 拆出 64 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 痛点
@@ -1546,11 +1407,17 @@
 - 需求只在 Markdown：外部依赖沉重：部分方案依赖 Google.Protobuf、Grpc.Net.Client 等第三方库，增加部署复杂度和包体积
 - 需求只在 Markdown：框架兼容不足：大量企业仍运行在 .NET Framework 4.5+，但可用选项极为有限
 - 需求只在 Markdown：云厂商适配分散：接入阿里云、华为云、腾讯云需要各自独立的 SDK，缺乏统一接口
+- 需求只在 Markdown：BUS-1 RocketMQ 事件总线：RocketMqEventBus<TEvent> 实现 Core 的 EventBus<TEvent> 契约，发布走 Producer、订阅走 Consumer；消费批次逐条解码后在本地分发，处理器失败返回 false 复用 SendMessageBack 重试/死信链路。
+- 需求只在 Markdown：BUS-2 事件总线工厂：RocketMqEventBusFactory 实现 IEventBusFactory，按主题创建并缓存总线，可直接挂到 EventHub<TEvent>.Factory；消费组默认取本机标识，每个节点各成一组以得到广播式事件语义。
+- 需求只在 Markdown：BUS-3 命名转换与创建扩展：MqEventBusNaming 把事件主题与本机标识转换为 RocketMQ 允许的字符集并截断超长名称；Producer.CreateEventBus<TEvent>() 支持复用外部已配置的生产者与消费者。
 - 需求只在 pptx：本文档描述 NewLife.RocketMQ 的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
+- 需求只在 pptx：BUS-1 RocketMQ 事件总线：RocketMqEventBus 实现 Core 的 EventBus 契约，发布走 Producer、订阅走 Consumer；消费批次逐条解码后在本地分发，处理器失败返回 false 复用 SendMessageBack 重试/死信链路。
+- 需求只在 pptx：BUS-2 事件总线工厂：RocketMqEventBusFactory 实现 IEventBusFactory，按主题创建并缓存总线，可直接挂到 EventHub.Factory；消费组默认取本机标识，每个节点各成一组以得到广播式事件语义。
+- 需求只在 pptx：BUS-3 命名转换与创建扩展：MqEventBusNaming 把事件主题与本机标识转换为 RocketMQ 允许的字符集并截断超长名称；Producer.CreateEventBus() 支持复用外部已配置的生产者与消费者。
 
 ### NewLifeX__NewLife.Siemens
 
-段落标题不一致，需求条目 56 / 133 一致（pptx 拆出 156 条）
+段落标题不一致，需求条目 54 / 133 一致（pptx 拆出 156 条）
 
 - 标题只在 Markdown：1.0 项目愿景
 - 标题只在 Markdown：1.1 背景与痛点
@@ -1611,7 +1478,7 @@
 
 ### NewLifeX__X
 
-段落标题不一致，需求条目 134 / 136 一致（pptx 拆出 138 条）
+段落标题不一致，需求条目 127 / 136 一致（pptx 拆出 138 条）
 
 - 标题只在 Markdown：1.1 系统定位
 - 标题只在 Markdown：1.2 愿景
@@ -1621,11 +1488,24 @@
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 4 页
 - 需求只在 Markdown：NewLife.Core 是 NewLife 组件生态的基础核心库，为构建可扩展 .NET 应用程序提供高性能基础设施。支持 .NET Framework 4.5 至 .NET 10.0 全版本。
-- 需求只在 Markdown：M5-10 系统配置：SysConfig 基于 Config<T> 的系统名称、版本、显示名称等基本设置管理。
+- 需求只在 Markdown：M4-10 CSV 数据库：CsvDb<T> 以 CSV 文件为数据库的增删改查。
+- 需求只在 Markdown：M4-14 序列读取器：SequenceReader<T> 跨段顺序读取（低版本框架经垫片补齐，全 TFM 可用），配套 SequenceReaderHelper 扩展方法集，见《序列读取器SequenceReader》。
+- 需求只在 Markdown：M5-1 泛型配置基类：Config<T> 单例模式配置基类。
+- 需求只在 Markdown：M8-6 内存队列：MemoryQueue<T> 生产者-消费者队列。
+- 需求只在 Markdown：M8-7 对象池：Pool<T> 基于 CAS 的高性能通用对象池。
+- 需求只在 Markdown：M8-8 生产者消费者接口：IProducerConsumer<T> 轻量级队列抽象，支持生产消费与确认机制。
+- 需求只在 Markdown：M8-9 消息队列事件总线：QueueEventBus<T> 基于缓存队列的分布式事件总线，跨进程发布订阅。
+- 需求只在 Markdown：M9-15 数据管道：Pipe/PipeReader/PipeWriter 字节流缓冲（单写单读、有界背压、零拷贝 ReadOnlySequence<Byte> 窗口），命名对齐 System.IO.Pipelines 且全 TFM 可用（含 net45），配套 LimitedReader 限长读取，见《数据管道Pipe》。
 - 需求只在 pptx：版本：v12 | 日期：2026-10-19 | 从代码逆向整理
 - 需求只在 pptx：本文档描述 NewLife.Core 核心库的愿景、核心目标和功能方向。完成状态在功能清单中追踪，详细设计在架构设计中展开。
 - 需求只在 pptx：成为 .NET 生态中最全面、最高性能的基础类库，让开发者在任何 .NET 版本上都能获得一致、高效的底层能力。
-- 需求只在 pptx：M5-10 系统配置：SysConfig 基于 Config 的系统名称、版本、显示名称等基本设置管理。
+- 需求只在 pptx：M4-10 CSV 数据库：CsvDb 以 CSV 文件为数据库的增删改查。
+- 需求只在 pptx：M4-14 序列读取器：SequenceReader 跨段顺序读取（低版本框架经垫片补齐，全 TFM 可用），配套 SequenceReaderHelper 扩展方法集，见《序列读取器SequenceReader》。
+- 需求只在 pptx：M5-1 泛型配置基类：Config 单例模式配置基类。
+- 需求只在 pptx：M8-6 内存队列：MemoryQueue 生产者-消费者队列。
+- 需求只在 pptx：M8-7 对象池：Pool 基于 CAS 的高性能通用对象池。
+- 需求只在 pptx：M8-8 生产者消费者接口：IProducerConsumer 轻量级队列抽象，支持生产消费与确认机制。
+- 需求只在 pptx：M8-9 消息队列事件总线：QueueEventBus 基于缓存队列的分布式事件总线，跨进程发布订阅。
 
 ### PGshen__thinking-map
 
@@ -1869,7 +1749,7 @@
 
 ### StoneLL1__llm-wiki-desktop
 
-段落标题不一致，需求条目 146 / 202 一致（pptx 拆出 158 条）
+段落标题不一致，需求条目 145 / 200 一致（pptx 拆出 158 条）
 
 - 标题只在 Markdown：3.1 用户现状
 - 标题只在 Markdown：3.2 核心问题
@@ -1881,8 +1761,6 @@
 - 标题只在 pptx：第 13 页
 - 标题只在 pptx：第 14 页
 - 标题只在 pptx：第 15 页
-- 需求只在 Markdown：导入、来源库、本地与远程媒体、OCR、ASR、平台登录态和 AI 整理的已确认产品决策，以 ../docs/superpowers/specs/2026-07-24-import-source-media-flow-design.md 为唯一可信源。本文中的概览不得被解释为"确认导入后自动编译"。
-- 需求只在 Markdown：无项目工作台、新建知识库、打开原生或兼容知识库、目录评估、信任 / 受限 / 只读、兼容启用、修复与进入 Import 的已确认产品决策，以 ../docs/superpowers/specs/2026-07-30-first-run-project-open-workbench-design.md 为唯一可信源。本文中的摘要不得被解释为允许把普通资料文件夹原地初始化成项目。
 - 需求只在 Markdown：资料散落在 PDF、网页、公众号文章、PPT、Word、Excel、Markdown 和本地文件夹中。
 - 需求只在 Markdown：普通笔记工具依赖手工整理，成本高，长期难以维护。
 - 需求只在 Markdown：RAG 工具能问答，但不擅长把知识沉淀成稳定、可编辑、可复用的页面。
@@ -1891,6 +1769,8 @@
 - 需求只在 Markdown：用户需要一个本地桌面应用，把"资料导入、知识整理、图谱探索、问答溯源、HTML 输出、版本恢复"整合成一个可靠闭环。
 - 需求只在 Markdown：以 Markdown 文件夹作为长期资产，避免锁定在单一应用。
 - 需求只在 Markdown：用 Agent/LLM 自动完成重复整理工作，降低个人知识库维护成本。
+- 需求只在 Markdown：先用已确认、可阅读的 Source 兑现首次价值，再用知识图谱提供后续的结构化惊喜。
+- 需求只在 Markdown：用 Git 自动检查点保护用户资料和 AI 修改结果。
 - 需求只在 pptx：8.0 无项目工作台
 - 需求只在 pptx：8.1 新建知识库流程
 - 需求只在 pptx：8.2 打开已有知识库
@@ -1898,9 +1778,9 @@
 - 需求只在 pptx：8.3 导入到当前项目
 - 需求只在 pptx：8.4 更新 Wiki（编译）流程
 - 需求只在 pptx：8.5 图谱探索流程
+- 需求只在 pptx：Agent 只在 task-owned candidate 中修改 backend 授权的 Wiki Markdown；raw/、忠实 Source 页面、wiki/sources/ 与 layout-defined Source roots 永远只读。后端用既有 manifest/hash/checked apply 验证并应用候选。
 - 需求只在 pptx：当前实现状态（2026-08-13）：H3–H5 已实现真实 Agent Health route、受保护的 repair task 与 Lint/Workflows 结果入口；只有 deterministic Lint 证明消失的 Finding 才能自动关闭，duplicate_topic、contradiction 等没有 proof 的语义 Finding 保持人工处理。H6 的 full gate 与完整矩阵尚未全绿，因此 Decision Gate H / Batch 7 仍保持阻断。
 - 需求只在 pptx：9.4 文章浏览与编辑
-- 需求只在 pptx：9.11 设置、隐私与更新
 
 ### T-THA__AITravelPlanner
 
@@ -1970,7 +1850,7 @@
 
 ### Thearetically-speaking__All-you-can-seal
 
-段落标题不一致，需求条目 53 / 53 一致（pptx 拆出 60 条）
+段落标题不一致，需求条目 48 / 53 一致（pptx 拆出 60 条）
 
 - 标题只在 Markdown：FR-1 文件导入（拖拽 + 点击选择）
 - 标题只在 Markdown：FR-2 多盘（multi-plate）处理
@@ -1979,13 +1859,21 @@
 - 标题只在 Markdown：FR-5 3D 路径预览（核心功能）
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 6 页
+- 需求只在 Markdown：喷嘴温度（修复硬编码，见 FR-8）：改写开机段中等于"源打印温度"的 M104/M109 S<t> 行 → 目标温度；同步改配置头 nozzle_temperature、nozzle_temperature_initial_layer。开机段固定流程温度（170/140/250 等预热、擦嘴温度）不动。
+- 需求只在 Markdown：Z 偏移：改写 G29.1 Z… ; for Textured PEI Plate 行。若找不到该行（非 Textured PEI 床型），列入安全检查警告并说明后果，而不是静默跳过。
+- 需求只在 Markdown：流量倍率：在打印主体 ;VT0 后注入/替换 M221 S<flow>；同步改配置头 filament_flow_ratio。
+- 需求只在 Markdown：移动速度：主体内独立 G1 F<n> 行 → G1 F<speed×60>；行内 F30000 token → 同值替换。
+- 需求只在 Markdown：改写标记：在 gcode 头部注入一行处理标记（如 ; allyoucanseal: processed v<version> params=<json>），用于防重复处理（FR-6）和溯源。
 - 需求只在 pptx：FR-1 文件导入（拖拽 + 点击选择）
 - 需求只在 pptx：FR-3 参数面板（可调，默认值沿用现脚本）
 - 需求只在 pptx：FR-4 G-code 改写引擎（Python 脚本逻辑的移植 + 修复）
+- 需求只在 pptx：喷嘴温度（修复硬编码，见 FR-8）：改写开机段中等于"源打印温度"的 M104/M109 S 行 → 目标温度；同步改配置头 nozzle_temperature、nozzle_temperature_initial_layer。开机段固定流程温度（170/140/250 等预热、擦嘴温度）不动。
+- 需求只在 pptx：Z 偏移：改写 G29.1 Z... ; for Textured PEI Plate 行。若找不到该行（非 Textured PEI 床型），列入安全检查警告并说明后果，而不是静默跳过。
+- 需求只在 pptx：流量倍率：在打印主体 ;VT0 后注入/替换 M221 S；同步改配置头 filament_flow_ratio。
+- 需求只在 pptx：移动速度：主体内独立 G1 F 行 → G1 F<speed×60>；行内 F30000 token → 同值替换。
+- 需求只在 pptx：改写标记：在 gcode 头部注入一行处理标记（如 ; allyoucanseal: processed v params=），用于防重复处理（FR-6）和溯源。
 - 需求只在 pptx：FR-5 3D 路径预览（核心功能）
 - 需求只在 pptx：FR-6 安全检查（导出前门禁）
-- 需求只在 pptx：每项检查带"这是什么、为什么重要"的展开说明。README 中现有的安全警告（垫硅胶垫、通风、不可离人、先空跑）在导出成功页显著展示一次。
-- 需求只在 pptx：FR-8 源温度自动识别（去除硬编码 230）
 
 ### WrBug__PolyHermes
 
@@ -2169,7 +2057,7 @@
 
 ### aAAaqwq__KGKB
 
-段落标题不一致，需求条目 30 / 40 一致（pptx 拆出 62 条）
+段落标题不一致，需求条目 29 / 40 一致（pptx 拆出 62 条）
 
 - 标题只在 Markdown：1.1 一句话定位
 - 标题只在 Markdown：1.2 项目愿景
@@ -2234,7 +2122,7 @@
 
 ### appstore-discounts__appstore-discounts
 
-段落标题不一致，需求条目 155 / 186 一致（pptx 拆出 243 条）
+段落标题不一致，需求条目 155 / 186 一致（pptx 拆出 245 条）
 
 - 标题只在 Markdown：1.1 背景
 - 标题只在 Markdown：1.2 访问地址
@@ -2352,13 +2240,15 @@
 
 ### bdim404__Qwen3-TTS-WebUI
 
-段落标题不一致，需求条目 180 / 224 一致（pptx 拆出 237 条）
+段落标题不一致，需求条目 178 / 224 一致（pptx 拆出 237 条）
 
 - 标题只在 Markdown：2.1 音色复用机制
 - 标题只在 Markdown：3.1 音色库（VoiceLibrary）
 - 标题只在 Markdown：3.2 角色（Character）
 - 标题只在 Markdown：3.3 对话项目（Dialogue）
 - 标题只在 Markdown：3.4 对话行（DialogueLine）
+- 需求只在 Markdown：音频文件命名：dialogue_{dialogue_id}_line_{line_id}_{timestamp}.wav
+- 需求只在 Markdown：合并音频命名：dialogue_{dialogue_id}_merged_{timestamp}.wav
 - 需求只在 Markdown：角色管理（创建、编辑、删除）
 - 需求只在 Markdown：对话编辑器（表格式，拖拽排序）
 - 需求只在 Markdown：顺序生成 + 实时进度显示
@@ -2367,8 +2257,6 @@
 - 需求只在 Markdown：对话历史列表
 - 需求只在 Markdown：单条重试机制
 - 需求只在 Markdown：错误显示和手动干预
-- 需求只在 Markdown：批量生成模式
-- 需求只在 Markdown：音色预览功能
 - 需求只在 pptx：2.1 音色复用机制
 - 需求只在 pptx：音色库用于持久化存储和管理用户创建的音色。
 - 需求只在 pptx：角色代表对话中的发言人，绑定音色和控制指令。
@@ -2382,7 +2270,7 @@
 
 ### bugkiwi__elons-job
 
-段落标题不一致，需求条目 40 / 58 一致（pptx 拆出 148 条）
+段落标题不一致，需求条目 40 / 58 一致（pptx 拆出 149 条）
 
 - 标题只在 Markdown：1.1 一句话描述
 - 标题只在 Markdown：1.2 核心原则
@@ -2458,29 +2346,40 @@
 - 需求只在 pptx：# 主标题示例图片链接文本
 - 需求只在 pptx：FR-1.3: 关键词自动提取
 - 需求只在 pptx：优先级: P1（重要） 描述: 当用户未提供关键词时，自动从内容中提取Top关键词
-- 需求只在 pptx：过滤掉 "http://", "www.", "class=", "" 等技术术语
 - 需求只在 pptx：3.2 评分维度与逻辑
 - 需求只在 pptx：STRUC_02: 图片Alt属性检查
+- 需求只在 pptx：STRUC_03: 链接存在性检查
 
 ### cholf5__skynet
 
-段落标题不一致，需求条目 166 / 166 一致（pptx 拆出 172 条）
+段落标题不一致，需求条目 159 / 166 一致（pptx 拆出 170 条）
 
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 7 页
 - 标题只在 pptx：第 12 页
 - 标题只在 pptx：第 29 页
 - 标题只在 pptx：第 67 页
+- 需求只在 Markdown：Actor 基类 Actor：封装 Channel mailbox，提供 Tell(Func<Task>) / Ask<T>(Func<Task<T>>)。
+- 需求只在 Markdown：call：返回 Task<T>，在远程节点上执行后返回结果或超时异常。
+- 需求只在 Markdown：Console 命令：list, info <handle>, trace <handle>, kill <handle>。
+- 需求只在 Markdown：Caller gets IService proxy via ActorSystem.Get<T>(target)（target 指定 handle/name）。
+- 需求只在 Markdown：dump <handle> stack (if available)
+- 需求只在 Markdown：invoke <handle> <method> <json-args> (testing aid)
+- 需求只在 Markdown：能在单机运行 SkynetHost：启动 actor, 使用 ActorSystem.Get<T>("name") 进行 send/call 并得到正确响应。
 - 需求只在 pptx：目的：交付一个功能层面上尽量还原 Skynet（cloudwu/skynet）语义、但在接口层采用 C# 强类型 + Interface + SourceGenerator + MessagePack 的轻量 Actor 框架。核心原则是 极简内核、插件化扩展、把复杂性留给用户（而不是强制框架行为）。 目标交付物是一个可开源的 GitHub 仓库 + 可发布到 NuGet 的组件集合，含样例服务与压测脚本，能被编程 Agent 自动实现。
+- 需求只在 pptx：Actor 基类 Actor：封装 Channel mailbox，提供 Tell(Func) / Ask(Func<Task>)。
+- 需求只在 pptx：call：返回 Task，在远程节点上执行后返回结果或超时异常。
+- 需求只在 pptx：Console 命令：list, info , trace , kill 。
 - 需求只在 pptx：文字架构草图（可交给 Agent 生成图片）： Client <-> GateServer (SessionActor) <-> Cluster Transport <-> ActorHost (ActorSystem) [=> Actor Instances + Registry + Plugins]
+- 需求只在 pptx：Caller gets IService proxy via ActorSystem.Get(target)（target 指定 handle/name）。
 - 需求只在 pptx：SourceGenerator 与 server dispatch 将 methodName 与 payload 解耦，避免反射查找。
-- 需求只在 pptx：public interface IClusterRegistry{    Task RegisterNodeAsync(NodeInfo node);    Task UnregisterNodeAsync(NodeId id);    Task<NodeInfo[]> ListNodesAsync();    Task<NodeInfo> ResolveActorHandleAsync(long handle);    Task<long?> LookupUniqueServiceAsync(string name);}
+- 需求只在 pptx：public interface IClusterRegistry{    Task RegisterNodeAsync(NodeInfo node);    Task UnregisterNodeAsync(NodeId id);    Task<NodeInfo[]> ListNodesAsync();    Task ResolveActorHandleAsync(long handle);    Task<long?> LookupUniqueServiceAsync(string name);}
 - 需求只在 pptx：/Skynet /src /Skynet.Core /Skynet.Msgpack /Skynet.SourceGen /Skynet.Cluster /Skynet.Samples /tests /docs /benchmarks /scripts (docker, launch scripts) README.md LICENSE (MIT)
-- 需求只在 pptx：public interface ILoginActor{    Task<LoginResult> LoginAsync(LoginRequest req);}var login = ActorSystem.GetActor<ILoginActor>("login");var r = await login.LoginAsync(new LoginRequest{Account="u1"});
+- 需求只在 pptx：能在单机运行 SkynetHost：启动 actor, 使用 ActorSystem.Get("name") 进行 send/call 并得到正确响应。
 
 ### cnjack__jcode
 
-段落标题不一致，需求条目 111 / 111 一致（pptx 拆出 131 条）
+段落标题不一致，需求条目 108 / 110 一致（pptx 拆出 131 条）
 
 - 标题只在 Markdown：4.1 用户目标
 - 标题只在 Markdown：4.2 平台目标
@@ -2491,6 +2390,8 @@
 - 标题只在 pptx：第 11 页
 - 标题只在 pptx：第 18 页
 - 标题只在 pptx：第 19 页
+- 需求只在 Markdown：第一版以工具结果卡片为主，避免仅依赖 Markdown 自定义协议。后续可支持受控链接形式，例如 jcode-artifact:<artifact_id>，但不能接受未经登记的任意路径。
+- 需求只在 Markdown：share_key 只保存在私有本地 secret store 和分享 URL fragment #k=v1.<base64url>。Cloud 数据库、对象存储、HTTP 请求、日志和事件都不能获得该 key。
 - 需求只在 pptx：Artifact 是由 Agent 或未来的用户操作显式登记、属于某个 JCode 会话、实际内容存放在该会话工作区中的文件。
 - 需求只在 pptx：Web 产品中的 task_id 与 Recorder 的 session UUID 是同一个标识；文档后续写作 task_id/session_id。Artifact 的最小身份由 task_id/session_id + normalized_relative_path 决定。同一会话再次展示同一路径时，更新同一个 Artifact，并增加 revision；会话记录保留登记历史，界面默认展示最新登记。
 - 需求只在 pptx：本地 revision 是"显式登记代数"，不是文件内容快照。JSONL 只记录元数据，Viewer 每次都重新校验并读取工作区当前文件；因此文件在未再次登记时发生变化，revision 不会自动增加，但 Viewer 仍会看到当前内容。只有 Phase 3 Cloud 分享会把某个 revision 的内容复制为不可变密文快照。
@@ -2597,7 +2498,7 @@
 
 ### davidhoo__buddy
 
-段落标题不一致，需求条目 280 / 348 一致（pptx 拆出 378 条）
+段落标题不一致，需求条目 275 / 348 一致（pptx 拆出 378 条）
 
 - 标题只在 Markdown：1.1 目标用户
 - 标题只在 Markdown：1.2 核心问题
@@ -2609,16 +2510,16 @@
 - 标题只在 pptx：第 6 页
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 10 页
+- 需求只在 Markdown：文件预览限制：< 1MB 文本直接读，二进制显示占位，图片用 <img> 加载本地文件协议（沙箱中需配置 protocol.registerFileProtocol）
+- 需求只在 Markdown：Claude 默认填充改为 claude（无 --dangerously-*）；用户不可手动添加 --dangerously-* 或 bypassPermissions
+- 需求只在 Markdown：Session ID 与 thread ID：属于运行状态数据，在 state.json、events、transcript、artifacts 中保留完整值（用于 session 复用）；在日志和 UI 中以 xxxx**** 形式显示前 4 位
+- 需求只在 Markdown：不使用 <webview> 或 BrowserView 加载第三方内容
+- 需求只在 Markdown：文件预览限制：< 1MB 文本直接读，二进制显示占位，图片用 <img> 加载本地文件协议（沙箱中需配置 protocol.registerFileProtocol）
 - 需求只在 Markdown：初始化 Electron + electron-vite + React 19 + TypeScript + Tailwind 4
 - 需求只在 Markdown：主/预加载/渲染进程能各自构建并打包通过
 - 需求只在 Markdown：IPC bridge 跑通一个 ping/pong demo
 - 需求只在 Markdown：pnpm install && pnpm dev 能启动空白窗口
 - 需求只在 Markdown：pnpm build 输出可启动的 .app
-- 需求只在 Markdown：Claude stream-json 模式：PTY 启动 → stdin 写入 prompt + \x04（Ctrl+D）→ 成功解析完整 JSON stream → 捕获 session_id → 无 ANSI 残留干扰
-- 需求只在 Markdown：stderr 权限提示关键词检测（PTY 合并 stdout/stderr 下的检测策略）
-- 需求只在 Markdown：记录 PTY 输出中的 ANSI 转义码样本，评估清洗成本
-- 需求只在 Markdown：通过 → Phase 4 使用 PTY 方案
-- 需求只在 Markdown：未通过 → Phase 4 使用 spawn 管道方案（与 buddy-python 一致），终端标签页使用独立 Shell PTY
 - 需求只在 pptx：Buddy 是一个 macOS 原生桌面应用，采用 Electron 构建。界面完全参照 Codex Desktop App 的三栏布局——左侧 Sidebar、中间 Chat、右侧面板（含运行状态 / 文件 / 审查 / 终端四个标签页）；业务逻辑完整移植自 buddy-python 的收敛式 AI 工程协作功能。
 - 需求只在 pptx：核心理念：两个 AI Actor（执行方 + Reviewer）轮流工作，每轮结束后给人 30 秒校准窗口，结果逐步收敛至正确。
 - 需求只在 pptx：已经在日常开发中使用 Claude Code、Codex CLI、OpenCode 或 Kimi CLI 的个人开发者
@@ -2746,7 +2647,7 @@
 
 ### dtsola__xiaoyaosearch-feishu-export-md
 
-段落标题不一致，需求条目 27 / 99 一致（pptx 拆出 53 条）
+段落标题不一致，需求条目 27 / 99 一致（pptx 拆出 52 条）
 
 - 标题只在 Markdown：场景1：个人用户备份文档
 - 标题只在 Markdown：场景2：迁移到其他笔记工具
@@ -2769,14 +2670,14 @@
 - 需求只在 Markdown：支持存储多个飞书应用配置
 - 需求只在 Markdown：通过 --profile 参数切换
 - 需求只在 pptx：4.1 首次使用流程
-- 需求只在 pptx：用户安装工具 ↓ feishu-export init ↓ 交互式输入App ID & Secret ↓ 验证API连接 ↓ 配置保存成功 ↓ feishu-export doc <doc_id> (首次导出测试)
+- 需求只在 pptx：用户安装工具 ↓ feishu-export init ↓ 交互式输入App ID & Secret ↓ 验证API连接 ↓ 配置保存成功 ↓ feishu-export doc  (首次导出测试)
 - 需求只在 pptx：4.2 日常导出流程
 - 需求只在 pptx：用户执行导出命令 ↓ 读取配置文件和参数 ↓ 获取 tenant_access_token ↓ 遍历文档列表 ↓ 并发请求文档内容 ↓ 转换Markdown格式 ↓ 是否下载图片/附件？ ├─ 是 → 下载资源 → 更新引用 └─ 否 → 保留原始链接 ↓ 写入本地文件 ↓ 显示导出报告
 - 需求只在 pptx：4.3 错误处理流程
 - 需求只在 pptx：捕获异常 ↓ 判断错误类型 ├─ 认证失败 → 提示重新配置 → 退出 ├─ 权限不足 → 记录失败ID → 继续 ├─ 网络错误 → 重试（最多3次） ├─ API限流 → 等待后重试 └─ 未知错误 → 记录日志 → 跳过 ↓ 生成错误报告
 - 需求只在 pptx：5.3 命令详细说明
 - 需求只在 pptx：初始化配置，交互式引导用户输入。
-- 需求只在 pptx：feishu-export init [--profile <name>]
+- 需求只在 pptx：feishu-export init [--profile ]
 - 需求只在 pptx：导出单个文档。
 
 ### entropy-cloud__nop-entropy
@@ -2892,7 +2793,7 @@
 
 ### gitxuzhefeng__timelines
 
-段落标题不一致，需求条目 105 / 127 一致（pptx 拆出 260 条）
+段落标题不一致，需求条目 98 / 121 一致（pptx 拆出 260 条）
 
 - 标题只在 Markdown：（无标题）
 - 标题只在 Markdown：一期迭代：核心闭环与单机可用 (MVP)
@@ -2905,6 +2806,7 @@
 - 标题只在 pptx：第 4 页
 - 标题只在 pptx：第 5 页
 - 需求只在 Markdown：开发环境准备 工具 用途 要求 Node.js 18+ 前端开发、API 服务 必须 Rust 1.70+ Tauri 客户端核心 必须 pnpm / npm 包管理 推荐 pnpm Git 版本控制 必须 VS Code 开发 IDE 推荐 Docker 本地数据库/服务 可选 检查命令： node --version    # 需要 >= 18 rustc --version   # 需要 >= 1.70 pnpm --version
+- 需求只在 Markdown：--- 2. 账号与权限准备 服务 用途 获取方式 飞书开发者后台 创建应用获取 Webhook https://open.feishu.cn/ Supabase 免费 PostgreSQL + 认证 https://supabase.com/ Vercel 前端 + API 部署 https://vercel.com/ Claude API / OpenAI AI 分析 需要 API Key
 - 需求只在 Markdown：GET /api/v1/data/daily // Query Parameters interface DailyQueryParams { date: string;  // YYYY-MM-DD userId?: string;  // 自己的不需要传 }
 - 需求只在 Markdown：推送配置 3.10.2 设置项定义 interface AppSettings { // 追踪设置 tracking: { enabled: boolean; pauseOnLock: boolean;      // 锁屏时暂停 pauseOnIdle: boolean;      // 空闲时暂停 idleThreshold: number;     // 空闲阈值（分钟） };
 - 需求只在 Markdown：方向：AI 渠道；V1.x：仅 Claude API；V2.0：支持 Claude / DeepSeek / Qwen 多渠道
@@ -2913,7 +2815,6 @@
 - 需求只在 Markdown：API Key 加密存储，界面显示脱敏（仅展示后 4 位）
 - 需求只在 Markdown：连接测试按钮正确反馈成功/失败状态
 - 需求只在 Markdown：主渠道超时（>10s）时自动切换到备用渠道
-- 需求只在 Markdown：渠道切换记录写入日志
 - 需求只在 pptx：🦞 TimeLens - AI 个人时间追踪应用 产品定位 一句话描述：AI 驱动的个人时间透视镜，自动记录电脑使用情况，智能分析并生成每日总结。 目标用户：程序员、设计师、知识工作者、自由职业者、学生
 - 需求只在 pptx：技术架构 客户端 (Tauri)
 - 需求只在 pptx：商业模式 版本 价格 功能 免费版 ¥0 基础追踪 + 简单周报 付费版 ¥30/月 AI 每日总结 + 洞察 + 多设备 企业版 定制 团队时间管理
@@ -2922,12 +2823,12 @@
 - 需求只在 pptx：Windows: GetForegroundWindow + GetWindowText 数据结构： struct WindowEvent { timestamp: i64, // Unix ms app_name: String, // "VSCode" app_bundle: Option, // "com.microsoft.VSCode" window_title: String, // "main.ts - myproject" duration_ms: i64, // 持续时间 is_active: bool, // 是否正在使用 }
 - 需求只在 pptx：记录格式：[时间] App名称 - 窗口标题
 - 需求只在 pptx：只输出 JSON 格式： {"categories": {...}, "insights": [...], "suggestions": [...]}
+- 需求只在 pptx：数据库设计 5.1 本地 SQLite（客户端） -- 窗口事件表 CREATE TABLE window_events ( id INTEGER PRIMARY KEY, timestamp INTEGER NOT NULL, app_name TEXT NOT NULL, app_bundle TEXT, window_title TEXT, duration_ms INTEGER DEFAULT 0, synced INTEGER DEFAULT 0 );
 - 需求只在 pptx：-- 用户设置表 CREATE TABLE settings ( key TEXT PRIMARY KEY, value TEXT );
-- 需求只在 pptx：-- 每日统计缓存 CREATE TABLE daily_stats ( date TEXT PRIMARY KEY, -- YYYY-MM-DD total_ms INTEGER, stats_json TEXT, -- 分类统计 JSON ai_insights TEXT, created_at INTEGER );
 
 ### grapeot__opencode_android_client
 
-段落标题不一致，需求条目 107 / 112 一致（pptx 拆出 146 条）
+段落标题不一致，需求条目 103 / 112 一致（pptx 拆出 146 条）
 
 - 标题只在 Markdown：1.1 它不是什么
 - 标题只在 Markdown：1.2 核心交互范式
@@ -2940,6 +2841,10 @@
 - 需求只在 Markdown：约 10% 的时间在 Session 间切换——追踪不同项目、不同方向的进展，判断哪个需要介入。这是"多线统领"。Session 辨识度（一眼区分哪些是活跃的、哪些是已完成的）因此成为一个真实的 UX 痛点。
 - 需求只在 Markdown：约 5% 的时间在 Files Tab——它本质上是一个兜底入口，绝大部分文件访问都是通过 Chat 窗口中的 tool/patch 卡片跳转完成的。
 - 需求只在 Markdown：基于这个时间分布，产品优化的优先级应该是：Markdown 渲染质量 > 语音输入流畅度 > Session 辨识度 > 文件树功能。
+- 需求只在 Markdown：文件预览：文本文件等宽字体显示，Markdown 文件支持 Native / Web / Source 三态预览。Web Preview 对齐 iOS PR #94，使用本地 WebView shell 渲染 HTML-in-Markdown、CSS 卡片、inline SVG、<details>、宽表和 workspace 相对图片。默认打开 Web Preview，失败或大文件时可退回 Native / Source。🔲 Phase 7
+- 需求只在 Markdown：SSH Tunnel Transport：配置 SSH gateway、SSH port、SSH username、assigned remote port；App 内建立 127.0.0.1:<localPort> 到 gateway 侧 127.0.0.1:<remotePort> 的 local forward 🔲 Phase 8
+- 需求只在 Markdown：NFC prompt action 仍是 Android 专属；session 导航则由 iOS/Android 共享 opencode://session/<id> contract
+- 需求只在 Markdown：iOS 与 Android 共享同一个只读导航协议：opencode://session/<session_id>。链接可以来自 Chat 中的 Agent Markdown，也可以来自邮件、Notes、网页或系统 Intent。用户点击后，客户端只在当前 Host 调用 GET /session/:id 验证；成功才切换到目标 session 和 Chat，失败保留原上下文并显示全局错误。
 - 需求只在 pptx：Product Requirements Document · v1.1 · Mar 2026
 - 需求只在 pptx：核心设计原则：轻量、快速、以阅读和交互为主。所有繁重的配置（Provider 密钥、MCP 服务、workspace 设置）都在电脑端完成，Android 端只做必要的交互和消费。
 - 需求只在 pptx：但比技术架构更根本的，是这个 App 要解决的核心交互问题：如何让 AI 把它做出的最关键决策浮出水面，供人类审查，并在必要时通过语音快速介入纠正——我们把这个模式叫做 Steer（统领）。AI 负责执行和探索，人类负责判断和方向。App 的价值不只是在"看一眼 AI 在干嘛"的监控，更在于它是一个轻量的决策审查与方向控制终端——用户每次打开都在阅读 Markdown 报告、查看嵌入的截图和产物、通过语音下达新的方向性指令。它不是浏览工具，是统领工具。
@@ -3020,7 +2925,7 @@
 
 ### hackmagic__opennavicat
 
-段落标题不一致，需求条目 31 / 122 一致（pptx 拆出 155 条）
+段落标题不一致，需求条目 34 / 122 一致（pptx 拆出 155 条）
 
 - 标题只在 Markdown：0.0 对标基线与修订记录
 - 标题只在 Markdown：0.1 目标
@@ -3034,7 +2939,7 @@
 - 需求只在 Markdown：现有 CLI、GUI 主流程仍可用。
 - 需求只在 Markdown：核心模块之间不出现反向依赖 —— docs/module_dependency_matrix.md（scripts/build_dependency_matrix.py 自动生成），261 条顶层导入边、0 违规（2026-10-06，含 ClickHouse / Oracle 驱动与 Phase 6 流水线）（2026-09-30，含 ClickHouse / Oracle 驱动）。
 - 需求只在 Markdown：至少 1 个连接器迁移到新分层 —— 全部 9 个 connector 现居 open_navicat/drivers/，dal/base_connector.py 与 dal/*_connector.py 保留兼容 shim。
-- 需求只在 Markdown：已落地的新模块有模块说明 —— open_navicat/drivers/README.md（职责表、接入新引擎的两步流程、package 必填 / super().init() / 单线程 executor 桥接等约定与坑）。types / sql / formats / platform 尚未成模块，待各自 Phase 落地时补。
+- 需求只在 Markdown：已落地的新模块有模块说明 —— open_navicat/drivers/README.md（职责表、接入新引擎的两步流程、package 必填 / super().__init__() / 单线程 executor 桥接等约定与坑）。types / sql / formats / platform 尚未成模块，待各自 Phase 落地时补。
 - 需求只在 Markdown：至少 1 个 CLI 命令、1 个 GUI 调用路径迁移到新分层 —— CLI：conn engines|add|test|open 全走注册表 + dsn.py；GUI：connection_dialog.py 的引擎下拉框 / 端口默认值 / 测试错误展示改走 drivers.registry 与 drivers.dsn。
 - 需求只在 Markdown：新增模块的单元测试覆盖率不低于项目当前基线（基线：289 passed / 16 skipped，装 pytest-asyncio 前是 243/62；当前 556 passed）。
 - 需求只在 Markdown：连接失败、超时、SQL 错误、AI 错误均使用统一错误对象（open_navicat/errors.py）；插件错误 ONV-PLG-001 已定义，待 Phase 8 接入。
@@ -3187,7 +3092,7 @@
 - 需求只在 pptx：现状： 用户手动拆任务 → 手动复制粘贴上下文 → 手动汇总结果 目标： 写一个 YAML 文件 → 引擎自动编排执行 → 输出最终结果
 - 需求只在 pptx：analyze ──→ tech_review ──→ final_summary └→ design_review ──┘ (tech 和 design 并行)
 - 需求只在 pptx：抽象的 LLM 调用层。MVP 只做 1 个 provider（Claude 或 OpenAI，取决于用户基数），其他 v0.2 加。
-- 需求只在 pptx：interface LLMConnector {  chat(systemPrompt: string, userMessage: string): Promise<LLMResult>;}interface LLMResult {  content: string;  usage: { input_tokens: number; output_tokens: number };}
+- 需求只在 pptx：interface LLMConnector {  chat(systemPrompt: string, userMessage: string): Promise;}interface LLMResult {  content: string;  usage: { input_tokens: number; output_tokens: number };}
 - 需求只在 pptx：# 执行工作流npx agency-orchestrator run workflow.yaml --input prd_content=@prd.md# 验证工作流定义（不执行）npx agency-orchestrator validate workflow.yaml# 查看执行计划（DAG 可视化）npx agency-orchestrator plan workflow.yaml# 列出可用角色npx agency-orchestrator roles --agents-dir ./agents
 - 需求只在 pptx：F5: 执行过程输出
 - 需求只在 pptx：🔄 [1/4] analyze — product/product-manager ✅ 完成 (3.2s, 856 tokens)
@@ -3229,7 +3134,7 @@
 
 ### junerver__ComposeHooks
 
-段落标题不一致，需求条目 24 / 45 一致（pptx 拆出 45 条）
+段落标题不一致，需求条目 23 / 43 一致（pptx 拆出 45 条）
 
 - 标题只在 Markdown：1.1 谁在依赖这个
 - 标题只在 Markdown：1.2 当前的问题
@@ -3244,12 +3149,12 @@
 - 需求只在 Markdown：useContext / createContext（上下文）
 - 需求只在 Markdown：Palette 计划建设在线文档站点，目标是在浏览器中提供组件的真实可交互预览（可点击、可调参的 Compose 组件）。这需要为 Palette 的 palette 模块启用 wasmJs target，用 Compose Multiplatform 编译到 WebAssembly 运行在浏览器里。
 - 需求只在 Markdown：ID：R2；需求：核心状态 hooks 全部可用；说明：下表"必须在 wasmJs 可用"的 hooks 不能因平台限制降级或编译失败。
+- 需求只在 Markdown：usePersistent：存储实现通过 SaveToPersistent<T> = (T?) -> Unit 函数类型注入，不绑定存储后端。
 - 需求只在 Markdown：V1：hooks/build.gradle.kts 中存在 wasmJs { browser() } target。
 - 需求只在 Markdown：V2：./gradlew :hooks:publishToMavenLocal 成功，且产物包含 wasmJs klib（2.4.0-beta-1, 963KB）。
 - 需求只在 Markdown：V3：本地 Maven 中 hooks2 新版本的 .module 文件包含 wasmJs variant。
 - 需求只在 Markdown：V4：§3.1 列出的核心 hooks 在 wasmJs target 下编译通过（./gradlew :hooks:compileKotlinWasmJs）。
 - 需求只在 Markdown：V5：§3.1 核心 hooks 在 wasmJs 下功能正确（hooks/src/wasmJsTest 已覆盖 201 项测试，含 WasmJsSmokeTest + 继承自 commonTest 的 Fetch/Redux/Debounce/Form/Table）。
-- 需求只在 Markdown：V6：§3.2 的 hooks 要么在 wasmJs 可用，要么在 API 文档中明确标注"wasmJs 不支持/降级"。（待阶段 2 处理；当前 useRequest/useForm/useRedux 依赖的 KClass 仅作 Map 键，wasmJs 下可用，反射调用已隔离在 commonJvmAndroid。）
 - 需求只在 pptx：提出日期：2026-06-29 提出方：Palette 组件库（xyz.junerver.compose.palette） 优先级：P0（阻塞下游文档站的在线交互预览能力） 状态：✅ 已完成（2.4.0-beta-1，2026-06-29）
 - 需求只在 pptx：闭环验证：hooks2 2.4.0-beta-1 已在 Maven Central 发布（含 wasmJs 变体）。Palette 已升级 并验证 :palette:compileKotlinWasmJs BUILD SUCCESSFUL（走远程 Maven Central，非本地缓存）。 反射隔离设计（commonMain 只用 stdlib KClass，反射调用隔离在 commonJvmAndroid）经验证有效。 下游 Palette 已为 palette + 3 子模块启用 wasmJs target，仅修 1 处 PlatformActivity actual。
 - 需求只在 pptx：3.1 ✅ 预期可直接可用（纯 Compose 状态逻辑，无平台依赖）
@@ -3359,7 +3264,7 @@
 
 ### lhxone__TeacherDesk
 
-段落标题不一致，需求条目 86 / 86 一致（pptx 拆出 91 条）
+段落标题不一致，需求条目 85 / 86 一致（pptx 拆出 91 条）
 
 - 标题只在 Markdown：1.1 背景
 - 标题只在 Markdown：1.2 产品定位
@@ -3371,6 +3276,8 @@
 - 标题只在 pptx：第 7 页
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 9 页
+- 需求只在 Markdown：Access Token：JWT，HS256，有效期 2 小时，放在 Authorization: Bearer <token>。
+- 需求只在 pptx：Access Token：JWT，HS256，有效期 2 小时，放在 Authorization: Bearer 。
 - 需求只在 pptx：3.6 随机抽签 / 分组
 - 需求只在 pptx：3.6.1 随机点名（抽签）
 - 需求只在 pptx：3.7 成绩管理与分析
@@ -3444,7 +3351,7 @@
 
 ### lintsinghua__oops
 
-段落标题不一致，需求条目 51 / 82 一致（pptx 拆出 84 条）
+段落标题不一致，需求条目 50 / 82 一致（pptx 拆出 84 条）
 
 - 标题只在 Markdown：1.1 官方需求长期悬而未决
 - 标题只在 Markdown：1.2 竞品（2026-10-14 快照）
@@ -3630,7 +3537,7 @@
 
 ### qtgf520__kai-qt
 
-段落标题不一致，需求条目 98 / 114 一致（pptx 拆出 121 条）
+段落标题不一致，需求条目 110 / 114 一致（pptx 拆出 121 条）
 
 - 标题只在 Markdown：5.1 重新生成消息按钮
 - 标题只在 Markdown：5.2 修改消息内容按钮
@@ -3638,30 +3545,24 @@
 - 标题只在 Markdown：5.4 删除消息按钮
 - 标题只在 pptx：第 2 页
 - 标题只在 pptx：第 18 页
-- 需求只在 Markdown：1. 更改提供商名称 ✅ 已有：renameServiceInstance + displayName 持久化，设置页可编辑，全局生效（v3.2.2 已实现）
-- 需求只在 Markdown：2. 思考强度按钮 ✅ 已实现：设置页「思考强度」选择器（默认/低/中低/中/高/最高），写入 reasoning_effort 请求体（v3.2.3+）
-- 需求只在 Markdown：3. 流式输出开关 ✅ 已实现：设置页「流式输出」开关，关闭时 stream=false 整体渲染（v3.2.3+）
-- 需求只在 Markdown：4. 提示词字数上限 ✅ 已满足：输入框无字符硬截断，文件上限 200KB（20 万字符级），超长内容完整发送
 - 需求只在 Markdown：5.1 重新生成 ✅ 已有：BotMessage onRegenerate 按钮，保留上下文重新请求
 - 需求只在 Markdown：5.2 修改消息 ✅ 已实现：用户消息下方「编辑」按钮，就地变输入框，保存后截断旧回复并自动重新生成（v3.2.3-3）
 - 需求只在 Markdown：5.3 复制消息 ✅ 已有：BotMessage 复制按钮（含代码块复制）
 - 需求只在 Markdown：5.4 删除消息 ✅ 已实现：每条消息操作栏「删除」按钮（AI 消息 × 图标 / 用户消息文字），删除单条及其配套工具行，自动保存（v3.2.3-2）
-- 需求只在 Markdown：6. 上下文压缩 ✅ 已有：compactHistoryIfNeeded（70% 阈值自动摘要 + 保留最近 4 轮）
-- 需求只在 Markdown：7. Skill 功能 ✅ 已有：完整 skills 包（SkillManager/Registry/Marketplaces/前端 SkillsSection）
 - 需求只在 pptx：用途：本文件供 AI 编码助手直接阅读并按条目实现。每条需求均含【目标】【位置】【行为】【验收标准】。 项目假设：Kai2 9000 为开源 AI 助手客户端（参考 Kai 9000 架构），前端 UI + 设置层 + Provider/Model 抽象层 + 工具/MCP 层 + 本地推理层。 代码标记约定：[NEED_IMPLEMENT] 表示需 AI 填充实现；[CONFIG_KEY] 表示需新增的设置项 key。
 - 需求只在 pptx：5.1 重新生成消息按钮
 - 需求只在 pptx：5.2 修改消息内容按钮
 - 需求只在 pptx：5.3 复制消息按钮
 - 需求只在 pptx：5.4 删除消息按钮
 - 需求只在 pptx：使用说明：AI 编码时，请逐条（按编号）实现并在代码/PR 中标注对应编号（如 // [REQ-5.1]），实现完一条即在下方 [进度] 打勾，便于追踪。
-- 需求只在 pptx：更改提供商名称 ✅ 已有：renameServiceInstance + displayName 持久化，设置页可编辑，全局生效（v3.2.2 已实现）
-- 需求只在 pptx：思考强度按钮 ✅ 已实现：设置页「思考强度」选择器（默认/低/中低/中/高/最高），写入 reasoning_effort 请求体（v3.2.3+）
-- 需求只在 pptx：流式输出开关 ✅ 已实现：设置页「流式输出」开关，关闭时 stream=false 整体渲染（v3.2.3+）
-- 需求只在 pptx：提示词字数上限 ✅ 已满足：输入框无字符硬截断，文件上限 200KB（20 万字符级），超长内容完整发送
+- 需求只在 pptx：☒ 5.1 重新生成 ✅ 已有：BotMessage onRegenerate 按钮，保留上下文重新请求
+- 需求只在 pptx：☒ 5.2 修改消息 ✅ 已实现：用户消息下方「编辑」按钮，就地变输入框，保存后截断旧回复并自动重新生成（v3.2.3-3）
+- 需求只在 pptx：☒ 5.3 复制消息 ✅ 已有：BotMessage 复制按钮（含代码块复制）
+- 需求只在 pptx：☒ 5.4 删除消息 ✅ 已实现：每条消息操作栏「删除」按钮（AI 消息 × 图标 / 用户消息文字），删除单条及其配套工具行，自动保存（v3.2.3-2）
 
 ### raceychan__lihil
 
-段落标题不一致，需求条目 75 / 76 一致（pptx 拆出 92 条）
+段落标题不一致，需求条目 72 / 76 一致（pptx 拆出 92 条）
 
 - 标题只在 Markdown：5.1 客户端加入 topic
 - 标题只在 Markdown：5.2 客户端发送命令
@@ -3670,7 +3571,11 @@
 - 标题只在 Markdown：5.5 长任务清理
 - 标题只在 pptx：第 8 页
 - 标题只在 pptx：第 9 页
+- 需求只在 Markdown：文档提到的 on_<event> 自动分发尚未在代码中实现。
 - 需求只在 Markdown：字段：ref；类型：string | null；必填：否；说明：若是请求响应，必须回填客户端 ref
+- 需求只在 Markdown：join 和 leave 继续走生命周期方法，不走普通 on_<event>。
+- 需求只在 Markdown：文档不再声明未实现的 on_<event> 行为。
+- 需求只在 pptx：文档提到的 on_ 自动分发尚未在代码中实现。
 - 需求只在 pptx：作为 Web/iOS 客户端，我发送带 ref 的 join 消息后，希望收到带同一个 ref 的明确响应，知道 join 是成功、失败、还是已经加入。
 - 需求只在 pptx：5.2 客户端发送命令
 - 需求只在 pptx：作为客户端，我发送 send_message、cancel、approve_tool 等命令后，希望服务端响应能和请求配对，而不是只能依赖后续事件流猜测命令是否成功。
@@ -3680,7 +3585,6 @@
 - 需求只在 pptx：{  "topic": "session:abc",  "event": "reply",  "payload": {    "status": "ok",    "response": {}  },  "ref": "1",  "join_ref": "1",  "event_id": "evt_123",  "seq": 12}
 - 需求只在 pptx：字段：ref；类型：string ／ null；必填：否；说明：若是请求响应，必须回填客户端 ref
 - 需求只在 pptx：{  "status": "ok",  "response": {}}
-- 需求只在 pptx：{  "status": "error",  "error": {    "code": "topic_not_found",    "message": "Topic not found",    "detail": {}  }}
 
 ### rzx007__nanobot-ts
 
@@ -3706,7 +3610,7 @@
 - 需求只在 Markdown：场景：测试新的提示词策略、实验记忆算法
 - 需求只在 Markdown：关键功能：代码可读性、清晰的架构、易于修改
 - 需求只在 pptx：版本: 0.1.0 日期: 2026-02-25 作者: Nanobot TypeScript 团队 状态: 进行中
-- 需求只在 pptx：// 实现自定义渠道class CustomChannel extends BaseChannel {  async start(): Promise<void> {    // 连接到平台  }  async stop(): Promise<void> {    // 断开连接  }  async send(msg: OutboundMessage): Promise<void> {    // 发送消息到平台  }}// 注册渠道（自动）// ChannelManager 会根据配置自动加载
+- 需求只在 pptx：// 实现自定义渠道class CustomChannel extends BaseChannel {  async start(): Promise {    // 连接到平台  }  async stop(): Promise {    // 断开连接  }  async send(msg: OutboundMessage): Promise {    // 发送消息到平台  }}// 注册渠道（自动）// ChannelManager 会根据配置自动加载
 - 需求只在 pptx：8.2 为什么选择 Pino 作为日志库？
 - 需求只在 pptx：8.3 为什么使用 Zod 进行配置验证？
 - 需求只在 pptx：8.4 为什么选择 Vitest 作为测试框架？
@@ -3817,7 +3721,7 @@
 
 ### skywind3000__toys
 
-段落标题不一致，需求条目 76 / 76 一致（pptx 拆出 82 条）
+段落标题不一致，需求条目 75 / 76 一致（pptx 拆出 82 条）
 
 - 标题只在 Markdown：输出
 - 标题只在 Markdown：请求（仿 PHP 超全局变量命名）
@@ -3825,12 +3729,14 @@
 - 标题只在 Markdown：第二期扩展（暂不实现）
 - 标题只在 Markdown：说明
 - 标题只在 pptx：第 2 页
+- 需求只在 Markdown：模板编译：一律在内存中进行，module_directory 不启用，确保文档根目录可只读挂载且不产生 __pycache__ / .pyc 污染（module_directory 会落盘编译后 .py 并经 import 系统写 __pycache__，既破坏只读 root 又可能被静态分支回吐编译后源码）；
 - 需求只在 pptx：Flask 端向 .mako 模板暴露的函数/对象，设计对标 PHP 的超全局变量与常用函数。命名空间原则：PHP 靠 $ 前缀让变量与函数天然分域，Python 单命名空间没有这层保护，注入名分三类——
 - 需求只在 pptx：请求（仿 PHP 超全局变量命名）
 - 需求只在 pptx：第二期扩展（暂不实现）
 - 需求只在 pptx：注入名作用域（模板编写约定）
 - 需求只在 pptx：违反时的失败形态：编译正常通过（注入名是合法标识符），运行时函数被调用才抛 NameError——且若该函数只在特定分支（如 ?debug=1）被调用，平时页面一切正常，极具迷惑性。
 - 需求只在 pptx：站点本地模块 import
+- 需求只在 pptx：模板编译：一律在内存中进行，module_directory 不启用，确保文档根目录可只读挂载且不产生 pycache / .pyc 污染（module_directory 会落盘编译后 .py 并经 import 系统写 pycache，既破坏只读 root 又可能被静态分支回吐编译后源码）；
 
 ### staklab__jianji
 
@@ -3864,7 +3770,7 @@
 
 ### superman1006__MeetMind
 
-段落标题不一致，需求条目 37 / 67 一致（pptx 拆出 70 条）
+段落标题不一致，需求条目 36 / 67 一致（pptx 拆出 70 条）
 
 - 标题只在 Markdown：修订记录
 - 标题只在 Markdown：1.1 文档目的
@@ -3885,7 +3791,7 @@
 - 需求只在 Markdown：对用户：把"开一次跨职能需求评审会"压缩成一次对话，几分钟内得到结构化结论 + 分工待办。
 - 需求只在 Markdown：对团队：每个 Agent 绑定本职知识库与工具，输出贴合角色、可直接落地。
 - 需求只在 Markdown：对平台：可扩展的工具 / 工作流 / 知识库体系，使其能从需求评审扩展到更多协作场景。
-- 需求只在 Markdown：M1 用户与账户体系：FR-M1-01 ~ FR-M1-05
+- 需求只在 Markdown：表：<prefix>_messages；变更：视需要增加 token 用量、附件引用等字段；关联需求：FR-M7-01、FR-M4-07
 - 需求只在 pptx：多 Agent RAG 协作会议系统 · Product Requirements Document
 - 需求只在 pptx：如果你是第一次看产品文档，先读这一节。下面是本文里反复出现的几类"代号"分别代表什么、怎么读。
 - 需求只在 pptx：一句话记忆：P 看多重要、M 看属于哪个模块、FR-Mx-NN 是某条需求的身份证号、R 看第几批做、G 是目标。
@@ -3971,7 +3877,7 @@
 
 ### tyrchen__index-tts-rs
 
-段落标题不一致，需求条目 35 / 40 一致（pptx 拆出 49 条）
+段落标题不一致，需求条目 30 / 40 一致（pptx 拆出 49 条）
 
 - 标题只在 Markdown：1.1 双核产品形态
 - 标题只在 Markdown：FR-1：两阶段解耦与 .itts_voice 音色包管理（Voice Snapshot System）
@@ -3979,25 +3885,30 @@
 - 标题只在 Markdown：FR-3：高性能合成与流式音频输出（Synthesis & Streaming）
 - 标题只在 Markdown：FR-4：Rust Library Crate (index-tts-rs-core) 集成体验
 - 标题只在 pptx：第 6 页
+- 需求只在 Markdown：形态一：可嵌入式 Rust 核心库（Crate: index-tts-rs-core） 供第三方 Rust 开发者通过 cargo add 集成，提供编译期类型安全、零 unwrap、支持异步流式（Stream<Item = Result<AudioChunk>>）与 Actor 并发调度的原生 API。
+- 需求只在 Markdown：将提取出的 SpeakerContext（包含 conds、prompt_condition、ref_mel、style 四个张量）及元数据（源音频哈希、采样率、时长、创建时间、音色别名）保存为单文件 <name>.itts_voice（体积约 1.5 MB）。
+- 需求只在 Markdown：engine.synthesize(req).await -> Result<SynthesisOutput>（一次性返回完整 PCM 与各阶段耗时统计）；
+- 需求只在 Markdown：engine.synthesize_stream(req).await -> Result<SynthesisStream>（逐句返回 AudioChunk，支持 Drop 即取消后续计算）。
+- 需求只在 Markdown：itts synth：核心合成命令，支持 --voice <name> 或 --ref <wav>、| itts synth --stdin、--play、--out <path>、--json / --jsonl。
 - 需求只在 Markdown：指标项：Daemon 热态请求响应开销；原版 Python index-tts-2.5-mlx：不支持（每次重跑进程）；index-tts-rs 目标值：$\le$ 5 ms；核心实现手段：Unix Domain Socket + 内存常驻 DashMap 音色池
 - 需求只在 Markdown：DSP 特征（mel_spectrogram、campplus_fbank、w2v_features）：余弦相似度 $\ge 0.9999$，最大绝对误差 $< 10^{-4}$。
 - 需求只在 Markdown：SpeakerContext 各张量：余弦相似度 $\ge 0.9995$。
-- 需求只在 Markdown：Greedy GPT 生成的 Semantic Codes：100% 序列一致（或在浮点边界步重合率 $\ge 99\%$）。
+- 需求只在 Markdown：Greedy GPT 生成的 Semantic Codes：100% 序列一致（或在浮点边界步重合率 $\ge 99%$）。
 - 需求只在 Markdown：CFM Mel 频谱（给定相同初始噪声 z）与 BigVGAN 输出波形：余弦相似度 $\ge 0.999$，听感完全无退化、无拼接爆音。
 - 需求只在 pptx：1.1 双核产品形态
+- 需求只在 pptx：形态一：可嵌入式 Rust 核心库（Crate: index-tts-rs-core） 供第三方 Rust 开发者通过 cargo add 集成，提供编译期类型安全、零 unwrap、支持异步流式（Stream<Item = Result>）与 Actor 并发调度的原生 API。
 - 需求只在 pptx：FR-1：两阶段解耦与 .itts_voice 音色包管理（Voice Snapshot System）
+- 需求只在 pptx：将提取出的 SpeakerContext（包含 conds、prompt_condition、ref_mel、style 四个张量）及元数据（源音频哈希、采样率、时长、创建时间、音色别名）保存为单文件 .itts_voice（体积约 1.5 MB）。
 - 需求只在 pptx：FR-2：多语种文本前端与精细发音控制（Multilingual Frontend）
 - 需求只在 pptx：FR-3：高性能合成与流式音频输出（Synthesis & Streaming）
 - 需求只在 pptx：FR-4：Rust Library Crate (index-tts-rs-core) 集成体验
+- 需求只在 pptx：engine.synthesize(req).await -> Result（一次性返回完整 PCM 与各阶段耗时统计）；
+- 需求只在 pptx：engine.synthesize_stream(req).await -> Result（逐句返回 AudioChunk，支持 Drop 即取消后续计算）。
 - 需求只在 pptx：FR-5：面向 AI Agent 的 CLI、常驻 Daemon 与 MCP Server
-- 需求只在 pptx：4.1 性能与资源指标（以 Apple Silicon M2/M3/M4 Max/Pro MBP 为基准）
-- 需求只在 pptx：指标项：Daemon 热态请求响应开销；原版 Python index-tts-2.5-mlx：不支持（每次重跑进程）；index-tts-rs 目标值：5 ms；核心实现手段：Unix Domain Socket + 内存常驻 DashMap 音色池
-- 需求只在 pptx：4.2 数值精度与音质验收标准
-- 需求只在 pptx：DSP 特征（mel_spectrogram、campplus_fbank、w2v_features）：余弦相似度 ，最大绝对误差 。
 
 ### tyxben__AI_novel
 
-段落标题不一致，需求条目 140 / 168 一致（pptx 拆出 166 条）
+段落标题不一致，需求条目 135 / 168 一致（pptx 拆出 164 条）
 
 - 标题只在 Markdown：1.1 现状
 - 标题只在 Markdown：1.2 问题
@@ -4022,8 +3933,8 @@
 - 需求只在 pptx：作为 PPT 创作者 我想要 所有页面自动应用统一的主题风格 以便于 保持视觉专业性和一致性
 - 需求只在 pptx：FR-1: HTML 幻灯片渲染器
 - 需求只在 pptx：描述：新建 src/ppt/html_renderer.py，替换现有 ppt_renderer.py 的职责。
-- 需求只在 pptx：描述：新建 src/ppt/html_to_pptx.py，将 HTML 幻灯片转换为 PPTX 文件。
-- 需求只在 pptx：描述：新建 src/ppt/image_agent.py，为幻灯片自动搜索或生成配图。
+- 需求只在 pptx：每页幻灯片为一个  元素
+- 需求只在 pptx：支持本地文件路径（ 或 base64 内联）
 
 ### weiwei929__wireguard_plus
 
@@ -4089,7 +4000,7 @@
 
 ### wordflowlab__novel-writer-openspec
 
-段落标题不一致，需求条目 36 / 68 一致（pptx 拆出 112 条）
+段落标题不一致，需求条目 35 / 68 一致（pptx 拆出 111 条）
 
 - 标题只在 Markdown：1.1 产品定位
 - 标题只在 Markdown：1.2 核心价值主张
@@ -4156,7 +4067,7 @@
 
 ### wth461694678__text-block-timer
 
-段落标题不一致，需求条目 74 / 75 一致（pptx 拆出 97 条）
+段落标题不一致，需求条目 74 / 75 一致（pptx 拆出 96 条）
 
 - 标题只在 Markdown：1.1 需求来源
 - 标题只在 Markdown：1.2 核心痛点
@@ -4180,7 +4091,7 @@
 
 ### wukun2005-gif__patentExaminator
 
-段落标题不一致，需求条目 118 / 128 一致（pptx 拆出 212 条）
+段落标题不一致，需求条目 117 / 128 一致（pptx 拆出 212 条）
 
 - 标题只在 Markdown：B-008 产品方向基线
 - 标题只在 Markdown：v0.1.0 功能矩阵
@@ -4201,7 +4112,7 @@
 - 需求只在 Markdown：不接入任何内部检索系统，对比文件由审查员自行检索后上传。
 - 需求只在 Markdown：不替代发文系统、OA 格式、法条引用、正式三步法论证，APP 产出是审查员起草 OA 的素材。
 - 需求只在 Markdown：不作出新颖性、创造性、授权或驳回的法律结论，所有候选判断均须审查员确认。
-- 需求只在 Markdown：~~反馈系统~~：已删除（用户要求），满意度评估改为 Metrics 体系自动指标（Groundedness、Faithfulness 等）
+- 需求只在 Markdown：选择本地文件夹（仅 Chrome/Edge 支持 File System Access API；Firefox/Safari 用户使用多文件上传 <input type="file" multiple> 替代）
 - 需求只在 pptx：B-008 产品方向基线
 - 需求只在 pptx：复审文件导入 → 审查意见解析（opinion-analysis） → 答辩理由映射（argument-analysis） → Claim Chart（以修改后权利要求为准） → 新颖性复核 / 创造性复核 / 缺陷复查 → 复审意见草稿（reexam-draft） → 导出
 - 需求只在 pptx：原初审式"从零生成审查意见素材"不属于当前版本范围；保留的 Claim Chart、新颖性、创造性和文献管理能力均作为复审回应链路的上游事实材料。
@@ -4470,7 +4381,7 @@
 
 ### ywq2019__ai_test_agent
 
-段落标题不一致，需求条目 104 / 111 一致（pptx 拆出 136 条）
+段落标题不一致，需求条目 105 / 111 一致（pptx 拆出 136 条）
 
 - 标题只在 Markdown：1.1 项目背景
 - 标题只在 Markdown：1.2 技术架构选型
@@ -4483,7 +4394,6 @@
 - 需求只在 Markdown：自动化核心组件：Playwright（UI自动化执行引擎）
 - 需求只在 Markdown：AI能力支撑：主流大模型（Deepseek、通义千问等）对接适配
 - 需求只在 Markdown：平台整体分为基础系统模块、核心测试业务模块、AI智能扩展模块、自动化调度模块、报告统计模块五大板块，完全基于基础框架插件化开发，不改动底层原生架构，支持后续功能迭代扩展。
-- 需求只在 Markdown：Docker \& Docker Compose：支持容器化快速部署
 - 需求只在 pptx：复用系统原生操作日志、异常日志能力，记录所有新增、编辑、删除、用例执行、套件调度、AI调用、定时任务操作，包含操作人、操作时间、操作内容、IP、执行结果等信息。
 - 需求只在 pptx：3.1 项目管理模块
 - 需求只在 pptx：3.2 UI用例管理模块
@@ -4603,7 +4513,7 @@
 
 ### JulioBorges__gantry
 
-段落标题一致，需求条目 13 / 25 一致（pdf 拆出 24 条）
+段落标题一致，需求条目 13 / 25 一致（pdf 拆出 25 条）
 
 - 需求只在 Markdown：Agents + code > agents alone. Every decision that must not be improvised — what is ready, what must be proven, whether gates pass, when an issue is done — is made by a workflow script. Agents never re-decide what a script decided.
 - 需求只在 Markdown：Fail closed. An uncertain critic, a missing result, a dirty tree, a gate that could not run: not done.
@@ -4622,9 +4532,9 @@
 - 需求只在 pdf：The operator's checkout stays free.A run offers a dedicated worktree before it creates anything.
 - 需求只在 pdf：Honest capabilities.Each harness's capabilities are declared in a file and exercised on the fixture; a run report states the support tier it ran at. Gantry never advertises a guarantee it cannot measure.
 - 需求只在 pdf：If/gantry encounters an older incomplete scope, it may delegate the missing planning work to this same workflow, but it must preserve the approval stop. The documented default remains the explicit/gantry-plan→ approval →/gantry lifecycle.
+- 需求只在 pdf：Integration (orchestrator):complete issues merge into the run branch one at a time with--no-ff;gates.py runs after each merge; a red gate after a merge stops the run — the merge, not the slice, is at fault. Then roadmap.py done— the only way an issue becomes done — and a commit naming the slice.
 - 需求只在 pdf：deny edits to ROADMAP.md, to an issue's Status:line or to its criteria checkboxes by any tool other than the roadmap script;
 - 需求只在 pdf：deny git push--force and test-skip patterns being committed;
-- 需求只在 pdf：record SubagentStart/SubagentStop, phase transitions and compaction events (PreCompact,session.compacted) into the run log.
 
 ### MrThief123__care-compass
 
@@ -4888,8 +4798,8 @@
 - 需求只在 Markdown：get_workbook_details - Single workbook metadata
 - 需求只在 Markdown：search_visualizations - Search across Tableau Public
 - 需求只在 Markdown：get_viz_of_day - Featured visualizations
-- 需求只在 pdf：constructor(params:ToolParams<Args>): Initialises the tool
-- 需求只在 pdf：Tool Callback Return: Tool callbacks return Ok<CallToolResult>, and you must extract the.value property when returning from the request handler.
+- 需求只在 pdf：constructor(params:ToolParams): Initialises the tool
+- 需求只在 pdf：Tool Callback Return: Tool callbacks return Ok, and you must extract the.value property when returning from the request handler.
 - 需求只在 pdf：Error Handling: All errors should be caught within tool callbacks and returned as Ok results with isError:true, rather than throwing exceptions.
 - 需求只在 pdf：Parameter explanations with.describe()
 - 需求只在 pdf：✅Initialized the project with package.json and all dependencies
@@ -5038,7 +4948,7 @@
 
 ### Ariestar__obsidian-dragger
 
-段落标题不一致，需求条目 35 / 150 一致（pdf 拆出 156 条）
+段落标题不一致，需求条目 64 / 241 一致（pdf 拆出 238 条）
 
 - 标题只在 Markdown：1. 一句话目标
 - 标题只在 Markdown：2. 背景
@@ -5178,7 +5088,7 @@
 
 ### FLYFISH567__ItemMemo
 
-段落标题不一致，需求条目 96 / 116 一致（pdf 拆出 116 条）
+段落标题不一致，需求条目 96 / 111 一致（pdf 拆出 116 条）
 
 - 标题只在 Markdown：物品价值记录网页版 PRD
 - 标题只在 Markdown：1. 产品概述
@@ -5191,15 +5101,15 @@
 - 标题只在 pdf：1.2产品简介
 - 标题只在 pdf：1.3产品目标
 - 需求只在 Markdown：理性消费用户
-- 需求只在 Markdown：精致生活 / 收纳管理用户
-- 需求只在 Markdown：数码 / 家居 / 装备爱好者
-- 需求只在 Markdown：年轻上班族 / 学生
-- 需求只在 Markdown：需要一个轻量工具帮助自己管理生活和消费。
+- 需求只在 Markdown：希望知道买的东西到底值不值，愿意做消费复盘。 2.  精致生活 / 收纳管理用户 有整理习惯，愿意把生活物品数字化管理。 3.  数码 / 家居 / 装备爱好者 购买金额高、物品使用周期长，更关心长期价值。 4.  年轻上班族 / 学生 需要一个轻量工具帮助自己管理生活和消费。
 - 需求只在 Markdown：缺少一个兼顾"物品管理 + 成本分析 + 提醒"的工具
 - 需求只在 Markdown：产品闭环完整：录入 → 查看 → 提醒 → 复盘
 - 需求只在 Markdown：新增物品弹窗 / 面板
 - 需求只在 Markdown：操作按钮（标记完成 / 稍后提醒）
 - 需求只在 Markdown：价格必填且大于等于 0
+- 需求只在 Markdown：AI 自然语言录入
+- 需求只在 Markdown：当天购买，按 1 天计算
+- 需求只在 Markdown：日期无效时，兜底按 1 天计算
 - 需求只在 pdf：理性消费用户希望知道买的东西到底值不值，愿意做消费复盘。
 - 需求只在 pdf：精致生活/收纳管理用户有整理习惯，愿意把生活物品数字化管理。
 - 需求只在 pdf：数码/家居/装备爱好者购买金额高、物品使用周期长，更关心长期价值。
@@ -5242,9 +5152,9 @@
 - 需求只在 pdf：1.0-rc.6（2026-08-16实测；developer preview，官方声明会有破坏性变更）项值底层框架Cordis（时空可组合的插件框架）Node.js^22.19.0||>=24.0.0+运行时依赖pnpm 11.7.0 npm包@deepseek-ai/dsh（bin:dsh）npx@deepseek-ai/dsh web→启动方式本地Web UI
 - 需求只在 pdf：当前的使用门槛正是用户要解决的痛点：必须自己安装Node.js（+pnpm），再执行命令启动；没有开箱即用的桌面入口。
 - 需求只在 pdf：项目根=向上找最近含.git的祖先目录；找不到则用cwd。
-- 需求只在 pdf：skill身份：kebab-case名称（^[a-z0-9]+(?:-[a-z0-9]+)*$）。两种形态：目录包<name>/SKILL.md或扁平文件<name>.md。
+- 需求只在 pdf：skill身份：kebab-case名称（^[a-z0-9]+(?:-[a-z0-9]+)*$）。两种形态：目录包/SKILL.md或扁平文件.md。
 - 需求只在 pdf：frontmatter元数据：name、description、可选disable-model- invocation、user-invocable（缺省均视为true）。模型只看到name+ description，绝不暴露正文/路径。
-- 需求只在 pdf：模型侧消费：面向模型的skill({name})工具；会话早期以user-role <system-reminder>注入<available_skills>目录；目录digest变化才追加替换（增量注入，不浪费token）。
+- 需求只在 pdf：模型侧消费：面向模型的skill({name})工具；会话早期以user-role 注入目录；目录digest变化才追加替换（增量注入，不浪费token）。
 
 ### Frank-ay__mimo-mcp
 
@@ -5277,7 +5187,7 @@
 - 需求只在 pdf：ASR兜底:仅云端,无本地兜底,云端缺失则F7显式unavailable
 - 需求只在 pdf：阶段内容V1 (MVP,本次交付) F1-F8全量(含ASR);stdio MCP +本地Web;支持Claude Code/Codex双注册;voice库SQLite持久化V1.1流式TTS;Web端批量任务队列;ASR长音频分片;Web国际化V2 HTTP/SSE远程transport;OAuth;多用户音色库;与Void/lay- screenwriter/libtv等skill串联工作流模板
 - 需求只在 pdf：│├──run_mcp.sh#stdio启动脚本(Codex因TOML不支持env
-- 需求只在 pdf：文件系统(data/artifacts/) o voice_refs/<voice_id>.wav参考音频o tts/<yyyymmdd>/<uuid>.wav合成产物o uploads/<yyyymmdd>/<uuid>.{jpg|mp4|...}用户上传
+- 需求只在 pdf：文件系统(data/artifacts/) o voice_refs/.wav参考音频o tts//.wav合成产物o uploads//.{jpg|mp4|...}用户上传
 - 需求只在 pdf：保留策略:V1不自动清理,Web提供"清理30天前"按钮。
 - 需求只在 pdf：安全:API Key仅出现在.env(.gitignore)、不写日志;Web UI默认仅127.0.0.1监听,不暴露公网;克隆素材本地保存,前端禁止外链。
 
@@ -5409,7 +5319,7 @@
 - 需求只在 pdf：赛制推演：大赛期间附带小组排名+淘汰赛对阵推演（含"算计对阵"博弈）。
 - 需求只在 pdf：跨域CORS：竞彩官网/赔率站/新闻站大多禁止浏览器跨域请求。
 - 需求只在 pdf：核心= Skill：SKILL.md+脚本（拉竞彩赛单/赔率、Dixon-Coles计算、回测）。智能体编排：拉当天赛单→全部场次跑脚本算B级预测→对重点场联网搜情报做A级深度分析→产出结果。一举解决CORS、情报采集、专业分析三大难题。
-- 需求只在 pdf：输出（每次运行产两个文件）：o prediction_{date}.json：机器可读，供回测与跨天累积。o report_{date}.html：自包含单文件HTML报告——数据以内联<script>JSON嵌入，原生JS渲染卡片/筛选/排序，图表用内联SVG（零依赖、可离线）。双击即开，无需服务器/构建/部署。
+- 需求只在 pdf：输出（每次运行产两个文件）：o prediction_{date}.json：机器可读，供回测与跨天累积。o report_{date}.html：自包含单文件HTML报告——数据以内联JSON嵌入，原生JS渲染卡片/筛选/排序，图表用内联SVG（零依赖、可离线）。双击即开，无需服务器/构建/部署。
 - 需求只在 pdf：彻底免前端工程：不需要npm / Vite / Vue/React /开发服务器/部署流水线；数据在生成时已"烤进"HTML，打开时不发请求→运行时无CORS。
 - 需求只在 pdf：数据/Key：智能体在工具侧抓取，免浏览器跨域；付费源/LLM Key由运行环境保管。📌这是一份"每日快照报告"模式：每天跑一次Skill →一个可离线、可转发、可存档的HTML。将来若想做实时常驻App，JSON已现成可用，零锁定——但当前需求并不需要它。
 
@@ -5455,7 +5365,7 @@
 - 需求只在 Markdown：应用级时间统计（Screen Time 一类）只知道哪个应用在前台，不知道你在那个应用里 做了什么。"VS Code 3 小时"对复盘几乎没有信息量。
 - 需求只在 Markdown：#：U1；作为用户，我希望：打开应用就能看到今天的活动时间线，不需要事先做任何配置动作；以便：不必为了记录而中断工作
 - 需求只在 Markdown：#：U8；作为用户，我希望：关掉窗口后记录继续，需要时从状态栏叫回来；以便：应用不占用屏幕空间
-- 需求只在 Markdown：跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用
+- 需求只在 Markdown：F-C1 曾写成"跟随光标的活跃显示器"。原生契约冻结时把它改成了系统主显示器： 跟随光标需要显示器枚举、滞后判定和跨调用状态，而截图原语被有意设计成无状态的单次调用 （决策）。对单显示器用户没有区别； 多显示器用户在 v1 只会记录到主显示器。是否恢复跟随行为是一个待决产品问题（§1.7）， 不是实现遗漏。
 - 需求只在 Markdown：ID：F-C6；需求：睡眠、锁屏、屏保期间停止捕获，事件结束后自动恢复；验收标准：恢复是自动的，不需要用户干预
 - 需求只在 Markdown：ID：F-C7；需求：用户主动关闭记录后，系统事件不得自动恢复它；验收标准：idle（用户关闭）与 paused（系统事件）是不同状态
 - 需求只在 Markdown：ID：F-V6；需求：全部界面文案经 i18n，支持简体中文与英文；验收标准：缺 key 在类型检查阶段失败，不在运行时回退
@@ -5553,10 +5463,10 @@
 - 标题只在 pdf：2.用户画像与使用场景
 - 标题只在 pdf：3.功能需求（含验收标准与实现状态）
 - 标题只在 pdf：F1主题系统（Web端）✅已实现
-- 需求只在 Markdown：v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
+- 需求只在 Markdown：版本：v1.1（2026-08-16）｜状态：已评审（4 轮需求反问）+ 实现同步（v0.2） v1.1 变更：移除 TUI 支持（用户要求仅 Web）；上传/壁纸可见性修复；安装脚本落地
 - 需求只在 Markdown：Web 端（dsh web）：深度主题化——10 套动漫主题、壁纸系统、炫技级动效、实时预览调色（工坊）、主题包导入导出
 - 需求只在 Markdown：桌面端：对接社区现成 Electron 壳（如 ChisaAlter/Deepseek-Harness-Desktop），加载 Web UI 自动继承主题，插件内提供兼容性说明（docs/DESKTOP.md）
-- 需求只在 Markdown：~~TUI 端~~：v0.2 起已移除（用户决策：仅支持 Web）。
+- 需求只在 Markdown：TUI 端：v0.2 起已移除（用户决策：仅支持 Web）。
 - 需求只在 Markdown：10 套主题全部可切换，切换即时生效
 - 需求只在 Markdown：主题选择持久化（localStorage dsh-lite:state），刷新/重启保持
 - 需求只在 Markdown：每套主题覆盖背景、前景、强调色、侧边栏、气泡、输入框、边框、代码块、选中态等 40+ token
@@ -5629,7 +5539,7 @@
 - 需求只在 Markdown：从 project root 扫描当前 14 种语言文件。
 - 需求只在 Markdown：git 项目优先使用 git ls-files，遵循 .gitignore。
 - 需求只在 Markdown：支持 include/exclude glob 和 .atlasignore。
-- 需求只在 Markdown：默认排除 .git、.atlas、node_modules、dist、build、out、target、pycache、.venv、venv、.gradle、.m2。
+- 需求只在 Markdown：默认排除 .git、.atlas、node_modules、dist、build、out、target、__pycache__、.venv、venv、.gradle、.m2。
 - 需求只在 Markdown：单文件失败、超大文件、grammar panic 不得中断整个索引。
 - 需求只在 Markdown：合法 UTF-8 源码直接解析；非 UTF-8 源码仅在内存解码，优先覆盖中文 GBK/GB18030 与西欧 windows-1252（ISO-8859-1 类输入）。
 - 需求只在 Markdown：Atlas 不因检测或转码改写原文件；文件身份始终基于原始磁盘字节，转码不应造成 永久 dirty 或 stale。
@@ -5884,14 +5794,14 @@
 - 需求只在 pdf：M1-2 ServiceModel/ServiceConfig：服务安装和查询的数据模型。
 - 需求只在 pdf：M1-3 SystemdSetting：Systemd.service单元文件生成，支持Type/Environment/Restart/KillMode/OOMScoreAdjust等配置。
 - 需求只在 pdf：M1-4 Windows平台支持类：Advapi32（SCM API P/Invoke）、Desktop（桌面进程启动）、NativeMethods（内存整理）、PowerStatus（电源状态）。
-- 需求只在 pdf：M2-1 Setting配置模型：基于Config<T>基类，Agent.config文件持久化。
+- 需求只在 pdf：M2-1 Setting配置模型：基于Config基类，Agent.config文件持久化。
 - 需求只在 pdf：M2-2服务元数据配置：ServiceName/DisplayName/Description独立配置。
 - 需求只在 pdf：M2-3多实例部署：同一程序通过不同ServiceName形成多个独立实例。
-- 需求只在 pdf：M2-4配置文件热加载：Config<T>内置热加载机制，运行时修改配置即时生效。
+- 需求只在 pdf：M2-4配置文件热加载：Config内置热加载机制，运行时修改配置即时生效。
 
 ### NewLifeX__NewLife.BACnet
 
-段落标题不一致，需求条目 29 / 100 一致（pdf 拆出 101 条）
+段落标题不一致，需求条目 29 / 101 一致（pdf 拆出 101 条）
 
 - 标题只在 Markdown：NewLife.BACnet 需求文档
 - 标题只在 Markdown：1. 背景与愿景
@@ -5909,10 +5819,10 @@
 - 需求只在 Markdown：TRN-2 BACnet/IP (IPv6) UDP 传输：基于 UDP 的 IPv6 BACnet 通信
 - 需求只在 Markdown：TRN-3 BBMD 广播管理：跨子网广播管理，支持 BBMD 对等体间转发
 - 需求只在 Markdown：TRN-4 外部设备注册：外部设备（Foreign Device）向 BBMD 注册并接收广播
+- 需求只在 Markdown：以下串口传输实现代码存在但已从编译中排除，需跨平台串口兼容性支持后重新启用： TRN-5 MS/TP (RS485) 串口传输、TRN-6 PTP (RS232) 串口传输、TRN-7 通用串口传输基类、 TRN-8 Ethernet 802.3 直连传输、TRN-9 Windows 管道传输
 - 需求只在 Markdown：COD-1 ASN.1 BER 编解码：BACnet 专有的简化 TLV（Tag-Length-Value）格式编解码
 - 需求只在 Markdown：COD-2 APDU 编解码：应用协议数据单元编解码，含确认/未确认/错误/分片等 PDU 类型
 - 需求只在 Markdown：COD-3 NPDU 编解码：网络协议数据单元编解码，含源/目标地址、跳数管理
-- 需求只在 Markdown：COD-4 BVLC (IPv4) 编解码：BACnet 虚拟链路控制层（IPv4）帧编解码
 - 需求只在 pdf：成为.NET生态中功能最完整、最易集成的BACnet协议库，让楼宇自动化工程师和IoT边缘开发者能够用最少的代码实现设备发现、数据采集、属性写入和事件处理，并无缝对接NewLife IoT物联网平台生态，成为楼控系统与IoT平台之间的可靠桥梁。
 - 需求只在 pdf：基础网络传输能力，支持不同物理/网络媒体的BACnet数据传输。
 - 需求只在 pdf：TRN-1 BACnet/IP (IPv4) UDP传输：基于UDP的标准BACnet/IP通信，默认端口47808（0xBAC0）
@@ -5951,7 +5861,7 @@
 - 需求只在 pdf：多前端支持：Vue为官方前端与核心库载体；仓库内另提供Angular / Svelte / NaiveUI / ArcoVue / Vuetify / TDesign / MUI / Shadcn等参考实现，React皮肤独立为CubeAntd仓库；MVC Razor（CubeNC）保持兼容
 - 需求只在 pdf：可扩展架构：通过EntityController继承、字段元数据、IModule插件机制深度定制
 - 需求只在 pdf：超大数据支撑：基于XCode ORM的分表、读写分离、二级缓存，支撑单表100亿级数据
-- 需求只在 pdf：BASE-1统一响应协议：所有API统一返回ApiResponse<T>结构，code=0表示成功，列表接口使用ApiListResponse<T>携带分页信息。
+- 需求只在 pdf：BASE-1统一响应协议：所有API统一返回ApiResponse结构，code=0表示成功，列表接口使用ApiListResponse携带分页信息。
 - 需求只在 pdf：BASE-2权限注解：[EntityAuthorize(PermissionFlags.Detail)]控制Action权限，[Menu(100, true,Icon ="fa-table")]自动注册菜单。
 - 需求只在 pdf：BASE-3模块化插件：通过IModule接口实现功能模块自动注册，NuGet包引用后自动注册服务和路由。
 - 需求只在 pdf：BASE-4跨域支持（CORS）：内置CORS支持，支持全允许和指定来源两种模式，支持credentials传递。
@@ -5990,8 +5900,8 @@
 - 需求只在 pdf：SYS-5数据质量码：DataQuality枚举参考OPC UA—— Good/Uncertain/Bad/BadNotConnected/BadTimeout/BadChecksumError/ BadProtocolError三级七值。
 - 需求只在 pdf：SYS-6结构化异常与错误码：IoTException携带IoTErrorCode；1000段配置错误（InvalidParameter/DriverNotFound/NotSupported）应抛出；2000段运行时错误（ConnectionFailed/Timeout/ChecksumError等）走Result.IsSuccess=false；3000段设备状态（DeviceOffline/InvalidAddress）。
 - 需求只在 pdf：SYS-7请求对象：WriteRequest包装点位+值，支持()/(value)/(point,value)三构造函数；ControlRequest用ServiceName+Parameters+Create()工厂；均实现IExtend扩展元数据。
-- 需求只在 pdf：SYS-8设备发现：IDiscoverableDriver.DiscoverAsync扫描网络或总线上的子设备，返回IEnumerable<IDeviceInfo>，适用于Modbus/BACnet等广播协议。
-- 需求只在 pdf：SYS-9驱动工厂：DriverFactory.Register<T>注册、Create(name,identifier)创建实例（相同identifier共享单实例）、CreateParameter(name,parameter)创建参数、ScanAll()插件扫描；[DriverAttribute]标注驱动名称。
+- 需求只在 pdf：SYS-8设备发现：IDiscoverableDriver.DiscoverAsync扫描网络或总线上的子设备，返回IEnumerable，适用于Modbus/BACnet等广播协议。
+- 需求只在 pdf：SYS-9驱动工厂：DriverFactory.Register注册、Create(name,identifier)创建实例（相同identifier共享单实例）、CreateParameter(name,parameter)创建参数、ScanAll()插件扫描；[DriverAttribute]标注驱动名称。
 - 需求只在 pdf：SYS-10传输层接口：ITransport统一Open/Close/Send/Receive/SendReceive（原子请求-响应），串口/TCP/UDP/HTTP实现分别在NewLife.IoTSerial和NewLife.IoTSocket中。
 
 ### NewLifeX__NewLife.MQTT
@@ -6056,7 +5966,7 @@
 - 需求只在 pdf：为.NET工业物联网生态提供一套协议最完整、功能码覆盖最全、传输变体最丰富的Modbus协议库，支持IoTEdge网关及各类工业应用开发，让.NET开发者能用最少的代码完成工业设备对接，同时具备充分的可扩展性和可观测性。
 - 需求只在 pdf：编码功能一句话描述TRAN-1 ModbusTCP（含标准Modbus TCP/IP TLS）实现，MBAP头+ PDU，端口502；设置SslProtocol后自动启用TLS安全传输，支持客户端证书验证TRAN-2 ModbusUDP Modbus over UDP无连接传输实现TRAN-3 ModbusRtuOverTCP RTU帧（含CRC）通过TCP传输TRAN-4 ModbusRtuOverUDP RTU帧（含CRC）通过UDP传输TRAN-5 ModbusIp网络基类TCP/UDP子类的公共抽象，统一管理Server地址和客户端生
 - 需求只在 pdf：编码功能码功能一句话描述FC-13 FC07读异常状态读取从机异常状态字节，Master + TCP/RTU/ASCII Slave完整支持FC-14 FC11获取通信事件计获取从机通信事数件计数器，Master+ TCP/RTU/ASCII Slave完整支持FC-15 FC12获取通信事件日获取从机通信事志件日志列表，Master+ TCP/RTU/ASCII Slave完整支持FC-16 FC17报告服务器ID获取从机服务器标识和运行指示，Master+ TCP/RTU/ASCII Slave完整支持FC-17 FC20读文件记录读取从机文件记
-- 需求只在 pdf：编码功能一句话描述SLAVE-1 TCP从机服务基于NetServer的高性能TCP从机，监听端口502，支持多客户端并发连接SLAVE-2会话处理OnReceive中解析19个功能码请求并路由响应，优先匹配自定义处理器SLAVE-3 List<RegisterUnit>寄存器数据存储保持寄存器/输入寄存器数据存储SLAVE-4线圈数据存储List<CoilUnit>线圈/离散输入数据存储SLAVE-5 RTU串口从机ModbusRtuSlave串口RTU从机实现SLAVE-6 ASCII串口从机ModbusAsciiSlave串口ASCII从机实现
+- 需求只在 pdf：编码功能一句话描述SLAVE-1 TCP从机服务基于NetServer的高性能TCP从机，监听端口502，支持多客户端并发连接SLAVE-2会话处理OnReceive中解析19个功能码请求并路由响应，优先匹配自定义处理器SLAVE-3 List寄存器数据存储保持寄存器/输入寄存器数据存储SLAVE-4线圈数据存储List线圈/离散输入数据存储SLAVE-5 RTU串口从机ModbusRtuSlave串口RTU从机实现SLAVE-6 ASCII串口从机ModbusAsciiSlave串口ASCII从机实现
 
 ### NewLifeX__NewLife.Remoting
 
@@ -6543,7 +6453,7 @@
 
 ### StoneLL1__llm-wiki-desktop
 
-段落标题不一致，需求条目 57 / 202 一致（pdf 拆出 174 条）
+段落标题不一致，需求条目 57 / 200 一致（pdf 拆出 174 条）
 
 - 标题只在 Markdown：LLM Wiki Desktop — 产品需求文档（PRD）
 - 标题只在 Markdown：1. 文档信息
@@ -6555,8 +6465,6 @@
 - 标题只在 pdf：2.产品概述
 - 标题只在 pdf：3.背景与问题
 - 标题只在 pdf：3.1用户现状
-- 需求只在 Markdown：导入、来源库、本地与远程媒体、OCR、ASR、平台登录态和 AI 整理的已确认产品决策，以 ../docs/superpowers/specs/2026-07-24-import-source-media-flow-design.md 为唯一可信源。本文中的概览不得被解释为"确认导入后自动编译"。
-- 需求只在 Markdown：无项目工作台、新建知识库、打开原生或兼容知识库、目录评估、信任 / 受限 / 只读、兼容启用、修复与进入 Import 的已确认产品决策，以 ../docs/superpowers/specs/2026-07-30-first-run-project-open-workbench-design.md 为唯一可信源。本文中的摘要不得被解释为允许把普通资料文件夹原地初始化成项目。
 - 需求只在 Markdown：资料散落在 PDF、网页、公众号文章、PPT、Word、Excel、Markdown 和本地文件夹中。
 - 需求只在 Markdown：RAG 工具能问答，但不擅长把知识沉淀成稳定、可编辑、可复用的页面。
 - 需求只在 Markdown：AI Agent 能整理资料，但命令行门槛高，普通用户不容易获得稳定、可恢复、可视化的工作流。
@@ -6565,6 +6473,8 @@
 - 需求只在 Markdown：用 Agent/LLM 自动完成重复整理工作，降低个人知识库维护成本。
 - 需求只在 Markdown：先用已确认、可阅读的 Source 兑现首次价值，再用知识图谱提供后续的结构化惊喜。
 - 需求只在 Markdown：用 Git 自动检查点保护用户资料和 AI 修改结果。
+- 需求只在 Markdown：用 Skill 系统承接未来扩展，而不是把所有能力硬编码在应用中。
+- 需求只在 Markdown：文件透明：Wiki 页面是普通 Markdown，可被 Obsidian、Git 和外部编辑器访问。
 - 需求只在 pdf：资料散落在PDF、网页、公众号文章、PPT、Word、Excel、Markdown和本地文件夹中。
 - 需求只在 pdf：RAG工具能问答，但不擅长把知识沉淀成稳定、可编辑、可复用的页面。
 - 需求只在 pdf：AI Agent能整理资料，但命令行门槛高，普通用户不容易获得稳定、可恢复、可视化的工作流。
@@ -6950,7 +6860,7 @@
 - 需求只在 pdf：CLI支持AI Agent❌ ⚠️❌❌✅ OpenClaw集成
 - 需求只在 pdf：☐支持文本、URL、Markdown三种输入格式☐支持标签分类☐支持元数据（来源、时间、作者）☐存储到本地SQLite F2:向量化引擎
 - 需求只在 pdf：☐支持OpenAI embedding API ☐支持Ollama本地embedding ☐支持自定义API endpoint ☐向量存储到FAISS/ChromaDB F3:图谱可视化（WebUI）
-- 需求只在 pdf：☐使用D3.js或Cytoscape.js渲染图谱☐支持节点拖拽和缩放☐点击节点显示详情☐支持按标签筛选显示F4:基础关联kgkb link<node1_id><node2_id>--relation"相关"
+- 需求只在 pdf：☐使用D3.js或Cytoscape.js渲染图谱☐支持节点拖拽和缩放☐点击节点显示详情☐支持按标签筛选显示F4:基础关联kgkb link--relation"相关"
 - 需求只在 pdf：☐支持手动创建关联☐支持定义关联类型（相关、因果、包含等）☐关联在图谱中可视化显示
 - 需求只在 pdf：推荐关联关系F7:OpenClaw集成
 - 需求只在 pdf：作为OpenClaw Skill集成F8:基础预测
@@ -7135,7 +7045,7 @@
 
 ### bdim404__Qwen3-TTS-WebUI
 
-段落标题不一致，需求条目 150 / 224 一致（pdf 拆出 189 条）
+段落标题不一致，需求条目 149 / 224 一致（pdf 拆出 189 条）
 
 - 标题只在 Markdown：Qwen3-TTS 多人对话功能需求文档
 - 标题只在 Markdown：1. 功能概述
@@ -7304,13 +7214,13 @@
 - 需求只在 pdf：房间/房间管理（RoomActor+Multicast）：多个玩家加入同一RoomActor，广播消息到该房间成员。
 - 需求只在 pdf：网关/会话管理（GateServer+SessionActor）：TCP/WebSocket连接接入，绑定到SessionActor，服务器Actor向该SessionActor发反向消息。
 - 需求只在 pdf：全服唯一服务（DataCenter或UniqueService）：某些全局资源由uniqueservice承担（单例）。
-- 需求只在 pdf：Actor基类Actor：封装Channel mailbox，提供Tell(Func<Task>)/ Ask<T>(Func<Task<T>>)。
+- 需求只在 pdf：Actor基类Actor：封装Channel mailbox，提供Tell(Func)/ Ask(Func<Task>)。
 - 需求只在 pdf：ActorSystem /ActorHost：启动时加载/注册Actor，实现本地registry（handle↔ name映射）。
 - 需求只在 pdf：生命周期API：CreateService(name?)、GetByHandle(handle)、GetByName(name)、Kill(handle)、ListServices()。
 
 ### cnjack__jcode
 
-段落标题不一致，需求条目 22 / 111 一致（pdf 拆出 109 条）
+段落标题不一致，需求条目 22 / 110 一致（pdf 拆出 109 条）
 
 - 标题只在 Markdown：JCode Artifacts PRD（Web / Desktop）
 - 标题只在 Markdown：1. 背景
@@ -7634,7 +7544,7 @@
 - 需求只在 Markdown：支持存储多个飞书应用配置
 - 需求只在 Markdown：通过 --profile 参数切换
 - 需求只在 pdf：1配置管理模块☐配置初始化(feishu-export init) o交互式引导用户输入飞书App ID和App Secret o生成配置文件~/.feishu-export/config.json o验证配置有效性（测试API连接）☐配置查看(feishu-export config get) o显示当前配置信息（脱敏处理）☐配置更新(feishu-export config set) o更新单个配置项o支持重置配置☐多租户支持o支持存储多个飞书应用配置o通过--profile参数切换
-- 需求只在 pdf：3知识库导出模块☐完整知识库导出(feishu-export wiki<wiki_id>) o导出整个知识库的目录结构o保留知识库的层级关系o生成索引文件README.md o支持图片/附件下载选项☐单节点导出(feishu-export wiki-node<node_id>) o导出知识库中的单个节点o支持指定导出深度
+- 需求只在 pdf：3知识库导出模块☐完整知识库导出(feishu-export wiki) o导出整个知识库的目录结构o保留知识库的层级关系o生成索引文件README.md o支持图片/附件下载选项☐单节点导出(feishu-export wiki-node) o导出知识库中的单个节点o支持指定导出深度
 - 需求只在 pdf：4认证与授权☐飞书开放平台认证o支持App ID + App Secret认证方式o自动获取和管理tenant_access_token o Token自动刷新机制☐权限验证o导出前验证用户对文档的访问权限o友好的权限错误提示
 - 需求只在 pdf：5资源处理（可选）☐图片下载（默认启用，可通过--no-images禁用）o自动识别并下载文档中的图片o支持PNG、JPG、JPEG、GIF等格式o处理图片重名冲突（追加序号）o未下载时保留原始URL引用☐附件处理（默认启用，可通过--no-attachments禁用）o下载附件到本地assets/目录o下载时在Markdown中更新为本地链接o未下载时保留附件原始链接
 - 需求只在 pdf：6增量导出☐变更检测o记录每次导出的文档元数据（~/.feishu-export/meta.json）o通过文档的updated_at字段判断是否需要更新☐增量导出模式(--incremental) o仅导出有变更的文档o跳过未修改的文档以节省API调用
@@ -7746,7 +7656,7 @@
 
 ### gitxuzhefeng__timelines
 
-段落标题不一致，需求条目 25 / 127 一致（pdf 拆出 149 条）
+段落标题不一致，需求条目 25 / 121 一致（pdf 拆出 149 条）
 
 - 标题只在 Markdown：一期迭代：核心闭环与单机可用 (MVP)
 - 标题只在 Markdown：二期迭代：多模态 AI 深度赋能与智能洞察 (V1.0)
@@ -7781,7 +7691,7 @@
 
 ### grapeot__opencode_android_client
 
-段落标题不一致，需求条目 5 / 112 一致（pdf 拆出 105 条）
+段落标题不一致，需求条目 5 / 112 一致（pdf 拆出 104 条）
 
 - 标题只在 Markdown：1. 产品定位
 - 标题只在 Markdown：1.1 它不是什么
@@ -7902,7 +7812,7 @@
 - 需求只在 Markdown：现有 CLI、GUI 主流程仍可用。
 - 需求只在 Markdown：核心模块之间不出现反向依赖 —— docs/module_dependency_matrix.md（scripts/build_dependency_matrix.py 自动生成），261 条顶层导入边、0 违规（2026-10-06，含 ClickHouse / Oracle 驱动与 Phase 6 流水线）（2026-09-30，含 ClickHouse / Oracle 驱动）。
 - 需求只在 Markdown：至少 1 个连接器迁移到新分层 —— 全部 9 个 connector 现居 open_navicat/drivers/，dal/base_connector.py 与 dal/*_connector.py 保留兼容 shim。
-- 需求只在 Markdown：已落地的新模块有模块说明 —— open_navicat/drivers/README.md（职责表、接入新引擎的两步流程、package 必填 / super().init() / 单线程 executor 桥接等约定与坑）。types / sql / formats / platform 尚未成模块，待各自 Phase 落地时补。
+- 需求只在 Markdown：已落地的新模块有模块说明 —— open_navicat/drivers/README.md（职责表、接入新引擎的两步流程、package 必填 / super().__init__() / 单线程 executor 桥接等约定与坑）。types / sql / formats / platform 尚未成模块，待各自 Phase 落地时补。
 - 需求只在 Markdown：至少 1 个 CLI 命令、1 个 GUI 调用路径迁移到新分层 —— CLI：conn engines|add|test|open 全走注册表 + dsn.py；GUI：connection_dialog.py 的引擎下拉框 / 端口默认值 / 测试错误展示改走 drivers.registry 与 drivers.dsn。
 - 需求只在 Markdown：新增模块的单元测试覆盖率不低于项目当前基线（基线：289 passed / 16 skipped，装 pytest-asyncio 前是 243/62；当前 556 passed）。
 - 需求只在 Markdown：连接失败、超时、SQL 错误、AI 错误均使用统一错误对象（open_navicat/errors.py）；插件错误 ONV-PLG-001 已定义，待 Phase 8 接入。
@@ -8131,7 +8041,7 @@
 
 ### junerver__ComposeHooks
 
-段落标题不一致，需求条目 0 / 45 一致（pdf 拆出 35 条）
+段落标题不一致，需求条目 0 / 43 一致（pdf 拆出 35 条）
 
 - 标题只在 Markdown：需求：为 hooks2 发布 wasmJs（及 js）变体
 - 标题只在 Markdown：1.1 谁在依赖这个
@@ -8301,7 +8211,7 @@
 - 需求只在 pdf：注册成功后自动登录，返回access token + refresh token。
 - 需求只在 pdf：连续5次失败锁定15分钟（按邮箱+ IP计数）。
 - 需求只在 pdf：支持"记住我"（refresh token有效期30天，否则7天）。
-- 需求只在 pdf：Access Token：JWT，HS256，有效期2小时，放在Authorization:Bearer <token>。
+- 需求只在 pdf：Access Token：JWT，HS256，有效期2小时，放在Authorization:Bearer 。
 - 需求只在 pdf：Refresh Token：随机opaque字符串，哈希后存库，一次性使用（rotation），有效期7/30天。
 
 ### liamyueng__xu-ai-news-rag
@@ -8648,7 +8558,7 @@
 - 需求只在 pdf：SocketBus默认实现为进程内InMemorySocketBus。
 - 需求只在 pdf：Envelope没有ref、join_ref、event_id、seq等字段。
 - 需求只在 pdf：join成功不会返回标准ack，duplicate join也不会给客户端明确反馈。
-- 需求只在 pdf：文档提到的on_<event>自动分发尚未在代码中实现。
+- 需求只在 pdf：文档提到的on_自动分发尚未在代码中实现。
 
 ### rzx007__nanobot-ts
 
@@ -9044,10 +8954,10 @@
 - 需求只在 pdf：内存与启动过重：原版Python方案常驻内存高达4.8 GB，每次CLI启动需加载庞大的Python解释器与transformers/librosa依赖，冷启动耗时数秒。
 - 需求只在 pdf：难以被其他应用内嵌集成：Python依赖复杂的虚拟环境（uv/conda），难以作为轻量级、类型安全的原生库（Crate）直接编译进桌面端应用、游戏引擎或高性能后端服务。
 - 需求只在 pdf：对AI Agent不友好：缺乏面向Agent的毫秒级常驻响应（Daemon）、结构化JSON/JSONL遥测输出、标准输入流式朗读（Streaming Stdin）以及原生MCP (Model Context Protocol)协议支持。
-- 需求只在 pdf：形态一：可嵌入式Rust核心库（Crate:index-tts-rs-core）供第三方Rust开发者通过cargo add集成，提供编译期类型安全、零unwrap、支持异步流式（Stream<Item=Result<AudioChunk>>）与Actor并发调度的原生API。
+- 需求只在 pdf：形态一：可嵌入式Rust核心库（Crate:index-tts-rs-core）供第三方Rust开发者通过cargo add集成，提供编译期类型安全、零unwrap、支持异步流式（Stream<Item=Result>）与Actor并发调度的原生API。
 - 需求只在 pdf：形态二：面向AI Agent与开发者的全能命令行与服务套件（App:itts CLI & Server）提供单二进制CLI，内置音色快照管理（.itts_voice）、自动驻留后台守护进程（Auto-Warm Daemon）、MCP Server (stdio)以及OpenAI兼容HTTP/WebSocket语音接口。
 - 需求只在 pdf：FR-1.1零样本音色提取：支持输入任意3s~15s的常见音频文件（WAV/ MP3 / FLAC /M4A，任意采样率与声道），自动完成重采样、特征提取并生成SpeakerContext。
-- 需求只在 pdf：FR-1.2轻量级.itts_voice音色快照持久化：o将提取出的SpeakerContext（包含conds、prompt_condition、ref_mel、style四个张量）及元数据（源音频哈希、采样率、时长、创建时间、音色别名）保存为单文件<name>.itts_voice（体积约1.5 MB）。
+- 需求只在 pdf：FR-1.2轻量级.itts_voice音色快照持久化：o将提取出的SpeakerContext（包含conds、prompt_condition、ref_mel、style四个张量）及元数据（源音频哈希、采样率、时长、创建时间、音色别名）保存为单文件.itts_voice（体积约1.5 MB）。
 - 需求只在 pdf：FR-1.3纯合成免编码器加载（Encoder-Free Synthesis）：o当传入预编译的.itts_voice音色名或文件路径时，引擎完全跳过加载w2v-bert-2.0（2.2GB）、EmoVec（622MB）和CampPlus（27MB），仅加载1.68 GB合成主干权重即可直接合成。
 - 需求只在 pdf：FR-1.4独立情感参考与混合控制（Emotion Blending）：o支持默认「说话人音频兼作情感参考（emo_alpha=1.0）」，同时支持可选传入第二段独立的情感参考音频（--emo-ref）与情感强度系数（-- emo-alpha 0.0..=2.0），在提取阶段合成定制化的conds=spk_cond + emo_alpha*emovec。
 - 需求只在 pdf：FR-2.1多语种与混合语种支持：支持中文（zh）、英文（en）、日文（ja）、粤语（yue）及中英混合（zh/en）合成。
@@ -9159,7 +9069,7 @@
 
 ### wordflowlab__novel-writer-openspec
 
-段落标题不一致，需求条目 10 / 68 一致（pdf 拆出 258 条）
+段落标题不一致，需求条目 10 / 68 一致（pdf 拆出 257 条）
 
 - 标题只在 Markdown：Novel-Writer-OpenSpec 产品需求文档（PRD）
 - 标题只在 Markdown：1.1 产品定位
@@ -9295,7 +9205,7 @@
 - 需求只在 pdf：不替代发文系统、OA格式、法条引用、正式三步法论证，APP产出是审查员起草OA的素材。
 - 需求只在 pdf：Step 6 —查看和微调她发现特征B的说明书出处标注为"待确认"（黄色标注），直接在表格里点击编辑，手动补充正确段落号。右侧AI对话框里她追问："特征B和特征C是否可以合并为一个技术特征？"，AI给出分析，她决定保持拆解不变。
 - 需求只在 pdf：上传单个文件（.pdf/ .docx / .txt /.html）；单文件上限200页/ 100 MB
-- 需求只在 pdf：选择本地文件夹（仅Chrome/Edge支持File System Access API；Firefox/Safari用户使用多文件上传<input type="file"multiple>替代）
+- 需求只在 pdf：选择本地文件夹（仅Chrome/Edge支持File System Access API；Firefox/Safari用户使用多文件上传替代）
 
 ### xgwangdl__wikiknowledge
 
@@ -9610,7 +9520,7 @@
 
 ### ywq2019__ai_test_agent
 
-段落标题不一致，需求条目 91 / 111 一致（pdf 拆出 113 条）
+段落标题不一致，需求条目 92 / 111 一致（pdf 拆出 113 条）
 
 - 标题只在 Markdown：一、项目概述
 - 标题只在 Markdown：1.1 项目背景

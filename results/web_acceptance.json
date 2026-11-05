@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-05",
+ "environment": "本机 wrangler pages dev（与线上同一份代码），模型 deepseek-chat",
+ "F2_upload_failures": {
+  "old.doc": "不支持 .doc 格式，请在 Word 里另存为 .docx 后再上传",
+  "21 MB 的 .docx": "文件超过 20 MB，请删去图片后再上传，或复制文字粘贴",
+  "加密的 .docx（OLE 复合文件）": "文件已加密，请解除密码后上传",
+  "只有图片的 PDF": "这份 PDF 里没有可提取的文字，请上传原始的 Word 文件",
+  "没有文字的 .docx": "没有读到文字，请确认文件内容",
+  "扩展名 .docx、内容是随机字节": "不支持这个格式，请另存为 .docx、.pptx 或 .pdf 后上传",
+  "扩展名 .docx、内容是 PDF": "按实际内容当 PDF 解析：这份 PDF 里没有可提取的文字，请上传原始的 Word 文件",
+  "api_requests_during_upload": 0
+ },
+ "F3_github_links": "20 / 20 与同一提交的原文逐字一致，见 results/link_check.json（对线上版运行）",
+ "F11_quota": {"per_ip_daily": 10, "items": 20, "first_run_done": 10, "first_run_quota_exhausted": 10, "rerun_unfinished_calls": 10},
+ "F13_cache": {"same_prd_again_calls": 0, "one_requirement_changed_calls": 2}
+}
