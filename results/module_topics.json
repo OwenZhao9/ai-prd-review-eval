@@ -185,5 +185,12 @@
    ],
    "missed_feedback": 0
   }
- ]
+ ],
+ "selected": {
+  "topic": "AI 与模型",
+  "reason": "出现在 67 / 158 份 PRD 里，主题排名第一；有官方一手依据 NIST AI 600-1（2024-07），其中第 2 节 12 类风险里的 Confabulation、Data Privacy、Human-AI Configuration、Information Integrity 可以直接对应 PRD 里应写清楚的内容",
+  "checked": "2026-11-05 打开 NIST 发布页和 PDF 原文核对",
+  "draft": "rules/module_ai_draft.json",
+  "not_checked": "安全（61 份）、性能与容量（55 份）等其余主题的官方依据还没有逐个核对"
+ }
 }

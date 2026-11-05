@@ -1,0 +1,12 @@
+{
+ "status": "草案：待模块负责人确认口径，再按《审查基准确认流程》多人标注、算一致率、裁决分歧，标好开发集和留出集后才能评测",
+ "source": "NIST AI 600-1 Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile（2024-07，https://doi.org/10.6028/NIST.AI.600-1）第 2 节 12 类风险",
+ "module": "AI 与模型（生成式 AI 功能）",
+ "scope": "段落描述了调用大模型或生成式 AI 生成内容、回答问题、做判断的功能",
+ "rules": [
+  {"id": "G1", "name": "缺错误输出处理", "nist": "§2 Risk 2 Confabulation: the production of confidently stated but erroneous or false content", "判定": "段落描述了让模型生成内容或回答，但没有写模型给出错误、编造或无法回答时怎么办：没有标出不确定、没有引用来源、没有让用户核对或纠正的方式。", "不算": "段内已写任何一种：展示来源或依据、标出置信度或不确定、提供纠正或反馈入口、生成结果需人工确认后才生效。"},
+  {"id": "G2", "name": "缺数据发送说明", "nist": "§2 Risk 4 Data Privacy: leakage and unauthorized use, disclosure, or de-anonymization of personally identifiable information or sensitive data", "判定": "段落把用户输入、文件或个人信息发给模型，但没有写发给谁、保存多久、是否用于训练，也没有写对敏感信息的处理。", "不算": "段内已写数据去向或保存期限，或写明只在本地运行、不发送到外部服务。"},
+  {"id": "G3", "name": "缺人工把关", "nist": "§2 Risk 7 Human-AI Configuration: automation bias, over-reliance", "判定": "模型的输出会直接产生实际后果（发送、发布、扣款、修改数据、对人做出判定），但段内没有写人工确认、撤销或复核的环节。", "不算": "输出只是建议或草稿，需要用户确认才生效；或段内已写复核、撤销方式。"},
+  {"id": "G4", "name": "缺生成内容标识", "nist": "§2 Risk 8 Information Integrity: content which may not distinguish fact from opinion or fiction or acknowledge uncertainties", "判定": "生成的内容会展示给他人或对外发布，但段内没有写怎么让读者知道这是 AI 生成的。", "不算": "内容只给操作者本人看；或段内已写标识、水印、说明文字。"}
+ ]
+}
