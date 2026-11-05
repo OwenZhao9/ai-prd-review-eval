@@ -199,7 +199,7 @@ function toCase(r) {
 }
 
 /* ---------- 指标（第 7 节）：只记次数和类别 ---------- */
-const EVENTS = new Set(['import_start', 'import_ok', 'import_fail', 'preview', 'review_start', 'review_complete', 'review_incomplete', 'items', 'item_fail', 'export', 'feedback', 'quota_out']);
+const EVENTS = new Set(['import_start', 'import_ok', 'import_fail', 'preview', 'review_start', 'review_complete', 'review_incomplete', 'items', 'item_fail', 'export', 'feedback', 'quota_out', 'adopt_all']);
 async function metrics(env) {
   const since = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
   const { results } = await env.DB.prepare('SELECT key, SUM(n) AS n FROM metrics WHERE day >= ?1 GROUP BY key').bind(since).all();
@@ -223,6 +223,7 @@ async function metrics(env) {
       { name: '失败项占比', value: ratio(sum('item_fail'), calls || 0), pct: true, detail: parts('item_fail') },
       { name: '导出率', value: ratio(sum('export'), finished), pct: true, detail: parts('export') },
       { name: '反馈率', value: ratio(sum('feedback'), finished), pct: true, detail: parts('feedback') },
+      { name: '批量采用修改建议的次数', value: sum('adopt_all') },
       { name: '采纳率（按规则）', value: fbr.length ? fbr.map(r => `${r.rule} ${r.d ? Math.round(r.a / r.d * 100) + '%' : '—'}`).join('，') : null },
       { name: '额度用完的访客数（近 30 天合计）', value: qo.reduce((a, r) => a + r.n, 0) },
     ],

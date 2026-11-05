@@ -46,6 +46,17 @@ mark{background:#111;color:#fff;border-radius:4px;padding:0 3px}
 .ins{background:#e6f4ec;color:#1a7f4b;border-radius:3px}.del{background:#fdecec;color:#b42318;text-decoration:line-through;border-radius:3px}
 .gone{color:#a3a3a0;text-decoration:line-through}
 [hidden]{display:none!important}
+.sev{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:20px;border-radius:5px;font-size:11px;font-weight:600;padding:0 5px}
+.sev-3{background:#111;color:#fff}.sev-2{background:#e7e7e5;color:#111}.sev-1{background:#fff;color:#737371;border:1px solid #e1e1de}
+.src{font-size:13px;line-height:1.75}
+.src-line{display:flex;gap:12px;padding:1px 10px 1px 0;border-radius:6px;cursor:default}
+.src-line .ln{width:34px;flex:none;text-align:right;color:#b5b5b2;font-variant-numeric:tabular-nums;user-select:none}
+.src-line .tx{white-space:pre-wrap;word-break:break-word;flex:1;min-width:0}
+.src-line.h .tx{font-weight:600}
+.src-line.hit{background:#fafaf9;cursor:pointer}.src-line.hit .tx{text-decoration:underline;text-decoration-color:#e5484d;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.src-line.hit:hover{background:#f4f4f3}
+.src-badge{flex:none;align-self:flex-start;margin-top:3px;font-size:11px;line-height:16px;min-width:18px;text-align:center;border-radius:9px;background:#111;color:#fff;padding:0 5px}
+.flash{animation:fl 1.2s ease}@keyframes fl{0%{background:#fff3c4}100%{background:transparent}}
 textarea,input,select{outline:none}
 textarea:focus,input[type=text]:focus,input[type=password]:focus,select:focus{border-color:#111!important}
 .modal-bg{position:fixed;inset:0;background:rgba(17,17,17,.35);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
@@ -150,6 +161,11 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const RULES=/*RULES*/{"R1":"歧义措辞","R2":"不可验证","R3":"一条多需求","R4":"待定项未闭环","R5":"写了实现方式","R6":"指代不明","D1":"缺验收标准","D2":"缺异常处理","D3":"前后矛盾","A1":"缺失败次数限制","A2":"密码规则违背标准","A3":"登录状态缺失效时间","A4":"账号与权限操作缺日志"};
 const RULE_INFO=/*RULE_INFO*/{};
+// 严重程度：3 高 = 缺了会让开发或测试没法做、或违背安全标准；2 中 = 影响验收；1 低 = 措辞和写法
+const SEVERITY={D1:3,D2:3,D3:3,R4:3,A1:3,A2:3,A3:3,A4:3,R2:2,R3:2,R6:2,R1:1,R5:1};
+const SEV_NAME={3:'高',2:'中',1:'低'};
+const SEV_TIP={3:'缺了会让开发或测试没法做，或违背安全标准',2:'影响验收：做完了也说不清对不对',1:'措辞或写法问题'};
+const sevTag=r=>`<span class="sev sev-${SEVERITY[r]||1}" title="严重程度${SEV_NAME[SEVERITY[r]||1]}：${SEV_TIP[SEVERITY[r]||1]}">${SEV_NAME[SEVERITY[r]||1]}</span>`;
 const KIND_RULES={sentence:['R1','R2','R3','R4','R5','R6'],doc:['D1','D2','D3'],account:['A1','A2','A3','A4']};
 const KIND_NAME={sentence:'单句检查',doc:'整段检查',account:'账号与权限检查'};
 let META={versions:{sentence:'v4',document:'doc_v1',account:'module_account_v3',model:'deepseek-chat'},quota:{perIp:500,remaining:500}};
@@ -320,7 +336,7 @@ function bindDetail(){const s=SECS[CUR];if(!s)return;
 /* ---------- 审查（F11、F12、F13） ---------- */
 let RES=null,RUNNING=false,STOP=false;
 window.addEventListener('beforeunload',e=>{if(RUNNING){e.preventDefault();e.returnValue=''}});
-function newResult(){return{name:DOC.name,source:DOC.source,time:new Date().toLocaleString('zh-CN',{hour12:false}),versions:{...META.versions},
+function newResult(){return{name:DOC.name,source:DOC.source,text:$('#prd').value,time:new Date().toLocaleString('zh-CN',{hour12:false}),versions:{...META.versions},
   sections:SECS.map(s=>({title:s.title,level:s.level,skipped:s.skip,off:!!s.off,offReason:s.offReason||'',account:s.account,groups:s.groups,
     doc:s.reqs.length>=2&&!s.skip?s.groups.map(()=>({status:s.off?'off':'pending',findings:[]})):[],
     acc:s.account&&!s.skip?s.groups.map(()=>({status:s.off?'off':'pending',findings:[]})):[],
@@ -348,10 +364,20 @@ function renderRunning(done,total,sec){const items=RES.sections.flatMap(s=>[...s
 
 /* ---------- 结果（F14、F17） ---------- */
 const FILTER={only:true,rule:''};
+let RVIEW=innerWidth>=1280?'source':'section';
+// 原文对照：把每条需求、每个段落的整段检查对到原文的行号
+const normLine=t=>String(t||'').replace(/^\s*(>\s*)?([-*+]|\d+(\.\d+)*[.)、]|\[[ xX]\])\s+/,'').replace(/\[([^\]]*)\]\([^)]*\)/g,'$1').replace(/[“”„"‘’']/g,'').replace(/…/g,'...').replace(/[\s*_`|#>~\\]/g,'');
+function mapLines(R){const lines=String(R.text||'').replace(/\r\n?/g,'\n').split('\n');const norm=lines.map(normLine);const map={sec:{},req:{}};let from=0;
+  R.sections.forEach((s,si)=>{let h=-1;for(let i=from;i<lines.length;i++){if(/^#{1,4} /.test(lines[i])&&normLine(lines[i].replace(/^#+/,''))===normLine(s.title)){h=i;break}}
+    if(h<0)h=from;map.sec[si]=h;from=h;
+    s.reqs.forEach((r,ri)=>{const k=normLine(r.text.split(/[：；]/).length>2?r.text.split('；')[0].split('：').pop():r.text);let at=-1;
+      for(let i=h;i<lines.length&&at<0;i++){if(i>h&&/^#{1,4} /.test(lines[i]))break;if(k&&norm[i].includes(k.slice(0,Math.min(k.length,40))))at=i}
+      map.req[si+'|'+ri]=at<0?h:at})});
+  return{lines,map}}
 function hl(text,ev){if(!ev||ev.length<2)return esc(text);const i=text.indexOf(ev);if(i<0)return esc(text);return esc(text.slice(0,i))+'<mark>'+esc(ev)+'</mark>'+esc(text.slice(i+ev.length))}
-function counts(R){const c={secs:0,reqs:0,flagged:0,problems:0,byRule:{},off:0,quota:0,failed:0,stopped:0};
+function counts(R){const c={secs:0,reqs:0,flagged:0,problems:0,byRule:{},bySev:{},off:0,quota:0,failed:0,stopped:0};
   R.sections.forEach(s=>{if(s.skipped)return;const items=[...s.doc,...s.acc,...s.reqs];if(items.some(x=>x.status==='done'))c.secs++;
-    items.forEach(x=>{if(x.status==='done'){x.findings.forEach(f=>{c.problems++;c.byRule[f.rule]=(c.byRule[f.rule]||0)+1})}else if(x.status==='off')c.off++;else if(x.status==='quota')c.quota++;else if(x.status==='failed')c.failed++;else if(x.status==='stopped')c.stopped++});
+    items.forEach(x=>{if(x.status==='done'){x.findings.forEach(f=>{c.problems++;c.byRule[f.rule]=(c.byRule[f.rule]||0)+1;const v=SEVERITY[f.rule]||1;c.bySev[v]=(c.bySev[v]||0)+1})}else if(x.status==='off')c.off++;else if(x.status==='quota')c.quota++;else if(x.status==='failed')c.failed++;else if(x.status==='stopped')c.stopped++});
     s.reqs.forEach(r=>{if(r.status==='done'){c.reqs++;if(r.findings.length)c.flagged++}})});return c}
 // 再审对比：同一份 PRD（文件名或链接相同）的上一次结果，按需求原文匹配
 const findingKeys=R=>{const m=new Map();R.sections.forEach(s=>{[...s.doc.map((d,gi)=>[`doc|${s.title}|${gi}`,d]),...s.acc.map((d,gi)=>[`acc|${s.title}|${gi}`,d]),...s.reqs.map(r=>['req|'+r.text,r])].forEach(([k,x])=>{if(x.status==='done')x.findings.forEach(f=>m.set(k+'|'+f.rule,{title:s.title,text:x.text||KIND_NAME[k.split('|')[0]==='doc'?'doc':'account'],f}))})});return m};
@@ -359,7 +385,7 @@ function findPrevious(name){const h=store.get('history')||[];const p=h.filter(x=
 function saveHistory(R){const h=(store.get('history')||[]).filter(x=>x!==null);const copy={...R};delete copy.prev;h.push(copy);while(h.length>10)h.shift();store.set('history',h);
   // 本机空间不够时丢掉最早的几次
   if(!store.get('history')){let hh=h;while(hh.length>1){hh=hh.slice(1);store.set('history',hh);if(store.get('history'))break}}}
-function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?findingKeys(R.prev):null;const nowKeys=findingKeys(R);
+function renderResult(){const R=RES;window.__map=null;if(RVIEW==='source'&&innerWidth>=1280)window.__map=mapLines(R).map;const c=counts(R);const prevKeys=R.prev?findingKeys(R.prev):null;const nowKeys=findingKeys(R);
   const gone=prevKeys?[...prevKeys.entries()].filter(([k])=>!nowKeys.has(k)).map(([,v])=>v):[];
   const unrev=[c.off&&`未勾选 ${c.off} 项`,c.quota&&`额度用完 ${c.quota} 项`,c.failed&&`审查失败 ${c.failed} 项`,c.stopped&&`已停止 ${c.stopped} 项`].filter(Boolean);
   const vis=R.sections.map((s,si)=>({s,si})).filter(({s})=>!s.skipped&&(s.reqs.length||s.doc.length||s.acc.length));
@@ -371,32 +397,72 @@ function renderResult(){const R=RES;const c=counts(R);const prevKeys=R.prev?find
       <div class="flex gap-2 flex-wrap">
         ${c.failed?'<button class="btn-outline" id="retry-failed">重试失败的条目</button>':''}
         ${c.quota||c.stopped?'<button class="btn-outline" id="retry-quota">审查未完成的条目</button>':''}
+        ${R.sections.some(s=>s.reqs.some(r=>r.adopted))?'<button class="btn-primary" id="re-review">重新审查</button>':''}
+        ${flaggedReqs().length?'<button class="btn-outline" id="batch-sug">批量修改建议</button>':''}
         <button class="btn-outline" id="export-md">导出评审意见</button>
         <button class="btn-outline" id="export-docx" ${DOC.docx?'':'disabled title="只对上传的 .docx 提供"'}>导出带批注的 Word</button>
         <button class="btn-outline" id="re-edit">返回修改</button>
       </div>
     </div>
-    <div class="flex gap-10 flex-wrap mt-6">${stat('需求',c.reqs,' 条')}${stat('问题',c.problems,' 个')}${stat('有问题的需求',c.flagged,' 条')}${stat('审查段落',c.secs,' 个',R.seconds!=null?'用时 '+R.seconds+' 秒':'')}</div>
+    <div class="flex gap-10 flex-wrap mt-6">${stat('需求',c.reqs,' 条')}${stat('问题',c.problems,' 个',[3,2,1].map(v=>`${SEV_NAME[v]} ${c.bySev[v]||0}`).join(' · '))}${stat('有问题的需求',c.flagged,' 条')}${stat('审查段落',c.secs,' 个',R.seconds!=null?'用时 '+R.seconds+' 秒':'')}</div>
     ${unrev.length?`<div class="text-xs text-slate-500 mt-4"><span class="tag-warning">未审查</span> ${unrev.join('，')}</div>`:''}
     <div class="flex items-center gap-1.5 mt-6 flex-wrap">
-      <button class="chip ${FILTER.only?'on':''}" id="only">只看有问题</button><span class="w-px h-5 bg-slate-200 mx-2"></span>
+      ${[['source','对照原文'],['section','按段落'],['severity','按严重程度']].map(([k,t])=>`<button class="chip ${RVIEW===k?'on':''} ${k==='source'?'wide-only':''}" data-view="${k}">${t}</button>`).join('')}<span class="w-px h-5 bg-slate-200 mx-2"></span>
+      <button class="chip ${FILTER.only?'on':''}" id="only" ${RVIEW==='severity'?'hidden':''}>只看有问题</button><span class="w-px h-5 bg-slate-200 mx-2" ${RVIEW==='severity'?'hidden':''}></span>
       <button class="chip ${!FILTER.rule?'on':''}" data-rule="">全部</button>${Object.keys(RULES).filter(k=>c.byRule[k]||FILTER.rule===k).map(k=>`<button class="chip ${FILTER.rule===k?'on':''}" data-rule="${k}" title="${esc(RULES[k])}">${k} ${esc(RULES[k])} · ${c.byRule[k]||0}</button>`).join('')}
     </div>
   </div>
   ${gone.length?`<div class="card p-4 mb-4"><div class="text-sm font-semibold text-slate-700 mb-2">上次有、这次没有（${gone.length}）</div>${gone.map(g=>`<div class="text-sm gone py-1">${esc(g.title)} · ${esc(g.text)} · ${g.f.rule} ${esc(RULES[g.f.rule]||'')}</div>`).join('')}</div>`:''}
-  <div class="narrow-only mb-3"><select id="toc-select" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm bg-white">${vis.map(({s,si})=>`<option value="${si}">${esc(s.title)}（${secProblems(s)} 个问题）</option>`).join('')}</select></div>
-  <div class="split grid gap-4" style="grid-template-columns:300px 1fr">
-    <div class="card p-3 wide-only self-start sticky top-4 max-h-[85vh] overflow-auto">${vis.map(({s,si})=>`<div class="toc-item" data-jump="${si}"><span class="truncate">${esc(s.title)}</span>${s.off?'<span class="tag-gray">未审查</span>':secProblems(s)?`<span class="tag-danger">${secProblems(s)}</span>`:'<span class="tag-success">0</span>'}</div>`).join('')}</div>
-    <div id="sec-list" class="space-y-4">${vis.map(({s,si})=>secCard(s,si,prevKeys)).join('')||`<div class="card p-12 text-center"><div class="num text-[44px]">0</div><div class="text-slate-600 mt-3">${FILTER.rule?'这条规则没有报出问题':'没有发现问题'}</div>${FILTER.only&&!FILTER.rule?'<button class="link mt-3" id="show-all">查看全部条目</button>':''}</div>`}</div>
-  </div>
+  ${resultBody(R,vis,prevKeys)}
   <div class="text-center mt-6"><button class="link text-slate-500" id="clear-cache">清除本机保存的结果</button></div>`;
+  document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{RVIEW=b.dataset.view;renderResult()});
+  if(RVIEW==='source'&&innerWidth>=1280){const pane=$('#src-pane');
+    document.querySelectorAll('.src-line.hit').forEach(el=>el.onclick=()=>{const n=+el.dataset.line;const card=[...document.querySelectorAll('[data-goline]')].find(c=>+c.dataset.goline===n);
+      if(card){card.scrollIntoView({behavior:'smooth',block:'center'});card.classList.remove('flash');void card.offsetWidth;card.classList.add('flash')}});
+    document.querySelectorAll('[data-goline]').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('button,a,details,textarea,input'))return;const el=document.getElementById('L'+c.dataset.goline);
+      if(el){pane.scrollTo({top:el.offsetTop-pane.clientHeight/3,behavior:'smooth'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}}));}
   $('#only').onclick=()=>{FILTER.only=!FILTER.only;renderResult()};const sa=$('#show-all');if(sa)sa.onclick=()=>{FILTER.only=false;renderResult()};document.querySelectorAll('[data-rule]').forEach(b=>b.onclick=()=>{FILTER.rule=b.dataset.rule;renderResult()});
   document.querySelectorAll('[data-jump]').forEach(el=>el.onclick=()=>document.getElementById('sec-'+el.dataset.jump).scrollIntoView({behavior:'smooth'}));
   const ts=$('#toc-select');if(ts)ts.onchange=()=>document.getElementById('sec-'+ts.value).scrollIntoView({behavior:'smooth'});
+  const bs=$('#batch-sug');if(bs)bs.onclick=batchModal;const rr=$('#re-review');if(rr)rr.onclick=()=>startReview(allJobs());
   $('#export-md').onclick=exportModal;$('#export-docx').onclick=exportDocx;$('#re-edit').onclick=()=>{goStep('preview');renderPreview()};
   $('#clear-cache').onclick=()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('c:')||k==='history').forEach(k=>localStorage.removeItem(k))}catch{}toast('已清除本机保存的结果')};
   const rf=$('#retry-failed');if(rf)rf.onclick=()=>retry(['failed']);const rq=$('#retry-quota');if(rq)rq.onclick=()=>retry(['quota','stopped']);
   bindResult()}
+const EMPTY=()=>`<div class="card p-12 text-center"><div class="num text-[44px]">0</div><div class="text-slate-600 mt-3">${FILTER.rule?'这条规则没有报出问题':'没有发现问题'}</div>${FILTER.only&&!FILTER.rule?'<button class="link mt-3" id="show-all">查看全部条目</button>':''}</div>`;
+function resultBody(R,vis,prevKeys){const view=RVIEW==='source'&&innerWidth<1280?'section':RVIEW;
+  if(view==='severity')return severityList(R,prevKeys);
+  const cards=vis.map(({s,si})=>secCard(s,si,prevKeys)).join('')||EMPTY();
+  if(view==='source'){const {lines,map}=mapLines(R);const hits={};
+    R.sections.forEach((s,si)=>{const add=(ln,n)=>{if(n)hits[ln]=(hits[ln]||0)+n};
+      [...s.doc,...s.acc].forEach(d=>add(map.sec[si],d.status==='done'?d.findings.filter(f=>!FILTER.rule||f.rule===FILTER.rule).length:0));
+      s.reqs.forEach((r,ri)=>add(map.req[si+'|'+ri],r.status==='done'?r.findings.filter(f=>!FILTER.rule||f.rule===FILTER.rule).length:0))});
+    let code=false;
+    const src=lines.map((l,i)=>{const fence=/^\s*(```|~~~)/.test(l);if(fence)code=!code;const h=!code&&/^#{1,4} /.test(l);
+      return `<div class="src-line ${h?'h':''} ${hits[i]?'hit':''}" id="L${i}" data-line="${i}"><span class="ln">${i+1}</span><span class="tx ${code||fence?'font-mono text-[12px] text-slate-500':''}">${esc(h?l.replace(/^#+\s*/,''):l)||' '}</span>${hits[i]?`<span class="src-badge">${hits[i]}</span>`:''}</div>`}).join('');
+    window.__map=map;
+    return `<div class="split grid gap-4" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+      <div class="card p-4 self-start sticky top-4 max-h-[88vh] overflow-auto src" id="src-pane"><div class="label mb-3 px-2">原文 · 划线的行有问题，点一下看问题</div>${src}</div>
+      <div id="sec-list" class="space-y-4">${cards}</div></div>`}
+  return `<div class="narrow-only mb-3"><select id="toc-select" class="w-full border border-slate-200 rounded-lg px-3 py-2 text-sm bg-white">${vis.map(({s,si})=>`<option value="${si}">${esc(s.title)}（${secProblems(s)} 个问题）</option>`).join('')}</select></div>
+  <div class="split grid gap-4" style="grid-template-columns:300px 1fr">
+    <div class="card p-3 wide-only self-start sticky top-4 max-h-[85vh] overflow-auto">${vis.map(({s,si})=>`<div class="toc-item" data-jump="${si}"><span class="truncate">${esc(s.title)}</span>${s.off?'<span class="tag-gray">未审查</span>':secProblems(s)?`<span class="tag-danger">${secProblems(s)}</span>`:'<span class="tag-success">0</span>'}</div>`).join('')}</div>
+    <div id="sec-list" class="space-y-4">${cards}</div>
+  </div>`}
+// 按严重程度：所有问题拉平，高、中、低依次排，同级按文档顺序
+function severityList(R,prevKeys){const items=[];
+  R.sections.forEach((s,si)=>{if(s.skipped)return;
+    const push=(x,kind,gi,ri,label)=>{if(x.status!=='done')return;x.findings.forEach(f=>{if(FILTER.rule&&f.rule!==FILTER.rule)return;
+      const key=kind==='sentence'?'req|'+x.text:(kind==='doc'?'doc':'acc')+'|'+s.title+'|'+gi;const pred=x.findings.map(y=>y.rule);
+      const ctx=kind==='sentence'?{kind,si,ri,text:x.text,pred}:{kind,si,gi,text:s.groups[gi],pred};items.push({v:SEVERITY[f.rule]||1,s,si,f,key,ctx,label,x})})};
+    s.doc.forEach((d,gi)=>push(d,'doc',gi,null,'整段检查'));s.acc.forEach((d,gi)=>push(d,'account',gi,null,'账号与权限检查'));s.reqs.forEach((r,ri)=>push(r,'sentence',null,ri,''))});
+  if(!items.length)return EMPTY();
+  items.sort((a,b)=>b.v-a.v);
+  return `<div id="sec-list" class="space-y-6">${[3,2,1].map(v=>{const g=items.filter(x=>x.v===v);if(!g.length)return '';
+    return `<div><div class="flex items-baseline gap-3 mb-3"><span class="text-[22px] font-medium">${SEV_NAME[v]}</span><span class="text-sm text-slate-400">${g.length} 个 · ${SEV_TIP[v]}</span></div><div class="card overflow-hidden">${g.map(it=>`<div class="px-5 py-4 border-b border-slate-100 last:border-0" id="sev-${it.si}">
+      <div class="text-xs text-slate-400">${esc(it.s.title)}${it.label?' · '+it.label:''}</div>
+      ${it.label?'':`<div class="text-sm text-slate-800 leading-relaxed mt-1">${hl(it.x.text,it.f.evidence)}</div>`}
+      ${findingHtml(it.f,it.key,prevKeys,it.ctx)}</div>`).join('')}</div></div>`}).join('')}</div>`}
 function secProblems(s){return [...s.doc,...s.acc,...s.reqs].reduce((a,x)=>a+(x.status==='done'?x.findings.length:0),0)}
 function retry(statuses){const jobs=[];RES.sections.forEach((s,si)=>{s.doc.forEach((d,gi)=>statuses.includes(d.status)&&jobs.push({kind:'doc',si,gi,text:s.groups[gi]}));
   s.acc.forEach((d,gi)=>statuses.includes(d.status)&&jobs.push({kind:'account',si,gi,text:s.groups[gi]}));s.reqs.forEach((r,ri)=>statuses.includes(r.status)&&jobs.push({kind:'sentence',si,ri,text:r.text}))});
@@ -404,7 +470,7 @@ function retry(statuses){const jobs=[];RES.sections.forEach((s,si)=>{s.doc.forEa
 const statusLine=x=>x.status==='off'?'<span class="tag-gray">未勾选，未审查</span>':x.status==='quota'?'<span class="tag-gray">未审查：今天的额度已用完</span>':x.status==='stopped'?'<span class="tag-gray">未审查：已停止</span>':x.status==='failed'?`<span class="tag-danger">审查失败${x.error?'：'+esc(x.error):''}</span>`:'';
 function findingHtml(f,key,prevKeys,ctx){const isNew=prevKeys?(prevKeys.has(key+'|'+f.rule)?'<span class="tag-gray">上次也有</span>':'<span class="tag-warning">新出现</span>'):'';
   const fbKey='fb:'+key+'|'+f.rule;const sent=store.get(fbKey);
-  return `<div class="mt-2.5 rounded-lg bg-white border border-slate-200 p-3"><div class="flex items-center gap-2 flex-wrap"><span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
+  return `<div class="mt-2.5 rounded-lg bg-white border border-slate-200 p-3"><div class="flex items-center gap-2 flex-wrap">${sevTag(f.rule)}<span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
     <div class="text-[13px] text-slate-600 mt-1.5">${esc(f.reason)}</div>
     ${RULE_INFO[f.rule]?`<details class="mt-2 text-xs text-slate-500"><summary class="cursor-pointer select-none">规则说明</summary><div class="mt-1.5 leading-relaxed space-y-1"><div><b class="text-slate-700">算问题：</b>${esc(RULE_INFO[f.rule].judge)}</div><div><b class="text-slate-700">不算：</b>${esc(RULE_INFO[f.rule].not)}</div><div class="text-slate-400">出处：${esc(RULE_INFO[f.rule].source)}${RULE_INFO[f.rule].ref?' · '+esc(RULE_INFO[f.rule].ref.split(':')[0]):''}</div></div></details>`:''}
     <div class="flex items-center gap-3 mt-2 flex-wrap">${ctx.kind==='sentence'?`<button class="btn-outline !text-xs" data-suggest='${esc(JSON.stringify(ctx))}'>修改建议</button>`:''}
@@ -412,13 +478,13 @@ function findingHtml(f,key,prevKeys,ctx){const isNew=prevKeys?(prevKeys.has(key+
 function secCard(s,si,prevKeys){const parts=[];
   const block=(arr,kind,label)=>arr.forEach((d,gi)=>{const key=(kind==='doc'?'doc':'acc')+'|'+s.title+'|'+gi;let fs=d.findings||[];if(FILTER.rule)fs=fs.filter(f=>f.rule===FILTER.rule);
     if(d.status==='done'&&!fs.length&&(FILTER.only||FILTER.rule))return;const pred=(d.findings||[]).map(f=>f.rule);const ctx={kind,si,gi,text:s.groups[gi],pred};
-    parts.push(`<div class="px-5 py-4 bg-slate-50 border-b border-slate-100"><div class="label">${label}${arr.length>1?`（第 ${gi+1} 组）`:''}</div>
+    parts.push(`<div class="px-5 py-4 bg-slate-50 border-b border-slate-100" data-goline="${window.__map?window.__map.sec[si]:''}" id="c-${si}-${kind}-${gi}"><div class="label">${label}${arr.length>1?`（第 ${gi+1} 组）`:''}</div>
       ${d.status==='done'?(fs.length?fs.map(f=>findingHtml(f,key,prevKeys,ctx)).join(''):`<div class="mt-1"><span class="tag-success">未发现问题</span></div>`):`<div class="mt-1">${statusLine(d)}</div>`}
       ${d.status==='done'?missBtn(ctx,key):''}</div>`)});
   block(s.doc,'doc','整段检查');block(s.acc,'account','账号与权限检查');
   s.reqs.forEach((r,ri)=>{let fs=r.findings||[];if(FILTER.rule)fs=fs.filter(f=>f.rule===FILTER.rule);if(r.status==='done'&&!fs.length&&(FILTER.only||FILTER.rule))return;
     if(FILTER.rule&&r.status!=='done')return;const key='req|'+r.text;const pred=(r.findings||[]).map(f=>f.rule);const ctx={kind:'sentence',si,ri,text:r.text,pred};
-    parts.push(`<div class="px-5 py-3 border-b border-slate-100 last:border-0"><div class="text-sm text-slate-800 leading-relaxed">${fs.length?hl(r.text,fs[0].evidence):esc(r.text)}${r.adopted?' <span class="tag-blue">已采用，再审后确认</span>':''}</div>
+    parts.push(`<div class="px-5 py-3 border-b border-slate-100 last:border-0" data-goline="${window.__map?window.__map.req[si+'|'+ri]:''}" id="c-${si}-r-${ri}"><div class="text-sm text-slate-800 leading-relaxed">${fs.length?hl(r.text,fs[0].evidence):esc(r.text)}${r.adopted?' <span class="tag-blue">已采用，再审后确认</span>':''}</div>
       ${r.status==='done'?(fs.length?fs.map(f=>findingHtml(f,key,prevKeys,ctx)).join(''):'<div class="mt-1"><span class="tag-success">未发现问题</span></div>'):`<div class="mt-1">${statusLine(r)}</div>`}
       ${r.status==='done'?missBtn(ctx,key):''}</div>`)});
   if(!parts.length&&(FILTER.only||FILTER.rule))return '';
@@ -457,35 +523,71 @@ function diff(a,b){const A=[...a],B=[...b],n=A.length,m=B.length;const d=Array.f
   for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)d[i][j]=A[i]===B[j]?d[i+1][j+1]+1:Math.max(d[i+1][j],d[i][j+1]);
   let i=0,j=0,L='',R='';while(i<n||j<m){if(i<n&&j<m&&A[i]===B[j]){L+=esc(A[i]);R+=esc(B[j]);i++;j++}else if(j<m&&(i>=n||d[i][j+1]>=d[i+1][j])){R+=`<span class="ins">${esc(B[j])}</span>`;j++}else{L+=`<span class="del">${esc(A[i])}</span>`;i++}}
   return[L.replace(/<\/span><span class="del">/g,''),R.replace(/<\/span><span class="ins">/g,'')]}
+const sugKey=t=>'s:'+cacheKey('suggest',t);
+const savedSuggestion=t=>store.get(sugKey(t));
+async function getSuggestion(r){let s=savedSuggestion(r.text);if(s)return s;
+  s=(await post('/api/suggest',{text:r.text,findings:r.findings.map(f=>({rule:f.rule,name:RULES[f.rule],reason:f.reason}))})).rewrite;store.set(sugKey(r.text),s);return s}
+// 把一条需求换成建议改写（可能拆成几条），预览和结果里同时换
+function adoptSuggestion(si,r,s){const lines=s.split('\n').map(x=>x.trim()).filter(Boolean);const sec=SECS[si];const i=sec.reqs.indexOf(r.text);if(i>=0)sec.reqs.splice(i,1,...lines);
+  const rs=RES.sections[si].reqs;const k=rs.indexOf(r);r.text=lines[0];r.adopted=true;rs.splice(k+1,0,...lines.slice(1).map(t=>({text:t,status:'pending',findings:[],adopted:true})))}
+const flaggedReqs=()=>RES.sections.flatMap((s,si)=>s.skipped?[]:s.reqs.filter(r=>r.status==='done'&&r.findings.length&&!r.adopted).map(r=>({s,si,r})));
 async function suggest(ctx,box,btn){btn.disabled=true;box.innerHTML='<div class="text-xs text-slate-500 mt-2"><span class="spin"></span> 正在生成修改建议…</div>';
   const r=RES.sections[ctx.si].reqs[ctx.ri];
-  try{const key='s:'+cacheKey('suggest',r.text);let s=store.get(key);if(!s){s=(await post('/api/suggest',{text:r.text,findings:r.findings.map(f=>({rule:f.rule,name:RULES[f.rule],reason:f.reason}))})).rewrite;store.set(key,s)}
+  try{const s=await getSuggestion(r);
     const [L,Rr]=diff(r.text,s);const multi=s.includes('\n');
     box.innerHTML=`<div class="mt-3 grid md:grid-cols-2 gap-3 text-sm"><div class="bg-white border border-slate-200 rounded p-3"><div class="text-xs text-slate-400 mb-1">原文</div>${L}</div><div class="bg-white border border-blue-200 rounded p-3"><div class="text-xs text-slate-400 mb-1">建议改写${multi?'（拆成 '+s.split('\n').length+' 条）':''}</div><div class="whitespace-pre-wrap">${Rr}</div></div></div>
       <div class="flex gap-2 mt-2"><button class="btn-outline !text-xs" data-copy>复制</button><button class="btn-primary !text-xs" data-adopt>采用</button></div>`;
     box.querySelector('[data-copy]').onclick=()=>{navigator.clipboard.writeText(s).then(()=>toast('已复制'))};
-    box.querySelector('[data-adopt]').onclick=()=>{const lines=s.split('\n').filter(Boolean);const sec=SECS[ctx.si];const i=sec.reqs.indexOf(r.text);if(i>=0)sec.reqs.splice(i,1,...lines);
-      const rs=RES.sections[ctx.si].reqs;const k=rs.indexOf(r);r.text=lines[0];r.adopted=true;rs.splice(k+1,0,...lines.slice(1).map(t=>({text:t,status:'pending',findings:[],adopted:true})));renderResult();toast('已采用，返回修改后再审确认')}}
+    box.querySelector('[data-adopt]').onclick=()=>{adoptSuggestion(ctx.si,r,s);renderResult();toast('已采用，点「重新审查」确认问题是否解决')}}
   catch(e){box.innerHTML=`<div class="text-xs text-red-600 mt-2">${esc(e.message)}</div>`;btn.disabled=false}}
 
+// 批量：为所有有问题的需求生成建议，勾选后一起采用并重新审查（没改的条目用本机结果，不再调用模型）
+async function genAll(list,onStep){let done=0,fail=0;let i=0;
+  await Promise.all(Array.from({length:4},async()=>{while(i<list.length){const it=list[i++];try{it.sug=await getSuggestion(it.r)}catch(e){it.err=e.message;fail++}done++;onStep&&onStep(done,fail)}}));return fail}
+function batchModal(){const list=flaggedReqs();if(!list.length){toast('没有可以改写的需求');return}
+  const need=list.filter(x=>!savedSuggestion(x.r.text)).length;
+  const m=modal(`<div class="flex justify-between items-start gap-4 mb-4"><div><div class="text-base font-semibold">批量修改建议</div>
+    <div class="text-xs text-slate-500 mt-1">${list.length} 条有问题的需求，${need?`还有 ${need} 条没生成建议，每条调用 1 次模型、计入额度`:'建议都已生成'}</div></div>
+    <button class="btn-primary" id="b-gen" ${need?'':'hidden'}>生成全部建议</button></div>
+    <div id="b-list" class="space-y-3 max-h-[60vh] overflow-auto pr-1"></div>
+    <div class="flex justify-between items-center gap-2 mt-4"><label class="text-sm flex items-center gap-2"><input type="checkbox" id="b-all" checked>全选</label>
+    <div class="flex gap-2"><button class="btn-outline" data-x>关闭</button><button class="btn-primary" id="b-adopt">采用选中的并重新审查</button></div></div>`,true);
+  const draw=()=>{list.forEach(it=>{it.sug=it.sug||savedSuggestion(it.r.text)});
+    $('#b-list').innerHTML=list.map((it,i)=>{const [L,R]=it.sug?diff(it.r.text,it.sug):[esc(it.r.text),''];
+      return `<label class="block border border-slate-200 rounded-lg p-3 ${it.sug?'cursor-pointer':''}"><div class="flex items-center gap-2 text-xs text-slate-400 mb-2">${it.sug?`<input type="checkbox" data-b="${i}" ${it.pick!==false?'checked':''}>`:''}<span>${esc(it.s.title)}</span>${it.r.findings.map(f=>sevTag(f.rule)+`<span class="tag-danger">${f.rule} ${esc(RULES[f.rule])}</span>`).join('')}</div>
+      <div class="grid md:grid-cols-2 gap-3 text-sm"><div>${L}</div><div class="whitespace-pre-wrap">${it.sug?R:it.err?`<span class="text-red-600 text-xs">${esc(it.err)}</span>`:'<span class="text-slate-400 text-xs">还没生成</span>'}</div></div></label>`}).join('');
+    document.querySelectorAll('[data-b]').forEach(c=>c.onchange=()=>{list[+c.dataset.b].pick=c.checked});
+    $('#b-adopt').disabled=!list.some(it=>it.sug)};
+  draw();m.querySelector('[data-x]').onclick=m.close;
+  $('#b-all').onchange=e=>{list.forEach(it=>it.pick=e.target.checked);draw()};
+  $('#b-gen').onclick=async e=>{e.target.disabled=true;await genAll(list,(d,f)=>{e.target.textContent=`正在生成 ${d} / ${list.length}${f?`，失败 ${f}`:''}`});e.target.hidden=true;draw()};
+  $('#b-adopt').onclick=async()=>{const pick=list.filter(it=>it.sug&&it.pick!==false);if(!pick.length){toast('没有选中的建议');return}
+    pick.forEach(it=>adoptSuggestion(it.si,it.r,it.sug));m.close();event('adopt_all',String(pick.length));await startReview(allJobs())}}
+
 /* ---------- 导出评审意见（F15） ---------- */
-function reviewText(fmt){const R=RES;const L=[];const md=fmt==='md';const cell=t=>String(t||'').replace(/\|/g,'\\|').replace(/\n+/g,' ');
+function reviewText(fmt,withSug){const R=RES;const L=[];const md=fmt==='md';const cell=t=>String(t||'').replace(/\|/g,'\\|').replace(/\n+/g,' ');
   L.push(md?`# 评审意见：${R.name}`:`评审意见：${R.name}`,'',`- 审查时间：${R.time}`,`- 规则版本：单句 ${R.versions.sentence}，文档级 ${R.versions.document}，账号与权限 ${R.versions.account}`,`- 模型：${R.versions.model}`,'');
   let n=0;const rows=[];const left=[];
-  R.sections.forEach(s=>{if(s.skipped)return;const add=(x,text)=>{if(x.status==='done')x.findings.forEach(f=>{n++;rows.push([s.title,text,`${f.rule} ${RULES[f.rule]||''}`,f.reason])});else if(['off','quota','failed','stopped'].includes(x.status))left.push([s.title,text,{off:'未勾选',quota:'额度用完',failed:'审查失败'+(x.error?'：'+x.error:''),stopped:'已停止'}[x.status]])};
+  R.sections.forEach(s=>{if(s.skipped)return;const add=(x,text)=>{if(x.status==='done')x.findings.forEach(f=>{n++;const row=[s.title,text,`${f.rule} ${RULES[f.rule]||''}`,SEV_NAME[SEVERITY[f.rule]||1],f.reason];if(withSug)row.push(x.text?(savedSuggestion(x.text)||''):'');rows.push(row)});else if(['off','quota','failed','stopped'].includes(x.status))left.push([s.title,text,{off:'未勾选',quota:'额度用完',failed:'审查失败'+(x.error?'：'+x.error:''),stopped:'已停止'}[x.status]])};
     s.doc.forEach((d,gi)=>add(d,'（整段检查'+(s.doc.length>1?' 第 '+(gi+1)+' 组':'')+'）'));s.acc.forEach((d,gi)=>add(d,'（账号与权限检查'+(s.acc.length>1?' 第 '+(gi+1)+' 组':'')+'）'));s.reqs.forEach(r=>add(r,r.text))});
-  if(md){L.push(`## 问题（${n} 条）`,'','| 段落 | 需求原文 | 规则 | 理由 |','| --- | --- | --- | --- |',...rows.map(r=>'| '+r.map(cell).join(' | ')+' |'))}
-  else{L.push(`问题（${n} 条）`,'');rows.forEach((r,i)=>L.push(`${i+1}. 【${r[0]}】${r[1]}`,`   ${r[2]}：${r[3]}`))}
+  if(md){L.push(`## 问题（${n} 条）`,'',`| 段落 | 需求原文 | 规则 | 严重程度 | 理由 |${withSug?' 建议改写 |':''}`,`| --- | --- | --- | --- | --- |${withSug?' --- |':''}`,...rows.map(r=>'| '+r.map(cell).join(' | ')+' |'))}
+  else{L.push(`问题（${n} 条）`,'');rows.forEach((r,i)=>{L.push(`${i+1}. 【${r[0]}】${r[1]}`,`   ${r[2]}（严重程度${r[3]}）：${r[4]}`);if(r[5])L.push(`   建议改写：${r[5].replace(/\n/g,'；')}`)})}
   L.push('');if(left.length){if(md)L.push(`## 未审查（${left.length} 项）`,'','| 段落 | 条目 | 原因 |','| --- | --- | --- |',...left.map(r=>'| '+r.map(cell).join(' | ')+' |'));else{L.push(`未审查（${left.length} 项）`);left.forEach(r=>L.push(`- 【${r[0]}】${r[1]}：${r[2]}`))}}
   return{text:L.join('\n'),n}}
-function exportModal(){let fmt='md';const m=modal(`<div class="flex justify-between items-center mb-3"><div class="text-base font-semibold">导出评审意见</div>
+function exportModal(){let fmt='md',withSug=true;const missing=()=>flaggedReqs().filter(x=>!savedSuggestion(x.r.text));
+  const m=modal(`<div class="flex justify-between items-center mb-3"><div class="text-base font-semibold">导出评审意见</div>
   <div class="flex gap-3 text-sm"><label><input type="radio" name="fmt" value="md" checked> Markdown</label><label><input type="radio" name="fmt" value="txt"> 纯文本</label></div></div>
+  <div class="flex items-center justify-between gap-3 text-sm mb-3"><label class="flex items-center gap-2"><input type="checkbox" id="exp-sug" checked>附上修改建议</label>
+    <span class="text-xs text-slate-500" id="exp-miss"></span></div>
   <pre id="exp-pre" class="text-xs bg-slate-50 border border-slate-200 rounded p-3 h-80 overflow-auto whitespace-pre-wrap"></pre>
   <div class="flex justify-end gap-2 mt-4"><button class="btn-outline" data-x>关闭</button><button class="btn-outline" data-copy>复制</button><button class="btn-primary" data-dl>下载</button></div>`,true);
-  const show=()=>{$('#exp-pre').textContent=reviewText(fmt).text};show();
+  const show=()=>{$('#exp-pre').textContent=reviewText(fmt,withSug).text;const ms=missing().length;
+    $('#exp-miss').innerHTML=withSug&&ms?`还有 ${ms} 条没生成建议 <button class="link !text-xs" id="exp-gen">现在生成</button>`:'';
+    const g=$('#exp-gen');if(g)g.onclick=async()=>{g.disabled=true;const list=missing();await genAll(list,d=>{g.textContent=`生成中 ${d} / ${list.length}`});show()}};show();
+  $('#exp-sug').onchange=e=>{withSug=e.target.checked;show()};
   m.querySelectorAll('[name=fmt]').forEach(r=>r.onchange=()=>{fmt=r.value;show()});m.querySelector('[data-x]').onclick=m.close;
-  m.querySelector('[data-copy]').onclick=()=>{const r=reviewText(fmt);navigator.clipboard.writeText(r.text).then(()=>{toast(`已复制 ${r.n} 条评审意见`);event('export','copy')})};
-  m.querySelector('[data-dl]').onclick=()=>{const r=reviewText(fmt);download(new Blob([r.text],{type:'text/plain;charset=utf-8'}),fileBase()+'-评审意见.'+(fmt==='md'?'md':'txt'));event('export',fmt)}}
+  m.querySelector('[data-copy]').onclick=()=>{const r=reviewText(fmt,withSug);navigator.clipboard.writeText(r.text).then(()=>{toast(`已复制 ${r.n} 条评审意见`);event('export','copy')})};
+  m.querySelector('[data-dl]').onclick=()=>{const r=reviewText(fmt,withSug);download(new Blob([r.text],{type:'text/plain;charset=utf-8'}),fileBase()+'-评审意见.'+(fmt==='md'?'md':'txt'));event('export',fmt)}}
 const fileBase=()=>(RES.name||'PRD').replace(/^https?:\/\//,'').replace(/\.[a-z]+$/i,'').replace(/[\\/:*?"<>|]+/g,'_').slice(0,60);
 function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 
