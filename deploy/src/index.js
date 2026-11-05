@@ -7,6 +7,10 @@ const PER_IP_DEFAULT = 500;  // 每个访客每天的额度（F11）：最长的
 const LINKS_PER_DAY = 30;    // 每个访客每天最多导入的链接数（F3）
 const MAX_TEXT = 6000;       // 单个审查项最多字符数；整段检查按 1500 字分组，这里只防滥用
 const FETCH_MAX = 5 * 1024 * 1024, FETCH_MS = 10000;
+const SHARE_DAYS = 7;              // 分享链接保存天数
+const SHARE_MAX = 900 * 1024;      // 单个分享最多字符数
+const SHARES_PER_DAY = 50;         // 每个访客每天最多创建的分享数
+const rid = n => { const a = 'abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789'; const b = crypto.getRandomValues(new Uint8Array(n)); return [...b].map(x => a[x % a.length]).join(''); };
 const RULE_ID = { sentence: /^R[1-6]$/, doc: /^D[1-3]$/, account: /^A[1-4]$/ };
 const LABEL = { sentence: '需求', doc: '功能段落', account: '功能段落' };
 
@@ -199,7 +203,7 @@ function toCase(r) {
 }
 
 /* ---------- 指标（第 7 节）：只记次数和类别 ---------- */
-const EVENTS = new Set(['import_start', 'import_ok', 'import_fail', 'preview', 'review_start', 'review_complete', 'review_incomplete', 'items', 'item_fail', 'export', 'feedback', 'quota_out', 'adopt_all']);
+const EVENTS = new Set(['import_start', 'import_ok', 'import_fail', 'preview', 'review_start', 'review_complete', 'review_incomplete', 'items', 'item_fail', 'export', 'feedback', 'quota_out', 'adopt_all', 'share']);
 async function metrics(env) {
   const since = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 10);
   const { results } = await env.DB.prepare('SELECT key, SUM(n) AS n FROM metrics WHERE day >= ?1 GROUP BY key').bind(since).all();
@@ -224,6 +228,7 @@ async function metrics(env) {
       { name: '导出率', value: ratio(sum('export'), finished), pct: true, detail: parts('export') },
       { name: '反馈率', value: ratio(sum('feedback'), finished), pct: true, detail: parts('feedback') },
       { name: '批量采用修改建议的次数', value: sum('adopt_all') },
+      { name: '创建分享链接的次数', value: sum('share') },
       { name: '采纳率（按规则）', value: fbr.length ? fbr.map(r => `${r.rule} ${r.d ? Math.round(r.a / r.d * 100) + '%' : '—'}`).join('，') : null },
       { name: '额度用完的访客数（近 30 天合计）', value: qo.reduce((a, r) => a + r.n, 0) },
     ],
@@ -335,6 +340,29 @@ export default {
         return json({ ok: true });
       }
       if (path === '/api/metrics' && request.method === 'GET') return json(await metrics(env));
+      // 只读分享：只在用户点「分享」并确认后保存，7 天后删除；创建人凭撤销口令可以提前删除
+      if (path === '/api/share' && request.method === 'POST') {
+        const raw = await request.text();
+        if (raw.length > SHARE_MAX) return fail('这份结果太大，不能分享；可以导出评审意见后发送', 413);
+        let d; try { d = JSON.parse(raw); } catch { return fail('参数不对'); }
+        if (!d || !d.result || !Array.isArray(d.result.sections)) return fail('参数不对');
+        if ((await bump(env, 'share:' + ip)) > SHARES_PER_DAY) return fail('今天创建分享的次数已用完', 429);
+        const now = Date.now(), id = rid(10), token = rid(20), expires = now + SHARE_DAYS * 864e5;
+        await env.DB.prepare('DELETE FROM shares WHERE expires < ?1').bind(now).run();
+        await env.DB.prepare('INSERT INTO shares (id, token, created, expires, data) VALUES (?1, ?2, ?3, ?4, ?5)').bind(id, token, now, expires, JSON.stringify(d.result)).run();
+        return json({ id, token, expires });
+      }
+      if (path.startsWith('/api/share/') && request.method === 'GET') {
+        const r = await env.DB.prepare('SELECT data, expires FROM shares WHERE id = ?1').bind(path.slice(11)).first();
+        if (!r || r.expires < Date.now()) return fail('这个分享链接不存在或已过期', 404);
+        return json({ result: JSON.parse(r.data), expires: r.expires });
+      }
+      if (path.startsWith('/api/share/') && request.method === 'DELETE') {
+        const { token } = await request.json().catch(() => ({}));
+        const r = await env.DB.prepare('DELETE FROM shares WHERE id = ?1 AND token = ?2').bind(path.slice(11), String(token || '')).run();
+        if (!r.meta.changes) return fail('撤销口令不对，或分享已过期', 403);
+        return json({ ok: true });
+      }
       return fail('not found', 404);
     } catch (e) {
       return fail(e.message, 500);

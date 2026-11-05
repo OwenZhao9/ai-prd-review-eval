@@ -30,3 +30,11 @@ CREATE TABLE IF NOT EXISTS metrics (
   n INTEGER NOT NULL,
   PRIMARY KEY (day, key)
 );
+CREATE TABLE IF NOT EXISTS shares (
+  id TEXT PRIMARY KEY,
+  token TEXT NOT NULL,
+  created INTEGER NOT NULL,
+  expires INTEGER NOT NULL,
+  data TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS shares_expires ON shares (expires);

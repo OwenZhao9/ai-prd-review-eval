@@ -46,6 +46,7 @@ mark{background:#111;color:#fff;border-radius:4px;padding:0 3px}
 .ins{background:#e6f4ec;color:#1a7f4b;border-radius:3px}.del{background:#fdecec;color:#b42318;text-decoration:line-through;border-radius:3px}
 .gone{color:#a3a3a0;text-decoration:line-through}
 [hidden]{display:none!important}
+body.readonly [data-suggest],body.readonly [data-fp],body.readonly [data-miss],body.readonly [data-edit-req],body.readonly #re-edit,body.readonly #re-review,body.readonly #batch-sug,body.readonly #retry-failed,body.readonly #retry-quota,body.readonly #export-docx,body.readonly #share,body.readonly #clear-cache,body.readonly #steps{display:none!important}
 .sev{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:20px;border-radius:5px;font-size:11px;font-weight:600;padding:0 5px}
 .sev-3{background:#111;color:#fff}.sev-2{background:#e7e7e5;color:#111}.sev-1{background:#fff;color:#737371;border:1px solid #e1e1de}
 .src{font-size:13px;line-height:1.75}
@@ -394,6 +395,7 @@ function renderResult(){const R=RES;window.__map=null;if(RVIEW==='source'&&inner
   const unrev=[c.off&&`未勾选 ${c.off} 项`,c.quota&&`额度用完 ${c.quota} 项`,c.failed&&`审查失败 ${c.failed} 项`,c.stopped&&`已停止 ${c.stopped} 项`].filter(Boolean);
   const vis=R.sections.map((s,si)=>({s,si})).filter(({s})=>!s.skipped&&(s.reqs.length||s.doc.length||s.acc.length));
   $('#step-result').innerHTML=`
+  ${READONLY?`<div class="mb-4 px-5 py-3 rounded-xl bg-[#111] text-white text-sm flex justify-between items-center gap-3 flex-wrap"><span>这是别人分享的审查结果，只能查看 · ${esc(READONLY.until)} 到期</span><a class="link !text-white" href="/">我也要审查 PRD</a></div>`:''}
   <div class="card px-6 py-5 mb-4">
     <div class="flex items-start justify-between gap-4 flex-wrap">
       <div><div class="text-[15px] font-medium">${esc(R.name)}</div>
@@ -403,6 +405,7 @@ function renderResult(){const R=RES;window.__map=null;if(RVIEW==='source'&&inner
         ${c.quota||c.stopped?'<button class="btn-outline" id="retry-quota">审查未完成的条目</button>':''}
         ${R.sections.some(s=>s.reqs.some(r=>r.adopted))?'<button class="btn-primary" id="re-review">重新审查</button>':''}
         ${flaggedReqs().length?'<button class="btn-outline" id="batch-sug">批量修改建议</button>':''}
+        <button class="btn-outline" id="share">分享</button>
         <button class="btn-outline" id="export-md">导出评审意见</button>
         <button class="btn-outline" id="export-docx" ${DOC.docx?'':'disabled title="只对上传的 .docx 提供"'}>导出带批注的 Word</button>
         <button class="btn-outline" id="re-edit">返回修改</button>
@@ -432,6 +435,7 @@ function renderResult(){const R=RES;window.__map=null;if(RVIEW==='source'&&inner
   document.querySelectorAll('[data-jump]').forEach(el=>el.onclick=()=>document.getElementById('sec-'+el.dataset.jump).scrollIntoView({behavior:'smooth'}));
   const ts=$('#toc-select');if(ts)ts.onchange=()=>document.getElementById('sec-'+ts.value).scrollIntoView({behavior:'smooth'});
   const bs=$('#batch-sug');if(bs)bs.onclick=batchModal;const rr=$('#re-review');if(rr)rr.onclick=()=>startReview(allJobs());
+  $('#share').onclick=shareModal;
   $('#export-md').onclick=exportModal;$('#export-docx').onclick=exportDocx;$('#re-edit').onclick=()=>{goStep('preview');renderPreview()};
   $('#clear-cache').onclick=()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('c:')||k==='history').forEach(k=>localStorage.removeItem(k))}catch{}toast('已清除本机保存的结果')};
   const rf=$('#retry-failed');if(rf)rf.onclick=()=>retry(['failed']);const rq=$('#retry-quota');if(rq)rq.onclick=()=>retry(['quota','stopped']);
@@ -593,6 +597,32 @@ function batchModal(){const list=flaggedReqs();if(!list.length){toast('没有可
   $('#b-adopt').onclick=async()=>{const pick=list.filter(it=>it.sug&&it.pick!==false);if(!pick.length){toast('没有选中的建议');return}
     pick.forEach(it=>adoptSuggestion(it.si,it.r,it.sug));m.close();event('adopt_all',String(pick.length));await startReview(allJobs())}}
 
+/* ---------- 只读分享：保存 7 天，用户确认后才上传 ---------- */
+let READONLY=null;
+const fmtDay=t=>new Date(t).toLocaleString('zh-CN',{hour12:false,month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+function shareModal(){const mine=(store.get('shares')||{})[RES.time+'|'+RES.name];
+  const m=modal(`<div class="text-base font-semibold mb-2">分享审查结果</div><div id="sh-body"></div>`);const body=m.querySelector('#sh-body');
+  const showLink=sh=>{const url=location.origin+'/?share='+sh.id;
+    body.innerHTML=`<p class="text-sm text-slate-600">拿到链接的人都能查看这次审查结果和 PRD 原文，不能修改。${fmtDay(sh.expires)} 自动删除。</p>
+      <div class="flex gap-2 mt-4"><input class="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-sm" readonly value="${url}"><button class="btn-primary" data-copy>复制</button></div>
+      <div class="flex justify-between items-center mt-5"><button class="link !text-xs text-red-600" data-revoke>撤销分享</button><button class="btn-outline" data-x>关闭</button></div>`;
+    body.querySelector('[data-copy]').onclick=()=>navigator.clipboard.writeText(url).then(()=>toast('已复制链接'));body.querySelector('[data-x]').onclick=m.close;
+    body.querySelector('[data-revoke]').onclick=async()=>{try{const r=await fetch('/api/share/'+sh.id,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:sh.token})});if(!r.ok)throw new Error((await r.json()).error);
+      const all=store.get('shares')||{};delete all[RES.time+'|'+RES.name];store.set('shares',all);m.close();toast('已撤销，链接失效')}catch(e){toast(e.message)}}};
+  if(mine&&mine.expires>Date.now()){showLink(mine);return}
+  body.innerHTML=`<p class="text-sm text-slate-600 leading-relaxed">分享会把<b>这次审查结果和 PRD 原文</b>保存到服务器 7 天，拿到链接的人都能查看。7 天后自动删除，你也可以随时撤销。涉密内容请不要分享。</p>
+    <div class="flex justify-end gap-2 mt-5"><button class="btn-outline" data-x>取消</button><button class="btn-primary" data-ok>保存并生成链接</button></div>`;
+  body.querySelector('[data-x]').onclick=m.close;
+  body.querySelector('[data-ok]').onclick=async e=>{e.target.disabled=true;e.target.textContent='正在保存…';
+    try{const data={...RES};delete data.prev;const sh=await post('/api/share',{result:data});const all=store.get('shares')||{};all[RES.time+'|'+RES.name]=sh;store.set('shares',all);event('share');showLink(sh)}
+    catch(err){toast(err.message);e.target.disabled=false;e.target.textContent='保存并生成链接'}}}
+async function openShare(id){READONLY={until:''};document.body.classList.add('readonly');goStep('result');$('#step-result').innerHTML='<div class="card p-10 text-center text-slate-500"><span class="spin"></span> 正在打开分享…</div>';
+  try{const r=await (await fetch('/api/share/'+encodeURIComponent(id))).json();if(!r.result)throw new Error(r.error||'这个分享链接不存在或已过期');
+    READONLY.until=fmtDay(r.expires);RES={...r.result,prev:null};DOC.name=RES.name;DOC.docx=null;
+    SECS=RES.sections.map(s=>({title:s.title,level:s.level,text:'',reqs:s.reqs.map(q=>q.text),skip:s.skipped,off:s.off,account:s.account,groups:s.groups,images:0,chars:0}));
+    $('#page-title').textContent='审查结果';renderResult()}
+  catch(e){$('#step-result').innerHTML=`<div class="card p-12 text-center"><div class="text-slate-700">${esc(e.message)}</div><a class="link mt-4 inline-block" href="/">去审查 PRD</a></div>`}}
+
 /* ---------- 导出评审意见（F15） ---------- */
 function reviewText(fmt,withSug){const R=RES;const L=[];const md=fmt==='md';const cell=t=>String(t||'').replace(/\|/g,'\\|').replace(/\n+/g,' ');
   L.push(md?`# 评审意见：${R.name}`:`评审意见：${R.name}`,'',`- 审查时间：${R.time}`,`- 规则版本：单句 ${R.versions.sentence}，文档级 ${R.versions.document}，账号与权限 ${R.versions.account}`,`- 模型：${R.versions.model}`,'');
@@ -752,7 +782,8 @@ jobs:
     if(!r||!r.done)throw new Error('等待飞书导出超时');const bin=Uint8Array.from(atob(r.base64),c=>c.charCodeAt(0)).buffer;const x=await fileToMd(bin,'docx');
     Object.assign(DOC,{name:u,source:'feishu',docx:bin,notices:x.notices});$('#prd').value=x.md;linkMsg('');importSummary('已从飞书导入');event('import_ok','feishu')}
   catch(e){linkMsg(errBox('飞书返回：'+esc(e.message)+'。可以改用手动导出：在飞书打开文档，点右上方「…」>「下载为」> Word，再上传。'));event('import_fail','feishu')}})();
-goStep('import');renderImportSide();
+const SHARE_ID=new URLSearchParams(location.search).get('share');
+if(SHARE_ID)openShare(SHARE_ID);else{goStep('import');renderImportSide()}
 </script>
 </body>
 </html>

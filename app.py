@@ -8,6 +8,7 @@
 - GET/POST /api/feedback      反馈列表（可按状态、类型、规则、单条或整段、规则版本筛选）和提交
 - POST /api/feedback/resolve  复核：采纳的反馈写成评测用例（data/feedback_cases.jsonl）
 - POST /api/feedback/export   导出已采纳用例
+- POST/GET/DELETE /api/share   只读分享：保存 7 天，凭撤销口令可以提前删除
 本机版不限额度、不记使用计数；.env 里设了 REVIEW_KEY 时，采纳、驳回和导出要输入这个口令。
 API Key 只在服务端读取，不发到浏览器；服务只监听本机 127.0.0.1。
 """
@@ -24,6 +25,8 @@ KIND_VER = {'sentence': 'v4', 'doc': 'doc_v1', 'account': 'module_account_v3'}
 LABEL = {'sentence': '需求', 'doc': '功能段落', 'account': '功能段落'}
 RULE_ID = {'sentence': r'R[1-6]', 'doc': r'D[1-3]', 'account': r'A[1-4]'}
 MAX_TEXT, FETCH_MAX, FETCH_SECONDS = 6000, 5 * 1024 * 1024, 10
+SHARES = os.path.join(ROOT, 'data', 'shares')   # 本机版的分享存在这里，不进仓库
+SHARE_DAYS, SHARE_MAX = 7, 900 * 1024
 
 review.load_env()
 PROMPTS = {k: review.load_prompt(v) for k, v in KIND_VER.items()}
@@ -197,6 +200,12 @@ class H(BaseHTTPRequestHandler):
             return self._json({'versions': versions(), 'rules': RULE_NAMES, 'quota': {'perIp': 0, 'remaining': 10 ** 6}})
         if u.path == '/api/feedback':
             return self._json(list_feedback(q))
+        if u.path.startswith('/api/share/'):
+            f = os.path.join(SHARES, re.sub(r'[^A-Za-z0-9]', '', u.path[11:]) + '.json')
+            d = json.load(open(f)) if os.path.exists(f) else None
+            if not d or d['expires'] < time.time() * 1000:
+                return self._json({'error': '这个分享链接不存在或已过期'}, 404)
+            return self._json({'result': d['result'], 'expires': d['expires']})
         if u.path == '/api/metrics':
             return self._json({'rows': [{'name': '本机版不记使用计数', 'value': None}]})
         path = os.path.normpath(os.path.join(PUBLIC, u.path.lstrip('/') or 'index.html'))
@@ -226,6 +235,20 @@ class H(BaseHTTPRequestHandler):
                     return self._json({'error': str(e), 'code': e.code}, e.status)
             if self.path.startswith('/api/feishu/'):
                 return self._json({'error': '本机版不支持飞书授权导入'}, 500)
+            if self.path == '/api/share':
+                if len(json.dumps(d)) > SHARE_MAX:
+                    return self._json({'error': '这份结果太大，不能分享；可以导出评审意见后发送'}, 413)
+                if not isinstance(d.get('result'), dict):
+                    return self._json({'error': '参数不对'}, 400)
+                os.makedirs(SHARES, exist_ok=True)
+                now = time.time() * 1000
+                for f in os.listdir(SHARES):
+                    if json.load(open(os.path.join(SHARES, f)))['expires'] < now:
+                        os.remove(os.path.join(SHARES, f))
+                sid, token = uuid.uuid4().hex[:10], uuid.uuid4().hex
+                row = {'id': sid, 'token': token, 'expires': now + SHARE_DAYS * 864e5, 'result': d['result']}
+                json.dump(row, open(os.path.join(SHARES, sid + '.json'), 'w'), ensure_ascii=False)
+                return self._json({'id': sid, 'token': token, 'expires': row['expires']})
             if self.path == '/api/event':
                 return self._json({'ok': True})
             if self.path == '/api/feedback':
@@ -260,6 +283,16 @@ class H(BaseHTTPRequestHandler):
             self._json({'error': 'not found'}, 404)
         except Exception as e:
             self._json({'error': str(e)}, 500)
+
+    def do_DELETE(self):
+        if not self.path.startswith('/api/share/'):
+            return self._json({'error': 'not found'}, 404)
+        f = os.path.join(SHARES, re.sub(r'[^A-Za-z0-9]', '', self.path[11:]) + '.json')
+        d = self._body()
+        if not os.path.exists(f) or json.load(open(f))['token'] != d.get('token'):
+            return self._json({'error': '撤销口令不对，或分享已过期'}, 403)
+        os.remove(f)
+        return self._json({'ok': True})
 
     def log_message(self, *a):
         pass
