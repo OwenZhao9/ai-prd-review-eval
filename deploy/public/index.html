@@ -45,6 +45,7 @@ mark{background:#111;color:#fff;border-radius:4px;padding:0 3px}
 @keyframes s{to{transform:rotate(360deg)}}
 .ins{background:#e6f4ec;color:#1a7f4b;border-radius:3px}.del{background:#fdecec;color:#b42318;text-decoration:line-through;border-radius:3px}
 .gone{color:#a3a3a0;text-decoration:line-through}
+[hidden]{display:none!important}
 textarea,input,select{outline:none}
 textarea:focus,input[type=text]:focus,input[type=password]:focus,select:focus{border-color:#111!important}
 .modal-bg{position:fixed;inset:0;background:rgba(17,17,17,.35);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
@@ -90,8 +91,8 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
 <!-- 审查 -->
 <section id="tab-review">
   <!-- 第一步：导入 -->
-  <div id="step-import" class="max-w-[960px] mx-auto">
-    <div class="card p-6">
+  <div id="step-import" class="grid gap-5 split" style="grid-template-columns:minmax(0,1fr) 340px">
+    <div><div class="card p-6">
       <div class="mb-5 flex" id="import-tabs">
         <button class="subtab on" data-src="paste">粘贴文字</button>
         <button class="subtab" data-src="upload">上传文件</button>
@@ -122,7 +123,14 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
         <button class="btn-primary" id="to-preview">下一步：拆分预览</button>
       </div>
     </div>
-    <p class="text-xs text-slate-400 mt-4">文档内容只发送给审查用的模型（当前是 DeepSeek），不保存在服务器上；请不要粘贴涉密内容。</p>
+    <p class="text-xs text-slate-400 mt-4">文档内容只发送给审查用的模型（当前是 DeepSeek），不保存在服务器上；请不要粘贴涉密内容。</p></div>
+    <div class="space-y-5">
+      <div class="card p-6"><div class="label mb-3">没有 PRD？</div>
+        <div class="text-sm text-slate-600 leading-relaxed">用一份开源项目的需求文档看看审查结果长什么样，不调用模型、不扣额度。</div>
+        <button class="btn-primary w-full mt-4" id="sample-run">看示例结果</button></div>
+      <div class="card p-6"><div class="label mb-3">检查什么</div><div id="rule-groups" class="space-y-4 text-sm"></div></div>
+      <div class="card p-6" id="recent-box" hidden><div class="label mb-3">最近审查（只存在这台电脑）</div><div id="recent" class="space-y-1"></div></div>
+    </div>
   </div>
 
   <!-- 第二步：拆分预览 -->
@@ -141,6 +149,7 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const RULES=/*RULES*/{"R1": "歧义措辞", "R2": "不可验证", "R3": "一条多需求", "R4": "待定项未闭环", "R5": "写了实现方式", "R6": "指代不明", "D1": "缺验收标准", "D2": "缺异常处理", "D3": "前后矛盾", "A1": "缺失败次数限制", "A2": "密码规则违背标准", "A3": "登录状态缺失效时间", "A4": "账号与权限操作缺日志"};
+const RULE_INFO=/*RULE_INFO*/{"R1": {"judge": "需求里出现会让不同读者得出不同理解的措辞，例如 as appropriate、etc.、and/or、but not limited to、as needed、if possible、where applicable、such as（后面列举未封闭）。 中文常见形式：「等」「如……」后面的列举没有封闭；「适当」「必要时」「尽量」「若干」「部分」；「关键操作」「相关角色」这类没有说明具体范围的限定词；A/B 斜杠写法没说清是「都要」还是「任选其一」。", "not": "列举已封闭（明确列出全部选项）；and/or 只是在说明两个都允许且已写清。 「支持 A 或 B」明确表示两种方式都支持、由用户任选其一，不算。 斜杠连接的是同一个开关的两个动作（「穿戴/卸下」「展开/折叠」）或明显都要支持的两项时，不算；括号里直接列出、没有「等」字的例子视为已封闭。", "ref": "C.4 Clarity: free from ambiguous terms (e.g., \"as appropriate,\" \"etc.,\" \"and/or,\" \"but not limited to\")", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "R2": {"judge": "需求用了无法测量的形容词或副词描述效果（fast、easy、user-friendly、robust、seamless、intuitive、quickly、minimal、optimal 等），且同一句没有给出可测量的标准（数字、阈值、可检查的条件）。 中文常见词：快速、高效、高性能、稳定、可靠、友好、便捷、流畅、灵活、智能、丰富、全面、完整、全生命周期、严格、明确、合理、人性化。", "not": "同一句已经给出可测量标准，例如 \"fast (p95 < 200 ms)\"。 原文已经给出确切内容（例如完整的提示文案、具体阈值）时，旁边的形容词不影响验收，不算违反。 「无需额外步骤」「不显示任何……」这种可以直接检查是否发生的否定条件，不算。 只说「支持某功能」、没有用形容词或副词描述效果的，不算；「优先适配 A」这类排序说明不算。", "ref": "C.4 Verifiability: free of unverifiable terms (flexible, easy, sufficient, safe, adequate, user-friendly, usable, fast, robust, quickly, easily, minimize, maximize …)", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "R3": {"judge": "一条需求里包含两个及以上可以各自独立验收的要求。以下情况算违反：两个独立的句子各自提出一个要求；用 and / also / 分号连接两个性质不同的目标（例如「可读」和「能被工具处理」、「安全处理」和「必须走 HTTPS」、「页面加载时间」和「状态更新延迟」）；用户故事里两个及以上动作各自可以单独验收（例如「创建、保存、加载」）。 中文里多个要求常用分号、逗号串在一起，或写成「兼顾速度、结构和边界」这种并列几个不同性质的目标、「支持两种操作：追问和重新分析」这种并列几个不同动作，也算违反。", "not": "同一个动作作用在多个对象或输入上（例如「提交前校验路径、状态码和 JSON」是一个校验动作）；同一个界面同时展示的几个组成部分（例如「显示提示文案和重载按钮」）；一个动作的必要组成部分（例如「输入邮箱和密码登录」）。 顿号或「和」连接的只是同一个动作的几个对象或几种方式（「支持真实城市和虚拟地点」「支持 OAuth 或 API Key 认证」「按联赛、时间、置信度筛选」），不算。", "ref": "C.4 Clarity: express only one thought per requirement statement … one subject and one predicate", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "R4": {"judge": "需求里有 TBD、TBR、TODO、待定、[placeholder]、??? 之类的未定值，且没有写明负责人和截止时间。", "not": "待定项同时写明了负责人和截止时间。", "ref": "C.3: minimize TBD; mark TBR with rationale, who is responsible and by when", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "R5": {"judge": "需求规定了具体的技术实现（某个数据库、框架、库、算法、内部数据结构），而这个技术选择本身不是业务或外部约束要求的。 也包括代码层面的规定：函数或返回值类型、异常要怎样捕获和返回、某个回调或方法的写法。 中文常见写法：「基于 XX（某种技术、协议、框架）实现」，而这个技术选择不是外部约束要求的。", "not": "实现约束来自外部且写明了原因（例如必须兼容某个已有系统的接口）；产品本身就是某个技术的插件或集成。", "ref": "C.2 / C.4 Compliance: free of implementation — state WHAT is needed, NOT HOW", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "R6": {"judge": "需求的主语或关键对象是代词（it / this / these / that / they），而且在这条需求内找不到它指的是什么。句首就用代词、整条需求没有出现它指代的名词，一律算违反。", "not": "代词在同一句或前一个分句里有明确的先行词（例如「Plugin must …; it must also …」里 it 指 Plugin）；「the project」「the system」这类带定冠词的名词短语不是代词，不算违反。", "ref": "C.4 Clarity: free from indefinite pronouns (this, these)", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "D1": {"judge": "段落描述了要做的功能，但段内没有任何可以判定「做完没有、做对没有」的条件：既没有「验收标准 / 完成标准 / AC」，也没有可以直接检查的具体结果（明确的数值阈值、明确的输出或状态）。", "not": "段内已有验收标准列表，或每个功能点都写了可直接检查的具体结果。", "ref": "C.4 Verifiability: Can the criteria for verification be stated? Does a means exist to measure the accomplishment of the requirement?", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "D2": {"judge": "功能涉及用户输入、网络或外部服务调用、文件读写、权限或状态变化，但段内没有说明出错、为空、超时、无权限、操作失败时系统怎么处理。", "not": "段内至少对主要的失败情况写了处理方式；或功能本身不存在失败的可能（例如只展示固定文案）。", "ref": "C.4 Reliability: Are there error detection, reporting, handling, and recovery requirements? Are undesired events considered and their required responses specified?", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "D3": {"judge": "段内两处说法互相冲突：数值、数量、上限、状态、权限或流程顺序对不上，按其中一处实现就会违反另一处。", "not": "两处说法针对不同条件或不同对象，并不冲突。", "ref": "C.4 Consistency: Are the requirements stated consistently without contradicting themselves?", "source": "NASA Systems Engineering Handbook, Appendix C: How to Write a Good Requirement — Checklist"}, "A1": {"judge": "段落描述了用户输入密码、验证码或 PIN 来登录或验证身份的功能，但段内没有写连续失败之后怎么限制：锁定、限流、冷却时间、图形验证码、最多尝试次数，一样都没有。", "not": "段落里没有用户输入密码、验证码或 PIN 的登录或验证；登录完全交给第三方（微信一键登录、OAuth、SSO）；设备、证书或服务之间的固定密钥认证；段内已写任何一种失败限制。只写「登录失败提示」「返回错误码」「记录失败日志」不算失败限制。", "ref": "SP 800-63B-4 §3.2.2 Rate Limiting (Throttling): the verifier SHALL limit consecutive failed authentication attempts using a specific authenticator on a single subscriber account to no more than 100.", "source": "NIST SP 800-63B-4 Digital Identity Guidelines: Authentication and Authenticator Management"}, "A2": {"judge": "段落规定的密码规则里有下面任一条：要求同时包含不同类型的字符（大小写字母、数字、特殊字符，包括「至少包含字母和数字」）；强制定期更换密码；最短长度低于 8 位。", "not": "只规定长度（不少于 8 位）、最大长度或允许使用的字符范围；发现密码泄露后要求修改；只写「校验密码强度」而没有写具体组合要求；段落没有规定密码规则；设备通信协议规定的固定格式口令。", "ref": "SP 800-63B-4 §3.1.1.2 Password Verifiers: minimum length SHALL be at least 8 characters; SHALL NOT impose other composition rules (e.g., requiring mixtures of different character types); SHALL NOT require subscribers to change passwords periodically.", "source": "NIST SP 800-63B-4 Digital Identity Guidelines: Authentication and Authenticator Management"}, "A3": {"judge": "段落明确描述了用户登录后保持登录状态的方式（登录态保持、记住我、免登录、自动登录、token 或 session 持久化、自动刷新续期），但段内没有写登录状态在多长时间后或什么条件下失效、需要重新登录。", "not": "段内写了任何失效条件：有效期或超时时长（包括「7 天免登录」这类写法）、过期阈值或滑动过期规则（即使数值可配置）、「过期后被拒绝 / 需重新登录」；段落只写了登录方式或签发 token，没有描述怎么保持登录状态；「会话」指聊天对话、任务会话，与登录无关。只有「退出登录」不算失效时间。 报 A3 之前，先在段内找「天」「小时」「分钟」「有效期」「过期」「超时」这类字样：找到任何一处说明登录状态的时长或失效条件，就不报。", "ref": "SP 800-63B-4 §2.1.3 / §5.2 Reauthentication: periodic reauthentication of subscriber sessions SHALL be performed; a definite reauthentication overall timeout SHALL be established. When either timeout expires, the session SHALL be terminated.", "source": "NIST SP 800-63B-4 Digital Identity Guidelines: Authentication and Authenticator Management"}, "A4": {"judge": "段落描述了管理员或运维人员对其他用户的账号或权限进行操作：新增、删除、禁用、挂起用户，分配或修改角色，为角色配置或分配权限，重置他人密码，吊销他人登录令牌；但段内没有要求记录这些操作（操作日志、审计日志、操作历史）。 段落描述系统可以为不同角色配置新增、编辑、删除等操作权限，也算对权限的管理操作。", "not": "段内提到系统记录或可以查看操作日志、审计日志、操作历史（不要求写明「记录管理员操作」这几个字）；段落只是角色与权限的对照表，没有描述管理操作；用户对自己账号的操作（改自己的密码、退出登录）；对业务内容的管理（审核作品、配置规则、管理模型或数据源）。 段内写了可以查看操作日志、审计日志，即视为系统已经记录了这些操作，不需要再写「记录管理员操作」。", "ref": "SP 800-53 Rev. 5.1.1 AC-06(09) Least Privilege | Log Use of Privileged Functions: Log the execution of privileged functions.", "source": "NIST SP 800-63B-4 Digital Identity Guidelines: Authentication and Authenticator Management"}};
 const KIND_RULES={sentence:['R1','R2','R3','R4','R5','R6'],doc:['D1','D2','D3'],account:['A1','A2','A3','A4']};
 const KIND_NAME={sentence:'单句检查',doc:'整段检查',account:'账号与权限检查'};
 let META={versions:{sentence:'v4',document:'doc_v1',account:'module_account_v3',model:'deepseek-chat'},quota:{perIp:500,remaining:500}};
@@ -167,6 +176,17 @@ function showPasteTab(){document.querySelector('#import-tabs [data-src=paste]').
 $('#prd').addEventListener('input',()=>{if(DOC.source==='paste'||DOC.source==='sample'){DOC.source='paste';DOC.name='';DOC.docx=null;DOC.notices=[]}});
 $('#sample').onclick=async()=>{SAMPLE=SAMPLE||await (await fetch('sample.json')).json();seedSampleCache();$('#prd').value=SAMPLE.text;
   Object.assign(DOC,{name:'示例 PRD',source:'sample',docx:null,notices:[]});showPasteTab();importSummary()};
+$('#sample-run').onclick=async()=>{await $('#sample').onclick();$('#to-preview').click();await startReview(allJobs())};
+function renderImportSide(){
+  const groups=[['每条需求','sentence','NASA 需求编写检查清单'],['每个功能段落','doc','NASA 需求编写检查清单'],['账号与权限段落','account','NIST 数字身份标准']];
+  $('#rule-groups').innerHTML=groups.map(([t,k,src])=>`<div><div class="flex justify-between text-slate-800 font-medium"><span>${t}</span><span class="text-xs text-slate-400 font-normal">${src}</span></div>
+    <div class="flex flex-wrap gap-1.5 mt-2">${KIND_RULES[k].map(r=>`<span class="tag-gray" title="${esc((RULE_INFO[r]||{}).judge||'')}">${r} ${esc(RULES[r])}</span>`).join('')}</div></div>`).join('');
+  const h=(store.get('history')||[]).slice().reverse();$('#recent-box').hidden=!h.length;
+  $('#recent').innerHTML=h.map((r,i)=>{const c=counts(r);return `<button class="toc-item w-full text-left" data-hist="${h.length-1-i}"><span class="truncate">${esc(r.name)}<span class="block text-[11px] text-slate-400">${esc(r.time)}</span></span><span class="text-xs text-slate-500 shrink-0">${c.problems} 个问题</span></button>`}).join('');
+  document.querySelectorAll('[data-hist]').forEach(b=>b.onclick=()=>{const all=store.get('history')||[];const r=all[+b.dataset.hist];if(!r)return;
+    RES={...r,prev:all.slice(0,+b.dataset.hist).filter(x=>x.name===r.name).pop()||null};DOC.name=r.name;DOC.docx=null;
+    SECS=r.sections.map(s=>({title:s.title,level:s.level,text:'',reqs:s.reqs.map(q=>q.text),skip:s.skipped,off:s.off,offReason:s.offReason,account:s.account,groups:s.groups,images:0,chars:0}));
+    goStep('result');renderResult()})}
 function importSummary(extra){const secs=PRDSplit.splitPrd($('#prd').value);const n=secs.filter(s=>!s.skip).length;const q=secs.reduce((a,s)=>a+(s.skip?0:s.reqs.length),0);
   $('#import-result').innerHTML=$('#prd').value.trim()?`<div class="text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">${extra?esc(extra)+'：':''}已识别 ${secs.length} 个段落、${q} 条需求${DOC.notices.length?'<br>'+DOC.notices.map(esc).join('<br>'):''}</div>`:''}
 
@@ -267,7 +287,7 @@ function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const 
     <div class="card p-3 wide-only max-h-[70vh] overflow-auto">${SECS.map((x,i)=>tocRow(x,i)).join('')}</div>
     <div class="card p-5">${secDetail(s,CUR)}</div>
   </div>`;
-  $('#back-import').onclick=()=>goStep('import');$('#start').onclick=()=>startReview(allJobs());
+  $('#back-import').onclick=()=>{goStep('import');renderImportSide()};$('#start').onclick=()=>startReview(allJobs());
   const sel=$('#sec-select');if(sel)sel.onchange=()=>{CUR=+sel.value;renderPreview()};
   document.querySelectorAll('[data-toc]').forEach(el=>el.onclick=e=>{if(e.target.closest('input,button'))return;CUR=+el.dataset.toc;EDIT=null;renderPreview()});
   document.querySelectorAll('[data-check]').forEach(el=>el.onchange=()=>{const x=SECS[+el.dataset.check];x.off=!el.checked;x.offReason=x.off?'user':'';QUOTA_NOTE='';renderPreview()});
@@ -381,6 +401,7 @@ function findingHtml(f,key,prevKeys,ctx){const isNew=prevKeys?(prevKeys.has(key+
   const fbKey='fb:'+key+'|'+f.rule;const sent=store.get(fbKey);
   return `<div class="mt-2.5 rounded-lg bg-white border border-slate-200 p-3"><div class="flex items-center gap-2 flex-wrap"><span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
     <div class="text-[13px] text-slate-600 mt-1.5">${esc(f.reason)}</div>
+    ${RULE_INFO[f.rule]?`<details class="mt-2 text-xs text-slate-500"><summary class="cursor-pointer select-none">规则说明</summary><div class="mt-1.5 leading-relaxed space-y-1"><div><b class="text-slate-700">算问题：</b>${esc(RULE_INFO[f.rule].judge)}</div><div><b class="text-slate-700">不算：</b>${esc(RULE_INFO[f.rule].not)}</div><div class="text-slate-400">出处：${esc(RULE_INFO[f.rule].source)}${RULE_INFO[f.rule].ref?' · '+esc(RULE_INFO[f.rule].ref.split(':')[0]):''}</div></div></details>`:''}
     <div class="flex items-center gap-3 mt-2 flex-wrap">${ctx.kind==='sentence'?`<button class="btn-outline !text-xs" data-suggest='${esc(JSON.stringify(ctx))}'>修改建议</button>`:''}
     ${sent?'<span class="text-xs text-slate-500">已反馈误判</span>':`<button class="link !text-xs text-slate-500" data-fp='${esc(JSON.stringify({...ctx,rule:f.rule,fbKey}))}'>这是误判</button>`}</div><div data-sug-box></div></div>`}
 function secCard(s,si,prevKeys){const parts=[];
@@ -589,7 +610,7 @@ jobs:
     if(!r||!r.done)throw new Error('等待飞书导出超时');const bin=Uint8Array.from(atob(r.base64),c=>c.charCodeAt(0)).buffer;const x=await fileToMd(bin,'docx');
     Object.assign(DOC,{name:u,source:'feishu',docx:bin,notices:x.notices});$('#prd').value=x.md;linkMsg('');importSummary('已从飞书导入');event('import_ok','feishu')}
   catch(e){linkMsg(errBox('飞书返回：'+esc(e.message)+'。可以改用手动导出：在飞书打开文档，点右上方「…」>「下载为」> Word，再上传。'));event('import_fail','feishu')}})();
-goStep('import');
+goStep('import');renderImportSide();
 </script>
 </body>
 </html>

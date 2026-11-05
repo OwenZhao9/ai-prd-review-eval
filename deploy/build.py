@@ -46,6 +46,17 @@ def write_page():
     start = s.index('/*RULES*/') + len('/*RULES*/')
     end = s.index(';', start)
     s = s[:start] + json.dumps(rule_names(), ensure_ascii=False) + s[end:]
+    # 规则说明（判定、不算、出处）写进页面，问题卡片上点「规则说明」时显示
+    info = {}
+    for v in (SENT, DOC, ACC):
+        d = json.load(open(os.path.join(ROOT, 'rules', f'{v}.json')))
+        src = str(d.get('source', '')).split('（')[0].split(' (')[0]
+        for r in d['rules']:
+            ref = r.get('nasa') or r.get('nist') or ''
+            info[r['id']] = {'judge': r['判定'], 'not': r['不算'], 'ref': ref, 'source': src}
+    start = s.index('/*RULE_INFO*/') + len('/*RULE_INFO*/')
+    end = s.index(';', start)
+    s = s[:start] + json.dumps(info, ensure_ascii=False) + s[end:]
     os.makedirs(os.path.join(PUBLIC, 'github'), exist_ok=True)
     open(os.path.join(PUBLIC, 'index.html'), 'w').write(s)
     # Pages 用 public/_worker.js 处理接口，部署时 wrangler 会把 src/index.js 一起打包

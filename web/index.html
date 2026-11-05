@@ -45,6 +45,7 @@ mark{background:#111;color:#fff;border-radius:4px;padding:0 3px}
 @keyframes s{to{transform:rotate(360deg)}}
 .ins{background:#e6f4ec;color:#1a7f4b;border-radius:3px}.del{background:#fdecec;color:#b42318;text-decoration:line-through;border-radius:3px}
 .gone{color:#a3a3a0;text-decoration:line-through}
+[hidden]{display:none!important}
 textarea,input,select{outline:none}
 textarea:focus,input[type=text]:focus,input[type=password]:focus,select:focus{border-color:#111!important}
 .modal-bg{position:fixed;inset:0;background:rgba(17,17,17,.35);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px}
@@ -90,8 +91,8 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
 <!-- 审查 -->
 <section id="tab-review">
   <!-- 第一步：导入 -->
-  <div id="step-import" class="max-w-[960px] mx-auto">
-    <div class="card p-6">
+  <div id="step-import" class="grid gap-5 split" style="grid-template-columns:minmax(0,1fr) 340px">
+    <div><div class="card p-6">
       <div class="mb-5 flex" id="import-tabs">
         <button class="subtab on" data-src="paste">粘贴文字</button>
         <button class="subtab" data-src="upload">上传文件</button>
@@ -122,7 +123,14 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
         <button class="btn-primary" id="to-preview">下一步：拆分预览</button>
       </div>
     </div>
-    <p class="text-xs text-slate-400 mt-4">文档内容只发送给审查用的模型（当前是 DeepSeek），不保存在服务器上；请不要粘贴涉密内容。</p>
+    <p class="text-xs text-slate-400 mt-4">文档内容只发送给审查用的模型（当前是 DeepSeek），不保存在服务器上；请不要粘贴涉密内容。</p></div>
+    <div class="space-y-5">
+      <div class="card p-6"><div class="label mb-3">没有 PRD？</div>
+        <div class="text-sm text-slate-600 leading-relaxed">用一份开源项目的需求文档看看审查结果长什么样，不调用模型、不扣额度。</div>
+        <button class="btn-primary w-full mt-4" id="sample-run">看示例结果</button></div>
+      <div class="card p-6"><div class="label mb-3">检查什么</div><div id="rule-groups" class="space-y-4 text-sm"></div></div>
+      <div class="card p-6" id="recent-box" hidden><div class="label mb-3">最近审查（只存在这台电脑）</div><div id="recent" class="space-y-1"></div></div>
+    </div>
   </div>
 
   <!-- 第二步：拆分预览 -->
@@ -141,6 +149,7 @@ aside{position:fixed;left:0;top:0;bottom:0;width:240px;background:#fff;border-ri
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const RULES=/*RULES*/{"R1":"歧义措辞","R2":"不可验证","R3":"一条多需求","R4":"待定项未闭环","R5":"写了实现方式","R6":"指代不明","D1":"缺验收标准","D2":"缺异常处理","D3":"前后矛盾","A1":"缺失败次数限制","A2":"密码规则违背标准","A3":"登录状态缺失效时间","A4":"账号与权限操作缺日志"};
+const RULE_INFO=/*RULE_INFO*/{};
 const KIND_RULES={sentence:['R1','R2','R3','R4','R5','R6'],doc:['D1','D2','D3'],account:['A1','A2','A3','A4']};
 const KIND_NAME={sentence:'单句检查',doc:'整段检查',account:'账号与权限检查'};
 let META={versions:{sentence:'v4',document:'doc_v1',account:'module_account_v3',model:'deepseek-chat'},quota:{perIp:500,remaining:500}};
@@ -167,6 +176,17 @@ function showPasteTab(){document.querySelector('#import-tabs [data-src=paste]').
 $('#prd').addEventListener('input',()=>{if(DOC.source==='paste'||DOC.source==='sample'){DOC.source='paste';DOC.name='';DOC.docx=null;DOC.notices=[]}});
 $('#sample').onclick=async()=>{SAMPLE=SAMPLE||await (await fetch('sample.json')).json();seedSampleCache();$('#prd').value=SAMPLE.text;
   Object.assign(DOC,{name:'示例 PRD',source:'sample',docx:null,notices:[]});showPasteTab();importSummary()};
+$('#sample-run').onclick=async()=>{await $('#sample').onclick();$('#to-preview').click();await startReview(allJobs())};
+function renderImportSide(){
+  const groups=[['每条需求','sentence','NASA 需求编写检查清单'],['每个功能段落','doc','NASA 需求编写检查清单'],['账号与权限段落','account','NIST 数字身份标准']];
+  $('#rule-groups').innerHTML=groups.map(([t,k,src])=>`<div><div class="flex justify-between text-slate-800 font-medium"><span>${t}</span><span class="text-xs text-slate-400 font-normal">${src}</span></div>
+    <div class="flex flex-wrap gap-1.5 mt-2">${KIND_RULES[k].map(r=>`<span class="tag-gray" title="${esc((RULE_INFO[r]||{}).judge||'')}">${r} ${esc(RULES[r])}</span>`).join('')}</div></div>`).join('');
+  const h=(store.get('history')||[]).slice().reverse();$('#recent-box').hidden=!h.length;
+  $('#recent').innerHTML=h.map((r,i)=>{const c=counts(r);return `<button class="toc-item w-full text-left" data-hist="${h.length-1-i}"><span class="truncate">${esc(r.name)}<span class="block text-[11px] text-slate-400">${esc(r.time)}</span></span><span class="text-xs text-slate-500 shrink-0">${c.problems} 个问题</span></button>`}).join('');
+  document.querySelectorAll('[data-hist]').forEach(b=>b.onclick=()=>{const all=store.get('history')||[];const r=all[+b.dataset.hist];if(!r)return;
+    RES={...r,prev:all.slice(0,+b.dataset.hist).filter(x=>x.name===r.name).pop()||null};DOC.name=r.name;DOC.docx=null;
+    SECS=r.sections.map(s=>({title:s.title,level:s.level,text:'',reqs:s.reqs.map(q=>q.text),skip:s.skipped,off:s.off,offReason:s.offReason,account:s.account,groups:s.groups,images:0,chars:0}));
+    goStep('result');renderResult()})}
 function importSummary(extra){const secs=PRDSplit.splitPrd($('#prd').value);const n=secs.filter(s=>!s.skip).length;const q=secs.reduce((a,s)=>a+(s.skip?0:s.reqs.length),0);
   $('#import-result').innerHTML=$('#prd').value.trim()?`<div class="text-sm text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-4 py-3">${extra?esc(extra)+'：':''}已识别 ${secs.length} 个段落、${q} 条需求${DOC.notices.length?'<br>'+DOC.notices.map(esc).join('<br>'):''}</div>`:''}
 
@@ -267,7 +287,7 @@ function renderPreview(){const jobs=allJobs();const calls=callCount(jobs);const 
     <div class="card p-3 wide-only max-h-[70vh] overflow-auto">${SECS.map((x,i)=>tocRow(x,i)).join('')}</div>
     <div class="card p-5">${secDetail(s,CUR)}</div>
   </div>`;
-  $('#back-import').onclick=()=>goStep('import');$('#start').onclick=()=>startReview(allJobs());
+  $('#back-import').onclick=()=>{goStep('import');renderImportSide()};$('#start').onclick=()=>startReview(allJobs());
   const sel=$('#sec-select');if(sel)sel.onchange=()=>{CUR=+sel.value;renderPreview()};
   document.querySelectorAll('[data-toc]').forEach(el=>el.onclick=e=>{if(e.target.closest('input,button'))return;CUR=+el.dataset.toc;EDIT=null;renderPreview()});
   document.querySelectorAll('[data-check]').forEach(el=>el.onchange=()=>{const x=SECS[+el.dataset.check];x.off=!el.checked;x.offReason=x.off?'user':'';QUOTA_NOTE='';renderPreview()});
@@ -381,6 +401,7 @@ function findingHtml(f,key,prevKeys,ctx){const isNew=prevKeys?(prevKeys.has(key+
   const fbKey='fb:'+key+'|'+f.rule;const sent=store.get(fbKey);
   return `<div class="mt-2.5 rounded-lg bg-white border border-slate-200 p-3"><div class="flex items-center gap-2 flex-wrap"><span class="tag-danger">${f.rule} ${esc(RULES[f.rule]||f.name)}</span>${isNew}</div>
     <div class="text-[13px] text-slate-600 mt-1.5">${esc(f.reason)}</div>
+    ${RULE_INFO[f.rule]?`<details class="mt-2 text-xs text-slate-500"><summary class="cursor-pointer select-none">规则说明</summary><div class="mt-1.5 leading-relaxed space-y-1"><div><b class="text-slate-700">算问题：</b>${esc(RULE_INFO[f.rule].judge)}</div><div><b class="text-slate-700">不算：</b>${esc(RULE_INFO[f.rule].not)}</div><div class="text-slate-400">出处：${esc(RULE_INFO[f.rule].source)}${RULE_INFO[f.rule].ref?' · '+esc(RULE_INFO[f.rule].ref.split(':')[0]):''}</div></div></details>`:''}
     <div class="flex items-center gap-3 mt-2 flex-wrap">${ctx.kind==='sentence'?`<button class="btn-outline !text-xs" data-suggest='${esc(JSON.stringify(ctx))}'>修改建议</button>`:''}
     ${sent?'<span class="text-xs text-slate-500">已反馈误判</span>':`<button class="link !text-xs text-slate-500" data-fp='${esc(JSON.stringify({...ctx,rule:f.rule,fbKey}))}'>这是误判</button>`}</div><div data-sug-box></div></div>`}
 function secCard(s,si,prevKeys){const parts=[];
@@ -589,7 +610,7 @@ jobs:
     if(!r||!r.done)throw new Error('等待飞书导出超时');const bin=Uint8Array.from(atob(r.base64),c=>c.charCodeAt(0)).buffer;const x=await fileToMd(bin,'docx');
     Object.assign(DOC,{name:u,source:'feishu',docx:bin,notices:x.notices});$('#prd').value=x.md;linkMsg('');importSummary('已从飞书导入');event('import_ok','feishu')}
   catch(e){linkMsg(errBox('飞书返回：'+esc(e.message)+'。可以改用手动导出：在飞书打开文档，点右上方「…」>「下载为」> Word，再上传。'));event('import_fail','feishu')}})();
-goStep('import');
+goStep('import');renderImportSide();
 </script>
 </body>
 </html>
