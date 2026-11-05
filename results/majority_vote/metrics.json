@@ -1,0 +1,38 @@
+[
+ {
+  "set": "holdout",
+  "version": "v4",
+  "items": 32,
+  "single_f1": 0.902,
+  "majority_f1": 0.902,
+  "single_consistency": 0.844,
+  "majority_consistency": null
+ },
+ {
+  "set": "holdout_zh",
+  "version": "v4",
+  "items": 73,
+  "single_f1": 0.843,
+  "majority_f1": 0.839,
+  "single_consistency": 0.74,
+  "majority_consistency": null
+ },
+ {
+  "set": "doc_holdout",
+  "version": "doc_v1",
+  "items": 26,
+  "single_f1": 0.833,
+  "majority_f1": 0.833,
+  "single_consistency": 0.769,
+  "majority_consistency": null
+ },
+ {
+  "set": "module_account_holdout",
+  "version": "module_account_v3",
+  "items": 40,
+  "single_f1": 0.917,
+  "majority_f1": 0.917,
+  "single_consistency": 0.9,
+  "majority_consistency": null
+ }
+]

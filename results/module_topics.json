@@ -1,0 +1,189 @@
+{
+ "generated_by": "module_topics.py",
+ "prds": 158,
+ "functional_sections": 3473,
+ "topics": [
+  {
+   "topic": "AI 与模型",
+   "prds": 67,
+   "sections": 122,
+   "examples": [
+    "sudo-Harshk__Skillify：3.4 HIGH — No Input Sanitization (Prompt Injection Risk)",
+    "259876lr__yolo-sop：2.2.6 报告生成模块",
+    "5kyfkr__siyuan-plugin-task-horizon：6.13 AI 能力",
+    "AlanDXiang__Google_ADK_Chat：3.1 本地Web UI与大模型对话模块 🌐",
+    "ChrisChen667788__wind-comic：AI-Comic-Studio v2.0 产品升级 PRD（OiiOii 同构竞品反击战）"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "安全",
+   "prds": 61,
+   "sections": 77,
+   "examples": [
+    "profullstack__coinpayportal：10. Security Requirements",
+    "sudo-Harshk__Skillify：3.4 HIGH — No Input Sanitization (Prompt Injection Risk)",
+    "259876lr__yolo-sop：3.3 安全性需求",
+    "Cicada0719__moeplay-tauri：4.2 安全",
+    "DTrader-store__formula-ts：4.5 安全性要求"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "性能与容量",
+   "prds": 55,
+   "sections": 80,
+   "examples": [
+    "profullstack__coinpayportal：12. Performance Requirements",
+    "259876lr__yolo-sop：3.1 性能需求",
+    "Cicada0719__moeplay-tauri：4.1 性能",
+    "DTrader-store__formula-ts：F11: 性能优化",
+    "DTrader-store__formula-ts：8.2 性能指标"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "设置与配置",
+   "prds": 47,
+   "sections": 65,
+   "examples": [
+    "ScionResearch__multi-material-printer：5.1 Feature 1: System Configuration",
+    "profullstack__coinpayportal：16. Admin Settings Detail",
+    "5kyfkr__siyuan-plugin-task-horizon：6.12 设置中心",
+    "AlanDXiang__Google_ADK_Chat：3.2 环境配置模块 ⚙️",
+    "ChrisChen667788__wind-comic：M7. 分辨率设置选项（360P / 480P / 720P）（v2.0-α P1）"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "账号与权限",
+   "prds": 45,
+   "sections": 80,
+   "examples": [
+    "Bytepute__endpointForge：Account Management Flow",
+    "Bytepute__endpointForge：Authentication and Tenant Model",
+    "Bytepute__endpointForge：Authentication",
+    "Bytepute__endpointForge：Profile and Account",
+    "GoForthTechnology__RoomBooker：Epic: User Authentication & Guest Access"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "文件与导入导出",
+   "prds": 44,
+   "sections": 88,
+   "examples": [
+    "Bytepute__endpointForge：Profile and Account",
+    "closedloop-technologies__climbhill：Phase 1: File-Backed Run Engine",
+    "hasanraiyan__resume：Imported Holidays",
+    "Ariestar__obsidian-dragger：13. Target Drag File Architecture",
+    "Frank-ay__mimo-mcp：E. 关键文件清单"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "通知与消息",
+   "prds": 25,
+   "sections": 35,
+   "examples": [
+    "profullstack__coinpayportal：7.3.3 Callback / Notification Handling",
+    "sudo-Harshk__Skillify：3.6 MEDIUM — Generic Error Messages and Alert() Calls",
+    "FLYFISH567__ItemMemo：提醒类型",
+    "FLYFISH567__ItemMemo：提醒类型定义",
+    "FLYFISH567__ItemMemo：提醒中心"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "搜索与筛选",
+   "prds": 22,
+   "sections": 28,
+   "examples": [
+    "closedloop-technologies__climbhill：Phase 5: Research And Knowledge",
+    "FLYFISH567__ItemMemo：筛选",
+    "G1-kiyo__agent：5.2.1 Agent多轮检索",
+    "HowlandMai__EmberIM：F18 搜索用户 / 用户资料",
+    "LordCasser__atlas：图查询和上下文"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "仪表盘与报表",
+   "prds": 22,
+   "sections": 28,
+   "examples": [
+    "Bytepute__endpointForge：Success Metrics",
+    "GoForthTechnology__RoomBooker：5. Success Metrics",
+    "ScionResearch__multi-material-printer：9. Success Metrics (Refined)",
+    "closedloop-technologies__climbhill：15. Success Metrics",
+    "e6a5__zenta：13. Success Metrics"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "日志与审计",
+   "prds": 16,
+   "sections": 30,
+   "examples": [
+    "hasanraiyan__resume：3. Daily Logging <20 Seconds",
+    "profullstack__coinpayportal：7.1.5 Admin Logs",
+    "LoD-Dawn__Fast-Vben-Admin：8.8 日志审计",
+    "LubyRuffy__ProxyCraft：4.5 流量日志与展示 (Logging & Display)",
+    "NewLifeX__X：3.2 M2 日志与追踪"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "数据与隐私",
+   "prds": 14,
+   "sections": 16,
+   "examples": [
+    "KaniuBillows__english-anywhere-lab：7.3 安全与隐私",
+    "Kerry-yangg__Dotalens：18. 安全与隐私",
+    "Peter-cuhk__robot-data-studio：12.3 安全与隐私",
+    "Quirt-studio__Qurit-PPT：7.2.3 隐私保护",
+    "SXP-Simon__astrbot_plugin_qq_group_daily_analysis：FR-6 记忆 compact / retention"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "多语言与本地化",
+   "prds": 9,
+   "sections": 9,
+   "examples": [
+    "NewLifeX__NewLife.Cube：3.12 I18N 多语言本地化",
+    "NewLifeX__NewLife.Remoting：3.9 L10N — 多语言本地化",
+    "NewLifeX__Stardust：3.1.1 多语言 SDK（MLSDK）",
+    "WrBug__PolyHermes：5.2 国际化",
+    "appstore-discounts__appstore-discounts：3.2 多语言支持"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "无障碍",
+   "prds": 7,
+   "sections": 8,
+   "examples": [
+    "Quirt-studio__Qurit-PPT：6.4.2 可访问性要求",
+    "Quirt-studio__Qurit-PPT：7.3.2 WCAG标准遵循",
+    "armylau__tetris_game：4.2 可访问性",
+    "davidhoo__buddy：13.6 可访问性与本地化",
+    "liangyimingcom__BRClient：3.2.3 可访问性"
+   ],
+   "missed_feedback": 0
+  },
+  {
+   "topic": "支付与订单",
+   "prds": 6,
+   "sections": 23,
+   "examples": [
+    "profullstack__coinpayportal：7.1.2 Payment Creation",
+    "profullstack__coinpayportal：7.1.3 Hosted Checkout Redirect",
+    "profullstack__coinpayportal：7.1.4 Payment Status Synchronization",
+    "profullstack__coinpayportal：7.2.2 Order Flow",
+    "profullstack__coinpayportal：7.2.3 Refund Support"
+   ],
+   "missed_feedback": 0
+  }
+ ]
+}

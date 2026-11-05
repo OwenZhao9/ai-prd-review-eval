@@ -1,0 +1,30 @@
+{
+ "generated_by": "data/format/eval.mjs",
+ "docx": {
+  "prds": 158,
+  "parse_failed": 0,
+  "titles_identical": 154,
+  "reqs_identical": 132,
+  "md_reqs": 16617,
+  "common_reqs": 16528,
+  "req_match_rate": 0.9946
+ },
+ "pptx": {
+  "prds": 158,
+  "parse_failed": 0,
+  "titles_identical": 0,
+  "reqs_identical": 1,
+  "md_reqs": 16617,
+  "common_reqs": 13759,
+  "req_match_rate": 0.828
+ },
+ "pdf": {
+  "prds": 158,
+  "parse_failed": 0,
+  "titles_identical": 15,
+  "reqs_identical": 3,
+  "md_reqs": 16617,
+  "common_reqs": 5864,
+  "req_match_rate": 0.3529
+ }
+}

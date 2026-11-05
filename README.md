@@ -2,7 +2,7 @@
 
 用大模型逐条审查 PRD 里的需求，并用一套带标准答案的评测集测量它审得准不准，再根据误判修改审查规则。
 
-在线试用：<https://ai-prd-review.photogif.workers.dev>（粘贴 PRD 即可审查；点「填入示例 PRD」再点「开始审查」可直接看到示例结果）
+在线试用：<https://ai-prd-review.photogif.workers.dev>（粘贴、上传或导入链接即可审查；点「填入示例 PRD」再点「下一步」「开始审查」可直接看到示例结果）
 
 ## 概览
 
@@ -172,22 +172,38 @@
 
 ## 审查网页
 
-在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`。每个访客每天最多调用模型 150 次、全站每天最多 1000 次；反馈存在 Cloudflare D1 数据库。访客可以审查、提交和查看反馈；「采纳」「驳回」需要复核口令（Cloudflare 密钥 `REVIEW_KEY`）。
+在线版：<https://ai-prd-review.photogif.workers.dev>，部署在 Cloudflare Workers，代码在 `deploy/`，数据存在 Cloudflare D1 数据库。页面按 Stitch 设计稿（`design/stitch/all.html`）实现，宽 768 的窄屏下目录收成顶部下拉。需求文档见 [docs/PRD.md](docs/PRD.md)。
 
-本机运行：
+- **导入**：粘贴文字；上传 .docx / .pptx / .pdf / .md / .txt（20 MB 以内，在浏览器里转成文字，原文件不上传）；导入 GitHub、GitLab 文件链接、公开网页和文件直链。飞书、腾讯文档、语雀、Notion、Google 文档的链接不抓取，提示导出后上传；飞书另有授权导入（需要在部署配置里填飞书应用的 `FEISHU_APP_ID`、`FEISHU_APP_SECRET`）。
+- **拆分预览**：目录树列出每个段落和拆出的需求条数，可以勾选段落、把跳过的段落改为审查、删改需求。表格行按「表头：值」转写，代码块里的行不算需求，超过 1500 字的段落分组做整段检查。标题或正文含登录、密码、权限等词的段落自动勾选账号与权限检查。
+- **审查**：单句 v4、文档级 doc_v1、账号与权限 module_account_v3 三组规则，模型 deepseek-chat。每个访客每天 500 次额度，全站上限由部署变量 `GLOBAL_DAILY` 设置；同样的文字再审直接用本机保存的结果，不调用模型、不扣额度；示例 PRD 不扣额度。失败的条目可以单独重试，额度用完的条目第二天点「审查未完成的条目」接着审。
+- **结果**：按段落列出问题、触发词高亮、规则和理由；按规则筛选、只看有问题；同一份 PRD 再审时标出「新出现」「上次也有」，并列出「上次有、这次没有」的问题。每条问题可以生成一句修改建议，点「采用」后替换预览里的文字。
+- **导出**：Markdown 或纯文本评审意见（下载或复制）；上传的 .docx 可以导出带批注的 Word，批注作者「AI 审 PRD」。
+- **反馈与复核**：「这是误判」「漏了问题」，反馈记录当时的规则版本和模型。「反馈复核」页按状态、类型、规则、单条或整段、规则版本筛选；采纳、驳回和「导出已采纳用例」需要复核口令（Cloudflare 密钥 `REVIEW_KEY`）。导出的 `feedback_cases.jsonl` 放进 `data/` 后运行 `python3 merge_feedback.py` 并入开发集。
+- **健康看板**：各审查层的留出集 F1、13 条规则的 F1、版本历史、单次运行与多数表决的对比、多人标注一致率，以及近 30 天的线上指标（只记次数和类别，不记 PRD 内容、文件名、链接和访客地址）。
+- **GitHub 合并请求**：页面底部「接入 GitHub」生成工作流配置；合并请求修改 PRD 时，`deploy/github/review-pr.mjs` 只审改动涉及的需求和所在段落，结果作为一条评论发在合并请求下，再次推送时更新这条评论。
+
+格式一致性（F23）：158 份 Markdown PRD 用 pandoc 转成 Word、PPT，再由 Word 用 LibreOffice 转成 PDF，用网页同一份解析和拆分代码拆分后，和直接拆 Markdown 的结果比较（`data/format/`，结果在 `results/format/metrics.json`，差异逐条列在 `results/format/diff.md`）：
+
+| 格式 | 段落标题完全一致 | 需求条目完全一致 | 需求条目一致率 |
+|---|---|---|---|
+| Word | 154 / 158 | 132 / 158 | 99.5% |
+| PPT | 0 / 158 | 1 / 158 | 82.8% |
+| PDF | 15 / 158 | 3 / 158 | 35.3% |
+
+修改建议（F18）：改写后用单句 v4 再审，原来的规则不再报出、也没有报出其他规则的比例，英文留出集 19 / 23（82.6%），中文留出集 39 / 49（79.6%）。提示词 `prompts/suggest_v2.md`，评测脚本 `suggest_eval.py`，过程见 CHANGELOG。
+
+部署：
 
 ```bash
-python3 app.py        # 打开 http://localhost:8787
+python3 deploy/build.py                      # 生成 deploy/public/ 和 deploy/src/prompts.js
+cd deploy
+npx wrangler d1 migrations apply ai-prd-review --remote   # 首次升级在线库
+npx wrangler secret put LLM_API_KEY          # 模型 Key 只存在 Cloudflare 密钥里
+npx wrangler deploy
 ```
 
-- **审查**：粘贴 PRD（Markdown），按标题拆成功能段落，背景、范围、场景这类非功能段落跳过；每个功能段落做文档级审查（doc_v1），段落里的每个列表项做单句审查（v4）。问题会在原文里高亮触发词，并给出违反的规则和理由。
-- **反馈**：每条结果下有「这是误判」，每条需求和每个段落下有「漏了问题」（选规则、写一句说明）。
-- **复核**：「反馈复核」页列出全部反馈，复核人点「采纳」或「驳回」。采纳的反馈按复核结论写成标准答案，存进 `data/feedback_cases.jsonl`；运行 `python3 merge_feedback.py` 并入开发集（只进开发集，不进留出测试集），下一轮改规则时用。
-- 「填入示例 PRD」用的是 GitHub 开源项目 caesarloo/obsidian-svn 的需求文档（MIT 许可）。
-- API Key 只在服务端从 `.env` 读取，不发到浏览器；服务只监听本机 127.0.0.1。
-- 给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。
-
-示例 PRD 上的第一条反馈：「4.2 状态刷新」段落写了「刷新失败提示并保留上次状态」，doc_v1 仍报「缺异常处理」，复核采纳为误判，已作为用例 `Fea79b46c` 并入文档级开发集。
+本机版 `python3 app.py`（打开 http://localhost:8787）保留原来的粘贴审查和反馈复核。给 PRD 作者和复核人的上手说明见 [docs/使用指南.md](docs/使用指南.md)。
 
 ## 运行
 

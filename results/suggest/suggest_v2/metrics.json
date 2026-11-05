@@ -1,0 +1,35 @@
+{
+ "prompt": "suggest_v2",
+ "model": "deepseek-chat",
+ "rules": "v4",
+ "sets": {
+  "evalset": {
+   "role": "dev",
+   "flagged": 56,
+   "resolved": 50,
+   "rate": 0.893,
+   "errors": 0
+  },
+  "evalset_zh": {
+   "role": "dev",
+   "flagged": 28,
+   "resolved": 21,
+   "rate": 0.75,
+   "errors": 0
+  },
+  "holdout": {
+   "role": "holdout",
+   "flagged": 23,
+   "resolved": 19,
+   "rate": 0.826,
+   "errors": 0
+  },
+  "holdout_zh": {
+   "role": "holdout",
+   "flagged": 49,
+   "resolved": 39,
+   "rate": 0.796,
+   "errors": 0
+  }
+ }
+}
